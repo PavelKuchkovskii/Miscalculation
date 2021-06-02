@@ -298,21 +298,21 @@ public class Bank extends AppCompatActivity {
         Ames24M.setText(minBank <= Math.ceil(priceM * 1.163) ? (int) Math.ceil(priceM * 1.163) + rub : "-");
         Ames36M.setText(minBank <= Math.ceil(priceM * 1.24) ? (int) Math.ceil(priceM * 1.24) + rub : "-");
 
-        Ames6EZ.setText(minBank <= Math.ceil(priceZ * 1.06) ? (int) (priceZ * 1.104 / 6) + rub : "-");
-        Ames10EZ.setText(minBank <= Math.ceil(priceZ * 1.08) ? (int) (priceZ * 1.15 / 10) + rub : "-");
-        Ames12EZ.setText(minBank <= Math.ceil(priceZ * 1.09) ? (int) (priceZ * 1.176 / 12) + rub : "-");
-        Ames15EZ.setText(minBank <= Math.ceil(priceZ * 1.1) ? (int) (priceZ * 1.20 / 15) + rub : "-");
-        Ames18EZ.setText(minBank <= Math.ceil(priceZ * 1.135) ? (int) (priceZ * 1.26 / 18) + rub : "-");
-        Ames24EZ.setText(minBank <= Math.ceil(priceZ * 1.163) ? (int) (priceZ * 1.344 / 24) + rub : "-");
-        Ames36EZ.setText(minBank <= Math.ceil(priceZ * 1.24) ? (int) (priceZ * 1.512 / 36) + rub : "-");
+        Ames6EZ.setText(minBank <= Math.ceil(priceZ * 1.06) ? (int) (priceZ * 1.06 * 1.044 / 6) + rub : "-");
+        Ames10EZ.setText(minBank <= Math.ceil(priceZ * 1.08) ? (int) (priceZ * 1.08 * 1.06 / 10) + rub : "-");
+        Ames12EZ.setText(minBank <= Math.ceil(priceZ * 1.09) ? (int) (priceZ * 1.09 * 1.0731 / 12) + rub : "-");
+        Ames15EZ.setText(minBank <= Math.ceil(priceZ * 1.1) ? (int) (priceZ * 1.1 * 1.09 / 15) + rub : "-");
+        Ames18EZ.setText(minBank <= Math.ceil(priceZ * 1.135) ? (int) (priceZ * 1.135 * 1.11 / 18) + rub : "-");
+        Ames24EZ.setText(minBank <= Math.ceil(priceZ * 1.163) ? (int) (priceZ * 1.163 * 1.14 / 24) + rub : "-");
+        Ames36EZ.setText(minBank <= Math.ceil(priceZ * 1.24) ? (int) (priceZ * 1.24 * 1.22 / 36) + rub : "-");
 
-        Ames6EM.setText(minBank <= Math.ceil(priceM * 1.06) ? (int) (priceM * 1.104 / 6) + rub : "-");
-        Ames10EM.setText(minBank <= Math.ceil(priceM * 1.08) ? (int) (priceM * 1.15 / 10) + rub : "-");
-        Ames12EM.setText(minBank <= Math.ceil(priceM * 1.09) ? (int) (priceM * 1.176 / 12) + rub : "-");
-        Ames15EM.setText(minBank <= Math.ceil(priceM * 1.1) ? (int) (priceM * 1.20 / 15) + rub : "-");
-        Ames18EM.setText(minBank <= Math.ceil(priceM * 1.135) ? (int) (priceM * 1.26 / 18) + rub : "-");
-        Ames24EM.setText(minBank <= Math.ceil(priceM * 1.163) ? (int) (priceM * 1.344 / 24) + rub : "-");
-        Ames36EM.setText(minBank <= Math.ceil(priceM * 1.24) ? (int) (priceM * 1.512 / 36) + rub : "-");
+        Ames6EM.setText(minBank <= Math.ceil(priceM * 1.06) ? (int) (priceZ * 1.06 * 1.044 / 6) + rub : "-");
+        Ames10EM.setText(minBank <= Math.ceil(priceM * 1.08) ? (int) (priceZ * 1.08 * 1.06 / 10) + rub : "-");
+        Ames12EM.setText(minBank <= Math.ceil(priceM * 1.09) ? (int) (priceZ * 1.09 * 1.0731 / 12) + rub : "-");
+        Ames15EM.setText(minBank <= Math.ceil(priceM * 1.1) ? (int) (priceZ * 1.1 * 1.09 / 15) + rub : "-");
+        Ames18EM.setText(minBank <= Math.ceil(priceM * 1.135) ? (int) (priceM * 1.135 * 1.11 / 18) + rub : "-");
+        Ames24EM.setText(minBank <= Math.ceil(priceM * 1.163) ? (int) (priceM * 1.163 * 1.14 / 24) + rub : "-");
+        Ames36EM.setText(minBank <= Math.ceil(priceM * 1.24) ? (int) (priceM * 1.24 * 1.22 / 36) + rub : "-");
 
         //ДОБРОБЫТ
         Dmes3Z.setText(minBank <= Math.ceil(priceZ * 1.042) ? (int) Math.ceil(priceZ * 1.042) + rub : "-");

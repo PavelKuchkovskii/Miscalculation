@@ -867,8 +867,8 @@
 
     <string-array name="dtaShpros">
         <item>"Без шпрос"</item>
-        <item>"Шпросы белые 18мм"</item>
-        <item>"Шпросы золотые 8мм"</item>
+        <item>"Шпросы белые/коричневые 18мм"</item>
+        <item>"Шпросы белые/золотые 8мм"</item>
     </string-array>
 
     <string-array name="dtaFigure">
@@ -877,6 +877,11 @@
         <item>"Трапеция 2 угла"</item>
         <item>"Трапеция 3 угла"</item>
         <item>"Трапеция 4 угла"</item>
+    </string-array>
+
+    <string-array name="dtaFigure2">
+        <item>"Обычное"</item>
+        <item>"Арка"</item>
     </string-array>
 
     <string-array name="dtaHandle1">
