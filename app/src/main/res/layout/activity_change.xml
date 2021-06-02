@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#262626">
+
+    <Button
+        android:id="@+id/button_addType"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ОКНА ПВХ"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop ="150dp"
+        android:textColor="#ffd11a"
+        android:background="#00994d"/>
+    <Button
+        android:id="@+id/button_addAluminWindow"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop ="25dp"
+        android:layout_below="@+id/button_addType"
+        android:textColor="#ffd11a"
+        android:background="#00994d"
+        android:gravity="center"
+        android:text="ОКНА AL" />
+    <Button
+        android:id="@+id/button_addDoor"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop ="25dp"
+        android:layout_below="@+id/button_addAluminWindow"
+        android:textColor="#ffd11a"
+        android:background="#00994d"
+        android:gravity="center"
+        android:text="ДВЕРИ ПВХ" />
+    <Button
+        android:id="@+id/button_addDop"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="ДОПЫ"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop ="25dp"
+        android:layout_below="@+id/button_addDoor"
+        android:textColor="#ffd11a"
+        android:background="#00994d"/>
+    <Button
+        android:id="@+id/button_addWork"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="РАБОТЫ"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop ="25dp"
+        android:layout_below="@+id/button_addDop"
+        android:textColor="#ffd11a"
+        android:background="#00994d"/>
+
+    <Button
+        android:id="@+id/button_ProdLst"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:textColor="#ffd11a"
+        android:background="#00994d"
+        android:gravity="center"
+        android:text="СПИСОК" />
+
+</RelativeLayout>

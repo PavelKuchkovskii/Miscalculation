@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#262626">
+
+    <ListView
+        android:id="@+id/listProductContinePrice"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/borderbottom"
+        android:layout_marginBottom="45dp"
+        android:layout_above="@id/priceRPR"
+        android:divider="#666666"
+        android:dividerHeight="1dp"/>
+
+    <TextView
+        android:id="@+id/priceRPR"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/priceDiscontPR"
+        android:text="ЦЕНА :"
+        android:textColor="#ffd11a"/>
+    <TextView
+        android:id="@+id/priceR"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/priceRPR"
+        android:layout_toRightOf="@+id/priceRPR"
+        android:text="ЦЕНА :"
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/priceDiscontPR"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_above="@+id/priceAmountContinePricePR"
+        android:text="СКИДКА :"
+        android:textColor="#ffd11a"/>
+    <TextView
+        android:id="@+id/priceDiscont"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/priceDiscontPR"
+        android:layout_toRightOf="@+id/priceDiscontPR"
+        android:text="СКИДКА :"
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/priceAmountContinePricePR"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="145dp"
+        android:text="ИТОГО :"
+        android:textColor="#ffd11a"/>
+    <TextView
+        android:id="@+id/priceAmountContinePrice"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/priceAmountContinePricePR"
+        android:layout_toRightOf="@+id/priceAmountContinePricePR"
+        android:text="ИТОГО :"
+        android:textColor="#ffd11a"/>
+
+    <Spinner
+        android:id="@+id/spinner_price"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/listProductContinePrice"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:background="#262626"/>
+
+
+    <ImageView
+        android:id="@+id/imBank"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/baseline_account_balance_white_48"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"/>
+
+    <ImageView
+        android:id="@+id/imSendQR"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/baseline_send_white_48"
+        android:layout_above="@+id/imBank"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="75dp" />
+
+</RelativeLayout>

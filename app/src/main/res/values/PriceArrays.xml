@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Hight_1stNo">
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+    </string-array>
+
+    <string-array name="Width_1stNo">
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+    </string-array>
+
+    <string-array name="Hight_1stOp">
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="Width_1stOp">
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+    </string-array>
+
+    <string-array name="Hight_2st1Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+    </string-array>
+
+    <string-array name="Width_2st1Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+    </string-array>
+
+    <string-array name="Hight_3st1Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+    </string-array>
+
+    <string-array name="Width_3st1Op">
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+    </string-array>
+
+    <string-array name="Hight_4st2Op">
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+    </string-array>
+
+    <string-array name="Width_4st2Op">
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+        <item>3000</item>
+        <item>3100</item>
+        <item>3200</item>
+        <item>3300</item>
+    </string-array>
+
+    <string-array name="Hight_balDor">
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+    </string-array>
+
+    <string-array name="Width_balDor">
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+    </string-array>
+
+    <string-array name="Hight_2st2Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="Width_2st2Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="Hight_3st2Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+    </string-array>
+
+    <string-array name="Width_3st2Op">
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+    </string-array>
+
+    <string-array name="Hight_2stNo">
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="Width_2stNo">
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+    </string-array>
+
+    <string-array name="Hight_3stNo">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+    </string-array>
+
+    <string-array name="Width_3stNo">
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+    </string-array>
+
+    <string-array name="Hight_AlWind">
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+    </string-array>
+
+    <string-array name="Width_Al1stNo">
+        <item>400</item>
+        <item>500</item>
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+    </string-array>
+
+    <string-array name="Width_Al2st1Op">
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+    </string-array>
+
+    <string-array name="Width_Al3st1Op">
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+        <item>3000</item>
+    </string-array>
+
+    <string-array name="Width_Al4st2Op">
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+        <item>3000</item>
+        <item>3100</item>
+        <item>3200</item>
+        <item>3300</item>
+        <item>3400</item>
+        <item>3500</item>
+        <item>3600</item>
+        <item>3700</item>
+        <item>3800</item>
+    </string-array>
+
+    <string-array name="Hight_pod">
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+        <item>450</item>
+        <item>500</item>
+        <item>550</item>
+        <item>600</item>
+    </string-array>
+
+    <string-array name="Width_pod_Otl">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>450</item>
+        <item>500</item>
+        <item>550</item>
+        <item>600</item>
+        <item>650</item>
+        <item>700</item>
+        <item>750</item>
+        <item>800</item>
+        <item>850</item>
+        <item>900</item>
+        <item>950</item>
+        <item>1000</item>
+        <item>1050</item>
+        <item>1100</item>
+        <item>1150</item>
+        <item>1200</item>
+        <item>1250</item>
+        <item>1300</item>
+        <item>1350</item>
+        <item>1400</item>
+        <item>1450</item>
+        <item>1500</item>
+        <item>1550</item>
+        <item>1600</item>
+        <item>1650</item>
+        <item>1700</item>
+        <item>1750</item>
+        <item>1800</item>
+        <item>1850</item>
+        <item>1900</item>
+        <item>1950</item>
+        <item>2000</item>
+        <item>2050</item>
+        <item>2100</item>
+        <item>2150</item>
+        <item>2200</item>
+        <item>2250</item>
+        <item>2300</item>
+        <item>2350</item>
+        <item>2400</item>
+        <item>2450</item>
+        <item>2500</item>
+        <item>2550</item>
+        <item>2600</item>
+        <item>2650</item>
+        <item>2700</item>
+        <item>2750</item>
+        <item>2800</item>
+        <item>2850</item>
+        <item>2900</item>
+        <item>2950</item>
+        <item>3000</item>
+        <item>3050</item>
+        <item>3100</item>
+        <item>3150</item>
+        <item>3200</item>
+        <item>3250</item>
+        <item>3300</item>
+        <item>3350</item>
+        <item>3400</item>
+        <item>3450</item>
+        <item>3500</item>
+        <item>3550</item>
+        <item>3600</item>
+        <item>3650</item>
+        <item>3700</item>
+        <item>3750</item>
+        <item>3800</item>
+        <item>3850</item>
+        <item>3900</item>
+        <item>3950</item>
+        <item>4000</item>
+    </string-array>
+
+    <string-array name="Hight_Otl">
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
+        <item>100</item>
+        <item>110</item>
+        <item>120</item>
+        <item>130</item>
+        <item>140</item>
+        <item>150</item>
+        <item>160</item>
+        <item>170</item>
+        <item>180</item>
+        <item>190</item>
+        <item>200</item>
+        <item>210</item>
+        <item>220</item>
+        <item>230</item>
+        <item>240</item>
+        <item>250</item>
+        <item>260</item>
+        <item>270</item>
+        <item>280</item>
+        <item>290</item>
+        <item>300</item>
+        <item>310</item>
+        <item>320</item>
+        <item>330</item>
+        <item>340</item>
+        <item>350</item>
+        <item>360</item>
+        <item>370</item>
+        <item>380</item>
+        <item>390</item>
+        <item>400</item>
+    </string-array>
+
+    <string-array name="dta0">
+        <item>Глухая</item>
+    </string-array>
+
+    <string-array name="dta1">
+        <item>Глухая</item>
+        <item>1 откр.</item>
+    </string-array>
+
+    <string-array name="dta2">
+        <item>Глухая</item>
+        <item>1 откр.</item>
+        <item>2 откр.</item>
+    </string-array>
+
+    <string-array name="dta3">
+        <item>Глухая</item>
+        <item>1 откр.</item>
+        <item>2 откр.</item>
+        <item>3 откр.</item>
+    </string-array>
+
+    <string-array name="dta4">
+        <item>Глухая</item>
+        <item>1 откр.</item>
+        <item>2 откр.</item>
+        <item>3 откр.</item>
+        <item>4 откр.</item>
+    </string-array>
+
+    <string-array name="dta5">
+        <item> </item>
+    </string-array>
+
+    <string-array name="dta6">
+        <item> </item>
+        <item> </item>
+    </string-array>
+
+    <string-array name="CourseAm">
+        <item>2.5</item>
+        <item>2.55</item>
+        <item>2.6</item>
+        <item>2.65</item>
+        <item>2.7</item>
+        <item>2.75</item>
+        <item>2.8</item>
+        <item>2.85</item>
+        <item>2.9</item>
+        <item>2.95</item>
+        <item>3</item>
+        <item>3.05</item>
+        <item>3.1</item>
+        <item>3.15</item>
+        <item>3.2</item>
+    </string-array>
+
+    <string-array name="TypeOfGlass60">
+        <item>24</item>
+        <item>32</item>
+    </string-array>
+
+    <string-array name="TypeOfGlass70">
+        <item>24</item>
+        <item>32</item>
+        <item>40</item>
+    </string-array>
+
+    <string-array name="TypeOfGlass76">
+        <item>32</item>
+        <item>40</item>
+    </string-array>
+
+    <string-array name="dtaProfile">
+        <item>Brusbox 60</item>
+        <item>Brusbox 70</item>
+        <item>Rehau 60</item>
+        <item>Rehau 70</item>
+        <item>Salamander 76</item>
+    </string-array>
+
+    <string-array name="dtaFurnit">
+        <item>Kale</item>
+        <item>Roto</item>
+    </string-array>
+
+    <string-array name="dtaLamination">
+        <item>Без ламинации</item>
+        <item>1 сторона</item>
+        <item>2 стороны</item>
+    </string-array>
+
+    <string-array name="dtaLaminationAlumin">
+        <item>Белый</item>
+        <item>Коричневый</item>
+    </string-array>
+
+    <string-array name="dtaRegion">
+        <item>Регионы</item>
+        <item>Минск, Минская область</item>
+    </string-array>
+
+    <string-array name="dtaProfileMM">
+        <item>60 профиль</item>
+        <item>70 профиль</item>
+    </string-array>
+
+    <string-array name="dtaPipeMM">
+        <item>60 мм</item>
+        <item>70 мм</item>
+    </string-array>
+
+    <string-array name="dtaProfRash60MM">
+        <item>65 мм</item>
+        <item>40 мм</item>
+        <item>20 мм</item>
+    </string-array>
+
+    <string-array name="dtaProfRash70MM">
+        <item>65 мм</item>
+        <item>40 мм</item>
+    </string-array>
+
+    <string-array name="dtaProfRashSal">
+        <item>60 мм</item>
+        <item>40 мм</item>
+    </string-array>
+
+    <string-array name="dtaSoedSal">
+        <item>3 мм</item>
+    </string-array>
+
+    <string-array name="dtaSoedAdapt">
+        <item>76 мм</item>
+    </string-array>
+
+    <string-array name="dtaBrus">
+        <item>50*50</item>
+        <item>100*100</item>
+    </string-array>
+
+    <string-array name="dtaNash">
+        <item>50</item>
+    </string-array>
+
+    <string-array name="dtaLamDop">
+        <item>Белый</item>
+        <item>Ламинированный</item>
+        <item>Crystallit</item>
+        <item>Danke KOFMORT</item>
+        <item>Danke STANDART</item>
+        <item>Danke PREMIUM</item>
+        <item>Danke ESTERA</item>
+    </string-array>
+
+    <string-array name="dtaColorDop">
+        <item>Белый/Коричневый</item>
+        <item>Покрашенный</item>
+    </string-array>
+
+    <string-array name="Width_Door1">
+        <item>600</item>
+        <item>700</item>
+        <item>800</item>
+        <item>900</item>
+        <item>1000</item>
+        <item>1100</item>
+    </string-array>
+
+    <string-array name="Width_Door2">
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+    </string-array>
+
+    <string-array name="Hight_Door">
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+    </string-array>
+
+    <string-array name="Prof_Door">
+        <item>Дверной 70</item>
+        <item>Дверной 60</item>
+        <item>Оконный 70</item>
+        <item>Оконный 60</item>
+    </string-array>
+
+    <string-array name="Type_Door">
+        <item>Стекло - 100%</item>
+        <item>Сендвич - 100%</item>
+        <item>50/50</item>
+    </string-array>
+
+    <string-array name="dtaGlassDoor">
+        <item>32</item>
+        <item>24</item>
+    </string-array>
+
+    <string-array name="dtaGlassDoor2">
+        <item>40</item>
+        <item>32</item>
+        <item>24</item>
+    </string-array>
+
+    <string-array name="dtaLoop1">
+        <item>3 петли</item>
+        <item>4 петли</item>
+    </string-array>
+
+    <string-array name="dtaLoop2">
+        <item>6 петель</item>
+        <item>8 петель</item>
+    </string-array>
+
+    <string-array name="dtaTypeOfLoop">
+        <item>Петли стандартные</item>
+        <item>Петли Jocker</item>
+        <item>Петли Roto</item>
+    </string-array>
+
+    <string-array name="dtaColorLoop1">
+        <item>Белые</item>
+        <item>Коричневые</item>
+    </string-array>
+
+    <string-array name="dtaColorLoop2">
+        <item>Белые</item>
+        <item>Коричневые</item>
+        <item>Антрацит</item>
+        <item>Серебро</item>
+        <item>Бронза</item>
+        <item>Титан</item>
+        <item>Черный</item>
+    </string-array>
+
+    <string-array name="dtaColorLoop3">
+        <item>Белые</item>
+        <item>Коричневые</item>
+        <item>Антрацит</item>
+        <item>Серебро</item>
+        <item>Бронза</item>
+    </string-array>
+
+    <string-array name="dtaTypeOfGarnit">
+        <item>Нажим. гарнит. стндрт</item>
+        <item>Нажим. гарнит. стндрт из 2-ух</item>
+        <item>Нажим. гарнит. Medos VICTORY</item>
+        <item>Нажим. гарнит. Medos VICTORY из 2-ух</item>
+        <item>Ручка прямая (Скоба)</item>
+    </string-array>
+
+    <string-array name="dtaColorGarnit1">
+        <item>Белый</item>
+        <item>Коричневый</item>
+    </string-array>
+
+    <string-array name="dtaColorGarnit1_2">
+        <item>Белый/Коричневый</item>
+    </string-array>
+
+    <string-array name="dtaColorGarnit2">
+        <item>Белый</item>
+        <item>Коричневый</item>
+        <item>Антрацит</item>
+        <item>Серебро</item>
+        <item>Бронза</item>
+        <item>Титан</item>
+        <item>Черный</item>
+    </string-array>
+
+    <string-array name="dtaColorGarnit3">
+        <item>Белый/Коричневый</item>
+        <item>Белый/Антрацит</item>
+        <item>Белый/Серебро</item>
+        <item>Белый/Бронза</item>
+        <item>Белый/Титан</item>
+        <item>Белый/Черный</item>
+    </string-array>
+
+    <string-array name="dtaColorGarnit4">
+        <item>Белый</item>
+        <item>Коричневый</item>
+        <item>Антрацит</item>
+        <item>Серебро</item>
+        <item>Черный</item>
+        <item>Нержавейка</item>
+    </string-array>
+
+    <string-array name="dtaPorog">
+        <item>Порог алюминевый</item>
+        <item>Порог ПВХ</item>
+    </string-array>
+
+    <string-array name="dtaKey">
+        <item>Ключ - ключ</item>
+        <item>Ключ барашка</item>
+    </string-array>
+
+    <string-array name="dtaGlassDif">
+        <item>Обычное стекло</item>
+        <item>Мультик</item>
+        <item>Бронза (в массе)</item>
+        <item>Матовое (заводское)</item>
+        <item>Тонировка (пленка)</item>
+    </string-array>
+
+    <string-array name="dtaShpros">
+        <item>"Без шпрос"</item>
+        <item>"Шпросы белые 18мм"</item>
+        <item>"Шпросы золотые 8мм"</item>
+    </string-array>
+
+    <string-array name="dtaFigure">
+        <item>"Обычное"</item>
+        <item>"Арка"</item>
+        <item>"Трапеция 2 угла"</item>
+        <item>"Трапеция 3 угла"</item>
+        <item>"Трапеция 4 угла"</item>
+    </string-array>
+
+    <string-array name="dtaHandle1">
+        <item>"Комплект декоративных накладок (белый, коричневый)"</item>
+        <item>"Комплект декоративных накладок (цветной)"</item>
+    </string-array>
+
+    <string-array name="dtaHandle2">
+        <item>"Ручка стндрт.(белая, коричневая)"</item>
+        <item>"Ручка Roto Samba (белая)"</item>
+        <item>"Ручка Hoppe (коричневая)"</item>
+        <item>"Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)"</item>
+        <item>"Ручка Roto Swing (белая, серебро, титан мат)"</item>
+        <item>"Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)"</item>
+        <item>"Ручка с ключом (белая, коричневая)"</item>
+        <item>"Комплект декоративных накладок (белый, коричневый)"</item>
+        <item>"Комплект декоративных накладок (цветной)"</item>
+    </string-array>
+
+    <string-array name="dtaHandle3">
+        <item>"Ручка стндрт.(белая, коричневая)"</item>
+        <item>"Ручка Roto Samba (белая)"</item>
+        <item>"Ручка Hoppe (коричневая)"</item>
+        <item>"Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)"</item>
+        <item>"Ручка Roto Swing (белая, серебро, титан мат)"</item>
+        <item>"Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)"</item>
+        <item>"Ручка 2-х сторонняя (белая, коричневая)"</item>
+        <item>"Ручка с ключом (белая, коричневая)"</item>
+        <item>"Хваталка балконная (белая, коричневая)"</item>
+        <item>"Хваталка балконная (антрацит, золотой дуб)"</item>
+        <item>"Комплект декоративных накладок (белый, коричневый)"</item>
+        <item>"Комплект декоративных накладок (цветной)"</item>
+    </string-array>
+
+    <string-array name="dtaShtulp">
+        <item>"Без штульпа"</item>
+        <item>"Штульп"</item>
+    </string-array>
+
+    <string-array name="dta1m">
+        <item>1</item>
+    </string-array>
+
+    <string-array name="dtaMs">
+        <item>"внутр. белая"</item>
+        <item>"внутр. корич"</item>
+        <item>"наруж. белая"</item>
+        <item>"наруж. корич"</item>
+        <item>"на алюмин. раму"</item>
+        <item>"на двери бел."</item>
+        <item>"на двери кор."</item>
+    </string-array>
+
+    <string-array name="dtaMsSal">
+        <item>"внутр. белая"</item>
+        <item>"внутр. корич"</item>
+        <item>"наруж. белая"</item>
+        <item>"наруж. корич"</item>
+    </string-array>
+
+    <string-array name="dtaDopBrusbox">
+        <item>"Подоконник"</item>
+        <item>"Отливы"</item>
+        <item>"М/С"</item>
+        <item>"Балконный соединитель 3мм"</item>
+        <item>"Соединитель труба с адапт."</item>
+        <item>"Соединитель 90°"</item>
+        <item>"Соединитель-молоток 18мм"</item>
+        <item>"Расширитель 60 профиль"</item>
+        <item>"Расширитель 70 профиль"</item>
+        <item>"Брус деревянный"</item>
+        <item>"Нащельник ПВХ"</item>
+    </string-array>
+
+    <string-array name="dtaDopSalamander">
+        <item>"Подоконник"</item>
+        <item>"Отливы"</item>
+        <item>"М/С"</item>
+        <item>"Балконный соединитель 3мм"</item>
+        <item>"Соединитель труба с адапт."</item>
+        <item>"Соединитель 90°"</item>
+        <item>"Расширитель"</item>
+        <item>"Брус деревянный"</item>
+        <item>"Нащельник ПВХ"</item>
+    </string-array>
+
+    <string-array name="dtaDopAlumin">
+        <item>"Подоконник"</item>
+        <item>"Отливы"</item>
+        <item>"М/С"</item>
+        <item>"Двутавр (Соединитель)"</item>
+        <item>"Соединитель труба"</item>
+        <item>"Соединитель 90°"</item>
+        <item>"Расширитель + двутавр"</item>
+        <item>"Брус деревянный"</item>
+        <item>"Нащельник ПВХ"</item>
+    </string-array>
+
+    <string-array name="dtaWork">
+        <item>"Монтаж окон"</item>
+        <item>"Монтаж дверей"</item>
+        <item>"Монтаж откосов"</item>
+        <item>"Монтаж нащельников"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWork">
+        <item>"1 створчатое"</item>
+        <item>"2 створчатое"</item>
+        <item>"3 створчатое"</item>
+        <item>"Балконный блок"</item>
+        <item>"Балконная рама"</item>
+        </string-array>
+
+    <string-array name="dtaTypeWork2">
+        <item>"1 створчатое"</item>
+        <item>"2 створчатое"</item>
+        <item>"3 створчатое"</item>
+        <item>"Балконный блок"</item>
+        <item>"Дверь ПВХ"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkBalBlock">
+        <item>"1 окно"</item>
+        <item>"Чебурашка"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkBalRam1">
+        <item>"Прямая"</item>
+        <item>"Г - образная"</item>
+        <item>"П - образная"</item>
+        <item>"Полукруглая рама"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkBalRam2">
+        <item>"До 3300"</item>
+        <item>"3300 – 4300"</item>
+        <item>"Более 4300"</item>
+        <item>"Более 5000"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkBalRam3">
+        <item>"Из 4 частей"</item>
+        <item>"Из 5 частей"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkSlopesR">
+        <item>"До 250 мм"</item>
+        <item>"Свыше 250 мм"</item>
+        <item>"Свыше 450 мм"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkSlopesM">
+        <item>"До 450 мм"</item>
+        <item>"Свыше 450 мм"</item>
+    </string-array>
+
+    <string-array name="dtaTypeWorkNash">
+        <item>"С 1 стороны"</item>
+        <item>"С 2 сторон"</item>
+    </string-array>
+
+    <string-array name="dtaHightWork">
+        <item>"До 1610 мм"</item>
+        <item>"Свыше 1610 мм"</item>
+    </string-array>
+
+    <string-array name="dtaWidthWork">
+        <item>"До 2510 мм"</item>
+        <item>"Свыше 2510 мм"</item>
+    </string-array>
+
+    <string-array name="dtaWorkDoor">
+        <item>"Одностворчатая дверь"</item>
+        <item>"Штульповая дверь"</item>
+    </string-array>
+
+    <string-array name="dtaWorkDoorType1">
+        <item>"Без фрамуги"</item>
+        <item>"С фрамугой"</item>
+    </string-array>
+
+    <string-array name="dtaWorkDoorHight">
+        <item>"До 2100 мм"</item>
+        <item>"Свыше 2100 мм"</item>
+    </string-array>
+
+    <string-array name="dtaWorkDoorWidth1">
+        <item>"До 1000 мм"</item>
+        <item>"Свыше 1000 мм"</item>
+    </string-array>
+
+    <string-array name="dtaWorkDoorWidth2">
+        <item>"До 2000 мм"</item>
+        <item>"Свыше 2000 мм"</item>
+    </string-array>
+
+    <string-array name="dtaWorkDoor2">
+        <item>"1 ст. дверь без фрамуги"</item>
+        <item>"Штульп. дверь без фрамуги"</item>
+        <item>"1 ст. дверь с фрамугой"</item>
+        <item>"Штульп. дверь с фрамугой"</item>
+    </string-array>
+
+</resources>

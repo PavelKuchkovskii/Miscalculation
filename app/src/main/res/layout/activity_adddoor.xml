@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#262626">
+
+    <Spinner
+        android:id="@+id/spinner_type"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_profile"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "60dp"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_typeOfGlass"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "60dp"
+        android:layout_marginLeft ="180dp"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_furnit"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "60dp"
+        android:layout_marginLeft ="250dp"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_typeOfType"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "120dp"
+        android:layout_alignParentLeft ="true"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_typeOfLoop"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "120dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_loopColor"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "120dp"
+        android:layout_alignParentRight="true"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/textHigh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="В"
+        android:layout_marginTop = "190dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/spinner_hight"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_hight"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "180dp"
+        android:layout_toLeftOf="@id/XTop"
+        android:layout_marginRight = "10dp"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/XTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        android:layout_marginTop = "190dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"/>
+
+
+    <Spinner
+        android:id="@+id/spinner_width"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "180dp"
+        android:layout_toRightOf = "@id/XTop"
+        android:layout_marginLeft = "10dp"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:id="@+id/textWidth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ш"
+        android:layout_marginTop = "190dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/spinner_width"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_lamination"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "240dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_region"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "240dp"
+        android:layout_toRightOf = "@id/XTop"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_typeOfGarnit"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "300dp"
+        android:layout_toLeftOf = "@id/XTop"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_colorGarnit"
+        android:layout_width="175dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf = "@id/XTop"
+        android:layout_marginTop="300dp"
+        android:background="@android:color/white" />
+
+    <Spinner
+        android:id="@+id/spinner_porog"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_toLeftOf = "@id/XTop"
+        android:layout_marginTop="360dp"
+        android:background="@android:color/white" />
+
+    <Spinner
+        android:id="@+id/spinner_typeOfKey"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf = "@id/XTop"
+        android:layout_marginTop="360dp"
+        android:background="@android:color/white" />
+
+    <Spinner
+        android:id="@+id/spinner_glassDif"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "420dp"
+        android:layout_toRightOf = "@id/XTop"
+        android:background="@android:color/white"/>
+
+    <ListView
+        android:id="@+id/listGlass"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_toRightOf = "@id/XTop"
+        android:background="#333333"
+        android:divider="#666666"
+        android:dividerHeight="1dp"/>
+
+    <Button
+        android:id="@+id/button_addType"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="Добавить изделие"
+        android:layout_alignParentBottom ="true"
+        android:layout_toLeftOf = "@id/XTop"
+        android:layout_marginBottom ="10dp"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/button_ProdLst"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf = "@id/XTop"
+        android:layout_marginBottom="65dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="СПИСОК" />
+
+</RelativeLayout>

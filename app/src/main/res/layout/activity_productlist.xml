@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listProductAct"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#262626">
+
+    <ListView
+        android:id="@+id/listProduct"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/spinner_discont"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/borderbottom"
+        android:divider="#666666"
+        android:dividerHeight="1dp" />
+
+    <Button
+        android:id="@+id/button_price"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="ЦЕНА"
+        android:layout_alignBottom="@+id/spinner_discont"
+        android:layout_toRightOf="@+id/button_addOther"
+        android:background="#00994d"
+        android:textColor="#ffd11a"/>
+
+    <Button
+        android:id="@+id/button_addBlock"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="БЛОК +"
+        android:layout_alignBottom="@+id/spinner_discont"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:background="#00994d"
+        android:textColor="#ffd11a"/>
+
+
+
+
+    <TextView
+        android:id="@+id/txtInterest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="ИНТЕРЕС: "
+        android:textColor="#ffd11a"
+        android:layout_above="@+id/txtMounting"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/txtInterestPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="0.00"
+        android:textColor="#ffd11a"
+        android:layout_above="@+id/txtMounting"
+        android:layout_toRightOf="@+id/txtInterest"
+        android:layout_marginLeft="10dp"/>
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd11a"
+        android:layout_below="@+id/txtInterest"
+        android:layout_marginBottom="1dp"
+        android:layout_alignRight="@+id/button_addDelivery"/>
+
+    <TextView
+        android:id="@+id/txtMounting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_above="@+id/txtSlopes"
+        android:layout_marginLeft="10dp"
+        android:text="МОНТАЖ: "
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/txtMountingPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="0.00"
+        android:textColor="#ffd11a"
+        android:layout_above="@+id/txtSlopes"
+        android:layout_alignLeft="@+id/txtInterestPrice"/>
+
+    <View
+        android:id="@+id/v2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd11a"
+        android:layout_below="@+id/txtMounting"
+        android:layout_marginBottom="1dp"
+        android:layout_alignRight="@+id/button_addDelivery"/>
+
+    <TextView
+        android:id="@+id/txtSlopes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_above="@+id/editTextDelivery"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="ОТКОСЫ: "
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/txtSlopesPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="0.00"
+        android:textColor="#ffd11a"
+        android:layout_alignBottom="@+id/txtSlopes"
+        android:layout_alignLeft="@+id/txtInterestPrice"/>
+
+    <View
+        android:id="@+id/v3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffd11a"
+        android:layout_above="@+id/editTextDelivery"
+        android:layout_marginBottom="10dp"
+        android:layout_alignRight="@+id/button_addDelivery"/>
+
+
+
+
+
+
+    <EditText
+        android:id="@+id/editTextDelivery"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_above="@id/editTextOther"
+        android:layout_marginBottom="10dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint = "Доставка"
+        android:textColor="#ffd11a"
+        android:textColorHint="#ffd11a"/>
+
+    <Button
+        android:id="@+id/button_addDelivery"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="+"
+        android:layout_alignBottom ="@+id/editTextDelivery"
+        android:layout_toRightOf="@+id/editTextDelivery"
+        android:background="#00994d"
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/txtDelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_alignBottom ="@+id/editTextDelivery"
+        android:layout_toRightOf="@+id/button_addDelivery"
+        android:layout_marginLeft="10dp"
+        android:text="0.00"
+        android:textColor="#ffd11a"/>
+
+    <EditText
+        android:id="@+id/editTextOther"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint = "Прочее"
+        android:textColor="#ffd11a"
+        android:textColorHint="#ffd11a"/>
+
+    <Button
+        android:id="@+id/button_addOther"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="+"
+        android:layout_alignBottom ="@+id/editTextOther"
+        android:layout_toRightOf="@+id/editTextOther"
+        android:background="#00994d"
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/txtOther"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_alignBottom ="@+id/editTextOther"
+        android:layout_toRightOf="@+id/button_addOther"
+        android:layout_marginLeft="10dp"
+        android:text="0.00"
+        android:textColor="#ffd11a"/>
+
+    <EditText
+        android:id="@+id/editTextDelivKM"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft ="200dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint = "КМ"
+        android:textColor="#ffd11a"
+        android:textColorHint="#ffd11a"/>
+
+    <Button
+        android:id="@+id/button_addDelivKM"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="205dp"
+        android:layout_marginBottom="120dp"
+        android:background="#00994d"
+        android:textColor="#ffd11a"
+        android:gravity="center"
+        android:text="=" />
+
+    <TextView
+        android:id="@+id/txtDelivKM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="163dp"
+        android:text="0.00"
+        android:textSize="25dp"
+        android:textColor="#ffd11a"/>
+
+    <Spinner
+        android:id="@+id/spinner_course"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/button_addBlock"
+        android:layout_alignRight="@+id/button_addBlock"
+        android:background="#00994d"/>
+
+    <Spinner
+        android:id="@+id/spinner_discont"
+        android:layout_width="55dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="275dp"
+        android:layout_marginLeft="20dp"
+        android:background="#00994d"/>
+
+    <TextView
+        android:id="@+id/SumItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="230dp"
+        android:layout_marginBottom="80dp"
+        android:text="000000"
+        android:textSize="20dp"
+        android:textColor="#ffd11a"/>
+
+    <Button
+        android:id="@+id/button_clearAll"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/button_addBlock"
+        android:layout_marginBottom="20dp"
+        android:background="#00994d"
+        android:textColor="#ffd11a"
+        android:gravity="center"
+        android:text="C" />
+
+    <TextView
+        android:id="@+id/txtRegion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:text="Р"
+        android:textColor="#e60000"
+        android:layout_alignBottom="@+id/button_clearAll"
+        android:layout_toLeftOf="@+id/button_clearAll"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Rv"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#262626">
+
+<ScrollView
+    android:id="@+id/Scroll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginBottom="5dp"
+    android:layout_above="@+id/editTextPrepaid"
+    android:background="#ffffff">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/alphaBank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="АЛЬФА-БАНК"
+            android:textSize="25sp"
+            android:layout_centerHorizontal="true"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/alphaBank"/>
+
+        <TextView
+            android:id="@+id/ASumZhel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сумма ЖЕЛ"
+            android:layout_below="@id/alphaBank"
+            android:layout_marginLeft="25dp"
+            android:layout_alignRight="@id/ASumZhelMes"/>
+
+        <TextView
+            android:id="@+id/ASumMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сумма МИН"
+            android:layout_below="@id/alphaBank"
+            android:layout_marginLeft="25dp"
+            android:layout_alignRight="@id/ASumMinMes"/>
+
+        <TextView
+            android:id="@+id/Ames6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/ASumZhel"
+            android:layout_alignRight="@id/Ames10"/>
+
+        <TextView
+            android:id="@+id/Ames10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 мес"
+            android:layout_below="@id/Ames6"/>
+
+        <TextView
+            android:id="@+id/Ames12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Ames10"/>
+
+        <TextView
+            android:id="@+id/Ames15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 мес"
+            android:layout_below="@id/Ames12"/>
+
+        <TextView
+            android:id="@+id/Ames18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Ames15"/>
+
+        <TextView
+            android:id="@+id/Ames24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Ames18"/>
+
+        <TextView
+            android:id="@+id/Ames36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Ames24"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Ames36"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames6Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/ASumZhel"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames10Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 мес"
+            android:layout_below="@id/Ames6Z"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames12Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Ames10Z"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames15Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 мес"
+            android:layout_below="@id/Ames12Z"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames18Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Ames15Z"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames24Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Ames18Z"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames36Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Ames24Z"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames6M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/ASumZhel"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames10M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 мес"
+            android:layout_below="@id/Ames6M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames12M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Ames10M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames15M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 мес"
+            android:layout_below="@id/Ames12M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames18M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Ames15M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames24M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Ames18M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames36M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Ames24M"
+            android:layout_alignRight="@id/ASumMin"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Ames36M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+
+
+
+        <TextView
+            android:id="@+id/AEzhMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
+            android:textSize="25sp"
+            android:layout_below="@id/Ames36"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/ASumZhelMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ежемес ЖЕЛ"
+            android:layout_below="@id/AEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/Ames6E"/>
+
+        <TextView
+            android:id="@+id/ASumMinMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ежемес МИН"
+            android:layout_below="@id/AEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/ASumZhelMes"/>
+
+        <TextView
+            android:id="@+id/Ames6E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/ASumZhelMes"
+            android:layout_alignRight="@id/Ames10E"/>
+
+        <TextView
+            android:id="@+id/Ames10E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 мес"
+            android:layout_below="@id/Ames6E"/>
+
+        <TextView
+            android:id="@+id/Ames12E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Ames10E"/>
+
+        <TextView
+            android:id="@+id/Ames15E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 мес"
+            android:layout_below="@id/Ames12E"/>
+
+        <TextView
+            android:id="@+id/Ames18E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Ames15E"/>
+
+        <TextView
+            android:id="@+id/Ames24E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Ames18E"/>
+
+        <TextView
+            android:id="@+id/Ames36E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Ames24E"/>
+
+        <TextView
+            android:id="@+id/Ames6EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/ASumZhelMes"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames10EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 мес"
+            android:layout_below="@id/Ames6EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames12EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Ames10EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames15EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 мес"
+            android:layout_below="@id/Ames12EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames18EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Ames15EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames24EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Ames18EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames36EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Ames24EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
+
+        <TextView
+            android:id="@+id/Ames6EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/ASumMinMes"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames10EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 мес"
+            android:layout_below="@id/Ames6EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames12EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Ames10EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames15EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 мес"
+            android:layout_below="@id/Ames12EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames18EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Ames15EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames24EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Ames18EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames36EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Ames24EM"
+            android:layout_alignRight="@id/ASumMin"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Ames36EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/dobro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ДОБРОБЫТ"
+            android:textSize="25sp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/Ames36E"
+            android:layout_centerHorizontal="true"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/dobro"/>
+
+        <TextView
+            android:id="@+id/DSumZhel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сумма ЖЕЛ"
+            android:layout_below="@id/dobro"
+            android:layout_marginLeft="25dp"
+            android:layout_alignRight="@id/DSumZhelMes"/>
+
+        <TextView
+            android:id="@+id/DSumMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сумма МИН"
+            android:layout_below="@id/dobro"
+            android:layout_marginLeft="25dp"
+            android:layout_alignRight="@id/DSumMinMes"/>
+
+        <TextView
+            android:id="@+id/Dmes3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 мес"
+            android:layout_below="@id/DSumZhel"
+            android:layout_alignRight="@id/Dmes6"/>
+
+        <TextView
+            android:id="@+id/Dmes6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Dmes3"
+            android:layout_alignRight="@id/Dmes12"/>
+
+        <TextView
+            android:id="@+id/Dmes12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Dmes6"/>
+
+        <TextView
+            android:id="@+id/Dmes18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Dmes12"/>
+
+        <TextView
+            android:id="@+id/Dmes24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Dmes18"/>
+
+        <TextView
+            android:id="@+id/Dmes36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Dmes24"/>
+
+        <TextView
+            android:id="@+id/Dmes3Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 мес"
+            android:layout_below="@id/DSumZhel"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes6Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Dmes3Z"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes12Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Dmes6Z"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes18Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Dmes12Z"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes24Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Dmes18Z"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes36Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Dmes24Z"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes3M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 мес"
+            android:layout_below="@id/DSumZhel"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes6M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Dmes3M"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes12M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Dmes6M"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes18M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Dmes12M"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes24M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Dmes18M"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes36M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Dmes24M"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Dmes36M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+
+
+
+        <TextView
+            android:id="@+id/DEzhMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
+            android:textSize="25sp"
+            android:layout_below="@id/Dmes36"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/DSumZhelMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ежемес ЖЕЛ"
+            android:layout_below="@id/DEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/Dmes6E"/>
+
+        <TextView
+            android:id="@+id/DSumMinMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ежемес МИН"
+            android:layout_below="@id/DEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/DSumZhelMes"/>
+
+        <TextView
+            android:id="@+id/Dmes3E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 мес"
+            android:layout_below="@id/DSumZhelMes"
+            android:layout_alignRight="@id/Dmes6E"/>
+
+        <TextView
+            android:id="@+id/Dmes6E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Dmes3E"
+            android:layout_alignRight="@id/Dmes12E"/>
+
+        <TextView
+            android:id="@+id/Dmes12E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Dmes6E"/>
+
+        <TextView
+            android:id="@+id/Dmes18E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Dmes12E"/>
+
+        <TextView
+            android:id="@+id/Dmes24E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Dmes18E"/>
+
+        <TextView
+            android:id="@+id/Dmes36E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Dmes24E"/>
+
+        <TextView
+            android:id="@+id/Dmes3EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 мес"
+            android:layout_below="@id/DSumZhelMes"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes6EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Dmes3EZ"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes12EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Dmes6EZ"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes18EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Dmes12EZ"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes24EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Dmes18EZ"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes36EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Dmes24EZ"
+            android:layout_alignRight="@id/DSumZhel"/>
+
+        <TextView
+            android:id="@+id/Dmes3EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 мес"
+            android:layout_below="@id/DSumMinMes"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes6EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Dmes3EM"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes12EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Dmes6EM"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes18EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 мес"
+            android:layout_below="@id/Dmes12EM"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes24EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Dmes18EM"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <TextView
+            android:id="@+id/Dmes36EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="36 мес"
+            android:layout_below="@id/Dmes24EM"
+            android:layout_alignRight="@id/DSumMin"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Dmes36EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/lizing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="СОБСТВЕННАЯ РАССРОЧКА"
+            android:textSize="25sp"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/Dmes36E"
+            android:layout_centerHorizontal="true"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/lizing"/>
+
+        <TextView
+            android:id="@+id/LSumZhel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сумма ЖЕЛ"
+            android:layout_below="@id/lizing"
+            android:layout_marginLeft="25dp"
+            android:layout_alignRight="@id/LSumZhelMes"/>
+
+        <TextView
+            android:id="@+id/LSumMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Сумма МИН"
+            android:layout_below="@id/lizing"
+            android:layout_marginLeft="25dp"
+            android:layout_alignRight="@id/LSumMinMes"/>
+
+        <TextView
+            android:id="@+id/Lmes4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 мес"
+            android:layout_below="@id/LSumZhel"
+            android:layout_alignRight="@id/Lmes6"/>
+
+        <TextView
+            android:id="@+id/Lmes6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Lmes4"
+            android:layout_alignRight="@id/Lmes12"/>
+
+        <TextView
+            android:id="@+id/Lmes12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Lmes6"/>
+
+        <TextView
+            android:id="@+id/Lmes20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 мес"
+            android:layout_below="@id/Lmes12"/>
+
+        <TextView
+            android:id="@+id/Lmes24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Lmes20"/>
+
+
+        <TextView
+            android:id="@+id/Lmes4Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 мес"
+            android:layout_below="@id/LSumZhel"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes6Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Lmes4Z"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes12Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Lmes6Z"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes20Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 мес"
+            android:layout_below="@id/Lmes12Z"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes24Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Lmes20Z"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes4M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 мес"
+            android:layout_below="@id/LSumZhel"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes6M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Lmes4M"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes12M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Lmes6M"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes20M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 мес"
+            android:layout_below="@id/Lmes12M"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes24M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Lmes20M"
+            android:layout_alignRight="@id/LSumMin"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Lmes24M"
+            android:layout_alignRight="@id/ASumMin"/>
+
+
+
+
+        <TextView
+            android:id="@+id/LEzhMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ЕЖЕМЕСЯНЫЕ ПЛАТЕЖИ"
+            android:textSize="25sp"
+            android:layout_below="@id/Lmes24"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/LSumZhelMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ежемес ЖЕЛ"
+            android:layout_below="@id/LEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/Lmes4E"/>
+
+        <TextView
+            android:id="@+id/LSumMinMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ежемес МИН"
+            android:layout_below="@id/LEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/LSumZhelMes"/>
+
+        <TextView
+            android:id="@+id/Lmes4E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 мес"
+            android:layout_below="@id/LSumZhelMes"
+            android:layout_alignRight="@id/Lmes6E"/>
+
+        <TextView
+            android:id="@+id/Lmes6E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Lmes4E"
+            android:layout_alignRight="@id/Lmes12E"/>
+
+        <TextView
+            android:id="@+id/Lmes12E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Lmes6E"/>
+
+        <TextView
+            android:id="@+id/Lmes20E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 мес"
+            android:layout_below="@id/Lmes12E"/>
+
+        <TextView
+            android:id="@+id/Lmes24E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Lmes20E"/>
+
+
+
+        <TextView
+            android:id="@+id/Lmes4EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 мес"
+            android:layout_below="@id/LSumZhelMes"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes6EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Lmes4EZ"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes12EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Lmes6EZ"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes20EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 мес"
+            android:layout_below="@id/Lmes12EZ"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+        <TextView
+            android:id="@+id/Lmes24EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Lmes20EZ"
+            android:layout_alignRight="@id/LSumZhel"/>
+
+
+        <TextView
+            android:id="@+id/Lmes4EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 мес"
+            android:layout_below="@id/LSumMinMes"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes6EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 мес"
+            android:layout_below="@id/Lmes4EM"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes12EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 мес"
+            android:layout_below="@id/Lmes6EM"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes20EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 мес"
+            android:layout_below="@id/Lmes12EM"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <TextView
+            android:id="@+id/Lmes24EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24 мес"
+            android:layout_below="@id/Lmes20EM"
+            android:layout_alignRight="@id/LSumMin"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#262626"
+            android:layout_below="@+id/Lmes24EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
+    </RelativeLayout>
+
+</ScrollView>
+
+    <EditText
+        android:id="@+id/editTextPrepaid"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="2dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint = "ПРЕДОПЛАТА"
+        android:textColor="#ffd11a"
+        android:textColorHint="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/txtPrepaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_marginBottom="3dp"
+        android:layout_alignBottom ="@+id/editTextPrepaid"
+        android:layout_toRightOf="@+id/editTextPrepaid"
+        android:layout_marginLeft="50dp"
+        android:text="0.00"
+        android:textColor="#ffd11a"/>
+
+    <ImageView
+        android:id="@+id/imInfoBank"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/baseline_help_outline_white_24"
+        android:layout_alignBottom ="@+id/editTextPrepaid"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"/>
+</RelativeLayout>
