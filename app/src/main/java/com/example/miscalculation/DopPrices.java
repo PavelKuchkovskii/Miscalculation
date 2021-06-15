@@ -4,115 +4,119 @@ public class DopPrices {
 //----------------------------ЛИСТ 1 (ДОПЫ)---------------------------------------------------------
     //--------------------------Соединители на Brusbox 60:------------------------------------------
     //Балконный соединитель 3мм на  60 профиль
-    static final double balSoed3mmNa60ProfileBB = 1.4;
-
-    //Профиль расширительный на 60 профиль 65мм
-    static final double profRashNa60Profile65mmBB = 4.7;
-    //Профиль расширительный на 60 профиль 65мм с армированием
-    static final double profRashNa60Profile65mmBB_ARM = 8.6;
-
-    //Профиль расширительный на 60 профиль 40мм
-    static final double profRashNa60Profile40mmBB = 3.6;
-    //Профиль расширительный на 60 профиль 40мм с армированием
-    static final double profRashNa60Profile40mmBB_ARM = 4.8;
+    static final double balSoed3mmNa60ProfileBB = 1.47;
 
     //Профиль расширительный на 60 профиль 20мм
-    static final double profRashNa60Profile20mmBB = 4.6;
+    static final double profRashNa60Profile20mmBB = 4.83;
+
+    //Профиль расширительный на 60 профиль 40мм
+    static final double profRashNa60Profile40mmBB = 5.04;
+    //Профиль расширительный на 60 профиль 40мм с армированием
+    //static final double profRashNa60Profile40mmBB_ARM = 5.04;
+
+    //Профиль расширительный на 60 профиль 65мм
+    static final double profRashNa60Profile65mmBB = 9.03;
+    //Профиль расширительный на 60 профиль 65мм с армированием
+    //static final double profRashNa60Profile65mmBB_ARM = 9.03;
+
 
     //Соединитель-молоток 18 мм на 60 профиль  с армированием
-    static final double soedMolotokNA60ProfileBB = 10;
-
-    //Соединитель труба с адаптерами 60 мм
-    static final double soedTruba60mmBB = 7.5;
-    //Соединитель труба с адаптерами 60 мм
-    static final double soedTruba60mmBB_ARM = 11.5;
+    static final double soedMolotokNA60ProfileBB = 10.5;
 
     //Соединитель угловой 90° на 60 профиль
-    static final double soed90na60ProfileBB = 6;
+    static final double soed90na60ProfileBB = 7.875;
     //Соединитель угловой 90° на 60 профиль с армированием
-    static final double soed90na60ProfileBB_ARM = 7.5;
+    //static final double soed90na60ProfileBB_ARM = 7.875;
+
+    //Соединитель труба с адаптерами 60 мм
+    static final double soedTruba60mmBB = 12.075;
+    //Соединитель труба с адаптерами 60 мм
+    //static final double soedTruba60mmBB_ARM = 12.075;
 
     //--------------------------Соединители на Brusbox 70:------------------------------------------
     //Балконный соединитель 3мм на 70 профиль
-    static final double balSoed3mmNa70ProfileBB = 2.3;
-
-    //Профиль расширительный на 70 профиль 65мм
-    static final double profRashNa70Profile65mmBB = 8.2;
-    //Профиль расширительный на 70 профиль 65мм с армированием
-    static final double profRashNa70Profile65mmBB_ARM = 12;
+    static final double balSoed3mmNa70ProfileBB = 2.415;
 
     //Профиль расширительный на 70 профиль  40мм
-    static final double profRashNa70Profile40mmBB = 4.9;
+    static final double profRashNa70Profile40mmBB = 6.405;
     //Профиль расширительный на 70 профиль  40мм с армированием
-    static final double profRashNa70Profile40mmBB_ARM = 6.1;
+    //static final double profRashNa70Profile40mmBB_ARM = 6.405;
+
+    //Профиль расширительный на 70 профиль 65мм
+    static final double profRashNa70Profile65mmBB = 12.6;
+    //Профиль расширительный на 70 профиль 65мм с армированием
+    //static final double profRashNa70Profile65mmBB_ARM = 12.6;
 
     //Соединитель-молоток 18 мм на 70 профиль
-    static final double soedMolotokNA70ProfileBB = 10;
+    static final double soedMolotokNA70ProfileBB = 10.5;
 
     //Соединитель угловой 90° на 70 профиль
-    static final double soed90na70ProfileBB = 8.8;
+    static final double soed90na70ProfileBB = 10.815;
     //Соединитель угловой 90° на 70 профиль с армированием
-    static final double soed90na70ProfileBB_ARM = 10.3;
+    //static final double soed90na70ProfileBB_ARM = 10.815;
 
     //Соединитель труба с адаптерами 70 мм
-    static final double soedTruba70mmBB = 8.7;
+    static final double soedTruba70mmBB = 11.865;
     //Соединитель труба с адаптерами 70 мм с армированием
-    static final double soedTruba70mmBB_ARM = 11.3;
+    //static final double soedTruba70mmBB_ARM = 11.865;
 
     //-----------------------------Соединители на Salamander STL:-----------------------------------
-    //Расширитель 60мм
-    static final double profRashNaSal60mm = 14.5;
-    //Расширитель 60мм
-    static final double profRashNaSal60mm_ARM = 16.5;
-
-    //Расширитель 40мм
-    static final double profRashNaSal40mm = 12.1;
-
-    //Соединитель угловой 90°
-    static final double soed90naSal = 22.5;
-
-    //Соединитель труба
-    static final double soedTrubaNaSal = 71;
 
     //Балконный соединитель
-    static final double balSoedNaSal = 3.5;
+    static final double balSoedNaSal = 3.675;
+
+    //Расширитель 40мм
+    static final double profRashNaSal40mm = 12.705;
+
+    //Расширитель 60мм
+    static final double profRashNaSal60mm = 17.3;
+    //Расширитель 60мм
+    //static final double profRashNaSal60mm_ARM = 17.3;
+
+    //Соединитель угловой 90°
+    static final double soed90naSal = 23.625;
+
+    //Соединитель труба
+    static final double soedTrubaNaSal = 74.55;
+
+
     //----------------------------------------------------------------------------------------------
 
     //Арка - цена прямоугольного окна
-    static final double arka = 40;
+    static final double arka = 42;
 
     //Трапеция - цена прямоугольного окна +  за каждый угол
-    static final double trapecija = 10;
+    static final double trapecija = 10.5;
 
     //Ламинация сендвича
-    static final double lamSend = 55;
+    static final double lamSend = 57.75;
 
     //--------------------------------------ЛАМИНАЦИЯ-----------------------------------------------
 
     //==================================ОКОН========================================================
     //Ламинация односторонняя BRUSBOX 60
-    static final double lamWBB60_1st = 1.25;
+    static final double lamWBB60_1st = 1.2625;
     //Ламинация двухсторонняя BRUSBOX 60
-    static final double lamWBB60_2st = 1.5;
+    static final double lamWBB60_2st = 1.525;
 
     //Ламинация односторонняя BRUSBOX 70
-    static final double lamWBB70_1st = 1.24;
+    static final double lamWBB70_1st = 1.252;
     //Ламинация двухсторонняя BRUSBOX 70
-    static final double lamWBB70_2st = 1.48;
+    static final double lamWBB70_2st = 1.504;
 
     //Ламинация односторонняя REHAU 60\70, SALAMANDER
-    static final double lamWRS_1st = 1.18;
+    static final double lamWRS_1st = 1.189;
     //Ламинация двухсторонняя REHAU 60\70, SALAMANDER
-    static final double lamWRS_2st = 1.36;
+    static final double lamWRS_2st = 1.378;
 
     //==================================ДВЕРЕЙ======================================================
     //Ламинация односторонняя - (+ 14% к прайсу на двери наружные, + 18 % на двери внутренние)
-    static final double lamD1stD = 1.14;
-    static final double lamD1stW = 1.18;
+    static final double lamD1stD = 1.147;
+    static final double lamD1stW = 1.189;
 
     //Ламинация двухсторонняя - (+ 28% к прайсу на двери наружные, + 36 % на двери внутренние)
-    static final double lamD2stD = 1.28;
-    static final double lamD2stW = 1.36;
+    static final double lamD2stD = 1.294;
+    static final double lamD2stW = 1.378;
     //----------------------------------------------------------------------------------------------
 
     //Коричневый Алюминий
@@ -126,31 +130,31 @@ public class DopPrices {
     //----------------------------------------СТЕКЛА------------------------------------------------
 
     //Мультифункциональное стекло LifeGlassClear
-    static final double multik = 1.7;
+    static final double multik = 1.8;
 
     //И-стекло
     //Бронза
-    static final double bronza = 20;
+    static final double bronza = 21;
 
     //Матовое стекло
-    static final double mat = 15;
+    static final double mat = 15.8;
 
     //Тонировка
-    static final double tonirovka = 40;
+    static final double tonirovka = 42;
 
-    //Закаленное стекло 4 мм
-    //Многослойное стекло  4.0,38.4
-    //Бронировка
+    //Закаленное стекло 4 мм +	28,4
+    //Многослойное стекло  3.3.1+	36,8
+    //Бронировка     +	94,5
     //----------------------------------------------------------------------------------------------
     
-    //Шпросы белые/коричневые 18мм
-    static final double shprosBelKor26mm = 7;
+    //Шпросы белые/коричневые 26мм
+    static final double shprosBelKor26mm = 7.35;
 
     //Шпросы белые/коричневые 18мм
     static final double shprosBelKor18mm = 6;
 
     //Шпросы белые/золотые 8мм
-    static final double shprosBelZol8mm = 11;
+    static final double shprosBelZol8mm = 11.55;
 
 //----------------------------ЛИСТ 2 (ФУРНИТУРА ОКОННАЯ)--------------------------------------------
 
@@ -178,7 +182,7 @@ public class DopPrices {
     static final double ruchkaSKluchom = 4;
 
     //Хваталка балконная антрацит, золотой дуб
-    static final double hvatalkaCvet = 1;
+    static final double hvatalkaCvet = 2;
 
     //Привод с цилиндром (ставится на рото)
 
@@ -208,63 +212,63 @@ public class DopPrices {
     //Петля дверная 105 стандартная (белая, коричневая)
 
     //Петля дверная Roto 120 кг (белая, коричневая)
-    static final double petliRoto120BelKorich = 15;
+    static final double petliRoto120BelKorich = 16;
 
     //Петля дверная Roto 120 кг (антрацит)
-    static final double petliRoto120Antracit = 20;
+    static final double petliRoto120Antracit = 21;
 
     //Петля дверная Roto 120 кг (серебро)
-    static final double petliRoto120Serebro = 28;
+    static final double petliRoto120Serebro = 29;
 
     //Петля дверная Roto 120 кг (бронза)
-    static final double petliRoto120Bronza = 26;
+    static final double petliRoto120Bronza = 28;
 
     //Петля дверная Roto 80 кг (белая, коричневая)
-    static final double petliRoto80BelKorich = 15;
+    static final double petliRoto80BelKorich = 16;
 
     //Петля дверная Jocker 120 кг (белая, коричневая)
-    static final double petliJoker120BelKorich = 11;
+    static final double petliJoker120BelKorich = 12;
 
     //Петля дверная Jocker 120 кг (антрацит, серебро, бронза, титан, черный)
-    static final double petliJoker120Cvet = 15;
+    static final double petliJoker120Cvet = 16;
 
     //Петля дверная Jocker 80 кг (белая, коричневая)
     static final double petliJoker80BelKorich = 10;
 
     //Петля дверная Jocker 80 кг (антрацит, серебро, бронза, титан, черный)
-    static final double petliJoker80Cvet = 14;
+    static final double petliJoker80Cvet = 15;
 
     //------------------Гарнитуры указываются разницей от стандартных ручек
 
     //Ручка дверная прямая (белый, коричневый) (СКОБА)
-    static final double ruchkaSkobaBelKorich = 5;
+    static final double ruchkaSkobaBelKorich = 6;
 
     //Ручка дверная прямая (антрацит, серебро, черный) (СКОБА)
-    static final double ruchkaSkobaCvet = 7;
+    static final double ruchkaSkobaCvet = 8;
 
     //Ручка дверная прямая (нержавейка) (СКОБА)
-    static final double ruchkaSkobaNerzh = 18;
+    static final double ruchkaSkobaNerzh = 19;
 
     //Нажимной гарнитур стандартный (белый/коричневый) собирается из двух
     static final double garnitStndr2 = 3;
 
     //Нажимной гарнитур Medos VIKTORY на широкой планке (белый, коричневый)
-    static final double garnitMedosVictory = 7;
+    static final double garnitMedosVictory = 8;
 
     //Нажимной гарнитур Medos VIKTORY на широкой планке (белый/коричневый) собирается из 2-х
     static final double garnitMedosVictory2 = 12;
 
     //Нажимной гарнитур Medos VIKTORY на широкой планке (антрацит, бронза, черный, серебро, титан)
-    static final double garnitMedosVictoryCvet = 9;
+    static final double garnitMedosVictoryCvet = 10;
 
     //Нажимной гарнитур Medos VIKTORY на широкой планке (белый/(антрацит, бронза, черный, серебро, титан)) из 2-х
-    static final double garnitMedosVictoryCvet2 = 14;
+    static final double garnitMedosVictoryCvet2 = 15;
 
     //Замок многозапорный защелка
-    static final double mnogozapornik = 21;
+    static final double mnogozapornik = 22;
 
     //Замок многозапорный Roto ролик
-    static final double mnogozapornikRolik = 64;
+    static final double mnogozapornikRolik = 68;
 
     //Цилиндр ключ-барашка
     static final double barashka = 1;
@@ -277,44 +281,44 @@ public class DopPrices {
     static final double msBelNar = 9;
 
     //м/сетка нар кор
-    static final double msKorichNar = 15;
+    static final double msKorichNar = 16;
 
     //м/сетка вн белая
-    static final double msBelVnut = 14;
+    static final double msBelVnut = 15;
 
     //м/сетка вн кор
-    static final double msKorichVnut = 20;
+    static final double msKorichVnut = 21;
 
     //м/сетка на двери бел
-    static final double msBelDver = 15;
+    static final double msBelDver = 16;
 
     //м/сетка на двери кор
-    static final double msKorichDver = 23;
+    static final double msKorichDver = 24;
 
     //м/сетка на алюмин
     static final double msAlumin = 33;
 
     //--------------------------------ПОДОКОННИКИ(ЦЕНА ЗА КВ.М)-------------------------------------
     //Подоконник Обычный
-    static final double PODSTNDRT = 12.1;
+    static final double PODSTNDRT = 12.7;
 
     //Подоконник Ламинированый
-    static final double PODLAM = 72.6;
+    static final double PODLAM = 76.2;
 
     //Подоконник Crystallit
-    static final double PODCRYSTALLIT = 79;
+    static final double PODCRYSTALLIT = 83;
 
     //Подоконник Danke KOFMORT
-    static final double PODDANKEKOMFORT = 42;
+    static final double PODDANKEKOMFORT = 44;
 
     //Подоконник Danke STANDART
-    static final double PODDANKESTANDART = 67;
+    static final double PODDANKESTANDART = 70;
 
     //Подоконник Danke PREMIUM
-    static final double PODDANKEPREMIUM = 91;
+    static final double PODDANKEPREMIUM = 95;
 
     //Подоконник ESTERA
-    static final double PODESTERA = 85;
+    static final double PODESTERA = 89;
 
     //ЗАГЛУШКА ДЛЯ ОБЫЧНОГО
     static final double ZAGLSTNDRT = 0.5;
@@ -323,10 +327,10 @@ public class DopPrices {
     static final double ZAGLSTNDRTCOLOR = 4;
 
     //ЗАГЛУШКА ДЛЯ CRYSTALLIT
-    static final double ZAGLCRYSTALLIT = 1.5;
+    static final double ZAGLCRYSTALLIT = 2;
 
     //ЗАГЛУШКА ДЛЯ DANKE
-    static final double ZAGLDANKE = 3;
+    static final double ZAGLDANKE = 3.2;
 
     //ЗАГЛУШКА ДЛЯ ESTERA
     static final double ZAGLESTERA = 2;
@@ -344,19 +348,19 @@ public class DopPrices {
     static final double nashPvh = 1;
 
     //Двутавр на алюминьку
-    static final double dvutavr = 2.8;
+    static final double dvutavr = 3;
 
     //Соединитель труба на алюминий
-    static final double soedTrubaNaAlumin = 12.1;
+    static final double soedTrubaNaAlumin = 12.7;
 
     //Соединитель 90 градусов на Алюминий
-    static final double soed90NaAlumin = 8.3;
+    static final double soed90NaAlumin = 8.7;
 
     //Профиль расширительный на Алюминий 60 мм + двутавр
-    static final double profRashNaAlumin60mm = 7.7 + dvutavr;
+    static final double profRashNaAlumin60mm = 8 + dvutavr;
 
     //Профиль расширительный на Алюминий 40 мм + двутавр
-    static final double profRashNaAlumin40mm = 6.6 + dvutavr;
+    static final double profRashNaAlumin40mm = 6 + dvutavr;
 
     //Штульп
     static final int shtulp = 25;
@@ -686,20 +690,17 @@ public class DopPrices {
     static final int SLPDOOR2STF2_M = 70;
 
 //------------------------------------ЛИЗИНГ--------------------------------------------------------
-    /*static final double KTP = 10 / 100.0;
-    static final double NALOG = 28 / 100.0;*/
-
     //------------------------------ПО МЕСЯЦАМ------------------------------------------------------
 
     //4 месяца
-    static final double LIZING4M = 1.2;
+    static final double LIZING4M = 1.257;
     //6 месяцев
-    static final double LIZING6M = 1.23;
+    static final double LIZING6M = 1.296;
     //12 месяцев
-    static final double LIZING12M = 1.31;
+    static final double LIZING12M = 1.405;
     //20 месяцев
-    static final double LIZING20M = 1.52;
+    static final double LIZING20M = 1.627;
     //24 месяцев
-    static final double LIZING24M = 1.54;
+    static final double LIZING24M = 1.658;
 
 }

@@ -867,8 +867,73 @@
 
     <string-array name="dtaShpros">
         <item>"Без шпрос"</item>
+        <item>"Шпросы белые/коричневые 26мм"</item>
         <item>"Шпросы белые/коричневые 18мм"</item>
         <item>"Шпросы белые/золотые 8мм"</item>
+    </string-array>
+
+    <string-array name="Width_shpros">
+        <item>1000</item>
+        <item>1100</item>
+        <item>1200</item>
+        <item>1300</item>
+        <item>1400</item>
+        <item>1500</item>
+        <item>1600</item>
+        <item>1700</item>
+        <item>1800</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2100</item>
+        <item>2200</item>
+        <item>2300</item>
+        <item>2400</item>
+        <item>2500</item>
+        <item>2600</item>
+        <item>2700</item>
+        <item>2800</item>
+        <item>2900</item>
+        <item>3000</item>
+        <item>3100</item>
+        <item>3200</item>
+        <item>3300</item>
+        <item>3400</item>
+        <item>3500</item>
+        <item>3600</item>
+        <item>3700</item>
+        <item>3800</item>
+        <item>3900</item>
+        <item>4000</item>
+        <item>4100</item>
+        <item>4200</item>
+        <item>4300</item>
+        <item>4400</item>
+        <item>4500</item>
+        <item>4600</item>
+        <item>4700</item>
+        <item>4800</item>
+        <item>4900</item>
+        <item>5000</item>
+        <item>5100</item>
+        <item>5200</item>
+        <item>5300</item>
+        <item>5400</item>
+        <item>5500</item>
+        <item>5600</item>
+        <item>5700</item>
+        <item>5800</item>
+        <item>5900</item>
+        <item>6000</item>
+        <item>6100</item>
+        <item>6200</item>
+        <item>6300</item>
+        <item>6400</item>
+        <item>6500</item>
+        <item>6600</item>
+        <item>6700</item>
+        <item>6800</item>
+        <item>6900</item>
+        <item>7000</item>
     </string-array>
 
     <string-array name="dtaFigure">

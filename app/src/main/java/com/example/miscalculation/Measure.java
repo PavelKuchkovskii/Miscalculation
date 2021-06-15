@@ -9,6 +9,8 @@ public class Measure implements Serializable {
     private String version = "";
 
     private boolean region = false;
+
+    private double course;
     private int delivery = 35;
     private int other;
 
@@ -41,6 +43,10 @@ public class Measure implements Serializable {
 
     public void setVersion(String s) {
         this.version = s;
+    }
+
+    public void setCourse(double d) {
+        this.course = d;
     }
 
     //Вызывается добовляя новое изделие

@@ -38,7 +38,7 @@ import java.util.zip.GZIPInputStream;
 public class MainActivity extends AppCompatActivity {
 
 //**************************************************************************************************
-    public static final String version = "1.05_1";
+    public static final String version = "1.1";
 //**************************************************************************************************
 
     final Context context = this;

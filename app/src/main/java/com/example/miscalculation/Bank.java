@@ -14,14 +14,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Bank extends AppCompatActivity {
 
-    /**
+
     static double priceLizZh;
     static double priceLizM;
     static double priceLizZhWPrepaid;
     static double priceLizMWPrepaid;
-    static int minLiz1;
-    static int minLiz2;
-    */
+    static int prepaidLizZh;
+    static int prepaidLizM;
 
     static int priceZ;
     static int priceM;
@@ -239,7 +238,10 @@ public class Bank extends AppCompatActivity {
                 builder.setMessage(
                         "МИНИМАЛЬНАЯ сумма для ПОДАЧИ заявки: \n"
                         + "По банкам: 50 руб\n"
-                        + "По лизингу: 600 руб\n");
+                        + "По лизингу: 600 руб\n" +
+                        "МАКСИМАЛЬНАЯ сумма ПРЕДОПЛАТЫ по ЛИЗИНГУ: \n"
+                        + "ЖЕЛ: " + prepaidLizZh + "\n"
+                        + "МИН: " + prepaidLizM + "\n");
 
                 builder.setPositiveButton("ОК", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -345,37 +347,37 @@ public class Bank extends AppCompatActivity {
 
 
         //ЛИЗИНГ
-        Lmes4Z.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING4M) ? (int) Math.ceil(priceZ * DopPrices.LIZING4M) + rub : "-");
-        Lmes6Z.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING6M) ? (int) Math.ceil(priceZ * DopPrices.LIZING6M) + rub : "-");
-        Lmes12Z.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING12M) ? (int) Math.ceil(priceZ * DopPrices.LIZING12M) + rub : "-");
-        Lmes20Z.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING20M) ? (int) Math.ceil(priceZ * DopPrices.LIZING20M) + rub : "-");
-        Lmes24Z.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING24M) ? (int) Math.ceil(priceZ * DopPrices.LIZING24M) + rub : "-");
+        Lmes4Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING4M) + rub : "-");
+        Lmes6Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING6M) + rub : "-");
+        Lmes12Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING12M) + rub : "-");
+        Lmes20Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING20M) + rub : "-");
+        Lmes24Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING24M) + rub : "-");
 
-        Lmes4M.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING4M) ? (int) Math.ceil(priceM * DopPrices.LIZING4M) + rub : "-");
-        Lmes6M.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING6M) ? (int) Math.ceil(priceM * DopPrices.LIZING6M) + rub : "-");
-        Lmes12M.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING12M) ? (int) Math.ceil(priceM * DopPrices.LIZING12M) + rub : "-");
-        Lmes20M.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING20M) ? (int) Math.ceil(priceM * DopPrices.LIZING20M) + rub : "-");
-        Lmes24M.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING24M) ? (int) Math.ceil(priceM * DopPrices.LIZING24M) + rub : "-");
+        Lmes4M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING4M) + rub : "-");
+        Lmes6M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING6M) + rub : "-");
+        Lmes12M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING12M) + rub : "-");
+        Lmes20M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING20M) + rub : "-");
+        Lmes24M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING24M) + rub : "-");
 
 
-        Lmes4EZ.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING4M) ? (int) Math.ceil(priceZ * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EZ.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING6M) ? (int) Math.ceil(priceZ * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EZ.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING12M) ? (int) Math.ceil(priceZ * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EZ.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING20M) ? (int) Math.ceil(priceZ * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EZ.setText(minLiz <= Math.ceil(priceZ * DopPrices.LIZING24M) ? (int) Math.ceil(priceZ * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING4M)/4 + rub : "-");
+        Lmes6EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING6M)/6 + rub : "-");
+        Lmes12EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING12M)/12 + rub : "-");
+        Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING20M)/20 + rub : "-");
+        Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING24M)/24 + rub : "-");
 
-        Lmes4EM.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING4M) ? (int) Math.ceil(priceM * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EM.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING6M) ? (int) Math.ceil(priceM * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EM.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING12M) ? (int) Math.ceil(priceM * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EM.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING20M) ? (int) Math.ceil(priceM * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EM.setText(minLiz <= Math.ceil(priceM * DopPrices.LIZING24M) ? (int) Math.ceil(priceM * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING4M)/4 + rub : "-");
+        Lmes6EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING6M)/6 + rub : "-");
+        Lmes12EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING12M)/12 + rub : "-");
+        Lmes20EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING20M)/20 + rub : "-");
+        Lmes24EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING24M)/24 + rub : "-");
     }
 
     //Вызывается при добовлении предоплаты
     public void setPriceBank(int i) {
         int tmpPriceZ = priceZ - i;
         int tmpPriceM = priceM - i;
-        //ContinePrice.forLizingFromBank(i);
+        ContinePrice.forLizingFromBank(i);
 
 
         Ames6Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.06) ? (int) Math.ceil(tmpPriceZ * 1.06) + rub : "-");
@@ -441,43 +443,44 @@ public class Bank extends AppCompatActivity {
 
 
         //ЛИЗИНГ
-        Lmes4Z.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING4M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING4M) + rub : "-");
-        Lmes6Z.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING6M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING6M) + rub : "-");
-        Lmes12Z.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING12M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING12M) + rub : "-");
-        Lmes20Z.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING20M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING20M) + rub : "-");
-        Lmes24Z.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING24M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING24M) + rub : "-");
+        Lmes4Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M) + rub : "-");
+        Lmes6Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M) + rub : "-");
+        Lmes12Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M) + rub : "-");
+        Lmes20Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M) + rub : "-");
+        Lmes24Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M) + rub : "-");
 
-        Lmes4M.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING4M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING4M) + rub : "-");
-        Lmes6M.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING6M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING6M) + rub : "-");
-        Lmes12M.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING12M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING12M) + rub : "-");
-        Lmes20M.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING20M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING20M) + rub : "-");
-        Lmes24M.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING24M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING24M) + rub : "-");
+        Lmes4M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M) + rub : "-");
+        Lmes6M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M) + rub : "-");
+        Lmes12M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M) + rub : "-");
+        Lmes20M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M) + rub : "-");
+        Lmes24M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M) + rub : "-");
 
 
-        Lmes4EZ.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING4M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EZ.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING6M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EZ.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING12M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EZ.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING20M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EZ.setText(minLiz <= Math.ceil(tmpPriceZ * DopPrices.LIZING24M) ? (int) Math.ceil(tmpPriceZ * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M)/4 + rub : "-");
+        Lmes6EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M)/6 + rub : "-");
+        Lmes12EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M)/12 + rub : "-");
+        Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M)/20 + rub : "-");
+        Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M)/24 + rub : "-");
 
-        Lmes4EM.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING4M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EM.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING6M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EM.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING12M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EM.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING20M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EM.setText(minLiz <= Math.ceil(tmpPriceM * DopPrices.LIZING24M) ? (int) Math.ceil(tmpPriceM * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EM.setText(minLiz <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M)/4 + rub : "-");
+        Lmes6EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M)/6 + rub : "-");
+        Lmes12EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M)/12 + rub : "-");
+        Lmes20EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M)/20 + rub : "-");
+        Lmes24EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M)  && i <= prepaidLizM? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M)/24 + rub : "-");
     }
 
-    /*public static void setPriceDopAndItem(double pLizZh, double pLizMin, int minLiz1C, int minLiz2C) {
+    public static void setPriceDopAndItem(double pLizZh, double pLizMin, double zhMaxPrepaid, double minMaxPrepaid) {
         priceLizZh = pLizZh;
         priceLizM = pLizMin;
-        minLiz1 = minLiz1C;
-        minLiz2 = minLiz2C;
+        prepaidLizZh = (int) zhMaxPrepaid;
+        prepaidLizM = (int) minMaxPrepaid;
     }
+
 
     //Вызывается при добовлении предоплаты
     public static void setPriceLizWithPrepaid(double pLizZh, double pLizMin) {
         priceLizZhWPrepaid = pLizZh;
         priceLizMWPrepaid = pLizMin;
-    }*/
+    }
 
 }

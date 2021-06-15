@@ -144,7 +144,7 @@ public class ContinePrice extends AppCompatActivity {
                 Bank.setPriceZM( continePriceZh, continePriceM );
                 startActivity(bankActivity);
 
-                //foLizing();
+                foLizing();
             }
         });
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -184,6 +184,7 @@ public class ContinePrice extends AppCompatActivity {
     //отправляем qr код в виде uri изображения
     public void sendMeasure() throws IOException {
         MainActivity.hashMap.get(MainActivity.nameMeasure).setVersion(MainActivity.version);
+        MainActivity.hashMap.get(MainActivity.nameMeasure).setCourse(course);
 
         Gson gson= new Gson();
         //Создаем временный hasmap
@@ -263,27 +264,33 @@ public class ContinePrice extends AppCompatActivity {
         return compress(str.getBytes(StandardCharsets.UTF_8));
     }
 
-    /*
+
     public void foLizing(){
         //Цена изделий тех что покупаем на космоторге
         double priceItems1 = 0;
         //Цена изделий которые сами покупаем
         double priceItems2 = 0;
 
-        double KTPUE;
-        double PDW;
-        double FZP;
-        double NAl;
+        double percentN = (8.0/92 *1.2);
 
-        double PDW2;
-        double FZP2;
-        double NAl2;
+        double all;
+        double percent;
+        double NDS;
+
+        double all2;
+        double percent2;
+        double NDS2;
 
 
         double pLizZh;
         double pLizM;
-        int minLiz1;
-        int minLiz2;
+
+        double pLizZhMaxPrepaid = ((priceItems2 + other + mounting + slopes + interest + delivery) * percentN +
+                (priceItems2 + other + mounting + slopes + interest + delivery) * 0.2 +
+                (priceItems2 + other + mounting + slopes + interest + delivery)) * course;
+        double pLizMinMaxPrepaid = ((priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * percentN +
+                (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 0.2 +
+                (priceItems2 + other + mounting + slopes + interest/2.0 + delivery)) * course;
 
         for(int i = 0;i < list.size();i++) {
             if(list.get(i).contains("Брус деревянный") || list.get(i).contains("Нащельник ПВХ")) {
@@ -292,26 +299,24 @@ public class ContinePrice extends AppCompatActivity {
                 priceItems1 +=ProductList.prodItemPrice.get(i);
             }
         }
-        priceItems1 = Math.ceil(priceItems1 * 1.2);
+        priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
 
-        KTPUE = priceItems1 * DopPrices.KTP;
-        PDW = delivery + mounting + slopes + interest + other  + priceItems2;
-        FZP = (PDW + priceItems1) * DopPrices.KTP;
-        NAl = (PDW + FZP) * DopPrices.NALOG;
+        all = priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery;
+        percent = all * percentN;
+        NDS = (priceItems2 + other + mounting + slopes + interest + delivery) * 0.2;
 
-        PDW2 = delivery + mounting + slopes + interest/2.0 + other  + priceItems2;
-        FZP2 = (PDW2 + priceItems1) * DopPrices.KTP;
-        NAl2 = (PDW2 + FZP2) * DopPrices.NALOG;
+        all2 = priceItems1 + priceItems2 + other + mounting + slopes + interest/2.0 + delivery;
+        percent2 = all2 * percentN;
+        NDS2 = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 0.2;
 
-        pLizZh = (priceItems1 + KTPUE + PDW + FZP + NAl) * course;
-        pLizM = (priceItems1 + KTPUE + PDW2 + FZP2 + NAl2) * course;
-        //Максимальная сумма предоплаты по лизингу
-        minLiz1 = (int) ((PDW * 1.165) * course);
-        minLiz2 = (int) ((PDW2 * 1.165) * course);
+        pLizZh = Math.ceil((NDS + all + percent) * course);
+        pLizM = Math.ceil((NDS2 + all2 + percent2) * course);
 
-        Bank.setPriceDopAndItem(pLizZh,pLizM, minLiz1, minLiz2);
+
+        Bank.setPriceDopAndItem(pLizZh,pLizM, pLizZhMaxPrepaid, pLizMinMaxPrepaid);
     }
+
 
     //Вызывается при добовлении предоплаты
     public static void forLizingFromBank(int prepaid){
@@ -320,14 +325,17 @@ public class ContinePrice extends AppCompatActivity {
         //Цена изделий которые сами покупаем
         double priceItems2 = 0;
 
-        double KTPUE;
-        double PDW;
-        double FZP;
-        double NAl;
+        double percentN = (8.0/92 *1.2);
 
-        double PDW2;
-        double FZP2;
-        double NAl2;
+        double all;
+        double percent;
+        double NDS;
+
+        double all2;
+        double percent2;
+        double NDS2;
+
+        double sumP = Math.ceil(prepaid / course * 0.92) - Math.ceil(prepaid / course * 0.92 / 6);
 
 
         double pLizZh;
@@ -340,23 +348,22 @@ public class ContinePrice extends AppCompatActivity {
                 priceItems1 +=ProductList.prodItemPrice.get(i);
             }
         }
-        priceItems1 = Math.ceil(priceItems1 * 1.2);
+        priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
 
-        KTPUE = priceItems1 * DopPrices.KTP;
-        PDW = delivery + mounting + slopes + interest + other  + priceItems2 - (int)(prepaid/116.5 * 100/2.7);
-        FZP = (PDW + priceItems1) * DopPrices.KTP;
-        NAl = (PDW + FZP) * DopPrices.NALOG;
+        all = (priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery) - sumP;
+        percent = all * percentN;
+        NDS = ((priceItems2 + other + mounting + slopes + interest + delivery)-sumP) * 0.2;
 
-        PDW2 = delivery + mounting + slopes + interest/2.0 + other  + priceItems2 - (int)(prepaid/116.5 * 100/2.7);
-        FZP2 = (PDW2 + priceItems1) * DopPrices.KTP;
-        NAl2 = (PDW2 + FZP2) * DopPrices.NALOG;
+        all2 = (priceItems1 + priceItems2 + other + mounting + slopes + interest/2.0 + delivery)-sumP;
+        percent2 = all2 * percentN;
+        NDS2 = ((priceItems2 + other + mounting + slopes + interest/2.0 + delivery)-sumP) * 0.2;
 
-        pLizZh = (priceItems1 + KTPUE + PDW + FZP + NAl) * course;
-        pLizM = (priceItems1 + KTPUE + PDW2 + FZP2 + NAl2) * course;
+        pLizZh = Math.ceil((NDS + all + percent) * course);
+        pLizM = Math.ceil((NDS2 + all2 + percent2) * course);
 
-        Bank.setPriceLizWithPrepaid(pLizZh, pLizM);
+
+        Bank.setPriceLizWithPrepaid(pLizZh,pLizM);
 
     }
-    */
 }
