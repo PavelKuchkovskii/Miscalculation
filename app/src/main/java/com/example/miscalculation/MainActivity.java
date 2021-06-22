@@ -37,10 +37,6 @@ import java.util.zip.GZIPInputStream;
 
 public class MainActivity extends AppCompatActivity {
 
-//**************************************************************************************************
-    public static final String version = "1.1";
-//**************************************************************************************************
-
     final Context context = this;
     static boolean startProg = false;
     static boolean prodListActivityFlag = true;

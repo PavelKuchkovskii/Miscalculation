@@ -266,7 +266,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
         adapterTypeOfGarnit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterTypeOfGarnit.clear();
-        adapterTypeOfGarnit.addAll(addList(R.array.dtaTypeOfGarnit));
+        adapterTypeOfGarnit.addAll(addList(R.array.dtaTypeOfGarnitDoorProf));
 
         adapterColorGarnit.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterColorGarnit.clear();
@@ -816,6 +816,17 @@ public class AddDoorActivity extends AppCompatActivity {
 
 
     public void setPrice(int p1, int p2) {
+
+        //Если деврной профиль, то скоба ставится
+        if (p2 == 0 || p2 == 1) {
+            adapterTypeOfGarnit.clear();
+            adapterTypeOfGarnit.addAll(addList(R.array.dtaTypeOfGarnitDoorProf));
+        }
+        //Если деврной профиль, то скоба НЕ ставится
+        else if (p2 == 2 || p2 == 3) {
+            adapterTypeOfGarnit.clear();
+            adapterTypeOfGarnit.addAll(addList(R.array.dtaTypeOfGarnitWindowProf));
+        }
 
         // Одностворчатаяя дверь - Дверной профиль 70
         if(p1 == 0 && p2 == 0) {
@@ -1415,7 +1426,7 @@ public class AddDoorActivity extends AppCompatActivity {
     }
 
     public double setMinskPrice() {
-        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass))*1.05;
+        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass)*1.05);
     }
 
     public List<String> addList(@ArrayRes int id) {

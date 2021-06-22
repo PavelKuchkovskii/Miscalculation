@@ -835,7 +835,13 @@ public class AddWindowActivity extends AppCompatActivity {
                     addHandleBut.setVisibility(View.INVISIBLE);
                     spinnerFurnit.setVisibility(View.INVISIBLE);
                 }
-                //Если выбраны открывающиеся окна, скрываем тип фигуры(только стандартные) и возвращаем ручки
+                //Если выбраны открывающиеся окна и не балконная дверь - возвращаем ручки
+                else if (!balDorFlag) {
+                    spinnerHandle.setVisibility(View.VISIBLE);
+                    addHandleBut.setVisibility(View.VISIBLE);
+                    spinnerFurnit.setVisibility(View.VISIBLE);
+                }
+                //Если балконная дверь, показываем ручки и скрываем фигуры
                 else {
                     priceFigure = 0;
                     positionFigure1 = 0;
@@ -1200,7 +1206,8 @@ public class AddWindowActivity extends AppCompatActivity {
                 setPriceShpros();
 
                 String itemName = dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 ? dataFurnit.get(positionFurnit1) + "   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
-                String itemInfo = "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 || balDorFlag ? " " + dataFurnit.get(positionFurnit1) + "\n" : "\n") +
+                String itemInfo = "Фигура окна: " + (positionFigure1 == 0 ? "обычная\n\n" : dataFigure.get(positionFigure1) + "\n\n") +
+                        "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 || balDorFlag ? " " + dataFurnit.get(positionFurnit1) + "\n" : "\n") +
                                   dataType[positionType1] + " " + (positionType1 != 4 ? dataTypeOfType.get(positionTypeOfType1) + "\n" : dataFilling.get(positionFilling1) + "\n") +
                                   "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
                         (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1)) + "\n" +
@@ -1211,7 +1218,7 @@ public class AddWindowActivity extends AppCompatActivity {
                                                 (dataGlassList.get(0).equals("Обычное стекло") ? "Обычное стекло;" : dataGlassList.get(0) + ";") +
                                                 (dataGlassList.get(1).equals("Обычное стекло") ? "Обычное стекло;" : dataGlassList.get(1) + ";") + "\n") : "\n") +
                                   (positionTypeOfType1 > 0 || balDorFlag ? (dataHandleList.size() > 2 ? dataHandleList.get(0) + "\n" + dataHandleList.get(1) + "\n" + dataHandleList.get(2) + "\n" :
-                                          dataHandleList.get(0) + "\n" + dataHandleList.get(1) + "\n"): "\n") +
+                                          dataHandleList.get(0) + "\n" + dataHandleList.get(1) + "\n"): "") +
                                   (positionTypeOfType1 > 1 ? dataShtulp.get(positionShtulp1) + "\n" : "") +
                         (positionShpros1 > 0 ? dataShpros.get(positionShpros1) + " " + dataShprosWidth.get(positionShprosWidth1) : dataShpros.get(positionShpros1));
 
@@ -1286,6 +1293,9 @@ public class AddWindowActivity extends AppCompatActivity {
         //Глухая
         if(p2 == 0 && flag == true) {
             gluhFlag = true;
+            adapterFigure.clear();
+            adapterFigure.addAll(addList(R.array.dtaFigure));
+
             adapterHandle.clear();
             adapterHandle.addAll(addList(R.array.dtaHandle1));
             handlePriceItems[0] = 0;
@@ -1296,6 +1306,9 @@ public class AddWindowActivity extends AppCompatActivity {
         //Открываются
         if( (p2 == 1 || p2 == 2 || p2 == 3 || p2 == 4) && flag == true) {
             gluhFlag = false;
+            adapterFigure.clear();
+            adapterFigure.addAll(addList(R.array.dtaFigure2));
+
             adapterHandle.clear();
             adapterHandle.addAll(addList(R.array.dtaHandle2));
             handlePriceItems[0] = 0;
@@ -2040,7 +2053,7 @@ public class AddWindowActivity extends AppCompatActivity {
     }
 
     public double setMinskPrice() {
-        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass))*1.05;
+        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass)*1.05);
     }
 
     public List<String> addList(@ArrayRes int id) {
@@ -2098,29 +2111,38 @@ public class AddWindowActivity extends AppCompatActivity {
     public void setPriceFigure() {
         //Вызывается после нажатия на кнопку добавить изделие
 
-        //Обычное окно
-        if(positionFigure1 == 0) {
-            priceFigure = 0;
-            return;
+        //Если окно глухое
+        if (gluhFlag) {
+            //Обычное окно
+            if (positionFigure1 == 0) {
+                priceFigure = 0;
+            }
+            //Арка
+            else if (positionFigure1 == 1) {
+                priceFigure = DopPrices.arka;
+            }
+            //Трапеция 2 угла
+            else if (positionFigure1 == 2) {
+                priceFigure = DopPrices.trapecija * 2;
+            }
+            //Трапеция 3 угла
+            else if (positionFigure1 == 3) {
+                priceFigure = DopPrices.trapecija * 3;
+            }
+            //Трапеция 4 угла
+            else {
+                priceFigure = DopPrices.trapecija * 4;
+            }
         }
-        //Арка
-        if(positionFigure1 == 1) {
-            priceFigure = DopPrices.arka;
-            return;
-        }
-        //Трапеция 2 угла
-        if(positionFigure1 == 2) {
-            priceFigure = DopPrices.trapecija * 2;
-            return;
-        }
-        //Трапеция 3 угла
-        if(positionFigure1 == 3) {
-            priceFigure = DopPrices.trapecija * 3;
-            return;
-        }
-        //Трапеция 4 угла
-        if(positionFigure1 == 4) {
-            priceFigure = DopPrices.trapecija * 4;
+        else {
+            //Обычное окно
+            if (positionFigure1 == 0) {
+                priceFigure = 0;
+            }
+            //Арка
+            else{
+                priceFigure = DopPrices.arka + (Integer.parseInt(dataWidth.get(positionWidth1))/1000.0 * 10);
+            }
         }
     }
 
@@ -2134,10 +2156,10 @@ public class AddWindowActivity extends AppCompatActivity {
 
 
         //Если открываются окна
-        if(gluhFlag == false) {
+        if(!gluhFlag) {
 
             //Если выбраны ручки
-            if(p1 == 0 || p1 == 1 || p1 == 2 || p1 == 3 || p1 == 4 || p1 == 5 || p1 == 6) {
+            if(p1 == 0 || p1 == 1 || p1 == 2 || p1 == 3 || p1 == 4 || p1 == 5 || p1 == 6 || p1 == 7) {
                 dataHandleList.set(0, dataHandle.get(positionHandle1));
             }
             //Если выбраны накладки
@@ -2149,51 +2171,47 @@ public class AddWindowActivity extends AppCompatActivity {
             //Ручка стндрт.
             if(p1 == 0) {
                 handlePriceItems[0] = 0;
-                return;
             }
             //Ручка Roto Samba (белая)
-            if(p1 == 1) {
+            else if(p1 == 1) {
                 handlePriceItems[0] = DopPrices.ruchkaSambaBel;
-                return;
             }
             //Ручка Hoppe (коричневая)
-            if(p1 == 2) {
+            else if(p1 == 2) {
                 handlePriceItems[0] = DopPrices.ruchkaHopeKorich;
-                return;
             }
             //Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)
-            if(p1 == 3) {
+            else if(p1 == 3) {
                 handlePriceItems[0] = DopPrices.ruchkaRotoLine;
-                return;
             }
             //Ручка Roto Swing (белая, серебро, титан мат)
-            if(p1 == 4) {
+            else if(p1 == 4) {
                 handlePriceItems[0] = DopPrices.ruchkaRotoSwingV1;
-                return;
             }
             //Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)
-            if(p1 == 5) {
+            else if(p1 == 5) {
                 handlePriceItems[0] = DopPrices.ruchkaRotoSwingV2;
-                return;
+            }
+            //Ручка 2-х сторонняя (белая, коричневая)
+            else if(p1 == 6) {
+                handlePriceItems[0] = DopPrices.ruchka2storon;
             }
             //Ручка с ключом (белая, коричневая)
-            if(p1 == 6) {
+            else if(p1 == 7) {
                 handlePriceItems[0] = DopPrices.ruchkaSKluchom;
-                return;
             }
             //Комплект декоративных накладок (белый, коричневый)
-            if(p1 == 7) {
+            else if(p1 == 8) {
                 handlePriceItems[1] = 0;
-                return;
             }
             //Комплект декоративных накладок (цветной)
-            if(p1 == 8) {
+            else {
                 handlePriceItems[1] = DopPrices.dekorNakladkaCvet;
-                return;
             }
         }
+
         //Если балконная дверь
-        if(balDorFlag == true) {
+        else if(balDorFlag) {
             //Если выбраны ручки
             if(p1 == 0 || p1 == 1 || p1 == 2 || p1 == 3 || p1 == 4 || p1 == 5 || p1 == 6 || p1 == 7) {
                 dataHandleList.set(0, dataHandle.get(positionHandle1));
@@ -2213,62 +2231,50 @@ public class AddWindowActivity extends AppCompatActivity {
             //Ручка стндрт.
             if(p1 == 0) {
                 handlePriceItems[0] = 0;
-                return;
             }
             //Ручка Roto Samba (белая)
-            if(p1 == 1) {
+            else if(p1 == 1) {
                 handlePriceItems[0] = DopPrices.ruchkaSambaBel;
-                return;
             }
             //Ручка Hoppe (коричневая)
-            if(p1 == 2) {
+            else if(p1 == 2) {
                 handlePriceItems[0] = DopPrices.ruchkaHopeKorich;
-                return;
             }
             //Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)
-            if(p1 == 3) {
+            else if(p1 == 3) {
                 handlePriceItems[0] = DopPrices.ruchkaRotoLine;
-                return;
             }
             //Ручка Roto Swing (белая, серебро, титан мат)
-            if(p1 == 4) {
+            else if(p1 == 4) {
                 handlePriceItems[0] = DopPrices.ruchkaRotoSwingV1;
-                return;
             }
             //Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)
-            if(p1 == 5) {
+            else if(p1 == 5) {
                 handlePriceItems[0] = DopPrices.ruchkaRotoSwingV2;
-                return;
             }
             //Ручка 2-х сторонняя (белая, коричневая)
-            if(p1 == 6) {
+            else if(p1 == 6) {
                 handlePriceItems[0] = DopPrices.ruchka2storon;
-                return;
             }
             //Ручка с ключом (белая, коричневая)
-            if(p1 == 7) {
+            else if(p1 == 7) {
                 handlePriceItems[0] = DopPrices.ruchkaSKluchom;
-                return;
             }
             //Хваталка балконная (белая, коричневая)
-            if(p1 == 8) {
+            else if(p1 == 8) {
                 handlePriceItems[2] = 0;
-                return;
             }
             //Хваталка балконная (антрацит, золотой дуб)
-            if(p1 == 9) {
+            else if(p1 == 9) {
                 handlePriceItems[2] = DopPrices.hvatalkaCvet;
-                return;
             }
             //Комплект декоративных накладок (белый, коричневый)
-            if(p1 == 10) {
+            else if(p1 == 10) {
                 handlePriceItems[1] = 0;
-                return;
             }
             //Комплект декоративных накладок (цветной)
-            if(p1 == 11) {
+            else  {
                 handlePriceItems[1] = DopPrices.dekorNakladkaCvet;
-                return;
             }
         }
     }

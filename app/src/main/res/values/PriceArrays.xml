@@ -802,12 +802,19 @@
         <item>Бронза</item>
     </string-array>
 
-    <string-array name="dtaTypeOfGarnit">
+    <string-array name="dtaTypeOfGarnitDoorProf">
         <item>Нажим. гарнит. стндрт</item>
         <item>Нажим. гарнит. стндрт из 2-ух</item>
         <item>Нажим. гарнит. Medos VICTORY</item>
         <item>Нажим. гарнит. Medos VICTORY из 2-ух</item>
         <item>Ручка прямая (Скоба)</item>
+    </string-array>
+
+    <string-array name="dtaTypeOfGarnitWindowProf">
+        <item>Нажим. гарнит. стндрт</item>
+        <item>Нажим. гарнит. стндрт из 2-ух</item>
+        <item>Нажим. гарнит. Medos VICTORY</item>
+        <item>Нажим. гарнит. Medos VICTORY из 2-ух</item>
     </string-array>
 
     <string-array name="dtaColorGarnit1">
@@ -961,6 +968,7 @@
         <item>"Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)"</item>
         <item>"Ручка Roto Swing (белая, серебро, титан мат)"</item>
         <item>"Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)"</item>
+        <item>"Ручка 2-х сторонняя (белая, коричневая)"</item>
         <item>"Ручка с ключом (белая, коричневая)"</item>
         <item>"Комплект декоративных накладок (белый, коричневый)"</item>
         <item>"Комплект декоративных накладок (цветной)"</item>

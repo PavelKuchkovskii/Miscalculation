@@ -183,9 +183,6 @@ public class ContinePrice extends AppCompatActivity {
 
     //отправляем qr код в виде uri изображения
     public void sendMeasure() throws IOException {
-        MainActivity.hashMap.get(MainActivity.nameMeasure).setVersion(MainActivity.version);
-        MainActivity.hashMap.get(MainActivity.nameMeasure).setCourse(course);
-
         Gson gson= new Gson();
         //Создаем временный hasmap
         LinkedHashMap<String, Measure> tmpHashMap = new LinkedHashMap<>();
@@ -285,13 +282,6 @@ public class ContinePrice extends AppCompatActivity {
         double pLizZh;
         double pLizM;
 
-        double pLizZhMaxPrepaid = ((priceItems2 + other + mounting + slopes + interest + delivery) * percentN +
-                (priceItems2 + other + mounting + slopes + interest + delivery) * 0.2 +
-                (priceItems2 + other + mounting + slopes + interest + delivery)) * course;
-        double pLizMinMaxPrepaid = ((priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * percentN +
-                (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 0.2 +
-                (priceItems2 + other + mounting + slopes + interest/2.0 + delivery)) * course;
-
         for(int i = 0;i < list.size();i++) {
             if(list.get(i).contains("Брус деревянный") || list.get(i).contains("Нащельник ПВХ")) {
                 priceItems2 += ProductList.prodItemPrice.get(i);
@@ -301,6 +291,9 @@ public class ContinePrice extends AppCompatActivity {
         }
         priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
+
+        double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * 1.165 * course;
+        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 1.165 * course;
 
         all = priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery;
         percent = all * percentN;
@@ -335,7 +328,7 @@ public class ContinePrice extends AppCompatActivity {
         double percent2;
         double NDS2;
 
-        double sumP = Math.ceil(prepaid / course * 0.92) - Math.ceil(prepaid / course * 0.92 / 6);
+        int sumP = (int) (prepaid/course/1.165);
 
 
         double pLizZh;

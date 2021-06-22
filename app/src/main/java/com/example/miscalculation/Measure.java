@@ -6,11 +6,11 @@ import java.util.List;
 
 public class Measure implements Serializable {
 
-    private String version = "";
+    private final String version = "1.2";
 
     private boolean region = false;
 
-    private double course;
+    private double course = 2.65;
     private int delivery = 35;
     private int other;
 
@@ -39,10 +39,6 @@ public class Measure implements Serializable {
     }
 
     public Measure() {
-    }
-
-    public void setVersion(String s) {
-        this.version = s;
     }
 
     public void setCourse(double d) {
@@ -146,6 +142,10 @@ public class Measure implements Serializable {
     //Вызывается при инициализации региона
     public boolean getRegion() {
         return region;
+    }
+
+    public double getCourse() {
+        return course;
     }
 
     //Вызывается при изменении интереса в балконном блоке или полукруглой раме

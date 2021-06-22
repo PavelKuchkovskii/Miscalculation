@@ -284,7 +284,8 @@ public class ProductList extends AppCompatActivity {
         // заголовок
         spinnerCourse.setPrompt("Курс");
         // выделяем элемент
-        spinnerCourse.setSelection(4);
+        //Если замер не выбран, то позиция ставится на 0(2.55)
+        spinnerCourse.setSelection(MainActivity.nameMeasure != null ? getCourse(MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse()) : 0);
         // устанавливаем обработчик нажатия
         spinnerCourse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -293,6 +294,10 @@ public class ProductList extends AppCompatActivity {
                                        int positionCourse, long idCourse) {
 
                 Course = Double.parseDouble(CourseAmount.get(positionCourse));
+                //Если замер выбран
+                if (MainActivity.nameMeasure != null) {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).setCourse(Course);
+                }
                 setProdLstPriceOutcome ();
 
             }
@@ -545,62 +550,77 @@ public class ProductList extends AppCompatActivity {
     //Вызыввется при добовлении нового изделия и из сохраненого замера
     public static void addProdLst (String prodLst, double priceItem, int interest1, int mounting1, int slopes1) {
 
-        if (prodLst.equals("0")) {
-            adapterProdLst.add(block[0]);
-        }
-        else if (prodLst.equals("1")) {
-            adapterProdLst.add(block[1]);
-        }
-        else if (prodLst.equals("2")) {
-            adapterProdLst.add(block[2]);
-        }
-        else if (prodLst.equals("3")) {
-            adapterProdLst.add(block[3]);
-        }
-        else {
-            //Если добавление в конец списка
-            if (!addFromList) {
+        //Если добавление в конец
+        if (!addFromList) {
+            prodItemPrice.add(priceItem);
+            prodInterest.add(interest1);
 
-                //Если менеджер и не работа
-                if(isManager && mounting1 == 0 && slopes1 == 0) {
-                    adapterProdLst.add(prodLst + ": " + priceItem);
-                }
-                //Если не менеджер или работа
-                else{
-                    adapterProdLst.add(prodLst);
-                }
+            if (prodLst.equals("0")) {
+
+                adapterProdLst.add(block[0]);
+
+            } else if (prodLst.equals("1")) {
+
+                adapterProdLst.add(block[1]);
+
+            } else if (prodLst.equals("2")) {
+
+                adapterProdLst.add(block[2]);
+
+            } else if (prodLst.equals("3")) {
+
+                adapterProdLst.add(block[3]);
+
             }
-            //Если добавление в блок
             else {
-                addFromList = false;
-                //Если менеджер и не работа
-                if(isManager && mounting1 == 0 && slopes1 == 0) {
-                    prodList.add(indexOfAddToBlock, prodLst + ": " + priceItem);
-                    adapterProdLst.notifyDataSetInvalidated();
-                }
-                //Если не менеджер или работа
-                else{
-                    prodList.add(indexOfAddToBlock, prodLst);
-                    adapterProdLst.notifyDataSetInvalidated();
-                }
-            }
 
+             //Если менеджер и не работа
+             if (isManager && mounting1 == 0 && slopes1 == 0) {
+                 adapterProdLst.add(prodLst + ": " + priceItem);
+             }
+             //Если не менеджер или работа
+             else {
+                 adapterProdLst.add(prodLst);
+             }
+
+            }
         }
 
+        //Если добавление в блок
+        else {
+            addFromList = false;
+            prodItemPrice.add(indexOfAddToBlock, priceItem);
+            prodInterest.add(indexOfAddToBlock, interest1);
+
+            //Если менеджер
+            if (isManager) {
+                prodList.add(indexOfAddToBlock, prodLst + ": " + priceItem);
+                adapterProdLst.notifyDataSetInvalidated();
+            }
+            //Если не менеджер
+            else {
+                prodList.add(indexOfAddToBlock, prodLst);
+                adapterProdLst.notifyDataSetInvalidated();
+            }
+        }
+
+        //Если не монтаж и не откосы
         if (mounting1 == 0 && slopes1 == 0) {
             priceOutcome = priceOutcome + priceItem;
             interest = interest + interest1;
         }
+        //Если сонтаж или откосы
         else {
+            //Если монтаж
             if (mounting1 != 0) {
                 mounting = mounting + mounting1;
             }
+            //Если откосы
             else {
                 slopes = slopes + slopes1;
             }
         }
-        prodItemPrice.add(priceItem);
-        prodInterest.add(interest1);
+
         prodMounting.add(mounting1);
         prodSlopes.add(slopes1);
         textInterest.setText(interest + ".00");
@@ -608,6 +628,7 @@ public class ProductList extends AppCompatActivity {
         textSlopes.setText(slopes + ".00");
         setProdLstPriceOutcome ();
     }
+
 
     //Вызывается из Класса замера при открытии сохраненного замера
     public static void addProdLst(int delivery1, int other1) {
@@ -907,6 +928,7 @@ public class ProductList extends AppCompatActivity {
     }
 
 //==================================================================================================
+    //Показывает выбранный регион
     public void setTextRegion() {
         //Если true то регион
         if(MainActivity.hashMap.get(MainActivity.nameMeasure).getRegion()) {
@@ -916,6 +938,56 @@ public class ProductList extends AppCompatActivity {
         else {
             textRegion.setText("М");
         }
+    }
+
+    //Устанавливает курс
+    public int getCourse(double d) {
+        if (d == 2.5) {
+            return 0;
+        }
+        else if (d == 2.55) {
+            return 1;
+        }
+        else if (d == 2.6) {
+            return 2;
+        }
+        else if (d == 2.65) {
+            return 3;
+        }
+        else if (d == 2.7) {
+            return 4;
+        }
+        else if (d == 2.75) {
+            return 5;
+        }
+        else if (d == 2.8) {
+            return 6;
+        }
+        else if (d == 2.85) {
+            return 7;
+        }
+        else if (d == 2.9) {
+            return 8;
+        }
+        else if (d == 2.95) {
+            return 9;
+        }
+        else if (d == 3) {
+            return 10;
+        }
+        else if (d == 3.05) {
+            return 11;
+        }
+        else if (d == 3.1) {
+            return 12;
+        }
+        else if (d == 3.15) {
+            return 13;
+        }
+        else {
+            return 14;
+        }
+
     }
 
     public void writeHash(LinkedHashMap<String, Measure> wHashMap) throws IOException {
