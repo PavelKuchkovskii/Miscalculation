@@ -23,4 +23,13 @@
         android:layout_marginBottom="15dp"
         android:layout_marginRight="15dp"/>
 
+    <TextView
+        android:id="@+id/textOAuth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="30sp"
+        android:text="Идентификатор доступа"/>
+
 </RelativeLayout>

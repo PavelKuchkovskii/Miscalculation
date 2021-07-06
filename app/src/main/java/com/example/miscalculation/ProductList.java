@@ -455,7 +455,7 @@ public class ProductList extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    ContinePrice.setContinePrice(prodList,interest,mounting,delivery,other,slopes, Course, Math.ceil(priceOutcome), discontAm);
+                    ContinePrice.setContinePrice(prodList,interest,mounting,delivery,other,slopes, Course, Math.ceil(priceOutcome * 1.05), discontAm);
                     startActivity(continePrice);
                 }
                 else {
@@ -639,7 +639,7 @@ public class ProductList extends AppCompatActivity {
     }
 
     public static void setProdLstPriceOutcome (){
-        itemSum.setText("∑ = " + String.format("%.2f", Math.ceil(priceOutcome)) );
+        itemSum.setText("∑ = " + String.format("%.2f", Math.ceil(priceOutcome * 1.05)) );
     }
 
     public static void clearAll() {

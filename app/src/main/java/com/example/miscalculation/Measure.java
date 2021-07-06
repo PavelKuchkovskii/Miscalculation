@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Measure implements Serializable {
 
-    private final String version = "1.2";
+    private final String version = "1.2P";
 
     private boolean region = false;
 
