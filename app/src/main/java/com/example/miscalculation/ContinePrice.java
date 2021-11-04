@@ -289,8 +289,8 @@ public class ContinePrice extends AppCompatActivity {
                 priceItems1 +=ProductList.prodItemPrice.get(i);
             }
         }
-        priceItems1 = Math.ceil(priceItems1 * 1.05);
-        priceItems2 = Math.ceil(priceItems2 * 1.05);
+        priceItems1 = Math.ceil(priceItems1);
+        priceItems2 = Math.ceil(priceItems2);
 
         double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * 1.165 * course;
         double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 1.165 * course;
@@ -341,8 +341,8 @@ public class ContinePrice extends AppCompatActivity {
                 priceItems1 +=ProductList.prodItemPrice.get(i);
             }
         }
-        priceItems1 = Math.ceil(priceItems1 * 1.05);
-        priceItems2 = Math.ceil(priceItems2 * 1.05);
+        priceItems1 = Math.ceil(priceItems1);
+        priceItems2 = Math.ceil(priceItems2);
 
         all = (priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery) - sumP;
         percent = all * percentN;

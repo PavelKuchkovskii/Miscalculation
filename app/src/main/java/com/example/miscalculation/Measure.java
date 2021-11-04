@@ -6,12 +6,12 @@ import java.util.List;
 
 public class Measure implements Serializable {
 
-    private final String version = "1.2P";
+    private String version;
 
     private boolean region = false;
 
-    private double course = 2.65;
-    private int delivery = 35;
+    private double course;
+    private int delivery;
     private int other;
 
     private List<String> prodList = new ArrayList<>();
@@ -39,6 +39,10 @@ public class Measure implements Serializable {
     }
 
     public Measure() {
+        this.version = MainActivity.prices.version;
+        this.course = MainActivity.prices.course;
+        this.delivery = MainActivity.prices.delivery;
+        ProductList.delivery = this.delivery;
     }
 
     public void setCourse(double d) {
@@ -124,7 +128,7 @@ public class Measure implements Serializable {
         prodMounting.clear();
         prodSlopes.clear();
         prodWidth.clear();
-        delivery = 35;
+        delivery = MainActivity.prices.delivery;
         other = 0;
     }
 

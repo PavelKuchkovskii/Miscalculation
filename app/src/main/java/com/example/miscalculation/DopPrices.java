@@ -1,706 +1,868 @@
 package com.example.miscalculation;
 
-public class DopPrices {
-//----------------------------ЛИСТ 1 (ДОПЫ)---------------------------------------------------------
-    //--------------------------Соединители на Brusbox 60:------------------------------------------
-    //Балконный соединитель 3мм на  60 профиль
-    static final double balSoed3mmNa60ProfileBB = 1.47;
+import java.io.Serializable;
 
-    //Профиль расширительный на 60 профиль 20мм
-    static final double profRashNa60Profile20mmBB = 4.83;
+public class DopPrices implements Serializable{
+  //Версия от какого числа(version)
+  public String version;
 
-    //Профиль расширительный на 60 профиль 40мм
-    static final double profRashNa60Profile40mmBB = 5.04;
-    //Профиль расширительный на 60 профиль 40мм с армированием
-    //static final double profRashNa60Profile40mmBB_ARM = 5.04;
+  //Стандартный курс(course)
+  public double course;
 
-    //Профиль расширительный на 60 профиль 65мм
-    static final double profRashNa60Profile65mmBB = 9.03;
-    //Профиль расширительный на 60 профиль 65мм с армированием
-    //static final double profRashNa60Profile65mmBB_ARM = 9.03;
+  //Стандартная доставка(delivery)
+  public int delivery;
+  //'----------------------------ЛИСТ 1 (ДОПЫ)---------------------------------------------------------
+  //'--------------------------Соединители на Brusbox 60:------------------------------------------
+  //Балконный соединитель 3мм на 60 профиль(balSoed3mmNa60ProfileBB)
+  public double balSoed3mmNa60ProfileBB;
 
+  //Профиль расширительный на 60 профиль 20мм(profRashNa60Profile20mmBB)
+  public double profRashNa60Profile20mmBB;
 
-    //Соединитель-молоток 18 мм на 60 профиль  с армированием
-    static final double soedMolotokNA60ProfileBB = 10.5;
+  //Профиль расширительный на 60 профиль 40мм  с армированием(profRashNa60Profile40mmBB)
+  public double profRashNa60Profile40mmBB;
 
-    //Соединитель угловой 90° на 60 профиль
-    static final double soed90na60ProfileBB = 7.875;
-    //Соединитель угловой 90° на 60 профиль с армированием
-    //static final double soed90na60ProfileBB_ARM = 7.875;
+  //Профиль расширительный на 60 профиль 65мм с армированием(profRashNa60Profile65mmBB)
+  public double profRashNa60Profile65mmBB;
 
-    //Соединитель труба с адаптерами 60 мм
-    static final double soedTruba60mmBB = 12.075;
-    //Соединитель труба с адаптерами 60 мм
-    //static final double soedTruba60mmBB_ARM = 12.075;
+  //Соединитель-молоток 18 мм на 60 профиль с армированием(soedMolotokNA60ProfileBB)
+  public double soedMolotokNA60ProfileBB;
 
-    //--------------------------Соединители на Brusbox 70:------------------------------------------
-    //Балконный соединитель 3мм на 70 профиль
-    static final double balSoed3mmNa70ProfileBB = 2.415;
+  //Соединитель угловой 90° на 60 профиль с армированием(soed90na60ProfileBB)
+  public double soed90na60ProfileBB;
 
-    //Профиль расширительный на 70 профиль  40мм
-    static final double profRashNa70Profile40mmBB = 6.405;
-    //Профиль расширительный на 70 профиль  40мм с армированием
-    //static final double profRashNa70Profile40mmBB_ARM = 6.405;
+  //Соединитель труба с адаптерами 60 мм с армированием(soedTruba60mmBB)
+  public double soedTruba60mmBB;
 
-    //Профиль расширительный на 70 профиль 65мм
-    static final double profRashNa70Profile65mmBB = 12.6;
-    //Профиль расширительный на 70 профиль 65мм с армированием
-    //static final double profRashNa70Profile65mmBB_ARM = 12.6;
+  //'--------------------------Соединители на Brusbox 70:------------------------------------------
+  //Балконный соединитель 3мм на 70 профиль(balSoed3mmNa70ProfileBB)
+  public double balSoed3mmNa70ProfileBB;
 
-    //Соединитель-молоток 18 мм на 70 профиль
-    static final double soedMolotokNA70ProfileBB = 10.5;
+  //Профиль расширительный на 70 профиль 40мм с армированием(profRashNa70Profile40mmBB)
+  public double profRashNa70Profile40mmBB;
 
-    //Соединитель угловой 90° на 70 профиль
-    static final double soed90na70ProfileBB = 10.815;
-    //Соединитель угловой 90° на 70 профиль с армированием
-    //static final double soed90na70ProfileBB_ARM = 10.815;
+  //Профиль расширительный на 70 профиль 65мм с армированием(profRashNa70Profile65mmBB)
+  public double profRashNa70Profile65mmBB;
 
-    //Соединитель труба с адаптерами 70 мм
-    static final double soedTruba70mmBB = 11.865;
-    //Соединитель труба с адаптерами 70 мм с армированием
-    //static final double soedTruba70mmBB_ARM = 11.865;
+  //Соединитель-молоток 18 мм на 70 профиль(soedMolotokNA70ProfileBB)
+  public double soedMolotokNA70ProfileBB;
 
-    //-----------------------------Соединители на Salamander STL:-----------------------------------
+  //Соединитель угловой 90° на 70 профиль с армированием(soed90na70ProfileBB)
+  public double soed90na70ProfileBB;
 
-    //Балконный соединитель
-    static final double balSoedNaSal = 3.675;
+  //Соединитель труба с адаптерами 70 мм с армированием(soedTruba70mmBB)
+  public double soedTruba70mmBB;
 
-    //Расширитель 40мм
-    static final double profRashNaSal40mm = 12.705;
+  //'-----------------------------Соединители на Salamander STL:-----------------------------------
 
-    //Расширитель 60мм
-    static final double profRashNaSal60mm = 17.3;
-    //Расширитель 60мм
-    //static final double profRashNaSal60mm_ARM = 17.3;
+  //Балконный соединитель(balSoedNaSal)
+  public double balSoedNaSal;
 
-    //Соединитель угловой 90°
-    static final double soed90naSal = 23.625;
+  //Расширитель 40мм(profRashNaSal40mm)
+  public double profRashNaSal40mm;
 
-    //Соединитель труба
-    static final double soedTrubaNaSal = 74.55;
+  //Расширитель 60мм  с армированием(profRashNaSal60mm)
+  public double profRashNaSal60mm;
 
+  //Соединитель угловой 90°(soed90naSal)
+  public double soed90naSal;
 
-    //----------------------------------------------------------------------------------------------
+  //Соединитель труба(soedTrubaNaSal)
+  public double soedTrubaNaSal;
 
-    //Арка - цена прямоугольного окна
-    static final double arka = 42;
 
-    //Трапеция - цена прямоугольного окна +  за каждый угол
-    static final double trapecija = 10.5;
+  //'----------------------------------------------------------------------------------------------
 
-    //Ламинация сендвича
-    static final double lamSend = 57.75;
+  //Арка - цена прямоугольного окна(arka)
+  public double arka;
 
-    //--------------------------------------ЛАМИНАЦИЯ-----------------------------------------------
+  //Трапеция - цена прямоугольного окна + за каждый угол(trapecija)
+  public double trapecija;
 
-    //==================================ОКОН========================================================
-    //Ламинация односторонняя BRUSBOX 60
-    static final double lamWBB60_1st = 1.2625;
-    //Ламинация двухсторонняя BRUSBOX 60
-    static final double lamWBB60_2st = 1.525;
+  //Ламинация сендвича(lamSend)
+  public double lamSend;
 
-    //Ламинация односторонняя BRUSBOX 70
-    static final double lamWBB70_1st = 1.252;
-    //Ламинация двухсторонняя BRUSBOX 70
-    static final double lamWBB70_2st = 1.504;
+  //'--------------------------------------ЛАМИНАЦИЯ-----------------------------------------------
 
-    //Ламинация односторонняя REHAU 60\70, SALAMANDER
-    static final double lamWRS_1st = 1.189;
-    //Ламинация двухсторонняя REHAU 60\70, SALAMANDER
-    static final double lamWRS_2st = 1.378;
+  //'------------------------------------ОКОН------------------------------------
+  //Ламинация односторонняя BRUSBOX 60(lamWBB60_1st)
+  public double lamWBB60_1st;
+  //Ламинация двухсторонняя BRUSBOX 60(lamWBB60_2st)
+  public double lamWBB60_2st;
 
-    //==================================ДВЕРЕЙ======================================================
-    //Ламинация односторонняя - (+ 14% к прайсу на двери наружные, + 18 % на двери внутренние)
-    static final double lamD1stD = 1.147;
-    static final double lamD1stW = 1.189;
+  //Ламинация односторонняя BRUSBOX 70(lamWBB70_1st)
+  public double lamWBB70_1st;
+  //Ламинация двухсторонняя BRUSBOX 70(lamWBB70_2st)
+  public double lamWBB70_2st;
 
-    //Ламинация двухсторонняя - (+ 28% к прайсу на двери наружные, + 36 % на двери внутренние)
-    static final double lamD2stD = 1.294;
-    static final double lamD2stW = 1.378;
-    //----------------------------------------------------------------------------------------------
+  //Ламинация односторонняя REHAU 60\70, SALAMANDER(lamWRS_1st)
+  public double lamWRS_1st;
+  //Ламинация двухсторонняя REHAU 60\70, SALAMANDER(lamWRS_2st)
+  public double lamWRS_2st;
 
-    //Коричневый Алюминий
-    static final double korichAlumin = 1.15;
+  //'------------------------------------ДВЕРЕЙ------------------------------------
 
-    //Покраска односторонняя - (+ 30% к прайсу на окна с 32 стп и фурнитурой кале)
-    //Покраска двухсторонняя - (+ 60% к прайсу на окна с 32 стп и фурнитурой кале)
-    //Покраска односторонняя - (+ 16% к прайсу на двери наружные, + 21 % на двери внутренние)
-    //Покраска двухсторонняя - (+ 32% к прайсу на двери наружные, + 42 % на двери внутренние)
+  //Ламинация односторонняя - Дверной профиль(lamD1stD)
+  public double lamD1stD;
+  //Ламинация односторонняя - Оконный профиль(lamD1stW)
+  public double lamD1stW;
 
-    //----------------------------------------СТЕКЛА------------------------------------------------
+  //Ламинация двухсторонняя - Дверной профиль(lamD2stD)
+  public double lamD2stD;
+  //Ламинация двухсторонняя - Оконный профиль(lamD2stW)
+  public double lamD2stW;
+  //'----------------------------------------------------------------------------------------------
 
-    //Мультифункциональное стекло LifeGlassClear
-    static final double multik = 1.8;
+  //Коричневый Алюминий(korichAlumin)
+  public double korichAlumin;
 
-    //И-стекло
-    //Бронза
-    static final double bronza = 21;
+  //'----------------------------------------СТЕКЛА------------------------------------------------
 
-    //Матовое стекло
-    static final double mat = 15.8;
+  //Мультифункциональное стекло LifeGlassClear(multik)
+  public double multik;
 
-    //Тонировка
-    static final double tonirovka = 42;
+  //Бронза(bronza)
+  public double bronza;
 
-    //Закаленное стекло 4 мм +	28,4
-    //Многослойное стекло  3.3.1+	36,8
-    //Бронировка     +	94,5
-    //----------------------------------------------------------------------------------------------
-    
-    //Шпросы белые/коричневые 26мм
-    static final double shprosBelKor26mm = 7.35;
+  //Матовое стекло(mat)
+  public double mat;
 
-    //Шпросы белые/коричневые 18мм
-    static final double shprosBelKor18mm = 6;
+  //Тонировка(tonirovka)
+  public double tonirovka;
 
-    //Шпросы белые/золотые 8мм
-    static final double shprosBelZol8mm = 11.55;
+  //'----------------------------------------------------------------------------------------------
 
-//----------------------------ЛИСТ 2 (ФУРНИТУРА ОКОННАЯ)--------------------------------------------
+  //Шпросы белые/коричневые 26мм(shprosBelKor26mm)
+  public double shprosBelKor26mm;
 
-    //-----ЦЕНЫ УКАЗЫВАЕТСЯ В ВВИДЕ РАЗНИЦЫ ОТ СТАНДАРТНОЙ РУЧКИ
+  //Шпросы белые/коричневые 18мм(shprosBelKor18mm)
+  public double shprosBelKor18mm;
 
-    //Ручка оконная Roto Samba белая
-    static final double ruchkaSambaBel = 2;
+  //Шпросы белые/золотые 8мм(shprosBelZol8mm)
+  public double shprosBelZol8mm;
 
-    //Ручка оконная Hoppe коричневая
-    static final double ruchkaHopeKorich = 1;
+//'----------------------------ЛИСТ 2 (ФУРНИТУРА ОКОННАЯ)--------------------------------------------
 
-    //Ручка оконная Roto Line белая, латунь, серо-коричневая, серебро, шампань, титан, темная бронза, бронза
-    static final double ruchkaRotoLine = 4;
+  //'---------ЦЕНЫ УКАЗЫВАЕТСЯ В ВВИДЕ РАЗНИЦЫ ОТ СТАНДАРТНОЙ РУЧКИ
 
-    //Ручка оконная Roto Swing белая, серебро, титан мат
-    static final double ruchkaRotoSwingV1 = 6;
+  //Ручка оконная Roto Samba белая(ruchkaSambaBel)
+  public double ruchkaSambaBel;
 
-    //Ручка оконная Roto Swing черно-коричневая, новое серебро, латунь матовая, бронза, темная бронза
-    static final double ruchkaRotoSwingV2 = 8;
+  //Ручка оконная Hoppe коричневая(ruchkaHopeKorich)
+  public double ruchkaHopeKorich;
 
-    //Ручка 2-хсторонняя белая, коричневая (ставится на рото 25 д)
-    static final double ruchka2storon = 16;
+  //Ручка оконная Roto Line белая, латунь, серо-коричневая, серебро, шампань, титан, темная бронза, бронза(ruchkaRotoLine)
+  public double ruchkaRotoLine;
 
-    //Ручка с ключом белая, коричневая
-    static final double ruchkaSKluchom = 4;
+  //Ручка оконная Roto Swing белая, серебро, титан мат(ruchkaRotoSwingV1)
+  public double ruchkaRotoSwingV1;
 
-    //Хваталка балконная антрацит, золотой дуб
-    static final double hvatalkaCvet = 2;
+  //Ручка оконная Roto Swing черно-коричневая, новое серебро, латунь матовая, бронза, темная бронза(ruchkaRotoSwingV2)
+  public double ruchkaRotoSwingV2;
 
-    //Привод с цилиндром (ставится на рото)
+  //Ручка 2-хсторонняя белая, коричневая(ruchka2storon)
+  public double ruchka2storon;
 
-    //Комплект фурнитуры  на Kale (cтандартное окно)
-    //Комплект фурнитуры  на Roto (стандартное окно)
-    static final double rotoW = 9;
+  //Ручка с ключом белая, коричневая(ruchkaSKluchom)
+  public double ruchkaSKluchom;
 
-    //Комплект фурнитуры  на Kale (балконная дверь)
+  //Хваталка балконная антрацит, золотой дуб(hvatalkaCvet)
+  public double hvatalkaCvet;
 
-    //Комплект фурнитуры  на Roto (балконная дверь)
-    static final double rotoBD = 9;
+  //Комплект фурнитуры на Roto (стандартное окно)(rotoW)
+  public double rotoW;
 
-    //Петля оконная
-    //Ножницы
-    //Привод
+  //Комплект фурнитуры на Roto (балконная дверь)(rotoBD)
+  public double rotoBD;
 
-    //Комлект декоративных накладок цветной
-    static final double dekorNakladkaCvet = 2;
+  //Комлект декоративных накладок цветной(dekorNakladkaCvet)
+  public double dekorNakladkaCvet;
 
-//----------------------------ЛИСТ 3 (ДВЕРНАЯ ФУРНИТУРА)--------------------------------------------
+//'----------------------------ЛИСТ 3 (ДВЕРНАЯ ФУРНИТУРА)--------------------------------------------
 
-    //-----ЦЕНЫ УКАЗЫВАЕТСЯ ФАКТИЧЕСКИЕ
+  //'----------ЦЕНЫ УКАЗЫВАЕТСЯ ФАКТИЧЕСКИЕ
 
-    //Петля дверная 90 стандартная (белая, коричневая)
-    static final double petliDverStndtr = 8;
+  //Петля дверная 90 стандартная (белая, коричневая)(petliDverStndtr)
+  public double petliDverStndtr;
 
-    //Петля дверная 105 стандартная (белая, коричневая)
+  //Петля дверная Roto 120 кг (белая, коричневая)(petliRoto120BelKorich)
+  public double petliRoto120BelKorich;
 
-    //Петля дверная Roto 120 кг (белая, коричневая)
-    static final double petliRoto120BelKorich = 16;
+  //Петля дверная Roto 120 кг (антрацит)(petliRoto120Antracit)
+  public double petliRoto120Antracit;
 
-    //Петля дверная Roto 120 кг (антрацит)
-    static final double petliRoto120Antracit = 21;
+  //Петля дверная Roto 120 кг (серебро)(petliRoto120Serebro)
+  public double petliRoto120Serebro;
 
-    //Петля дверная Roto 120 кг (серебро)
-    static final double petliRoto120Serebro = 29;
+  //Петля дверная Roto 120 кг (бронза)(petliRoto120Bronza)
+  public double petliRoto120Bronza;
 
-    //Петля дверная Roto 120 кг (бронза)
-    static final double petliRoto120Bronza = 28;
+  //Петля дверная Roto 80 кг (белая, коричневая)(petliRoto80BelKorich)
+  public double petliRoto80BelKorich;
 
-    //Петля дверная Roto 80 кг (белая, коричневая)
-    static final double petliRoto80BelKorich = 16;
+  //Петля дверная Jocker 120 кг (белая, коричневая)(petliJoker120BelKorich)
+  public double petliJoker120BelKorich;
 
-    //Петля дверная Jocker 120 кг (белая, коричневая)
-    static final double petliJoker120BelKorich = 12;
+  //Петля дверная Jocker 120 кг (антрацит, серебро, бронза, титан, черный)(petliJoker120Cvet)
+  public double petliJoker120Cvet;
 
-    //Петля дверная Jocker 120 кг (антрацит, серебро, бронза, титан, черный)
-    static final double petliJoker120Cvet = 16;
+  //Петля дверная Jocker 80 кг (белая, коричневая)(petliJoker80BelKorich)
+  public double petliJoker80BelKorich;
 
-    //Петля дверная Jocker 80 кг (белая, коричневая)
-    static final double petliJoker80BelKorich = 10;
+  //Петля дверная Jocker 80 кг (антрацит, серебро, бронза, титан, черный)(petliJoker80Cvet)
+  public double petliJoker80Cvet;
 
-    //Петля дверная Jocker 80 кг (антрацит, серебро, бронза, титан, черный)
-    static final double petliJoker80Cvet = 15;
+  //'------------------Гарнитуры указываются разницей от стандартных ручек
 
-    //------------------Гарнитуры указываются разницей от стандартных ручек
+  //Ручка дверная прямая (белый, коричневый) (СКОБА)(ruchkaSkobaBelKorich)
+  public double ruchkaSkobaBelKorich;
 
-    //Ручка дверная прямая (белый, коричневый) (СКОБА)
-    static final double ruchkaSkobaBelKorich = 6;
+  //Ручка дверная прямая (антрацит, серебро, черный) (СКОБА)(ruchkaSkobaCvet)
+  public double ruchkaSkobaCvet;
 
-    //Ручка дверная прямая (антрацит, серебро, черный) (СКОБА)
-    static final double ruchkaSkobaCvet = 8;
+  //Ручка дверная прямая (нержавейка) (СКОБА)(ruchkaSkobaNerzh)
+  public double ruchkaSkobaNerzh;
 
-    //Ручка дверная прямая (нержавейка) (СКОБА)
-    static final double ruchkaSkobaNerzh = 19;
+  //Нажимной гарнитур стандартный (белый/коричневый) собирается из двух(garnitStndr2)
+  public double garnitStndr2;
 
-    //Нажимной гарнитур стандартный (белый/коричневый) собирается из двух
-    static final double garnitStndr2 = 3;
+  //Нажимной гарнитур Medos VIKTORY на широкой планке (белый, коричневый)(garnitMedosVictory)
+  public double garnitMedosVictory;
 
-    //Нажимной гарнитур Medos VIKTORY на широкой планке (белый, коричневый)
-    static final double garnitMedosVictory = 8;
+  //Нажимной гарнитур Medos VIKTORY на широкой планке (белый/коричневый) собирается из 2-х(garnitMedosVictory2)
+  public double garnitMedosVictory2;
 
-    //Нажимной гарнитур Medos VIKTORY на широкой планке (белый/коричневый) собирается из 2-х
-    static final double garnitMedosVictory2 = 12;
+  //Нажимной гарнитур Medos VIKTORY на широкой планке (антрацит, бронза, черный, серебро, титан)(garnitMedosVictoryCvet)
+  public double garnitMedosVictoryCvet;
 
-    //Нажимной гарнитур Medos VIKTORY на широкой планке (антрацит, бронза, черный, серебро, титан)
-    static final double garnitMedosVictoryCvet = 10;
+  //Нажимной гарнитур Medos VIKTORY на широкой планке (белый/(антрацит, бронза, черный, серебро, титан)) из 2-х(garnitMedosVictoryCvet2)
+  public double garnitMedosVictoryCvet2;
 
-    //Нажимной гарнитур Medos VIKTORY на широкой планке (белый/(антрацит, бронза, черный, серебро, титан)) из 2-х
-    static final double garnitMedosVictoryCvet2 = 15;
+  //Замок многозапорный защелка(mnogozapornik)
+  public double mnogozapornik;
 
-    //Замок многозапорный защелка
-    static final double mnogozapornik = 22;
+  //Замок многозапорный Roto ролик(mnogozapornikRolik)
+  public double mnogozapornikRolik;
 
-    //Замок многозапорный Roto ролик
-    static final double mnogozapornikRolik = 68;
+  //Цилиндр ключ-барашка(barashka)
+  public double barashka;
 
-    //Цилиндр ключ-барашка
-    static final double barashka = 1;
+  //'----------------------------ЛИСТ 4 (ПРОЧЕЕ)--------------------------------------------
+  //м/сетка нар белая(msBelNar)
+  public double msBelNar;
 
-    //Доводчик белый, коричневый
-    //Доводчик цветной
+  //м/сетка нар кор(msKorichNar)
+  public double msKorichNar;
 
-//----------------------------ЛИСТ 4 (ПРОЧЕЕ)--------------------------------------------
-    //м/сетка нар белая
-    static final double msBelNar = 9;
+  //м/сетка вн белая(msBelVnut)
+  public double msBelVnut;
 
-    //м/сетка нар кор
-    static final double msKorichNar = 16;
+  //м/сетка вн кор(msKorichVnut)
+  public double msKorichVnut;
 
-    //м/сетка вн белая
-    static final double msBelVnut = 15;
+  //м/сетка на двери бел(msBelDver)
+  public double msBelDver;
 
-    //м/сетка вн кор
-    static final double msKorichVnut = 21;
+  //м/сетка на двери кор(msKorichDver)
+  public double msKorichDver;
 
-    //м/сетка на двери бел
-    static final double msBelDver = 16;
+  //м/сетка на алюмин(msAlumin)
+  public double msAlumin;
 
-    //м/сетка на двери кор
-    static final double msKorichDver = 24;
+  //'--------------------------------ПОДОКОННИКИ(ЦЕНА ЗА КВ.М)-------------------------------------
+  //Подоконник Обычный(PODSTNDRT)
+  public double PODSTNDRT;
 
-    //м/сетка на алюмин
-    static final double msAlumin = 33;
+  //Подоконник Ламинированый(PODLAM)
+  public double PODLAM;
 
-    //--------------------------------ПОДОКОННИКИ(ЦЕНА ЗА КВ.М)-------------------------------------
-    //Подоконник Обычный
-    static final double PODSTNDRT = 12.7;
+  //Подоконник Crystallit(PODCRYSTALLIT)
+  public double PODCRYSTALLIT;
 
-    //Подоконник Ламинированый
-    static final double PODLAM = 76.2;
+  //Подоконник Danke KOFMORT(PODDANKEKOMFORT)
+  public double PODDANKEKOMFORT;
 
-    //Подоконник Crystallit
-    static final double PODCRYSTALLIT = 83;
+  //Подоконник Danke STANDART(PODDANKESTANDART)
+  public double PODDANKESTANDART;
 
-    //Подоконник Danke KOFMORT
-    static final double PODDANKEKOMFORT = 44;
+  //Подоконник Danke PREMIUM(PODDANKEPREMIUM)
+  public double PODDANKEPREMIUM;
 
-    //Подоконник Danke STANDART
-    static final double PODDANKESTANDART = 70;
+  //Подоконник ESTERA(PODESTERA)
+  public double PODESTERA;
 
-    //Подоконник Danke PREMIUM
-    static final double PODDANKEPREMIUM = 95;
+  //ЗАГЛУШКА ДЛЯ ОБЫЧНОГО(ZAGLSTNDRT)
+  public double ZAGLSTNDRT;
 
-    //Подоконник ESTERA
-    static final double PODESTERA = 89;
+  //ЗАГЛУШКА ДЛЯ ОБЫЧНОГО КРАШЕННАЯ(ZAGLSTNDRTCOLOR)
+  public double ZAGLSTNDRTCOLOR;
 
-    //ЗАГЛУШКА ДЛЯ ОБЫЧНОГО
-    static final double ZAGLSTNDRT = 0.5;
+  //ЗАГЛУШКА ДЛЯ CRYSTALLIT(ZAGLCRYSTALLIT)
+  public double ZAGLCRYSTALLIT;
 
-    //ЗАГЛУШКА ДЛЯ ОБЫЧНОГО КРАШЕННАЯ
-    static final double ZAGLSTNDRTCOLOR = 4;
+  //ЗАГЛУШКА ДЛЯ DANKE(ZAGLDANKE)
+  public double ZAGLDANKE;
 
-    //ЗАГЛУШКА ДЛЯ CRYSTALLIT
-    static final double ZAGLCRYSTALLIT = 2;
+  //ЗАГЛУШКА ДЛЯ ESTERA(ZAGLESTERA)
+  public double ZAGLESTERA;
 
-    //ЗАГЛУШКА ДЛЯ DANKE
-    static final double ZAGLDANKE = 3.2;
+  //'----------------------------------------------------------------------------------------------
 
-    //ЗАГЛУШКА ДЛЯ ESTERA
-    static final double ZAGLESTERA = 2;
+  //Деревянный брус 50*50(derBrus50)
+  public double derBrus50;
 
-    //----------------------------------------------------------------------------------------------
+  //Деревянный брус 100*100(derBrus100)
+  public double derBrus100;
 
+  //Нащельник ПВХ(nashPvh)
+  public double nashPvh;
 
-    //Деревянный брус 50*50
-    static final double derBrus50 = 4;
+  //Двутавр на алюминьку(dvutavr)
+  public double dvutavr;
 
-    //Деревянный брус 100*100
-    static final double derBrus100 = 6;
+  //Соединитель труба на алюминий(soedTrubaNaAlumin)
+  public double soedTrubaNaAlumin;
 
-    //Нащельник ПВХ
-    static final double nashPvh = 1;
+  //Соединитель 90 градусов на Алюминий(soed90NaAlumin)
+  public double soed90NaAlumin;
 
-    //Двутавр на алюминьку
-    static final double dvutavr = 3;
+  //Профиль расширительный на Алюминий 60 мм + двутавр(profRashNaAlumin60mm)
+  public double profRashNaAlumin60mm;
 
-    //Соединитель труба на алюминий
-    static final double soedTrubaNaAlumin = 12.7;
+  //Профиль расширительный на Алюминий 40 мм + двутавр(profRashNaAlumin40mm)
+  public double profRashNaAlumin40mm;
 
-    //Соединитель 90 градусов на Алюминий
-    static final double soed90NaAlumin = 8.7;
+  //Штульп(shtulp)
+  public int shtulp;
 
-    //Профиль расширительный на Алюминий 60 мм + двутавр
-    static final double profRashNaAlumin60mm = 8 + dvutavr;
+  //Порог ПВХ(porogPvh)
+  public int porogPvh;
 
-    //Профиль расширительный на Алюминий 40 мм + двутавр
-    static final double profRashNaAlumin40mm = 6 + dvutavr;
 
-    //Штульп
-    static final int shtulp = 25;
+//'--------------------------------КОЭФИЦЕНТЫ ПРОФИЛЕЙ-----------------------------------------------
 
-    //Порог ПВХ
-    static final int porogPvh = 5;
+  //'---------------------------ОКОННЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
+  //Brusbox 60/24 окно(BB6024W)
+  public double BB6024W;
 
+  //Brusbox 60/32 окно(BB6032W)
+  public double BB6032W;
 
-//--------------------------------КОЭФИЦЕНТЫ ПРОФИЛЕЙ-----------------------------------------------
+  //Brusbox 70/24 окно(BB7024W)
+  public double BB7024W;
 
-    //---------------------------ОКОННЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
-    //Brusbox 60/24 окно
-    static final double BB6024W = 1;
+  //Brusbox 70/32 окно(BB7032W)
+  public double BB7032W;
 
-    //Brusbox 60/32 окно
-    static final double BB6032W = 1;
+  //Brusbox 70/40 окно(BB7040W)
+  public double BB7040W;
 
-    //Brusbox 70/24 окно
-    static final double BB7024W = 1.074;
+  //Rehau 60/24 окно(REHAU6024W)
+  public double REHAU6024W;
 
-    //Brusbox 70/32 окно
-    static final double BB7032W = 1.047;
+  //Rehau 60/32 окно(REHAU6032W)
+  public double REHAU6032W;
 
-    //Brusbox 70/40 окно
-    static final double BB7040W = 1.067;
+  //Rehau 70/24 окно(REHAU7024W)
+  public double REHAU7024W;
 
-    //Rehau 60/24 окно
-    static final double REHAU6024W = 1.21;
+  //Rehau 70/32 окно(REHAU7032W)
+  public double REHAU7032W;
 
-    //Rehau 60/32 окно
-    static final double REHAU6032W = 1.19;
+  //Rehau 70/40 окно(REHAU7040W)
+  public double REHAU7040W;
 
-    //Rehau 70/24 окно
-    static final double REHAU7024W = 1.57;
+  //Salamander 70/32 окно(SALAMANDER7032W)
+  public double SALAMANDER7032W;
 
-    //Rehau 70/32 окно
-    static final double REHAU7032W = 1.35;
+  //Salamander 70/40 окно(SALAMANDER7040W)
+  public double SALAMANDER7040W;
 
-    //Rehau 70/40 окно
-    static final double REHAU7040W = 1.37;
+  //'---------------------------ДВЕРНЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
 
-    //Salamander 70/32 окно
-    static final double SALAMANDER7032W = 1.42;
+  // 70/40 Дверной/Оконный(BB7040D)
+  public double BB7040D;
 
-    //Salamander 70/40 окно
-    static final double SALAMANDER7040W = 1.44;
+  // 70/32 Дверной/Оконный(BB7032D)
+  public double BB7032D;
 
-    //---------------------------ДВЕРНЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
+  // 70/24 Дверной/Оконный(BB7024D)
+  public double BB7024D;
 
-    // 70/40 Дверной/Оконный
-    static final double BB7040D = 1.02;
+  // 60/32 Дверной/Оконный(BB6032D)
+  public double BB6032D;
 
-    // 70/32 Дверной/Оконный
-    static final double BB7032D = 1;
+  // 60/24 Дверной/Оконный(BB6024D)
+  public double BB6024D;
 
-    // 70/24 Дверной/Оконный
-    static final double BB7024D = 0.95;
 
-    // 60/32 Дверной/Оконный
-    static final double BB6032D = 1;
+//'-----------------------------------------ИНТЕРЕС--------------------------------------------------
 
-    // 60/24 Дверной/Оконный
-    static final double BB6024D = 0.95;
+  //'------------------------------ИНЕТРЕС НА ОКНА-------------------------------------------------
 
+  //ИНТЕРЕС НА 1 СТВОРЧАТОЕ ОКНО(INTW1ST)
+  public int INTW1ST;
 
-//-----------------------------------------ИНТЕРЕС--------------------------------------------------
+  //ИНТЕРЕС НА 1 СТВОРЧАТОЕ ОКНО шириной мень либо равное 600 и высотой меньшей либо равной 800(INTW1STV2)
+  public int INTW1STV2;
 
-    //------------------------------ИНЕТРЕС НА ОКНА-------------------------------------------------
+  //ИНТЕРЕС НА 2 СТВОРЧАТОЕ ОКНО(INTW2ST)
+  public int INTW2ST;
 
-    //ИНТЕРЕС НА 1 СТВОРЧАТОЕ ОКНО
-    static final int INTW1ST = 45;
+  //ИНТЕРЕС НА 3 СТВОРЧАТОЕ ОКНО(INTW3ST)
+  public int INTW3ST;
 
-    //ИНТЕРЕС НА 1 СТВОРЧАТОЕ ОКНО шириной мень либо равное 600 и высотой меньшей либо равной 800
-    static final int INTW1STV2 = 30;
+  //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА) ШИРИНА < 3300 (65)(INTW4ST)
+  public int INTW4ST;
 
-    //ИНТЕРЕС НА 2 СТВОРЧАТОЕ ОКНО
-    static final int INTW2ST = 50;
+  //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА) ВЫОСТОЙ БОЛЬШЕ 1600 (70)(INTW4STV2)
+  public int INTW4STV2;
 
-    //ИНТЕРЕС НА 3 СТВОРЧАТОЕ ОКНО
-    static final int INTW3ST = 55;
+  //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА) ШИРИНА 3300 - 4000 (80)(INTW4STV3)
+  public int INTW4STV3;
 
-    //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА)
-    static final int INTW4ST = 65;
+  //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА) ШИРИНА 4000-5000 (100)(INTW4STV4)
+  public int INTW4STV4;
 
-    //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА) ВЫОСТОЙ БОЛЬШЕ 1600
-    static final int INTW4STV2 = 70;
+  //ИНТЕРЕС НА 4 СТВОРЧАТОЕ ОКНО(РАМА) ШИРИНА > 5000 (130)(INTW4STV5)
+  public int INTW4STV5;
 
-    //ИНТЕРЕС НА БАЛКОННУЮ ДВЕРЬ
-    static final int INTBALDOR = 40;
+  //ИНТЕРЕС НА БАЛКОННУЮ ДВЕРЬ(INTBALDOR)
+  public int INTBALDOR;
 
-    //ИНТЕРЕС НА БАЛКОННУЮ ГРУППУ
-    static final int INTBALBLOCK = 55;
+  //ИНТЕРЕС НА БАЛКОННУЮ ГРУППУ C ОДНИМ ОКНОМ(INTBALBLOCK)
+  public int INTBALBLOCK;
 
-    //ИНТЕРЕС НА 1 СТВОРКУ В ПОЛУКРУГЛОЙ РАМЕ
-    static final int INTPOLRAM = 20;
+  //ИНТЕРЕС НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА(INTBALBLOCK2)
+  public int INTBALBLOCK2;
 
-    //------------------------------ИНЕТРЕС НА ДВЕРИ------------------------------------------------
+  //ИНТЕРЕС НА 1 СТВОРКУ В ПОЛУКРУГЛОЙ РАМЕ(INTPOLRAM)
+  public int INTPOLRAM;
 
-    //ИНТЕРЕС НА 1 СТВОРЧАТУЮ ДВЕРЬ
-    static final int INTDOOR1ST = 50;
+  //'------------------------------ИНЕТРЕС НА ДВЕРИ------------------------------------------------
 
-    //ИНТЕРЕС НА ШТУЛЬПОВУЮ ДВЕРЬ
-    static final int INTDOOR2ST = 70;
+  //ИНТЕРЕС НА 1 СТВОРЧАТУЮ ДВЕРЬ(INTDOOR1ST)
+  public int INTDOOR1ST;
 
+  //ИНТЕРЕС НА ШТУЛЬПОВУЮ ДВЕРЬ(INTDOOR2ST)
+  public int INTDOOR2ST;
 
 
-//-----------------------------------------РАБОТЫ--------------------------------------------------
 
-    //МОНТАЖ НАЩЕЛЬНИКОВ С 1 СТОРОНЫ
-    static final int WORKNASH = 6;
+//'-----------------------------------------РАБОТЫ--------------------------------------------------
 
-    //ЦЕНА НАКИДКИ ЕСЛИ РАЗМЕРЫ ЗА РАМКАМИ В РЕГИОНЕ
-    static final int WORKMORE_R = 4;
-    //ЦЕНА НАКИДКИ ЕСЛИ ВЫСОТА ВЫШЕ 1610 В МИНСКЕ
-    static final int WORKMORE_M = 5;
+  //МОНТАЖ НАЩЕЛЬНИКОВ С 1 СТОРОНЫ(WORKNASH)
+  public int WORKNASH;
 
-    //------------------------------МОНТАЖ ОКОН РЕГИОН-------------------------------------------------
+  //ЦЕНА НАКИДКИ ЕСЛИ РАЗМЕРЫ ЗА РАМКАМИ В РЕГИОНЕ(WORKMORE_R)
+  public int WORKMORE_R;
+  //ЦЕНА НАКИДКИ ЕСЛИ ВЫСОТА ВЫШЕ 1610 В МИНСКЕ(WORKMORE_M)
+  public int WORKMORE_M;
 
-    //МОНТАЖ НА 1 СТВОРЧАТОЕ ОКНО
-    static final int WORK1ST_R = 18;
+  //'------------------------------МОНТАЖ ОКОН РЕГИОН-------------------------------------------------
 
-    //МОНТАЖ НА 2 СТВОРЧАТОЕ ОКНО
-    static final int WORK2ST_R = 22;
+  //МОНТАЖ НА 1 СТВОРЧАТОЕ ОКНО(WORK1ST_R)
+  public int WORK1ST_R;
 
-    //МОНТАЖ НА 3 СТВОРЧАТОЕ ОКНО
-    static final int WORK3ST_R = 25;
+  //МОНТАЖ НА 2 СТВОРЧАТОЕ ОКНО(WORK2ST_R)
+  public int WORK2ST_R;
 
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) < 3300
-    static final int WORK4ST1_R = 37;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) - 3300 - 4300
-    static final int WORK4ST2_R = 49;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 4300
-    static final int WORK4ST3_R = 56;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 5000
-    static final int WORK4ST4_R = 72;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ЗА ПОВОРОТ
-    static final int WORK4ST5_R = 8;
+  //МОНТАЖ НА 3 СТВОРЧАТОЕ ОКНО(WORK3ST_R)
+  public int WORK3ST_R;
 
-    //МОНТАЖ НА БАЛКОННУЮ ГРУППУ 1 ОКНО
-    static final int WORKBALBLOCK1_R = 30;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) < 3300(WORK4ST1_R)
+  public int WORK4ST1_R;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) - 3300 - 4300(WORK4ST2_R)
+  public int WORK4ST2_R;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 4300(WORK4ST3_R)
+  public int WORK4ST3_R;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 5000(WORK4ST4_R)
+  public int WORK4ST4_R;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ЗА ПОВОРОТ(WORK4ST5_R)
+  public int WORK4ST5_R;
 
-    //МОНТАЖ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА
-    static final int WORKBALBLOCK2_R = 40;
+  //МОНТАЖ НА БАЛКОННУЮ ГРУППУ 1 ОКНО(WORKBALBLOCK1_R)
+  public int WORKBALBLOCK1_R;
 
-    //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 4 ЧАСТЕЙ
-    static final int WORKPOLRAM1_R = 64;
+  //МОНТАЖ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА(WORKBALBLOCK2_R)
+  public int WORKBALBLOCK2_R;
 
-    //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 5 ЧАСТЕЙ
-    static final int WORKPOLRAM2_R = 79;
+  //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 4 ЧАСТЕЙ(WORKPOLRAM1_R)
+  public int WORKPOLRAM1_R;
 
-    //------------------------------МОНТАЖ ОКОН МИНСК-------------------------------------------------
+  //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 5 ЧАСТЕЙ(WORKPOLRAM2_R)
+  public int WORKPOLRAM2_R;
 
-    //МОНТАЖ НА 1 СТВОРЧАТОЕ ОКНО
-    static final int WORK1ST_M = 20;
+  //'------------------------------МОНТАЖ ОКОН МИНСК-------------------------------------------------
 
-    //МОНТАЖ НА 2 СТВОРЧАТОЕ ОКНО
-    static final int WORK2ST_M = 25;
+  //МОНТАЖ НА 1 СТВОРЧАТОЕ ОКНО(WORK1ST_M)
+  public int WORK1ST_M;
 
-    //МОНТАЖ НА 3 СТВОРЧАТОЕ ОКНО
-    static final int WORK3ST_M = 30;
+  //МОНТАЖ НА 2 СТВОРЧАТОЕ ОКНО(WORK2ST_M)
+  public int WORK2ST_M;
 
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) < 3300
-    static final int WORK4ST1_M = 45;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) - 3300 - 4300
-    static final int WORK4ST2_M = 55;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 4300
-    static final int WORK4ST3_M = 70;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 5000
-    static final int WORK4ST4_M = 90;
-    //МОНТАЖ НА 4 СТВОРЧАТОЕ ЗА ПОВОРОТ
-    static final int WORK4ST5_M = 10;
+  //МОНТАЖ НА 3 СТВОРЧАТОЕ ОКНО(WORK3ST_M)
+  public int WORK3ST_M;
 
-    //МОНТАЖ НА БАЛКОННУЮ ГРУППУ 1 ОКНО
-    static final int WORKBALBLOCK1_M = 35;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) < 3300(WORK4ST1_M)
+  public int WORK4ST1_M;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) - 3300 - 4300(WORK4ST2_M)
+  public int WORK4ST2_M;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 4300(WORK4ST3_M)
+  public int WORK4ST3_M;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 5000(WORK4ST4_M)
+  public int WORK4ST4_M;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ЗА ПОВОРОТ(WORK4ST5_M)
+  public int WORK4ST5_M;
 
-    //МОНТАЖ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА
-    static final int WORKBALBLOCK2_M = 45;
+  //МОНТАЖ НА БАЛКОННУЮ ГРУППУ 1 ОКНО(WORKBALBLOCK1_M)
+  public int WORKBALBLOCK1_M;
 
-    //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 4 ЧАСТЕЙ
-    static final int WORKPOLRAM1_M = 75;
+  //МОНТАЖ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА(WORKBALBLOCK2_M)
+  public int WORKBALBLOCK2_M;
 
-    //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 5 ЧАСТЕЙ
-    static final int WORKPOLRAM2_M = 85;
+  //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 4 ЧАСТЕЙ(WORKPOLRAM1_M)
+  public int WORKPOLRAM1_M;
 
-    //------------------------------МОНТАЖ ДВЕРЕЙ РЕГИОН------------------------------------------------
+  //МОНТАЖ НА ПОЛУКРУГЛУЮ РАМУ ИЗ 5 ЧАСТЕЙ(WORKPOLRAM2_M)
+  public int WORKPOLRAM2_M;
 
-    //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ
-    static final int WORKDOOR1ST_R = 25;
+  //'------------------------------МОНТАЖ ДВЕРЕЙ РЕГИОН------------------------------------------------
 
-    //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ
-    static final int WORKDOOR1STF_R = 35;
+  //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ(WORKDOOR1ST_R)
+  public int WORKDOOR1ST_R;
 
-    //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ
-    static final int WORKDOOR2ST_R = 43;
+  //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ(WORKDOOR1STF_R)
+  public int WORKDOOR1STF_R;
 
-    //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ
-    static final int WORKDOOR2STF_R = 61;
+  //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ(WORKDOOR2ST_R)
+  public int WORKDOOR2ST_R;
 
-    //------------------------------МОНТАЖ ДВЕРЕЙ МИНСК------------------------------------------------
+  //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ(WORKDOOR2STF_R)
+  public int WORKDOOR2STF_R;
 
-    //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ
-    static final int WORKDOOR1ST_M = 30;
+  //'------------------------------МОНТАЖ ДВЕРЕЙ МИНСК------------------------------------------------
 
-    //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ
-    static final int WORKDOOR1STF_M = 40;
+  //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ(WORKDOOR1ST_M)
+  public int WORKDOOR1ST_M;
 
-    //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ
-    static final int WORKDOOR2ST_M = 50;
+  //МОНТАЖ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ(WORKDOOR1STF_M)
+  public int WORKDOOR1STF_M;
 
-    //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ
-    static final int WORKDOOR2STF_M = 60;
+  //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ(WORKDOOR2ST_M)
+  public int WORKDOOR2ST_M;
 
-    //------------------------------МОНТАЖ ОТКОСОВ РЕГИОН-------------------------------------------------
+  //МОНТАЖ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ(WORKDOOR2STF_M)
+  public int WORKDOOR2STF_M;
 
-    //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО ДО 250 мм
-    static final int SLP1ST1_R = 16;
-    //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО СВЫШЕ 250 мм
-    static final int SLP1ST2_R = 20;
-    //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм
-    static final int SLP1ST3_R = 27;
+  //'------------------------------МОНТАЖ ОТКОСОВ РЕГИОН-------------------------------------------------
 
-    //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО ДО 250 мм
-    static final int SLP2ST1_R = 20;
-    //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО СВЫШЕ 250 мм
-    static final int SLP2ST2_R = 23;
-    //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм
-    static final int SLP2ST3_R = 31;
+  //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО ДО 250 мм(SLP1ST1_R)
+  public int SLP1ST1_R;
+  //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО СВЫШЕ 250 мм(SLP1ST2_R)
+  public int SLP1ST2_R;
+  //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм(SLP1ST3_R)
+  public int SLP1ST3_R;
 
-    //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО ДО 250 мм
-    static final int SLP3ST1_R = 23;
-    //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО СВЫШЕ 250 мм
-    static final int SLP3ST2_R = 27;
-    //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм
-    static final int SLP3ST3_R = 35;
+  //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО ДО 250 мм(SLP2ST1_R)
+  public int SLP2ST1_R;
+  //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО СВЫШЕ 250 мм(SLP2ST2_R)
+  public int SLP2ST2_R;
+  //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм(SLP2ST3_R)
+  public int SLP2ST3_R;
 
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО ДО 250 мм
-    static final int SLPBALBLOCK1_1_R = 27;
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО СВЫШЕ 250 мм
-    static final int SLPBALBLOCK1_2_R = 35;
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО СВЫШЕ 450 мм
-    static final int SLPBALBLOCK1_3_R = 43;
+  //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО ДО 250 мм(SLP3ST1_R)
+  public int SLP3ST1_R;
+  //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО СВЫШЕ 250 мм(SLP3ST2_R)
+  public int SLP3ST2_R;
+  //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм(SLP3ST3_R)
+  public int SLP3ST3_R;
 
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА ДО 250 мм
-    static final int SLPBALBLOCK2_1_R = 35;
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА СВЫШЕ 250 мм
-    static final int SLPBALBLOCK2_2_R = 43;
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА СВЫШЕ 450 мм
-    static final int SLPBALBLOCK2_3_R = 51;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО ДО 250 мм(SLPBALBLOCK1_1_R)
+  public int SLPBALBLOCK1_1_R;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО СВЫШЕ 250 мм(SLPBALBLOCK1_2_R)
+  public int SLPBALBLOCK1_2_R;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО СВЫШЕ 450 мм(SLPBALBLOCK1_3_R)
+  public int SLPBALBLOCK1_3_R;
 
-    //------------------------------МОНТАЖ ОТКОСОВ МИНСК-------------------------------------------------
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА ДО 250 мм(SLPBALBLOCK2_1_R)
+  public int SLPBALBLOCK2_1_R;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА СВЫШЕ 250 мм(SLPBALBLOCK2_2_R)
+  public int SLPBALBLOCK2_2_R;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА СВЫШЕ 450 мм(SLPBALBLOCK2_3_R)
+  public int SLPBALBLOCK2_3_R;
 
-    //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО ДО 450 мм
-    static final int SLP1ST1_M = 20;
-    //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм
-    static final int SLP1ST2_M = 30;
+  //'------------------------------МОНТАЖ ОТКОСОВ МИНСК-------------------------------------------------
 
-    //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО ДО 450 мм
-    static final int SLP2ST1_M = 25;
-    //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм
-    static final int SLP2ST2_M = 35;
+  //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО ДО 450 мм(SLP1ST1_M)
+  public int SLP1ST1_M;
+  //МОНТАЖ ОТКОСОВ НА 1 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм(SLP1ST2_M)
+  public int SLP1ST2_M;
 
-    //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО ДО 450 мм
-    static final int SLP3ST1_M = 30;
-    //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм
-    static final int SLP3ST2_M = 40;
+  //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО ДО 450 мм(SLP2ST1_M)
+  public int SLP2ST1_M;
+  //МОНТАЖ ОТКОСОВ НА 2 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм(SLP2ST2_M)
+  public int SLP2ST2_M;
 
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО ДО 450 мм
-    static final int SLPBALBLOCK1_1_M = 40;
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО СВЫШЕ 450 мм
-    static final int SLPBALBLOCK1_2_M = 50;
+  //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО ДО 450 мм(SLP3ST1_M)
+  public int SLP3ST1_M;
+  //МОНТАЖ ОТКОСОВ НА 3 СТВОРЧАТОЕ ОКНО СВЫШЕ 450 мм(SLP3ST2_M)
+  public int SLP3ST2_M;
 
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА ДО 450 мм
-    static final int SLPBALBLOCK2_1_M = 50;
-    //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА СВЫШЕ 450 мм
-    static final int SLPBALBLOCK2_2_M = 60;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО ДО 450 мм(SLPBALBLOCK1_1_M)
+  public int SLPBALBLOCK1_1_M;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ 1 ОКНО СВЫШЕ 450 мм(SLPBALBLOCK1_2_M)
+  public int SLPBALBLOCK1_2_M;
 
-    //------------------------------МОНТАЖ ОТКОСОВ НА ДВЕРИ РЕГИОН----------------------------------
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА ДО 450 мм(SLPBALBLOCK2_1_M)
+  public int SLPBALBLOCK2_1_M;
+  //МОНТАЖ ОТКОСОВ НА БАЛКОННУЮ ГРУППУ ЧЕБУРАШКА СВЫШЕ 450 мм(SLPBALBLOCK2_2_M)
+  public int SLPBALBLOCK2_2_M;
 
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ ДО 250 мм
-    static final int SLPDOOR1ST1_R = 23;
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ СВЫШЕ 250 мм
-    static final int SLPDOOR1ST2_R = 27;
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ СВЫШЕ 450 мм
-    static final int SLPDOOR1ST3_R = 35;
+  //'------------------------------МОНТАЖ ОТКОСОВ НА ДВЕРИ РЕГИОН----------------------------------
 
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ ДО 250 мм
-    static final int SLPDOOR1STF1_R = 33;
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 250 мм
-    static final int SLPDOOR1STF2_R = 37;
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм
-    static final int SLPDOOR1STF3_R = 45;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ ДО 250 мм(SLPDOOR1ST1_R)
+  public int SLPDOOR1ST1_R;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ СВЫШЕ 250 мм(SLPDOOR1ST2_R)
+  public int SLPDOOR1ST2_R;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ СВЫШЕ 450 мм(SLPDOOR1ST3_R)
+  public int SLPDOOR1ST3_R;
 
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ ДО 250 мм
-    static final int SLPDOOR2ST1_R = 39;
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ СВЫШЕ 250 мм
-    static final int SLPDOOR2ST2_R = 43;
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ СВЫШЕ 450 мм
-    static final int SLPDOOR2ST3_R = 50;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ ДО 250 мм(SLPDOOR1STF1_R)
+  public int SLPDOOR1STF1_R;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 250 мм(SLPDOOR1STF2_R)
+  public int SLPDOOR1STF2_R;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм(SLPDOOR1STF3_R)
+  public int SLPDOOR1STF3_R;
 
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ ДО 250 мм
-    static final int SLPDOOR2STF1_R = 49;
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 250 мм
-    static final int SLPDOOR2STF2_R = 53;
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм
-    static final int SLPDOOR2STF3_R = 60;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ ДО 250 мм(SLPDOOR2ST1_R)
+  public int SLPDOOR2ST1_R;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ СВЫШЕ 250 мм(SLPDOOR2ST2_R)
+  public int SLPDOOR2ST2_R;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ СВЫШЕ 450 мм(SLPDOOR2ST3_R)
+  public int SLPDOOR2ST3_R;
 
-    //------------------------------МОНТАЖ ОТКОСОВ НА ДВЕРИ МИНСК-----------------------------------
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ ДО 250 мм(SLPDOOR2STF1_R)
+  public int SLPDOOR2STF1_R;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 250 мм(SLPDOOR2STF2_R)
+  public int SLPDOOR2STF2_R;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм(SLPDOOR2STF3_R)
+  public int SLPDOOR2STF3_R;
 
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ ДО 450 мм
-    static final int SLPDOOR1ST1_M = 30;
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ СВЫШЕ 450 мм
-    static final int SLPDOOR1ST2_M = 40;
+  //'------------------------------МОНТАЖ ОТКОСОВ НА ДВЕРИ МИНСК-----------------------------------
 
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ ДО 450 мм
-    static final int SLPDOOR1STF1_M = 40;
-    //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм
-    static final int SLPDOOR1STF2_M = 50;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ ДО 450 мм(SLPDOOR1ST1_M)
+  public int SLPDOOR1ST1_M;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ СВЫШЕ 450 мм(SLPDOOR1ST2_M)
+  public int SLPDOOR1ST2_M;
 
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ ДО 450 мм
-    static final int SLPDOOR2ST1_M = 50;
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ СВЫШЕ 450 мм
-    static final int SLPDOOR2ST2_M = 60;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ ДО 450 мм(SLPDOOR1STF1_M)
+  public int SLPDOOR1STF1_M;
+  //МОНТАЖ ОТСКОСОВ НА 1 СТВОРЧАТУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм(SLPDOOR1STF2_M)
+  public int SLPDOOR1STF2_M;
 
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ ДО 450 мм
-    static final int SLPDOOR2STF1_M = 60;
-    //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм
-    static final int SLPDOOR2STF2_M = 70;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ ДО 450 мм(SLPDOOR2ST1_M)
+  public int SLPDOOR2ST1_M;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ СВЫШЕ 450 мм(SLPDOOR2ST2_M)
+  public int SLPDOOR2ST2_M;
 
-//------------------------------------ЛИЗИНГ--------------------------------------------------------
-    //------------------------------ПО МЕСЯЦАМ------------------------------------------------------
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ ДО 450 мм(SLPDOOR2STF1_M)
+  public int SLPDOOR2STF1_M;
+  //МОНТАЖ ОТСКОСОВ НА ШТУЛЬПОВУЮ ДВЕРЬ С ФРАМУГОЙ СВЫШЕ 450 мм(SLPDOOR2STF2_M)
+  public int SLPDOOR2STF2_M;
 
-    //4 месяца
-    static final double LIZING4M = 1.257;
-    //6 месяцев
-    static final double LIZING6M = 1.296;
-    //12 месяцев
-    static final double LIZING12M = 1.405;
-    //20 месяцев
-    static final double LIZING20M = 1.627;
-    //24 месяцев
-    static final double LIZING24M = 1.658;
+//'------------------------------------ЛИЗИНГ--------------------------------------------------------
+  //'------------------------------ПО МЕСЯЦАМ------------------------------------------------------
+
+  //4 месяца(LIZING4M)
+  public double LIZING4M;
+
+  //6 месяцев(LIZING6M)
+  public double LIZING6M;
+
+  //12 месяцев(LIZING12M)
+  public double LIZING12M;
+
+  //20 месяцев(LIZING20M)
+  public double LIZING20M;
+
+  //24 месяцев(LIZING24M)
+  public double LIZING24M;
+//'------------------------------АЛЬФА-БАНК------------------------------
+          //'------------------------------ПО МЕСЯЦАМ-----------------------------------------------
+  // 6 месяцев(AMES6)
+  public double AMES6;
+
+  //10 месяцев(AMES10)
+  public double AMES10;
+
+  //12 месяцев(AMES12)
+  public double AMES12;
+
+  //15 месяцев(AMES15)
+  public double AMES15;
+
+  //18 месяцев(AMES18)
+  public double AMES18;
+
+  //24 месяцев(AMES24)
+  public double AMES24;
+
+  //36 месяцев(AMES36)
+  public double AMES36;
+//'------------------------------ЕЖЕМЕС------------------------------------------------------
+
+  //6 месяцев(AMES_E6)
+  public double AMES_E6;
+
+  //10 месяцев(AMES_E10)
+  public double AMES_E10;
+
+  //12 месяцев(AMES_E12)
+  public double AMES_E12;
+
+  //15 месяцев(AMES_E15)
+  public double AMES_E15;
+
+  //18 месяцев(AMES_E18)
+  public double AMES_E18;
+
+  //24 месяцев(AMES_E24)
+  public double AMES_E24;
+
+  //36 месяцев(AMES_E36)
+  public double AMES_E36;
+//'------------------------------ДОБРОБЫТ------------------------------
+         //'------------------------------ПО МЕСЯЦАМ------------------------------------------------
+  //3-6 месяцев(DMES6)
+  public double DMES6;
+
+  //7-12 месяцев(DMES12)
+  public double DMES12;
+
+  //13-18 месяцев(DMES18)
+  public double DMES18;
+
+  //19-24 месяцев(DMES24)
+  public double DMES24;
+
+  //25-36 месяцев(DMES36)
+  public double DMES36;
+//'------------------------------ЕЖЕМЕС------------------------------------------------------
+  //3-6 месяцев(DMES_E3)
+  public double DMES_E6;
+
+  //7-12 месяцев(DMES_E12)
+  public double DMES_E12;
+
+  //13-18 месяцев(DMES_E18)
+  public double DMES_E18;
+
+  //19-24 месяцев(DMES_E24)
+  public double DMES_E24;
+
+  //25-36 месяцев(DMES_E36)
+  public double DMES_E36;
+//'------------------------------------МАССИВЫ-------------------------------
+
+  //'------------------------------------ОКНА ПВХ------------------------------------
+
+  //'------------------------------------60/24------------------------------------
+
+  //ПРАЙС НА 1 - СТВОРЧАТОЕ ГЛУХОЕ
+  public int [][] BB6024wind1stNo;
+
+  //ПРАЙС НА 1 - СТВОРЧАТОЕ ОТКР
+  public int [][] BB6024wind1stOp;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] BB6024wind2st1Op;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] BB6024wind3st1Op;
+
+  //ПРАЙС НА 4 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] BB6024wind4st2Op;
+
+  //ПРАЙС НА БАЛКОННУЮ ДВЕРЬ
+  public int [][] BB6024balDor;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] BB6024wind2st2Op;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] BB6024wind3st2Op;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (ГЛУХОЕ)
+  public int [][] BB6024wind2stNo;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (ГЛУХОЕ)
+  public int [][] BB6024wind3stNo;
+
+//'------------------------------------60/32------------------------------------
+
+  //ПРАЙС НА 1 - СТВОРЧАТОЕ ГЛУХОЕ
+  public int [][] BB6032wind1stNo;
+
+  //ПРАЙС НА 1 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] BB6032wind1stOp;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] BB6032wind2st1Op;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] BB6032wind3st1Op;
+
+  //ПРАЙС НА 4 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] BB6032wind4st2Op;
+
+  //ПРАЙС НА БАЛКОННУЮ ДВЕРЬ
+  public int [][] BB6032balDor;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] BB6032wind2st2Op;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] BB6032wind3st2Op;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (ГЛУХОЕ)
+  public int [][] BB6032wind2stNo;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (ГЛУХОЕ)
+  public int [][] BB6032wind3stNo;
+
+  //'------------------------------------АЛЮМИНЬКИ------------------------------------
+  //ПРАЙС НА 1 - СТВОРЧАТОЕ ГЛУХОЕ
+  public int [][] windAl1stNo;
+
+  //ПРАЙС НА 2 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] windAl2st1Op;
+
+  //ПРАЙС НА 3 - СТВОРЧАТОЕ (1 ОТКР)
+  public int [][] windAl3st1Op;
+
+  //ПРАЙС НА 4 - СТВОРЧАТОЕ (2 ОТКР)
+  public int [][] windAl4st2Op;
+
+//'------------------------------------ДВЕРИ ПВХ------------------------------------
+
+  //'------------------60/32----------------------------------------
+  public int [][] doorBB6032D1;
+
+  public int [][] doorBB6032D2;
+
+  public int [][] doorBB6032W1;
+
+  public int [][] doorBB6032W2;
+
+//'------------------70/32----------------------------------------
+
+  public int [][] doorBB7032D1;
+
+  public int [][] doorBB7032D2;
+
+  public int [][] doorBB7032W1;
+
+  public int [][] doorBB7032W2;
 
 }

@@ -40,6 +40,7 @@ import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import androidx.annotation.NonNull;
@@ -104,6 +105,10 @@ public class MainActivity extends AppCompatActivity
 
     public AlertDialog.Builder builder;
     public AlertDialog.Builder builder1;
+
+    public static DopPrices prices = new DopPrices();
+    public static String versionFromSheet;
+    public static String dopPriceUpdateFromSheet;
 
 
     @Override
@@ -372,7 +377,7 @@ public class MainActivity extends AppCompatActivity
 //---------------------------------------------------------------------------------------------------------------------------------
     }
 
-    private File getExternalPath() {
+    private File getExternalPath(String fileName) {
         return new File(getExternalFilesDir(null), fileName);
     }
 
@@ -385,9 +390,19 @@ public class MainActivity extends AppCompatActivity
     public void writeHash(LinkedHashMap<String, Measure> wHashMap) throws IOException {
         FileOutputStream fos = null;
 
-        String json = gson.toJson(hashMap);
+        String json = gson.toJson(wHashMap);
         json = gson.toJson(ContinePrice.compress(json));
-        fos = new FileOutputStream(getExternalPath());
+        fos = new FileOutputStream(getExternalPath(fileName));
+        fos.write(json.getBytes());
+    }
+
+    // сохранение файла
+    public void writeUpdate(DopPrices update) throws IOException {
+        FileOutputStream fos = null;
+        String json = gson.toJson(update);
+        json = gson.toJson(ContinePrice.compress(json));
+
+        fos = new FileOutputStream(getExternalPath("Update"));
         fos.write(json.getBytes());
     }
 
@@ -396,7 +411,7 @@ public class MainActivity extends AppCompatActivity
         Type type = new TypeToken<LinkedHashMap<String, Measure>>(){}.getType();
 
         FileInputStream fin = null;
-        File file = getExternalPath();
+        File file = getExternalPath(fileName);
         fin =  new FileInputStream(file);
         byte[] bytes = new byte[fin.available()];
         fin.read(bytes);
@@ -404,6 +419,20 @@ public class MainActivity extends AppCompatActivity
         byte[] tmpByte = gson.fromJson(json, byte[].class);
         json = new String(uncompress(tmpByte));
         hashMap = gson.fromJson(json, type);
+    }
+
+    // открытие файла
+    public DopPrices readUpdate() throws IOException {
+
+        FileInputStream fin = null;
+        File file = getExternalPath("Update");
+        fin =  new FileInputStream(file);
+        byte[] bytes = new byte[fin.available()];
+        fin.read(bytes);
+        String json = new String (bytes);
+        byte[] tmpByte = gson.fromJson(json, byte[].class);
+        json = new String(uncompress(tmpByte));
+        return gson.fromJson(json, DopPrices.class);
     }
 
     // распаковать
@@ -458,10 +487,9 @@ public class MainActivity extends AppCompatActivity
      */
     @AfterPermissionGranted(REQUEST_PERMISSION_GET_ACCOUNTS)
     private void chooseAccount() {
-        if (EasyPermissions.hasPermissions(
-                this, Manifest.permission.GET_ACCOUNTS)) {
-            String accountName = getPreferences(Context.MODE_PRIVATE)
-                    .getString(PREF_ACCOUNT_NAME, null);
+        if (EasyPermissions.hasPermissions(this, Manifest.permission.GET_ACCOUNTS)) {
+            String accountName = getPreferences(Context.MODE_PRIVATE).getString(PREF_ACCOUNT_NAME, null);
+
             if (accountName != null) {
                 mCredential.setSelectedAccountName(accountName);
                 getResultsFromApi();
@@ -661,13 +689,14 @@ public class MainActivity extends AppCompatActivity
 
         /**
          * Fetch a list of names and majors of students in a sample spreadsheet:
-         * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
          * @return List of names and majors
          * @throws IOException
          */
         private List<String> getDataFromApi() throws IOException {
-            String spreadsheetId = "1oC12uKxGidATofdPAuBKNPHcj0VAW9mJGRKtnrbIvU8";
-            String range = "Class Data!A1:A";
+            String spreadsheetId = "1DgOBv9SDB804G_3_Gcj7JGgFa_tI2wIH1r2cpwCINHE";
+
+            //Получаем Gmail для сравнения, что бы дать доступ
+            String range = "EuroHoll!A1:A";
             List<String> results = new ArrayList<>();
             ValueRange response = this.mService.spreadsheets().values()
                     .get(spreadsheetId, range)
@@ -678,6 +707,17 @@ public class MainActivity extends AppCompatActivity
                     results.add((String) row.get(0));
                 }
             }
+            //Получаем обновления
+            range = "EuroHoll!J1:J";
+            response = this.mService.spreadsheets().values()
+                    .get(spreadsheetId, range)
+                    .execute();
+            values = response.getValues();
+            if (values != null) {
+                versionFromSheet = (String) values.get(0).get(0);
+                dopPriceUpdateFromSheet = (String) values.get(1).get(0);
+            }
+
             return results;
         }
 
@@ -696,18 +736,26 @@ public class MainActivity extends AppCompatActivity
             if (output == null || output.size() == 0) {
                 mOutputText.setVisibility(View.VISIBLE);
                 mOutputText.setText("No results returned.");
-            } else {
+            }
+            else {
 
+                //Перебираем все полученные email
                 for(String s : output) {
+
+                    //Если наш email совпадает с тем что есть в таблице
                     if (s.equals(mCredential.getSelectedAccountName())) {
                         isOAuth_OK = true;
                         if (isOAuth_OK) {
+                            //Показываем кнопку добавить замер и скрываем информацию о статусе доступа
                             addMeasure.setVisibility(View.VISIBLE);
                             mOutputText.setVisibility(View.INVISIBLE);
-                            //При запуске программы
+
+                            //Запускаем программу, если не была запущена ранее
                             if (!startProg) {
                                 startProg = true;
-                                File file = getExternalPath();
+
+                                //Проверяем хранилище замеров
+                                File file = getExternalPath(fileName);
                                 //Если нет фала с hashmap - создает такой пустой файл
                                 if (!file.exists()) {
                                     try {
@@ -729,12 +777,58 @@ public class MainActivity extends AppCompatActivity
                                         adapterMeasureLst.notifyDataSetInvalidated();
                                     }
                                 }
+                        //==========================================================================
+
+                                //Проверяем файл обновлений
+                                File file2 = getExternalPath("Update");
+
+                                //Если нет фала с обновлениями - создает такой пустой файл
+                                if (!file2.exists()) {
+                                    try {
+                                        writeUpdate(prices);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                    //Обновляем
+                                    try {
+                                        update();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                                //Если файл существует
+                                else {
+                                    //Читаем файл с обновлением
+                                    try {
+                                        prices = readUpdate();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+
+
+                                    //Если версия из таблицы, не соответсвует сохраненной версии, обновляем ее
+                                    if(prices.version == null || !prices.version.equals(versionFromSheet)) {
+
+                                        //Обновляем
+                                        try {
+                                            update();
+                                        } catch (IOException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+
+                                }
+
                             }
                             mOutputText.setText("Доступ открыт");
                             return;
                         }
                     }
                 }
+
                 mOutputText.setVisibility(View.VISIBLE);
                 mOutputText.setText("В доступе отказано");
             }
@@ -762,6 +856,15 @@ public class MainActivity extends AppCompatActivity
                 mOutputText.setVisibility(View.VISIBLE);
                 mOutputText.setText("Request cancelled.");
             }
+        }
+
+        //Обновляем прайсы
+        public void update() throws IOException {
+            String json = dopPriceUpdateFromSheet;
+            byte[] tmpByte = gson.fromJson(json, byte[].class);
+            json = new String(uncompress(tmpByte));
+            prices = gson.fromJson(json, DopPrices.class);
+            writeUpdate(prices);
         }
     }
 

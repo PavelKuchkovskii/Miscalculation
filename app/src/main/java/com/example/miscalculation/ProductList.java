@@ -79,7 +79,7 @@ public class ProductList extends AppCompatActivity {
     static int interest = 0;
     static int slopes = 0;
     static int mounting = 0;
-    static int delivery = 35;
+    static int delivery = 0;
     static int other = 0;
     static double priceOutcome = 0;
     static double delivKM = 0;
@@ -455,7 +455,7 @@ public class ProductList extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    ContinePrice.setContinePrice(prodList,interest,mounting,delivery,other,slopes, Course, Math.ceil(priceOutcome * 1.05), discontAm);
+                    ContinePrice.setContinePrice(prodList,interest,mounting,delivery,other,slopes, Course, Math.ceil(priceOutcome), discontAm);
                     startActivity(continePrice);
                 }
                 else {
@@ -639,7 +639,7 @@ public class ProductList extends AppCompatActivity {
     }
 
     public static void setProdLstPriceOutcome (){
-        itemSum.setText("∑ = " + String.format("%.2f", Math.ceil(priceOutcome * 1.05)) );
+        itemSum.setText("∑ = " + String.format("%.2f", Math.ceil(priceOutcome)) );
     }
 
     public static void clearAll() {
@@ -653,7 +653,7 @@ public class ProductList extends AppCompatActivity {
         interest = 0;
         mounting = 0;
         slopes = 0;
-        delivery = 35;
+        delivery = MainActivity.prices.delivery;
         other = 0;
         textDelivery.setText(delivery + ".00");
         textOther.setText(other + ".00");
@@ -674,7 +674,7 @@ public class ProductList extends AppCompatActivity {
 
         for(String s : prodList) {
             //Ищем Балконный блок
-            if (s.contains("***********БАЛКОННЫЙ БЛОК***********")) {
+            if (s.equals("***********БАЛКОННЫЙ БЛОК***********")) {
                 //Индекс конца балконного блока
                 int b = 0;
 
@@ -682,7 +682,7 @@ public class ProductList extends AppCompatActivity {
                 for (String s1 : prodList) {
 
                     //Если нашли Конец балконного блока
-                    if (s1.contains("***********КОНЕЦ***********")) {
+                    if (s1.equals("***********КОНЕЦ***********")) {
 
 
 
@@ -699,13 +699,15 @@ public class ProductList extends AppCompatActivity {
                             }
                             //Только если между началом блока и концом есть элементы
                             if(b - i > 1) {
-                                //Присваиваем интерес 55 элементу предшествующему концу блока, если меньше 1 окна
+                                //Присваиваем интерес 65 элементу предшествующему концу блока, если больше 1 окна(Чебурашка)
                                 if(countWindows > 1) {
-                                    prodInterest.set(b - 1, DopPrices.INTBALBLOCK + 5);
-                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, DopPrices.INTBALBLOCK + 5);
-                                }else {
-                                    prodInterest.set(b - 1, DopPrices.INTBALBLOCK);
-                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, DopPrices.INTBALBLOCK);
+                                    prodInterest.set(b - 1, MainActivity.prices.INTBALBLOCK2);
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTBALBLOCK2);
+                                }
+                                //Присваиваем интерес 55 элементу предшествующему концу блока, если 1 окно
+                                else {
+                                    prodInterest.set(b - 1, MainActivity.prices.INTBALBLOCK);
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTBALBLOCK);
                                 }
 
                             }
@@ -726,14 +728,14 @@ public class ProductList extends AppCompatActivity {
 
         for(String s : prodList) {
             //Ищем полукруглую раму
-            if(s.contains("***********ПОЛУКРУГЛАЯ РАМА***********")) {
+            if(s.equals("***********ПОЛУКРУГЛАЯ РАМА***********")) {
                 int b = 0;
 
                 //Если нашли Балконный блок ищем его конец
                 for (String s1 : prodList) {
 
                     //Если нашли Конец балконного блока
-                    if (s1.contains("***********КОНЕЦ***********")) {
+                    if (s1.equals("***********КОНЕЦ***********")) {
 
                         //Проверка на наличие элементов между началом и концом блока
                         if(i < b) {
@@ -751,8 +753,8 @@ public class ProductList extends AppCompatActivity {
                                 MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(y, 0);
                             }
                             //Присваиваем интерес 20 * на количество створок элементу предшествующему концу блока
-                            prodInterest.set(b - 1, countWindows * DopPrices.INTPOLRAM);
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, countWindows * DopPrices.INTPOLRAM);
+                            prodInterest.set(b - 1, countWindows * MainActivity.prices.INTPOLRAM);
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, countWindows * MainActivity.prices.INTPOLRAM);
                             break;
                         }
                     }
@@ -772,7 +774,7 @@ public class ProductList extends AppCompatActivity {
         for(int i = 0;i < prodList.size();i++) {
 
             //Если найдена составная рама
-            if(prodList.get(i).contains("***********БАЛК.РАМА(ИЗ НЕСК. ЧАСТЕЙ)***********")) {
+            if(prodList.get(i).equals("***********БАЛК.РАМА(ИЗ НЕСК. ЧАСТЕЙ)***********")) {
 
                 //Переибираем лист в поиске конца
                 for(int b = i;b < prodList.size();b++) {
@@ -782,7 +784,9 @@ public class ProductList extends AppCompatActivity {
                     }
 
                     //Когда нашли конец
-                    if(prodList.get(b).contains("***********КОНЕЦ***********")) {
+                    else if(prodList.get(b).equals("***********КОНЕЦ***********")) {
+
+                        //Заменяем интерес всех элементов составной рамы на 0
                         for (int b2 = i + 1;b2 < b - 1;b2++) {
                             prodInterest.set(b2, 0);
                             MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b2, 0);
@@ -791,28 +795,29 @@ public class ProductList extends AppCompatActivity {
                         if (width < 5000) {
                             //Если ширина меньше 4000
                             if (width < 4000) {
-                                //Если ширина меньше 3000
+                                //Если ширина меньше 3300
                                 if (width < 3300) {
-                                    prodInterest.set(b - 1, 65);
-                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, 65);
+                                    prodInterest.set(b - 1, MainActivity.prices.INTW4ST);
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4ST);
                                 }
                                 //Если ширина 3300-4000
                                 else {
-                                    prodInterest.set(b - 1, 80);
-                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, 80);
+                                    prodInterest.set(b - 1, MainActivity.prices.INTW4STV3);
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4STV3);
                                 }
                             }
                             //если ширина 4000-5000
                             else {
-                                prodInterest.set(b - 1, 100);
-                                MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, 100);
+                                prodInterest.set(b - 1, MainActivity.prices.INTW4STV4);
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4STV4);
                             }
                         }
                         //Если ширина больше 5000
                         else {
-                            prodInterest.set(b - 1, 120);
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, 120);
+                            prodInterest.set(b - 1, MainActivity.prices.INTW4STV5);
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4STV5);
                         }
+                        break;
                     }
                 }
             }
@@ -833,16 +838,13 @@ public class ProductList extends AppCompatActivity {
                 //Записываем количество открытых блоков
                 i++;
             }
-        }
-        for(String s : prodList) {
             //Ищем закрытие блока
-            if(s.equals("***********КОНЕЦ***********")) {
+            else if(s.equals("***********КОНЕЦ***********")) {
                 //Записываем закрытые блоки
                 i2++;
             }
         }
         //Если количество открытых блоков равно количесву закрытых веренет true иначе false
-
         return updateBlock(i - i2 == 0);
     }
 
@@ -857,7 +859,7 @@ public class ProductList extends AppCompatActivity {
     //Вызывается при удалении начала блока
     public void checkBlock(int position) {
 
-        //Если это не последний элемент спсика(начало или конец блока)
+        //Если это не последний элемент спсика
         if (position + 1 < prodList.size()) {
 
             for (int i = position + 1; i < prodList.size(); i++) {
@@ -916,6 +918,7 @@ public class ProductList extends AppCompatActivity {
     }
 
     public boolean updateBlock(boolean b) {
+
         //Если блок закрыт
         if(b) {
             butAddBlock.setText("БЛОК +");
@@ -924,6 +927,7 @@ public class ProductList extends AppCompatActivity {
         else {
             butAddBlock.setText("КОНЕЦ");
         }
+
         return b;
     }
 

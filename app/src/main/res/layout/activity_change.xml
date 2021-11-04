@@ -5,6 +5,17 @@
     android:orientation="vertical"
     android:background="#262626">
 
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/button_addAluminWindow"
+        android:layout_marginBottom ="90dp"
+        android:text="ВЕРСИЯ: "
+        android:textColor="#ffd11a"/>
+
     <Button
         android:id="@+id/button_addType"
         android:layout_width="150dp"

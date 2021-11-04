@@ -50,65 +50,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
     static List<String> dataHight = new ArrayList<>();
     static List<String> dataWidth = new ArrayList<>();
 
-    //-----------------------АЛЮМИНЬКИ------------------------------------------------------------------
-    static int [][] windAl1stNo = { {16, 17, 18, 20, 21, 22, 23},
-            {17, 18, 20, 21, 22, 24, 25},
-            {18, 20, 21, 22, 25, 26, 27},
-            {20, 21, 22, 25, 26, 28, 29},
-            {21, 22, 25, 26, 28, 29, 30},
-            {22, 24, 26, 28, 29, 32, 34},
-            {24, 25, 28, 29, 32, 33, 36},
-            {25, 28, 29, 30, 33, 34, 37},
-            {26, 29, 30, 33, 34, 36, 38},
-            {28, 30, 32, 34, 36, 38, 40},
-            {29, 32, 33, 36, 38, 40, 42},
-            {30, 33, 36, 37, 40, 41, 43},
-            {32, 34, 37, 38, 41, 44, 46} };
-
-    static int [][] windAl2st1Op = { {33, 34, 37, 38, 40, 42, 44, 45, 48, 51},
-            {36, 37, 40, 41, 44, 45, 46, 49, 50, 55},
-            {38, 41, 42, 44, 46, 48, 50, 52, 54, 59},
-            {41, 44, 45, 48, 49, 52, 53, 55, 57, 63},
-            {44, 46, 48, 50, 53, 54, 57, 58, 61, 67},
-            {46, 49, 52, 53, 55, 57, 59, 62, 63, 71},
-            {50, 52, 54, 57, 58, 61, 62, 65, 67, 75},
-            {53, 54, 57, 59, 61, 63, 66, 69, 70, 79},
-            {55, 58, 59, 62, 65, 67, 69, 71, 74, 83},
-            {58, 61, 63, 65, 67, 70, 73, 74, 77, 87},
-            {61, 63, 66, 69, 70, 73, 75, 78, 81, 91},
-            {63, 66, 69, 71, 74, 77, 79, 81, 83, 95},
-            {66, 69, 71, 74, 77, 79, 82, 85, 87, 99} };
-
-    static int [][] windAl3st1Op = { {57, 58, 59, 62, 63, 65, 67, 69, 70, 73, 74, 75, 77},
-            {61, 62, 65, 66, 69, 70, 71, 74, 75, 78, 79, 81, 83},
-            {65, 67, 69, 71, 73, 75, 77, 78, 81, 82, 85, 86, 89},
-            {70, 71, 74, 75, 78, 79, 82, 83, 86, 87, 90, 91, 95},
-            {74, 77, 78, 81, 82, 85, 86, 89, 90, 92, 94, 96, 101},
-            {78, 81, 82, 85, 87, 89, 91, 92, 95, 98, 99, 102, 107},
-            {83, 85, 87, 90, 91, 94, 96, 98, 100, 102, 104, 107, 113},
-            {87, 90, 91, 94, 96, 98, 100, 103, 106, 107, 110, 112, 119},
-            {91, 94, 96, 99, 100, 103, 106, 108, 110, 112, 115, 116, 125},
-            {96, 98, 100, 103, 106, 108, 110, 112, 115, 118, 120, 122, 131},
-            {100, 103, 106, 107, 110, 112, 115, 118, 120, 123, 124, 127, 137},
-            {104, 107, 110, 112, 115, 118, 120, 123, 124, 127, 129, 132, 143},
-            {110, 112, 115, 116, 119, 122, 124, 127, 129, 132, 135, 137, 149} };
-
-    static int [][] windAl4st2Op = { {75, 77, 78, 81, 82, 83, 86, 87, 89, 91, 92, 94, 96, 99, 102},
-            {81, 82, 85, 86, 87, 90, 91, 94, 95, 96, 99, 100, 103, 106, 108},
-            {86, 87, 90, 91, 94, 95, 98, 99, 102, 103, 104, 107, 108, 112, 115},
-            {91, 94, 95, 98, 99, 102, 103, 106, 107, 110, 111, 114, 115, 119, 122},
-            {96, 99, 102, 103, 106, 107, 110, 111, 114, 115, 118, 119, 122, 126, 128},
-            {103, 104, 107, 108, 111, 114, 115, 118, 119, 122, 124, 126, 128, 132, 135},
-            {108, 111, 112, 115, 116, 119, 122, 123, 126, 128, 129, 132, 135, 139, 141},
-            {114, 116, 119, 120, 123, 126, 127, 129, 132, 133, 136, 139, 140, 145, 148},
-            {119, 122, 124, 127, 128, 131, 133, 136, 137, 140, 143, 145, 147, 152, 155},
-            {126, 127, 129, 132, 135, 137, 139, 141, 144, 147, 149, 151, 153, 159, 161},
-            {131, 133, 135, 137, 140, 143, 145, 148, 151, 152, 155, 157, 160, 165, 168},
-            {136, 139, 141, 144, 147, 148, 151, 153, 156, 159, 161, 164, 166, 172, 174},
-            {141, 144, 147, 149, 152, 155, 157, 160, 163, 165, 168, 170, 173, 178, 181} };
 //--------------------------------------------------------------------------------------------
 
-    String[] dataType = {"Окно 1 створ.", "Окно 2 створ.", "Окно 3 створ.", "Балконная рама (4 створ)."};
+    String[] dataType = {"Окно 1 створ.", "Окно 2 створ.", "Окно 3 створ.", "Балконная рама (4 створ.)"};
 
     //--------------------------------------------------------------------------------------------------
     static ArrayAdapter<String> adapterTypeOfType;
@@ -374,12 +318,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 1000 ) {
-                    itemInterest = DopPrices.INTW2ST;
+                    itemInterest = MainActivity.prices.INTW2ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW1ST;
+                    itemInterest = MainActivity.prices.INTW1ST;
                 }
-                price = windAl1stNo[positionHight1][positionWidth1];
+                price = MainActivity.prices.windAl1stNo[positionHight1][positionWidth1];
             }
             return;
         }
@@ -399,12 +343,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 1700 ) {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW2ST;
+                    itemInterest = MainActivity.prices.INTW2ST;
                 }
-                price = windAl2st1Op[positionHight1][positionWidth1] - 3;
+                price = MainActivity.prices.windAl2st1Op[positionHight1][positionWidth1] - 3;
             }
             return;
         }
@@ -424,12 +368,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 2500 ) {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
-                price = windAl3st1Op[positionHight1][positionWidth1] - 3;
+                price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1] - 3;
             }
             return;
         }
@@ -448,12 +392,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 1700 ) {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW2ST;
+                    itemInterest = MainActivity.prices.INTW2ST;
                 }
-                price = windAl2st1Op[positionHight1][positionWidth1];
+                price = MainActivity.prices.windAl2st1Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -473,12 +417,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 1700 ) {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW2ST;
+                    itemInterest = MainActivity.prices.INTW2ST;
                 }
-                price = windAl2st1Op[positionHight1][positionWidth1] + 3;
+                price = MainActivity.prices.windAl2st1Op[positionHight1][positionWidth1] + 3;
             }
             return;
         }
@@ -498,12 +442,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 2500 ) {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
-                price = windAl3st1Op[positionHight1][positionWidth1];
+                price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -523,13 +467,13 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 2500 ) {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
 
-                price = windAl3st1Op[positionHight1][positionWidth1] + 3;
+                price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1] + 3;
             }
             return;
         }
@@ -549,12 +493,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600 || Integer.parseInt(dataWidth.get(positionWidth1)) > 2500 ) {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
                 else {
-                    itemInterest = DopPrices.INTW3ST;
+                    itemInterest = MainActivity.prices.INTW3ST;
                 }
-                price = windAl3st1Op[positionHight1][positionWidth1] + 6;
+                price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1] + 6;
             }
             return;
         }
@@ -574,12 +518,12 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600) {
-                    itemInterest = DopPrices.INTW4STV2;
+                    itemInterest = MainActivity.prices.INTW4STV2;
                 }
                 else {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
-                price = windAl4st2Op[positionHight1][positionWidth1] - 6;
+                price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] - 6;
             }
             return;
         }
@@ -599,13 +543,13 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600) {
-                    itemInterest = DopPrices.INTW4STV2;
+                    itemInterest = MainActivity.prices.INTW4STV2;
                 }
                 else {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
 
-                price = windAl4st2Op[positionHight1][positionWidth1] - 3;
+                price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] - 3;
 
             }
             return;
@@ -626,13 +570,13 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600) {
-                    itemInterest = DopPrices.INTW4STV2;
+                    itemInterest = MainActivity.prices.INTW4STV2;
                 }
                 else {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
 
-                price = windAl4st2Op[positionHight1][positionWidth1];
+                price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -651,13 +595,13 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600) {
-                    itemInterest = DopPrices.INTW4STV2;
+                    itemInterest = MainActivity.prices.INTW4STV2;
                 }
                 else {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
 
-                price = windAl4st2Op[positionHight1][positionWidth1] + 3;
+                price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] + 3;
             }
             return;
         }
@@ -677,13 +621,13 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 getPriceFlag = false;
 
                 if (Integer.parseInt(dataHight.get(positionHight1)) > 1600) {
-                    itemInterest = DopPrices.INTW4STV2;
+                    itemInterest = MainActivity.prices.INTW4STV2;
                 }
                 else {
-                    itemInterest = DopPrices.INTW4ST;
+                    itemInterest = MainActivity.prices.INTW4ST;
                 }
 
-                price = windAl4st2Op[positionHight1][positionWidth1] + 6;
+                price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] + 6;
             }
             return;
         }
@@ -697,7 +641,7 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
             }
             //Коричневый алюминий
             if (positionLamination1 == 1) {
-                laminationCoefficient = DopPrices.korichAlumin;
+                laminationCoefficient = MainActivity.prices.korichAlumin;
             }
 
 

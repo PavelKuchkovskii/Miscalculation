@@ -427,11 +427,11 @@ public class AddWorkActivity extends AppCompatActivity {
                     if (positionType1 == 0) {
                         //Если высота до 1610 мм
                         if (positionHight1 == 0) {
-                            priceWork = DopPrices.WORK1ST_R;
+                            priceWork = MainActivity.prices.WORK1ST_R;
                         }
                         //Если высота свыше 1610 мм
                         else {
-                            priceWork = DopPrices.WORK1ST_R + DopPrices.WORKMORE_R;
+                            priceWork = MainActivity.prices.WORK1ST_R + MainActivity.prices.WORKMORE_R;
                         }
 
                     }
@@ -440,11 +440,11 @@ public class AddWorkActivity extends AppCompatActivity {
                     else if (positionType1 == 1) {
                         //Если высота до 1610 мм
                         if (positionHight1 == 0) {
-                            priceWork = DopPrices.WORK2ST_R;
+                            priceWork = MainActivity.prices.WORK2ST_R;
                         }
                         //Если высота свыше 1610 мм
                         else {
-                            priceWork = DopPrices.WORK2ST_R + DopPrices.WORKMORE_R;
+                            priceWork = MainActivity.prices.WORK2ST_R + MainActivity.prices.WORKMORE_R;
                         }
                     }
 
@@ -456,12 +456,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                             //Если ширина до 2510 мм
                             if (positionWidth1 == 0) {
-                                priceWork = DopPrices.WORK3ST_R;
+                                priceWork = MainActivity.prices.WORK3ST_R;
                             }
 
                             //Если ширина свыше 2510 мм
                             else {
-                                priceWork = DopPrices.WORK3ST_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.WORK3ST_R + MainActivity.prices.WORKMORE_R;
                             }
                         }
                         //Если высота свыше 1610 мм
@@ -469,12 +469,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                             //Если ширина до 2510 мм
                             if(positionWidth1 == 0) {
-                                priceWork = DopPrices.WORK3ST_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.WORK3ST_R + MainActivity.prices.WORKMORE_R;
                             }
 
                             //Если ширина свыше 2510 мм
                             else {
-                                priceWork = DopPrices.WORK3ST_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.WORK3ST_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                             }
 
                         }
@@ -484,11 +484,11 @@ public class AddWorkActivity extends AppCompatActivity {
                     else if (positionType1 == 3) {
                         //Если балконный блок с 1 окном
                         if (positionTypeOfType1 == 0) {
-                            priceWork = DopPrices.WORKBALBLOCK1_R;
+                            priceWork = MainActivity.prices.WORKBALBLOCK1_R;
                         }
                         //Если чебурашка
                         else{
-                            priceWork = DopPrices.WORKBALBLOCK2_R;
+                            priceWork = MainActivity.prices.WORKBALBLOCK2_R;
                         }
                     }
 
@@ -501,44 +501,44 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST1_R;
+                                    priceWork = MainActivity.prices.WORK4ST1_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST1_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                             //Если ширина 3300 - 4300
                             if (positionWidth1 == 1) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST2_R;
+                                    priceWork = MainActivity.prices.WORK4ST2_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST2_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                             //Если ширина свыше 4300
                             if (positionWidth1 == 2) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST3_R;
+                                    priceWork = MainActivity.prices.WORK4ST3_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                             //Если ширина свыше 5000
                             if (positionWidth1 == 3) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST4_R;
+                                    priceWork = MainActivity.prices.WORK4ST4_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST4_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST4_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -550,11 +550,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST1_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST1_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST1_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST1_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -562,11 +562,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 1) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST2_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST2_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST2_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST2_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -574,11 +574,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 2) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST3_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST3_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST3_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST3_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -586,11 +586,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 3) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST4_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST4_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST4_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST4_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -603,11 +603,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST1_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST1_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST1_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST1_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -615,11 +615,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 1) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST2_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST2_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST2_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST2_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -627,11 +627,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 2) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST3_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST3_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST3_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST3_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -639,11 +639,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 3) {
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST4_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R;
+                                    priceWork = MainActivity.prices.WORK4ST4_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R;
                                 }
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST4_R + DopPrices.WORK4ST5_R + DopPrices.WORK4ST5_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORK4ST4_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORK4ST5_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -652,11 +652,11 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //Если из 4 частей
                             if (positionTypeOfType1_2 == 0) {
-                                priceWork = DopPrices.WORKPOLRAM1_R;
+                                priceWork = MainActivity.prices.WORKPOLRAM1_R;
                             }
                             //Если из 5 частей
                             if (positionTypeOfType1_2 == 1) {
-                                priceWork = DopPrices.WORKPOLRAM2_R;
+                                priceWork = MainActivity.prices.WORKPOLRAM2_R;
                             }
                         }
 
@@ -670,11 +670,11 @@ public class AddWorkActivity extends AppCompatActivity {
                     if (positionType1 == 0) {
                         //Если высота до 1610 мм
                         if (positionHight1 == 0) {
-                            priceWork = DopPrices.WORK1ST_M;
+                            priceWork = MainActivity.prices.WORK1ST_M;
                         }
                         //Если высота свыше 1610 мм
                         else {
-                            priceWork = DopPrices.WORK1ST_M + DopPrices.WORKMORE_M;
+                            priceWork = MainActivity.prices.WORK1ST_M + MainActivity.prices.WORKMORE_M;
                         }
 
                     }
@@ -683,11 +683,11 @@ public class AddWorkActivity extends AppCompatActivity {
                     else if (positionType1 == 1) {
                         //Если высота до 1610 мм
                         if (positionHight1 == 0) {
-                            priceWork = DopPrices.WORK2ST_M;
+                            priceWork = MainActivity.prices.WORK2ST_M;
                         }
                         //Если высота свыше 1610 мм
                         else {
-                            priceWork = DopPrices.WORK2ST_M + DopPrices.WORKMORE_M;
+                            priceWork = MainActivity.prices.WORK2ST_M + MainActivity.prices.WORKMORE_M;
                         }
                     }
 
@@ -697,22 +697,22 @@ public class AddWorkActivity extends AppCompatActivity {
                         if (positionHight1 == 0) {
                             //Если ширина до 2510 мм
                             if (positionWidth1 == 0) {
-                                priceWork = DopPrices.WORK3ST_M;
+                                priceWork = MainActivity.prices.WORK3ST_M;
                             }
                             //Если ширина свыше 2510 мм
                             else {
-                                priceWork = DopPrices.WORK3ST_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.WORK3ST_M + MainActivity.prices.WORKMORE_M;
                             }
                         }
                         //Если высота свыше 1610 мм
                         else {
                             //Если ширина до 2510 мм
                             if(positionWidth1 == 0) {
-                                priceWork = DopPrices.WORK3ST_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.WORK3ST_M + MainActivity.prices.WORKMORE_M;
                             }
                             //Если ширина свыше 2510 мм
                             else {
-                                priceWork = DopPrices.WORK3ST_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.WORK3ST_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                             }
 
                         }
@@ -722,11 +722,11 @@ public class AddWorkActivity extends AppCompatActivity {
                     else if (positionType1 == 3) {
                         //Если балконный блок с 1 окном
                         if (positionTypeOfType1 == 0) {
-                            priceWork = DopPrices.WORKBALBLOCK1_M;
+                            priceWork = MainActivity.prices.WORKBALBLOCK1_M;
                         }
                         //Если чебурашка
                         else{
-                            priceWork = DopPrices.WORKBALBLOCK2_M;
+                            priceWork = MainActivity.prices.WORKBALBLOCK2_M;
                         }
                     }
 
@@ -741,12 +741,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST1_M;
+                                    priceWork = MainActivity.prices.WORK4ST1_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -755,12 +755,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST2_M;
+                                    priceWork = MainActivity.prices.WORK4ST2_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -769,12 +769,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST3_M;
+                                    priceWork = MainActivity.prices.WORK4ST3_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST3_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -783,12 +783,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST4_M;
+                                    priceWork = MainActivity.prices.WORK4ST4_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST4_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -801,12 +801,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST1_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST1_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -815,12 +815,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST2_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST2_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -829,12 +829,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST3_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST3_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -843,12 +843,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST4_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST4_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -862,12 +862,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST1_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST1_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -876,12 +876,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST2_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST2_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -890,12 +890,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST3_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST3_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -904,12 +904,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если высота до 1610 мм
                                 if (positionHight1 == 0) {
-                                    priceWork = DopPrices.WORK4ST4_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M;
+                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
                                 }
 
                                 //Если высота свыше 1610 мм
                                 else {
-                                    priceWork = DopPrices.WORK4ST4_M + DopPrices.WORK4ST5_M + DopPrices.WORK4ST5_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -918,11 +918,11 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //Если из 4 частей
                             if (positionTypeOfType1_2 == 0) {
-                                priceWork = DopPrices.WORKPOLRAM1_M;
+                                priceWork = MainActivity.prices.WORKPOLRAM1_M;
                             }
                             //Если из 5 частей
                             if (positionTypeOfType1_2 == 1) {
-                                priceWork = DopPrices.WORKPOLRAM2_M;
+                                priceWork = MainActivity.prices.WORKPOLRAM2_M;
                             }
                         }
 
@@ -986,12 +986,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1ST_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1ST_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -1000,12 +1000,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1ST_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1ST_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                             }
@@ -1019,12 +1019,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1STF_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1STF_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -1033,12 +1033,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1STF_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1STF_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                             }
@@ -1056,12 +1056,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2ST_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2ST_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -1070,12 +1070,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2ST_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2ST_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                             }
@@ -1089,12 +1089,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2STF_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2STF_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -1103,12 +1103,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2STF_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2STF_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
 
                             }
@@ -1130,12 +1130,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1ST_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1ST_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -1144,12 +1144,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1ST_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1ST_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1ST_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                             }
@@ -1163,12 +1163,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1STF_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1STF_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -1177,12 +1177,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR1STF_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR1STF_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR1STF_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                             }
@@ -1200,12 +1200,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2ST_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2ST_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -1214,12 +1214,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2ST_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2ST_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2ST_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                             }
@@ -1233,12 +1233,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2STF_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2STF_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -1247,12 +1247,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                                 //Если ширина до 1000 мм
                                 if (positionWidth1 == 0) {
-                                    priceWork = DopPrices.WORKDOOR2STF_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                                 //Если ширина свыше 1000 мм
                                 else {
-                                    priceWork = DopPrices.WORKDOOR2STF_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.WORKDOOR2STF_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                                 }
 
                             }
@@ -1342,15 +1342,15 @@ public class AddWorkActivity extends AppCompatActivity {
                         if (positionHight1 == 0) {
                             //До 250 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP1ST1_R;
+                                priceWork = MainActivity.prices.SLP1ST1_R;
                             }
                             //Свыше 250 мм
                             else if (positionTypeOfType1 == 1) {
-                                priceWork = DopPrices.SLP1ST2_R;
+                                priceWork = MainActivity.prices.SLP1ST2_R;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP1ST3_R;
+                                priceWork = MainActivity.prices.SLP1ST3_R;
                             }
                         }
 
@@ -1358,15 +1358,15 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //До 250 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP1ST1_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.SLP1ST1_R + MainActivity.prices.WORKMORE_R;
                             }
                             //Свыше 250 мм
                             else if (positionTypeOfType1 == 1) {
-                                priceWork = DopPrices.SLP1ST2_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.SLP1ST2_R + MainActivity.prices.WORKMORE_R;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP1ST3_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.SLP1ST3_R + MainActivity.prices.WORKMORE_R;
                             }
                         }
 
@@ -1379,15 +1379,15 @@ public class AddWorkActivity extends AppCompatActivity {
                         if (positionHight1 == 0) {
                             //До 250 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP2ST1_R;
+                                priceWork = MainActivity.prices.SLP2ST1_R;
                             }
                             //Свыше 250 мм
                             else if (positionTypeOfType1 == 1) {
-                                priceWork = DopPrices.SLP2ST2_R;
+                                priceWork = MainActivity.prices.SLP2ST2_R;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP2ST3_R;
+                                priceWork = MainActivity.prices.SLP2ST3_R;
                             }
                         }
 
@@ -1395,15 +1395,15 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //До 250 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP2ST1_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.SLP2ST1_R + MainActivity.prices.WORKMORE_R;
                             }
                             //Свыше 250 мм
                             else if (positionTypeOfType1 == 1) {
-                                priceWork = DopPrices.SLP2ST2_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.SLP2ST2_R + MainActivity.prices.WORKMORE_R;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP2ST3_R + DopPrices.WORKMORE_R;
+                                priceWork = MainActivity.prices.SLP2ST3_R + MainActivity.prices.WORKMORE_R;
                             }
                         }
 
@@ -1419,15 +1419,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_R;
+                                    priceWork = MainActivity.prices.SLP3ST1_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLP3ST2_R;
+                                    priceWork = MainActivity.prices.SLP3ST2_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST3_R;
+                                    priceWork = MainActivity.prices.SLP3ST3_R;
                                 }
                             }
 
@@ -1435,15 +1435,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST1_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLP3ST2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST2_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -1455,15 +1455,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST1_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLP3ST2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST2_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
 
@@ -1471,15 +1471,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST1_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLP3ST2_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST2_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST3_R + DopPrices.WORKMORE_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLP3ST3_R + MainActivity.prices.WORKMORE_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -1492,15 +1492,15 @@ public class AddWorkActivity extends AppCompatActivity {
                         if(positionTypeOfType1_2 == 0) {
                             //До 250 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLPBALBLOCK1_1_R;
+                                priceWork = MainActivity.prices.SLPBALBLOCK1_1_R;
                             }
                             //Свыше 250 мм
                             else if (positionTypeOfType1 == 1) {
-                                priceWork = DopPrices.SLPBALBLOCK1_2_R;
+                                priceWork = MainActivity.prices.SLPBALBLOCK1_2_R;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLPBALBLOCK1_3_R;
+                                priceWork = MainActivity.prices.SLPBALBLOCK1_3_R;
                             }
                         }
 
@@ -1508,15 +1508,15 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //До 250 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLPBALBLOCK2_1_R;
+                                priceWork = MainActivity.prices.SLPBALBLOCK2_1_R;
                             }
                             //Свыше 250 мм
                             else if (positionTypeOfType1 == 1) {
-                                priceWork = DopPrices.SLPBALBLOCK2_2_R;
+                                priceWork = MainActivity.prices.SLPBALBLOCK2_2_R;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLPBALBLOCK2_3_R;
+                                priceWork = MainActivity.prices.SLPBALBLOCK2_3_R;
                             }
                         }
 
@@ -1532,15 +1532,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1ST1_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST1_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR1ST2_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST2_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1ST3_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST3_R;
                                 }
                             }
 
@@ -1548,15 +1548,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1ST1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST1_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR1ST2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST2_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1ST3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -1568,15 +1568,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2ST1_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST1_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR2ST2_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST2_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2ST3_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST3_R;
                                 }
                             }
 
@@ -1584,15 +1584,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2ST1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST1_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR2ST2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST2_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2ST3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -1604,15 +1604,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1STF1_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF1_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR1STF2_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF2_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1STF3_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF3_R;
                                 }
                             }
 
@@ -1620,15 +1620,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1STF1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF1_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR1STF2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF2_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1STF3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -1640,15 +1640,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2STF1_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF1_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR2STF2_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF2_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2STF3_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF3_R;
                                 }
                             }
 
@@ -1656,15 +1656,15 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 250 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2STF1_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF1_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 250 мм
                                 else if (positionTypeOfType1 == 1) {
-                                    priceWork = DopPrices.SLPDOOR2STF2_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF2_R + MainActivity.prices.WORKMORE_R;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2STF3_R + DopPrices.WORKMORE_R;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF3_R + MainActivity.prices.WORKMORE_R;
                                 }
                             }
                         }
@@ -1681,11 +1681,11 @@ public class AddWorkActivity extends AppCompatActivity {
                         if (positionHight1 == 0) {
                             //До 450 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP1ST1_M;
+                                priceWork = MainActivity.prices.SLP1ST1_M;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP1ST2_M;
+                                priceWork = MainActivity.prices.SLP1ST2_M;
                             }
                         }
 
@@ -1693,11 +1693,11 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //До 450 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP1ST1_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.SLP1ST1_M + MainActivity.prices.WORKMORE_M;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP1ST2_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.SLP1ST2_M + MainActivity.prices.WORKMORE_M;
                             }
                         }
 
@@ -1710,11 +1710,11 @@ public class AddWorkActivity extends AppCompatActivity {
                         if (positionHight1 == 0) {
                             //До 450 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP2ST1_M;
+                                priceWork = MainActivity.prices.SLP2ST1_M;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP2ST2_M;
+                                priceWork = MainActivity.prices.SLP2ST2_M;
                             }
                         }
 
@@ -1722,11 +1722,11 @@ public class AddWorkActivity extends AppCompatActivity {
                         else {
                             //До 450 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLP2ST1_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.SLP2ST1_M + MainActivity.prices.WORKMORE_M;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLP2ST2_M + DopPrices.WORKMORE_M;
+                                priceWork = MainActivity.prices.SLP2ST2_M + MainActivity.prices.WORKMORE_M;
                             }
                         }
 
@@ -1742,11 +1742,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_M;
+                                    priceWork = MainActivity.prices.SLP3ST1_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST2_M;
+                                    priceWork = MainActivity.prices.SLP3ST2_M;
                                 }
                             }
 
@@ -1754,11 +1754,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLP3ST1_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLP3ST2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -1770,11 +1770,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionWidth1 == 0) {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLP3ST1_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLP3ST2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
 
@@ -1782,11 +1782,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLP3ST1_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLP3ST1_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLP3ST2_M + DopPrices.WORKMORE_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLP3ST2_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -1799,22 +1799,22 @@ public class AddWorkActivity extends AppCompatActivity {
                         if(positionTypeOfType1_2 == 0) {
                             //До 450 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLPBALBLOCK1_1_M;
+                                priceWork = MainActivity.prices.SLPBALBLOCK1_1_M;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLPBALBLOCK1_2_M;
+                                priceWork = MainActivity.prices.SLPBALBLOCK1_2_M;
                             }
                         }
                         //Если ЧЕБУРАШКА
                         else {
                             //До 450 мм
                             if (positionTypeOfType1 == 0) {
-                                priceWork = DopPrices.SLPBALBLOCK2_1_M;
+                                priceWork = MainActivity.prices.SLPBALBLOCK2_1_M;
                             }
                             //Свыше 450 мм
                             else {
-                                priceWork = DopPrices.SLPBALBLOCK2_2_M;
+                                priceWork = MainActivity.prices.SLPBALBLOCK2_2_M;
                             }
                         }
 
@@ -1830,11 +1830,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1ST1_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST1_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1ST2_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST2_M;
                                 }
                             }
 
@@ -1842,11 +1842,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1ST1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST1_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1ST2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1ST2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -1858,11 +1858,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2ST1_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST1_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2ST2_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST2_M;
                                 }
                             }
 
@@ -1870,11 +1870,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2ST1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST1_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2ST2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2ST2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -1886,11 +1886,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1STF1_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF1_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1STF2_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF2_M;
                                 }
                             }
 
@@ -1898,11 +1898,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR1STF1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF1_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR1STF2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR1STF2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -1914,11 +1914,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             if (positionHight1 == 0) {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2STF1_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF1_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2STF2_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF2_M;
                                 }
                             }
 
@@ -1926,11 +1926,11 @@ public class AddWorkActivity extends AppCompatActivity {
                             else {
                                 //До 450 мм
                                 if (positionTypeOfType1 == 0) {
-                                    priceWork = DopPrices.SLPDOOR2STF1_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF1_M + MainActivity.prices.WORKMORE_M;
                                 }
                                 //Свыше 450 мм
                                 else {
-                                    priceWork = DopPrices.SLPDOOR2STF2_M + DopPrices.WORKMORE_M;
+                                    priceWork = MainActivity.prices.SLPDOOR2STF2_M + MainActivity.prices.WORKMORE_M;
                                 }
                             }
                         }
@@ -1961,11 +1961,11 @@ public class AddWorkActivity extends AppCompatActivity {
             else {
                 //С 1 стороны
                 if(positionType1 == 0) {
-                    priceWork = DopPrices.WORKNASH;
+                    priceWork = MainActivity.prices.WORKNASH;
                 }
                 //С 2 сторон
                 else  {
-                    priceWork = DopPrices.WORKNASH + DopPrices.WORKNASH;
+                    priceWork = MainActivity.prices.WORKNASH + MainActivity.prices.WORKNASH;
                 }
             }
         }

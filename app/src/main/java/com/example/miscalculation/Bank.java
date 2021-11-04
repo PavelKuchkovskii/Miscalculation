@@ -67,14 +67,12 @@ public class Bank extends AppCompatActivity {
     static TextView Ames36EM;
 
     //ДОБРОБЫТ
-    static TextView Dmes3Z;
     static TextView Dmes6Z;
     static TextView Dmes12Z;
     static TextView Dmes18Z;
     static TextView Dmes24Z;
     static TextView Dmes36Z;
 
-    static TextView Dmes3M;
     static TextView Dmes6M;
     static TextView Dmes12M;
     static TextView Dmes18M;
@@ -82,14 +80,12 @@ public class Bank extends AppCompatActivity {
     static TextView Dmes36M;
 
     //ЕЖЕМЕСЯЧНЫЕ ДОБРОБЫТ
-    static TextView Dmes3EZ;
     static TextView Dmes6EZ;
     static TextView Dmes12EZ;
     static TextView Dmes18EZ;
     static TextView Dmes24EZ;
     static TextView Dmes36EZ;
 
-    static TextView Dmes3EM;
     static TextView Dmes6EM;
     static TextView Dmes12EM;
     static TextView Dmes18EM;
@@ -110,7 +106,7 @@ public class Bank extends AppCompatActivity {
     static TextView Lmes20M;
     static TextView Lmes24M;
 
-    //ЕЖЕМЕСЯЧНЫЕ ДОБРОБЫТ
+    //ЕЖЕМЕСЯЧНЫЕ ЛИЗИНГ
     static TextView Lmes4EZ;
     static TextView Lmes6EZ;
     static TextView Lmes12EZ;
@@ -165,14 +161,12 @@ public class Bank extends AppCompatActivity {
         Ames36EM = findViewById(R.id.Ames36EM);
 
         //ДОБРОБЫТ
-        Dmes3Z = findViewById(R.id.Dmes3Z);
         Dmes6Z = findViewById(R.id.Dmes6Z);
         Dmes12Z = findViewById(R.id.Dmes12Z);
         Dmes18Z = findViewById(R.id.Dmes18Z);
         Dmes24Z = findViewById(R.id.Dmes24Z);
         Dmes36Z = findViewById(R.id.Dmes36Z);
 
-        Dmes3M = findViewById(R.id.Dmes3M);
         Dmes6M = findViewById(R.id.Dmes6M);
         Dmes12M = findViewById(R.id.Dmes12M);
         Dmes18M = findViewById(R.id.Dmes18M);
@@ -180,14 +174,12 @@ public class Bank extends AppCompatActivity {
         Dmes36M = findViewById(R.id.Dmes36M);
 
         //ЕЖЕМЕСЯЧНЫЕ ДОБРОБЫТ
-        Dmes3EZ = findViewById(R.id.Dmes3EZ);
         Dmes6EZ = findViewById(R.id.Dmes6EZ);
         Dmes12EZ = findViewById(R.id.Dmes12EZ);
         Dmes18EZ = findViewById(R.id.Dmes18EZ);
         Dmes24EZ = findViewById(R.id.Dmes24EZ);
         Dmes36EZ = findViewById(R.id.Dmes36EZ);
 
-        Dmes3EM = findViewById(R.id.Dmes3EM);
         Dmes6EM = findViewById(R.id.Dmes6EM);
         Dmes12EM = findViewById(R.id.Dmes12EM);
         Dmes18EM = findViewById(R.id.Dmes18EM);
@@ -284,93 +276,89 @@ public class Bank extends AppCompatActivity {
 
     public void setPriceBank() {
 
-        Ames6Z.setText(minBank <= Math.ceil(priceZ * 1.06) ? (int) Math.ceil(priceZ * 1.06) + rub : "-");
-        Ames10Z.setText(minBank <= Math.ceil(priceZ * 1.08) ? (int) Math.ceil(priceZ * 1.08) + rub : "-");
-        Ames12Z.setText(minBank <= Math.ceil(priceZ * 1.09) ? (int) Math.ceil(priceZ * 1.09) + rub : "-");
-        Ames15Z.setText(minBank <= Math.ceil(priceZ * 1.1) ? (int) Math.ceil(priceZ * 1.1) + rub : "-");
-        Ames18Z.setText(minBank <= Math.ceil(priceZ * 1.135) ? (int) Math.ceil(priceZ * 1.135) + rub : "-");
-        Ames24Z.setText(minBank <= Math.ceil(priceZ * 1.163) ? (int) Math.ceil(priceZ * 1.163) + rub : "-");
-        Ames36Z.setText(minBank <= Math.ceil(priceZ * 1.24) ? (int) Math.ceil(priceZ * 1.24) + rub : "-");
+        Ames6Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES6) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES6) + rub : "-");
+        Ames10Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES10) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES10) + rub : "-");
+        Ames12Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES12) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES12) + rub : "-");
+        Ames15Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES15) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES15) + rub : "-");
+        Ames18Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES18) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES18) + rub : "-");
+        Ames24Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES24) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES24) + rub : "-");
+        Ames36Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES36) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES36) + rub : "-");
 
-        Ames6M.setText(minBank <= Math.ceil(priceM * 1.06) ? (int) Math.ceil(priceM * 1.06) + rub : "-");
-        Ames10M.setText(minBank <= Math.ceil(priceM * 1.08) ? (int) Math.ceil(priceM * 1.08) + rub : "-");
-        Ames12M.setText(minBank <= Math.ceil(priceM * 1.09) ? (int) Math.ceil(priceM * 1.09) + rub : "-");
-        Ames15M.setText(minBank <= Math.ceil(priceM * 1.1) ? (int) Math.ceil(priceM * 1.1) + rub : "-");
-        Ames18M.setText(minBank <= Math.ceil(priceM * 1.135) ? (int) Math.ceil(priceM * 1.135) + rub : "-");
-        Ames24M.setText(minBank <= Math.ceil(priceM * 1.163) ? (int) Math.ceil(priceM * 1.163) + rub : "-");
-        Ames36M.setText(minBank <= Math.ceil(priceM * 1.24) ? (int) Math.ceil(priceM * 1.24) + rub : "-");
+        Ames6M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES6) ? (int) Math.ceil(priceM * MainActivity.prices.AMES6) + rub : "-");
+        Ames10M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES10) ? (int) Math.ceil(priceM * MainActivity.prices.AMES10) + rub : "-");
+        Ames12M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES12) ? (int) Math.ceil(priceM * MainActivity.prices.AMES12) + rub : "-");
+        Ames15M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES15) ? (int) Math.ceil(priceM * MainActivity.prices.AMES15) + rub : "-");
+        Ames18M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES18) ? (int) Math.ceil(priceM * MainActivity.prices.AMES18) + rub : "-");
+        Ames24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES24) ? (int) Math.ceil(priceM * MainActivity.prices.AMES24) + rub : "-");
+        Ames36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES36) ? (int) Math.ceil(priceM * MainActivity.prices.AMES36) + rub : "-");
 
-        Ames6EZ.setText(minBank <= Math.ceil(priceZ * 1.06) ? (int) (priceZ * 1.06 * 1.044 / 6) + rub : "-");
-        Ames10EZ.setText(minBank <= Math.ceil(priceZ * 1.08) ? (int) (priceZ * 1.08 * 1.06 / 10) + rub : "-");
-        Ames12EZ.setText(minBank <= Math.ceil(priceZ * 1.09) ? (int) (priceZ * 1.09 * 1.0731 / 12) + rub : "-");
-        Ames15EZ.setText(minBank <= Math.ceil(priceZ * 1.1) ? (int) (priceZ * 1.1 * 1.09 / 15) + rub : "-");
-        Ames18EZ.setText(minBank <= Math.ceil(priceZ * 1.135) ? (int) (priceZ * 1.135 * 1.11 / 18) + rub : "-");
-        Ames24EZ.setText(minBank <= Math.ceil(priceZ * 1.163) ? (int) (priceZ * 1.163 * 1.14 / 24) + rub : "-");
-        Ames36EZ.setText(minBank <= Math.ceil(priceZ * 1.24) ? (int) (priceZ * 1.24 * 1.22 / 36) + rub : "-");
+        Ames6EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES6) ? (int) (priceZ * MainActivity.prices.AMES6 * MainActivity.prices.AMES_E6 / 6) + rub : "-");
+        Ames10EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES10) ? (int) (priceZ * MainActivity.prices.AMES10 * MainActivity.prices.AMES_E10 / 10) + rub : "-");
+        Ames12EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES12) ? (int) (priceZ * MainActivity.prices.AMES12 * MainActivity.prices.AMES_E12 / 12) + rub : "-");
+        Ames15EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES15) ? (int) (priceZ * MainActivity.prices.AMES15 * MainActivity.prices.AMES_E15 / 15) + rub : "-");
+        Ames18EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES18) ? (int) (priceZ * MainActivity.prices.AMES18 * MainActivity.prices.AMES_E18 / 18) + rub : "-");
+        Ames24EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES24) ? (int) (priceZ * MainActivity.prices.AMES24 * MainActivity.prices.AMES_E24 / 24) + rub : "-");
+        Ames36EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES36) ? (int) (priceZ * MainActivity.prices.AMES36 * MainActivity.prices.AMES_E36 / 36) + rub : "-");
 
-        Ames6EM.setText(minBank <= Math.ceil(priceM * 1.06) ? (int) (priceM * 1.06 * 1.044 / 6) + rub : "-");
-        Ames10EM.setText(minBank <= Math.ceil(priceM * 1.08) ? (int) (priceM * 1.08 * 1.06 / 10) + rub : "-");
-        Ames12EM.setText(minBank <= Math.ceil(priceM * 1.09) ? (int) (priceM * 1.09 * 1.0731 / 12) + rub : "-");
-        Ames15EM.setText(minBank <= Math.ceil(priceM * 1.1) ? (int) (priceM * 1.1 * 1.09 / 15) + rub : "-");
-        Ames18EM.setText(minBank <= Math.ceil(priceM * 1.135) ? (int) (priceM * 1.135 * 1.11 / 18) + rub : "-");
-        Ames24EM.setText(minBank <= Math.ceil(priceM * 1.163) ? (int) (priceM * 1.163 * 1.14 / 24) + rub : "-");
-        Ames36EM.setText(minBank <= Math.ceil(priceM * 1.24) ? (int) (priceM * 1.24 * 1.22 / 36) + rub : "-");
+        Ames6EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES6) ? (int) (priceM * MainActivity.prices.AMES6 * MainActivity.prices.AMES_E6 / 6) + rub : "-");
+        Ames10EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES10) ? (int) (priceM * MainActivity.prices.AMES10 * MainActivity.prices.AMES_E10 / 10) + rub : "-");
+        Ames12EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES12) ? (int) (priceM * MainActivity.prices.AMES12 * MainActivity.prices.AMES_E12 / 12) + rub : "-");
+        Ames15EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES15) ? (int) (priceM * MainActivity.prices.AMES15 * MainActivity.prices.AMES_E15 / 15) + rub : "-");
+        Ames18EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES18) ? (int) (priceM * MainActivity.prices.AMES18 * MainActivity.prices.AMES_E18 / 18) + rub : "-");
+        Ames24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES24) ? (int) (priceM * MainActivity.prices.AMES24 * MainActivity.prices.AMES_E24 / 24) + rub : "-");
+        Ames36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES36) ? (int) (priceM * MainActivity.prices.AMES36 * MainActivity.prices.AMES_E36 / 36) + rub : "-");
 
         //ДОБРОБЫТ
-        Dmes3Z.setText(minBank <= Math.ceil(priceZ * 1.042) ? (int) Math.ceil(priceZ * 1.042) + rub : "-");
-        Dmes6Z.setText(minBank <= Math.ceil(priceZ * 1.064) ? (int) Math.ceil(priceZ * 1.064) + rub : "-");
-        Dmes12Z.setText(minBank <= Math.ceil(priceZ * 1.118) ? (int) Math.ceil(priceZ * 1.118) + rub : "-");
-        Dmes18Z.setText(minBank <= Math.ceil(priceZ * 1.177) ? (int) Math.ceil(priceZ * 1.177) + rub : "-");
-        Dmes24Z.setText(minBank <= Math.ceil(priceZ * 1.227) ? (int) Math.ceil(priceZ * 1.227) + rub : "-");
-        Dmes36Z.setText(minBank <= Math.ceil(priceZ * 1.334) ? (int) Math.ceil(priceZ * 1.334) + rub : "-");
+        Dmes6Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES6) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES6) + rub : "-");
+        Dmes12Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES12) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES12) + rub : "-");
+        Dmes18Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES18) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES18) + rub : "-");
+        Dmes24Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES24) + rub : "-");
+        Dmes36Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES36) + rub : "-");
 
-        Dmes3M.setText(minBank <= Math.ceil(priceM * 1.042) ? (int) Math.ceil(priceM * 1.042) + rub : "-");
-        Dmes6M.setText(minBank <= Math.ceil(priceM * 1.064) ? (int) Math.ceil(priceM * 1.064) + rub : "-");
-        Dmes12M.setText(minBank <= Math.ceil(priceM * 1.118) ? (int) Math.ceil(priceM * 1.118) + rub : "-");
-        Dmes18M.setText(minBank <= Math.ceil(priceM * 1.177) ? (int) Math.ceil(priceM * 1.177) + rub : "-");
-        Dmes24M.setText(minBank <= Math.ceil(priceM * 1.227) ? (int) Math.ceil(priceM * 1.227) + rub : "-");
-        Dmes36M.setText(minBank <= Math.ceil(priceM * 1.334) ? (int) Math.ceil(priceM * 1.334) + rub : "-");
+        Dmes6M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES6) ? (int) Math.ceil(priceM * MainActivity.prices.DMES6) + rub : "-");
+        Dmes12M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES12) ? (int) Math.ceil(priceM * MainActivity.prices.DMES12) + rub : "-");
+        Dmes18M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES18) ? (int) Math.ceil(priceM * MainActivity.prices.DMES18) + rub : "-");
+        Dmes24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES24) ? (int) Math.ceil(priceM * MainActivity.prices.DMES24) + rub : "-");
+        Dmes36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES36) ? (int) Math.ceil(priceM * MainActivity.prices.DMES36) + rub : "-");
 
-        Dmes3EZ.setText(minBank <= Math.ceil(priceZ * 1.042) ? (int) Math.ceil(priceZ * 1.042)/3 + rub : "-");
-        Dmes6EZ.setText(minBank <= Math.ceil(priceZ * 1.064) ? (int) Math.ceil(priceZ * 1.116)/6 + rub : "-");
-        Dmes12EZ.setText(minBank <= Math.ceil(priceZ * 1.118) ? (int) Math.ceil(priceZ * 1.212)/12 + rub : "-");
-        Dmes18EZ.setText(minBank <= Math.ceil(priceZ * 1.177) ? (int) Math.ceil(priceZ * 1.314)/18 + rub : "-");
-        Dmes24EZ.setText(minBank <= Math.ceil(priceZ * 1.227) ? (int) Math.ceil(priceZ * 1.416)/24 + rub : "-");
-        Dmes36EZ.setText(minBank <= Math.ceil(priceZ * 1.334) ? (int) Math.ceil(priceZ * 1.656)/36 + rub : "-");
+        Dmes6EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES6) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
+        Dmes12EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES12) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
+        Dmes18EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES18) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
+        Dmes24EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
+        Dmes36EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
-        Dmes3EM.setText(minBank <= Math.ceil(priceM * 1.042) ? (int) Math.ceil(priceM * 1.042)/3 + rub : "-");
-        Dmes6EM.setText(minBank <= Math.ceil(priceM * 1.064) ? (int) Math.ceil(priceM * 1.116)/6 + rub : "-");
-        Dmes12EM.setText(minBank <= Math.ceil(priceM * 1.118) ? (int) Math.ceil(priceM * 1.212)/12 + rub : "-");
-        Dmes18EM.setText(minBank <= Math.ceil(priceM * 1.177) ? (int) Math.ceil(priceM * 1.314)/18 + rub : "-");
-        Dmes24EM.setText(minBank <= Math.ceil(priceM * 1.227) ? (int) Math.ceil(priceM * 1.416)/24 + rub : "-");
-        Dmes36EM.setText(minBank <= Math.ceil(priceM * 1.334) ? (int) Math.ceil(priceM * 1.656)/36 + rub : "-");
+        Dmes6EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES6) ? (int) Math.ceil(priceM * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
+        Dmes12EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES12) ? (int) Math.ceil(priceM * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
+        Dmes18EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES18) ? (int) Math.ceil(priceM * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
+        Dmes24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES24) ? (int) Math.ceil(priceM * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
+        Dmes36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES36) ? (int) Math.ceil(priceM * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
 
         //ЛИЗИНГ
-        Lmes4Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING4M) + rub : "-");
-        Lmes6Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING6M) + rub : "-");
-        Lmes12Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING12M) + rub : "-");
-        Lmes20Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING20M) + rub : "-");
-        Lmes24Z.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING24M) + rub : "-");
+        Lmes4Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING4M) + rub : "-");
+        Lmes6Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING6M) + rub : "-");
+        Lmes12Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING12M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING12M) + rub : "-");
+        Lmes20Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING20M) + rub : "-");
+        Lmes24Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING24M) + rub : "-");
 
-        Lmes4M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING4M) + rub : "-");
-        Lmes6M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING6M) + rub : "-");
-        Lmes12M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING12M) + rub : "-");
-        Lmes20M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING20M) + rub : "-");
-        Lmes24M.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING24M) + rub : "-");
+        Lmes4M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING4M) + rub : "-");
+        Lmes6M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING6M) + rub : "-");
+        Lmes12M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING12M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING12M) + rub : "-");
+        Lmes20M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING20M) + rub : "-");
+        Lmes24M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING24M) + rub : "-");
 
 
-        Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZh * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizZh * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING4M)/4 + rub : "-");
+        Lmes6EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING6M)/6 + rub : "-");
+        Lmes12EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING12M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING12M)/12 + rub : "-");
+        Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING20M)/20 + rub : "-");
+        Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING24M)/24 + rub : "-");
 
-        Lmes4EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING4M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING6M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING12M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING20M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EM.setText(minLiz <= Math.ceil(priceLizM * DopPrices.LIZING24M) ? (int) Math.ceil(priceLizM * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING4M)/4 + rub : "-");
+        Lmes6EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING6M)/6 + rub : "-");
+        Lmes12EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING12M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING12M)/12 + rub : "-");
+        Lmes20EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING20M)/20 + rub : "-");
+        Lmes24EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING24M)/24 + rub : "-");
     }
 
     //Вызывается при добовлении предоплаты
@@ -380,93 +368,90 @@ public class Bank extends AppCompatActivity {
         ContinePrice.forLizingFromBank(i);
 
 
-        Ames6Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.06) ? (int) Math.ceil(tmpPriceZ * 1.06) + rub : "-");
-        Ames10Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.08) ? (int) Math.ceil(tmpPriceZ * 1.08) + rub : "-");
-        Ames12Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.09) ? (int) Math.ceil(tmpPriceZ * 1.09) + rub : "-");
-        Ames15Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.1) ? (int) Math.ceil(tmpPriceZ * 1.1) + rub : "-");
-        Ames18Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.135) ? (int) Math.ceil(tmpPriceZ * 1.135) + rub : "-");
-        Ames24Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.163) ? (int) Math.ceil(tmpPriceZ * 1.163) + rub : "-");
-        Ames36Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.24) ? (int) Math.ceil(tmpPriceZ * 1.24) + rub : "-");
+        Ames6Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES6) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES6) + rub : "-");
+        Ames10Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES10) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES10) + rub : "-");
+        Ames12Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES12) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES12) + rub : "-");
+        Ames15Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES15) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES15) + rub : "-");
+        Ames18Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES18) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES18) + rub : "-");
+        Ames24Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES24) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES24) + rub : "-");
+        Ames36Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES36) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES36) + rub : "-");
 
-        Ames6M.setText(minBank <= Math.ceil(tmpPriceM * 1.06) ? (int) Math.ceil(tmpPriceM * 1.06) + rub : "-");
-        Ames10M.setText(minBank <= Math.ceil(tmpPriceM * 1.08) ? (int) Math.ceil(tmpPriceM * 1.08) + rub : "-");
-        Ames12M.setText(minBank <= Math.ceil(tmpPriceM * 1.09) ? (int) Math.ceil(tmpPriceM * 1.09) + rub : "-");
-        Ames15M.setText(minBank <= Math.ceil(tmpPriceM * 1.1) ? (int) Math.ceil(tmpPriceM * 1.1) + rub : "-");
-        Ames18M.setText(minBank <= Math.ceil(tmpPriceM * 1.135) ? (int) Math.ceil(tmpPriceM * 1.135) + rub : "-");
-        Ames24M.setText(minBank <= Math.ceil(tmpPriceM * 1.163) ? (int) Math.ceil(tmpPriceM * 1.163) + rub : "-");
-        Ames36M.setText(minBank <= Math.ceil(tmpPriceM * 1.24) ? (int) Math.ceil(tmpPriceM * 1.24) + rub : "-");
+        Ames6M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES6) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES6) + rub : "-");
+        Ames10M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES10) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES10) + rub : "-");
+        Ames12M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES12) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES12) + rub : "-");
+        Ames15M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES15) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES15) + rub : "-");
+        Ames18M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES18) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES18) + rub : "-");
+        Ames24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES24) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES24) + rub : "-");
+        Ames36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES36) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES36) + rub : "-");
 
-        Ames6EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.06) ? (int) (tmpPriceZ * 1.104 / 6) + rub : "-");
-        Ames10EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.08) ? (int) (tmpPriceZ * 1.15 / 10) + rub : "-");
-        Ames12EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.09) ? (int) (tmpPriceZ * 1.176 / 12) + rub : "-");
-        Ames15EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.1) ? (int) (tmpPriceZ * 1.20 / 15) + rub : "-");
-        Ames18EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.135) ? (int) (tmpPriceZ * 1.26 / 18) + rub : "-");
-        Ames24EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.163) ? (int) (tmpPriceZ * 1.344 / 24) + rub : "-");
-        Ames36EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.24) ? (int) (tmpPriceZ * 1.512 / 36) + rub : "-");
+        Ames6EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES6) ? (int) (tmpPriceZ * MainActivity.prices.AMES6 * MainActivity.prices.AMES_E6 / 6) + rub : "-");
+        Ames10EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES10) ? (int) (tmpPriceZ * MainActivity.prices.AMES10 * MainActivity.prices.AMES_E10 / 10) + rub : "-");
+        Ames12EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES12) ? (int) (tmpPriceZ * MainActivity.prices.AMES12 * MainActivity.prices.AMES_E12 / 12) + rub : "-");
+        Ames15EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES15) ? (int) (tmpPriceZ * MainActivity.prices.AMES15 * MainActivity.prices.AMES_E15 / 15) + rub : "-");
+        Ames18EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES18) ? (int) (tmpPriceZ * MainActivity.prices.AMES18 * MainActivity.prices.AMES_E18 / 18) + rub : "-");
+        Ames24EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES24) ? (int) (tmpPriceZ * MainActivity.prices.AMES24 * MainActivity.prices.AMES_E24 / 24) + rub : "-");
+        Ames36EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES36) ? (int) (tmpPriceZ * MainActivity.prices.AMES36 * MainActivity.prices.AMES_E36 / 36) + rub : "-");
 
-        Ames6EM.setText(minBank <= Math.ceil(tmpPriceM * 1.06) ? (int) (tmpPriceM * 1.104 / 6) + rub : "-");
-        Ames10EM.setText(minBank <= Math.ceil(tmpPriceM * 1.08) ? (int) (tmpPriceM * 1.15 / 10) + rub : "-");
-        Ames12EM.setText(minBank <= Math.ceil(tmpPriceM * 1.09) ? (int) (tmpPriceM * 1.176 / 12) + rub : "-");
-        Ames15EM.setText(minBank <= Math.ceil(tmpPriceM * 1.1) ? (int) (tmpPriceM * 1.20 / 15) + rub : "-");
-        Ames18EM.setText(minBank <= Math.ceil(tmpPriceM * 1.135) ? (int) (tmpPriceM * 1.26 / 18) + rub : "-");
-        Ames24EM.setText(minBank <= Math.ceil(tmpPriceM * 1.163) ? (int) (tmpPriceM * 1.344 / 24) + rub : "-");
-        Ames36EM.setText(minBank <= Math.ceil(tmpPriceM * 1.24) ? (int) (tmpPriceM * 1.512 / 36) + rub : "-");
+        Ames6EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES6) ? (int) (tmpPriceM * MainActivity.prices.AMES6 * MainActivity.prices.AMES_E6 / 6) + rub : "-");
+        Ames10EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES10) ? (int) (tmpPriceM * MainActivity.prices.AMES10 * MainActivity.prices.AMES_E10 / 10) + rub : "-");
+        Ames12EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES12) ? (int) (tmpPriceM * MainActivity.prices.AMES12 * MainActivity.prices.AMES_E12 / 12) + rub : "-");
+        Ames15EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES15) ? (int) (tmpPriceM * MainActivity.prices.AMES15 * MainActivity.prices.AMES_E15 / 15) + rub : "-");
+        Ames18EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES18) ? (int) (tmpPriceM * MainActivity.prices.AMES18 * MainActivity.prices.AMES_E18 / 18) + rub : "-");
+        Ames24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES24) ? (int) (tmpPriceM * MainActivity.prices.AMES24 * MainActivity.prices.AMES_E24 / 24) + rub : "-");
+        Ames36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES36) ? (int) (tmpPriceM * MainActivity.prices.AMES36 * MainActivity.prices.AMES_E36 / 36) + rub : "-");
 
         //ДОБРОБЫТ
-        Dmes3Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.042) ? (int) Math.ceil(tmpPriceZ * 1.042) + rub : "-");
-        Dmes6Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.064) ? (int) Math.ceil(tmpPriceZ * 1.064) + rub : "-");
-        Dmes12Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.118) ? (int) Math.ceil(tmpPriceZ * 1.118) + rub : "-");
-        Dmes18Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.177) ? (int) Math.ceil(tmpPriceZ * 1.177) + rub : "-");
-        Dmes24Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.227) ? (int) Math.ceil(tmpPriceZ * 1.227) + rub : "-");
-        Dmes36Z.setText(minBank <= Math.ceil(tmpPriceZ * 1.334) ? (int) Math.ceil(tmpPriceZ * 1.334) + rub : "-");
+        Dmes6Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES6) + rub : "-");
+        Dmes12Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES12) + rub : "-");
+        Dmes18Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES18) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES18) + rub : "-");
+        Dmes24Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES24) + rub : "-");
+        Dmes36Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES36) + rub : "-");
 
-        Dmes3M.setText(minBank <= Math.ceil(tmpPriceM * 1.042) ? (int) Math.ceil(tmpPriceM * 1.042) + rub : "-");
-        Dmes6M.setText(minBank <= Math.ceil(tmpPriceM * 1.064) ? (int) Math.ceil(tmpPriceM * 1.064) + rub : "-");
-        Dmes12M.setText(minBank <= Math.ceil(tmpPriceM * 1.118) ? (int) Math.ceil(tmpPriceM * 1.118) + rub : "-");
-        Dmes18M.setText(minBank <= Math.ceil(tmpPriceM * 1.177) ? (int) Math.ceil(tmpPriceM * 1.177) + rub : "-");
-        Dmes24M.setText(minBank <= Math.ceil(tmpPriceM * 1.227) ? (int) Math.ceil(tmpPriceM * 1.227) + rub : "-");
-        Dmes36M.setText(minBank <= Math.ceil(tmpPriceM * 1.334) ? (int) Math.ceil(tmpPriceM * 1.334) + rub : "-");
+        Dmes6M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES6) + rub : "-");
+        Dmes12M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES12) + rub : "-");
+        Dmes18M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES18) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES18) + rub : "-");
+        Dmes24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES24) + rub : "-");
+        Dmes36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES36) + rub : "-");
 
-        Dmes3EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.042) ? (int) Math.ceil(tmpPriceZ * 1.042)/3 + rub : "-");
-        Dmes6EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.064) ? (int) Math.ceil(tmpPriceZ * 1.116)/6 + rub : "-");
-        Dmes12EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.118) ? (int) Math.ceil(tmpPriceZ * 1.212)/12 + rub : "-");
-        Dmes18EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.177) ? (int) Math.ceil(tmpPriceZ * 1.314)/18 + rub : "-");
-        Dmes24EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.227) ? (int) Math.ceil(tmpPriceZ * 1.416)/24 + rub : "-");
-        Dmes36EZ.setText(minBank <= Math.ceil(tmpPriceZ * 1.334) ? (int) Math.ceil(tmpPriceZ * 1.656)/36 + rub : "-");
+        Dmes6EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
+        Dmes12EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
+        Dmes18EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES18) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
+        Dmes24EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
+        Dmes36EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
-        Dmes3EM.setText(minBank <= Math.ceil(tmpPriceM * 1.042) ? (int) Math.ceil(tmpPriceM * 1.042)/3 + rub : "-");
-        Dmes6EM.setText(minBank <= Math.ceil(tmpPriceM * 1.064) ? (int) Math.ceil(tmpPriceM * 1.116)/6 + rub : "-");
-        Dmes12EM.setText(minBank <= Math.ceil(tmpPriceM * 1.118) ? (int) Math.ceil(tmpPriceM * 1.212)/12 + rub : "-");
-        Dmes18EM.setText(minBank <= Math.ceil(tmpPriceM * 1.177) ? (int) Math.ceil(tmpPriceM * 1.314)/18 + rub : "-");
-        Dmes24EM.setText(minBank <= Math.ceil(tmpPriceM * 1.227) ? (int) Math.ceil(tmpPriceM * 1.416)/24 + rub : "-");
-        Dmes36EM.setText(minBank <= Math.ceil(tmpPriceM * 1.334) ? (int) Math.ceil(tmpPriceM * 1.656)/36 + rub : "-");
+        Dmes6EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
+        Dmes12EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
+        Dmes18EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES18) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
+        Dmes24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
+        Dmes36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
+
 
 
         //ЛИЗИНГ
-        Lmes4Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M) + rub : "-");
-        Lmes6Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M) + rub : "-");
-        Lmes12Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M) + rub : "-");
-        Lmes20Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M) + rub : "-");
-        Lmes24Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M) + rub : "-");
+        Lmes4Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING4M) + rub : "-");
+        Lmes6Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING6M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING6M) + rub : "-");
+        Lmes12Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING12M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING12M) + rub : "-");
+        Lmes20Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M) + rub : "-");
+        Lmes24Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M) + rub : "-");
 
-        Lmes4M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M) + rub : "-");
-        Lmes6M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M) + rub : "-");
-        Lmes12M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M) + rub : "-");
-        Lmes20M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M) + rub : "-");
-        Lmes24M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M) + rub : "-");
+        Lmes4M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) + rub : "-");
+        Lmes6M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) + rub : "-");
+        Lmes12M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) + rub : "-");
+        Lmes20M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) + rub : "-");
+        Lmes24M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M) + rub : "-");
 
 
-        Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING4M)/4 + rub : "-");
+        Lmes6EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING6M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING6M)/6 + rub : "-");
+        Lmes12EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING12M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING12M)/12 + rub : "-");
+        Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M)/20 + rub : "-");
+        Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M)/24 + rub : "-");
 
-        Lmes4EM.setText(minLiz <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING4M)/4 + rub : "-");
-        Lmes6EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING6M)/6 + rub : "-");
-        Lmes12EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING12M)/12 + rub : "-");
-        Lmes20EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING20M)/20 + rub : "-");
-        Lmes24EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M)  && i <= prepaidLizM? (int) Math.ceil(priceLizMWPrepaid  * DopPrices.LIZING24M)/24 + rub : "-");
+        Lmes4EM.setText(minLiz <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M)/4 + rub : "-");
+        Lmes6EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M)/6 + rub : "-");
+        Lmes12EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M)/12 + rub : "-");
+        Lmes20EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M)/20 + rub : "-");
+        Lmes24EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M)  && i <= prepaidLizM? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M)/24 + rub : "-");
     }
 
     public static void setPriceDopAndItem(double pLizZh, double pLizMin, double zhMaxPrepaid, double minMaxPrepaid) {

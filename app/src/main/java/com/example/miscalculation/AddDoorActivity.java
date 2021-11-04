@@ -88,66 +88,6 @@ public class AddDoorActivity extends AppCompatActivity {
     static List<String> dataKey = new ArrayList<>();
     static List<String> dataGlassDif = new ArrayList<>();
     static List<String> dataGlassList = new ArrayList<>();
-
-    //------------------------------------МАССИВЫ-------------------------------
-
-    static int [][] doorBB6032D1 = { {152, 159, 166, 175, 182, 189},
-            {156, 163, 172, 179, 187, 195},
-            {160, 167, 176, 183, 192, 200},
-            {163, 172, 180, 188, 197, 204},
-            {167, 176, 184, 193, 201, 209},
-            {172, 180, 188, 197, 206, 215} };
-
-    static int [][] doorBB6032D2 = { {295, 303, 311, 318, 327, 334, 341, 350, 357},
-            {303, 311, 319, 327, 335, 342, 351, 358, 366},
-            {311, 319, 328, 335, 343, 352, 359, 368, 375},
-            {319, 328, 335, 343, 352, 360, 369, 376, 384},
-            {327, 335, 343, 352, 360, 369, 377, 385, 394},
-            {335, 343, 352, 360, 369, 377, 386, 395, 403} };
-
-    static int [][] doorBB6032W1 = { {123, 129, 135, 142, 149, 155},
-            {126, 132, 139, 146, 152, 159},
-            {128, 135, 142, 149, 155, 163},
-            {131, 139, 145, 152, 160, 166},
-            {134, 142, 149, 155, 163, 170},
-            {138, 145, 152, 160, 167, 173} };
-
-    static int [][] doorBB6032W2 = { {238, 245, 251, 258, 265, 271, 277, 284, 291},
-            {244, 251, 257, 264, 271, 277, 284, 291, 297},
-            {250, 256, 264, 270, 277, 284, 291, 297, 305},
-            {255, 263, 269, 276, 284, 290, 297, 305, 311},
-            {260, 268, 275, 282, 290, 296, 303, 311, 318},
-            {267, 274, 280, 288, 295, 302, 310, 317, 324} };
-
-//------------------70/32----------------------------------------
-
-    static int [][] doorBB7032D1 = { {168, 176, 185, 192, 201, 209},
-            {173, 182, 190, 198, 207, 215},
-            {177, 187, 195, 204, 212, 221},
-            {183, 191, 201, 209, 218, 227},
-            {188, 196, 206, 214, 224, 232},
-            {193, 202, 211, 221, 229, 238} };
-
-    static int [][] doorBB7032D2 = { {329, 337, 345, 353, 361, 370, 378, 386, 395},
-            {338, 347, 355, 363, 372, 380, 389, 397, 406},
-            {348, 357, 365, 374, 382, 391, 400, 408, 417},
-            {358, 366, 375, 384, 393, 401, 411, 419, 427},
-            {368, 376, 385, 394, 403, 412, 421, 429, 439},
-            {377, 386, 395, 404, 414, 422, 432, 441, 449} };
-
-    static int [][] doorBB7032W1 = { {133, 140, 147, 153, 161, 167},
-            {137, 144, 150, 158, 164, 171},
-            {140, 147, 154, 162, 168, 175},
-            {143, 150, 158, 165, 172, 180},
-            {147, 154, 162, 169, 176, 184},
-            {150, 158, 165, 172, 181, 188} };
-
-    static int [][] doorBB7032W2 = { {258, 265, 272, 278, 286, 292, 299, 306, 313},
-            {265, 272, 278, 286, 292, 299, 307, 313, 320},
-            {271, 278, 286, 292, 299, 307, 314, 320, 328},
-            {277, 285, 292, 299, 307, 314, 321, 329, 336},
-            {284, 291, 298, 307, 314, 321, 329, 336, 343},
-            {290, 298, 306, 313, 320, 329, 336, 343, 351} };
 //--------------------------------------------------------------------------------------------
 
     String[] dataType = {"1 створ. дверь", "Штульповая дверь"};
@@ -844,9 +784,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR1ST;
+                itemInterest = MainActivity.prices.INTDOOR1ST;
 
-                price = doorBB7032D1[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB7032D1[positionHight1][positionWidth1];
             }
             return;
         }
@@ -867,9 +807,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR1ST;
+                itemInterest = MainActivity.prices.INTDOOR1ST;
 
-                price = doorBB6032D1[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB6032D1[positionHight1][positionWidth1];
             }
             return;
         }
@@ -890,9 +830,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR1ST;
+                itemInterest = MainActivity.prices.INTDOOR1ST;
 
-                price = doorBB7032W1[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB7032W1[positionHight1][positionWidth1];
             }
             return;
         }
@@ -913,9 +853,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR1ST;
+                itemInterest = MainActivity.prices.INTDOOR1ST;
 
-                price = doorBB6032W1[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB6032W1[positionHight1][positionWidth1];
             }
             return;
         }
@@ -936,9 +876,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR2ST;
+                itemInterest = MainActivity.prices.INTDOOR2ST;
 
-                price = doorBB7032D2[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB7032D2[positionHight1][positionWidth1];
             }
             return;
         }
@@ -959,9 +899,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR2ST;
+                itemInterest = MainActivity.prices.INTDOOR2ST;
 
-                price = doorBB6032D2[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB6032D2[positionHight1][positionWidth1];
             }
             return;
         }
@@ -983,9 +923,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR2ST;
+                itemInterest = MainActivity.prices.INTDOOR2ST;
 
-                price = doorBB7032W2[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB7032W2[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1007,9 +947,9 @@ public class AddDoorActivity extends AppCompatActivity {
             if (getPriceFlag == true) {
                 getPriceFlag = false;
 
-                itemInterest = DopPrices.INTDOOR2ST;
+                itemInterest = MainActivity.prices.INTDOOR2ST;
 
-                price = doorBB6032W2[positionHight1][positionWidth1];
+                price = MainActivity.prices.doorBB6032W2[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1040,7 +980,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
         // 70/40 Дверной/Оконный
         if ((p1 == 0 || p1 == 2) && p2 == 0) {
-            profileCoefficient = DopPrices.BB7040D;
+            profileCoefficient = MainActivity.prices.BB7040D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
                 adapterTypeOfGlass.addAll(addList(R.array.dtaGlassDoor2));
@@ -1051,7 +991,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
         // 70/32 Дверной/Оконный
         if ((p1 == 0 || p1 == 2) && p2 == 1) {
-            profileCoefficient = DopPrices.BB7032D;
+            profileCoefficient = MainActivity.prices.BB7032D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
                 adapterTypeOfGlass.addAll(addList(R.array.dtaGlassDoor2));
@@ -1062,7 +1002,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
         // 70/24 Дверной/Оконный
         if ((p1 == 0 || p1 == 2) && p2 == 2) {
-            profileCoefficient = DopPrices.BB7024D;
+            profileCoefficient = MainActivity.prices.BB7024D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
                 adapterTypeOfGlass.addAll(addList(R.array.dtaGlassDoor2));
@@ -1073,7 +1013,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
         // 60/32 Дверной/Оконный
         if ((p1 == 1 || p1 == 3) && p2 == 0) {
-            profileCoefficient = DopPrices.BB6032D;
+            profileCoefficient = MainActivity.prices.BB6032D;
             if(bb70) {
                 adapterTypeOfGlass.clear();
                 adapterTypeOfGlass.addAll(addList(R.array.dtaGlassDoor));
@@ -1084,7 +1024,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
         // 60/24 Дверной/Оконный
         if ((p1 == 1 || p1 == 3) && p2 == 1) {
-            profileCoefficient = DopPrices.BB6024D;
+            profileCoefficient = MainActivity.prices.BB6024D;
             if(bb70) {
                 adapterTypeOfGlass.clear();
                 adapterTypeOfGlass.addAll(addList(R.array.dtaGlassDoor));
@@ -1106,11 +1046,11 @@ public class AddDoorActivity extends AppCompatActivity {
         if(positionLamination1 == 1) {
             //Оконный профиль
             if (wDoor) {
-                laminationCoefficient = DopPrices.lamD1stW;
+                laminationCoefficient = MainActivity.prices.lamD1stW;
             }
             //Дверной профиль
             else {
-                laminationCoefficient = DopPrices.lamD1stD;
+                laminationCoefficient = MainActivity.prices.lamD1stD;
             }
             return;
         }
@@ -1118,11 +1058,11 @@ public class AddDoorActivity extends AppCompatActivity {
         if(positionLamination1 == 2) {
             //Оконный профиль
             if (wDoor) {
-                laminationCoefficient = DopPrices.lamD2stW;
+                laminationCoefficient = MainActivity.prices.lamD2stW;
             }
             //Дверной профиль
             else {
-                laminationCoefficient = DopPrices.lamD2stD;
+                laminationCoefficient = MainActivity.prices.lamD2stD;
             }
             return;
         }
@@ -1143,22 +1083,22 @@ public class AddDoorActivity extends AppCompatActivity {
         if(positionTypeOfType1 == 1) {
             //Если ламинация с 1 стороны
             if (positionLamination1 == 1) {
-                lam = ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * DopPrices.lamSend;
+                lam = ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.lamSend;
                 return;
             }
             //Если ламинация с 2 сторон
             if (positionLamination1 == 2) {
-                lam = (((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * DopPrices.lamSend) * 2;
+                lam = (((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.lamSend) * 2;
                 return;
             }
         }
         if(positionTypeOfType1 == 2) {
             if (positionLamination1 == 1) {
-                lam = ( ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) / 2) * DopPrices.lamSend;
+                lam = ( ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) / 2) * MainActivity.prices.lamSend;
                 return;
             }
             if (positionLamination1 == 2) {
-                lam = ( ( ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) / 2) * DopPrices.lamSend) * 2;
+                lam = ( ( ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) / 2) * MainActivity.prices.lamSend) * 2;
                 return;
             }
         }
@@ -1171,19 +1111,19 @@ public class AddDoorActivity extends AppCompatActivity {
         if(dDoor) {
             //Стандартные петли
             if(positionTypeOfLoop1 == 0) {
-               loopPrice = loopValue * DopPrices.petliDverStndtr - loopValueStnd * DopPrices.petliDverStndtr;
+               loopPrice = loopValue * MainActivity.prices.petliDverStndtr - loopValueStnd * MainActivity.prices.petliDverStndtr;
                return;
             }
             //Петли Jocker
             if(positionTypeOfLoop1 == 1) {
                 //Белые или Коричневые
                 if (positionColorLoop1 == 0 || positionColorLoop1 == 1) {
-                    loopPrice = loopValue * DopPrices.petliJoker120BelKorich - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliJoker120BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
                 //Другие цвета
                 else {
-                    loopPrice = loopValue * DopPrices.petliJoker120Cvet - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliJoker120Cvet - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
             }
@@ -1191,22 +1131,22 @@ public class AddDoorActivity extends AppCompatActivity {
             if(positionTypeOfLoop1 == 2) {
                 //Белые или Коричневые
                 if (positionColorLoop1 == 0 || positionColorLoop1 == 1) {
-                    loopPrice = loopValue * DopPrices.petliRoto120BelKorich - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliRoto120BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
                 //Антрацит
                 if(positionColorLoop1 == 2) {
-                    loopPrice = loopValue * DopPrices.petliRoto120Antracit - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliRoto120Antracit - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
                 //Серебро
                 if(positionColorLoop1 == 3) {
-                    loopPrice = loopValue * DopPrices.petliRoto120Serebro - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliRoto120Serebro - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
                 //Бронза
                 if(positionColorLoop1 == 4) {
-                    loopPrice = loopValue * DopPrices.petliRoto120Bronza - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliRoto120Bronza - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
             }
@@ -1214,26 +1154,26 @@ public class AddDoorActivity extends AppCompatActivity {
         if(wDoor) {
             //Стандартные петли
             if(positionTypeOfLoop1 == 0) {
-                loopPrice = loopValue * DopPrices.petliDverStndtr - loopValueStnd * DopPrices.petliDverStndtr;
+                loopPrice = loopValue * MainActivity.prices.petliDverStndtr - loopValueStnd * MainActivity.prices.petliDverStndtr;
                 return;
             }
             //Петли Jocker
             if(positionTypeOfLoop1 == 1) {
                 //Белые или Коричневые
                 if (positionColorLoop1 == 0 || positionColorLoop1 == 1) {
-                    loopPrice = loopValue * DopPrices.petliJoker80BelKorich - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliJoker80BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
                 //Другие цвета
                 else {
-                    loopPrice = loopValue * DopPrices.petliJoker80Cvet - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliJoker80Cvet - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
                 }
             }
             //Петли Roto
             if(positionTypeOfLoop1 == 2) {
                 //Белые или Коричневые
-                    loopPrice = loopValue * DopPrices.petliRoto80BelKorich - loopValueStnd * DopPrices.petliDverStndtr;
+                    loopPrice = loopValue * MainActivity.prices.petliRoto80BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
                     return;
             }
         }
@@ -1340,7 +1280,7 @@ public class AddDoorActivity extends AppCompatActivity {
     //____________________________________________________________________
 
     public void setGarnitPrice() {
-        lockPrice = DopPrices.mnogozapornik;
+        lockPrice = MainActivity.prices.mnogozapornik;
 
         //Стандартный гарнитур (Белый или коричневый)
         if (positionTypeOfGarnit1 == 0) {
@@ -1349,19 +1289,19 @@ public class AddDoorActivity extends AppCompatActivity {
         }
         //Стандартный из двух (Белый/Коричневый)
         if (positionTypeOfGarnit1 == 1) {
-            garnitPrice = DopPrices.garnitStndr2;
+            garnitPrice = MainActivity.prices.garnitStndr2;
             return;
         }
         //MEDOS VICTORY
         if (positionTypeOfGarnit1 == 2) {
             //Белый или Коричневый
             if (positionColorGarnit1 == 0 || positionColorGarnit1 == 1) {
-                garnitPrice = DopPrices.garnitMedosVictory;
+                garnitPrice = MainActivity.prices.garnitMedosVictory;
                 return;
             }
             //Остальные цвета
             else {
-                garnitPrice = DopPrices.garnitMedosVictoryCvet;
+                garnitPrice = MainActivity.prices.garnitMedosVictoryCvet;
                 return;
             }
         }
@@ -1369,30 +1309,30 @@ public class AddDoorActivity extends AppCompatActivity {
         if (positionTypeOfGarnit1 == 3) {
             // Белый/Коричневый
             if (positionColorGarnit1 == 0) {
-                garnitPrice = DopPrices.garnitMedosVictory2;
+                garnitPrice = MainActivity.prices.garnitMedosVictory2;
                 return;
             }
             else {
-                garnitPrice = DopPrices.garnitMedosVictoryCvet2;
+                garnitPrice = MainActivity.prices.garnitMedosVictoryCvet2;
                 return;
             }
         }
         //РУЧКА СКОБА
         if (positionTypeOfGarnit1 == 4) {
-            lockPrice = DopPrices.mnogozapornikRolik;
+            lockPrice = MainActivity.prices.mnogozapornikRolik;
             //Белая или Коричневая
             if (positionColorGarnit1 == 0 || positionColorGarnit1 == 1) {
-                garnitPrice = DopPrices.ruchkaSkobaBelKorich;
+                garnitPrice = MainActivity.prices.ruchkaSkobaBelKorich;
                 return;
             }
             //Антрацит - Серебро - Черный
             if (positionColorGarnit1 == 2 || positionColorGarnit1 == 3 || positionColorGarnit1 == 4) {
-                garnitPrice = DopPrices.ruchkaSkobaCvet;
+                garnitPrice = MainActivity.prices.ruchkaSkobaCvet;
                 return;
             }
             //Нержавейка
             if (positionColorGarnit1 == 5) {
-                garnitPrice = DopPrices.ruchkaSkobaNerzh;
+                garnitPrice = MainActivity.prices.ruchkaSkobaNerzh;
                 return;
             }
         }
@@ -1404,7 +1344,7 @@ public class AddDoorActivity extends AppCompatActivity {
             return;
         }
         else {
-            porogPrice = (Double.parseDouble(dataWidth.get(positionWidth1))/1000) * DopPrices.porogPvh;
+            porogPrice = (Double.parseDouble(dataWidth.get(positionWidth1))/1000) * MainActivity.prices.porogPvh;
         }
     }
 
@@ -1417,7 +1357,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
         //Если барашка
         else {
-            keyPrice = DopPrices.barashka;
+            keyPrice = MainActivity.prices.barashka;
         }
     }
     //____________________________________________________________________
@@ -1445,22 +1385,22 @@ public class AddDoorActivity extends AppCompatActivity {
         }
         //Мультик простой
         if (p1 == 1) {
-            glassPriceItems[p2] = DopPrices.multik;
+            glassPriceItems[p2] = MainActivity.prices.multik;
             return;
         }
         //Бронза в массе
         if (p1 == 2) {
-            glassPriceItems[p2] = DopPrices.bronza;
+            glassPriceItems[p2] = MainActivity.prices.bronza;
             return;
         }
         //Матовое заводское
         if (p1 == 3) {
-            glassPriceItems[p2] = DopPrices.mat;
+            glassPriceItems[p2] = MainActivity.prices.mat;
             return;
         }
         //Тонировка пленка
         if (p1 == 4) {
-            glassPriceItems[p2] = DopPrices.tonirovka;
+            glassPriceItems[p2] = MainActivity.prices.tonirovka;
             return;
         }
     }

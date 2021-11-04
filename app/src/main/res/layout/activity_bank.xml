@@ -471,20 +471,13 @@
             android:layout_marginLeft="25dp"
             android:layout_alignRight="@id/DSumMinMes"/>
 
-        <TextView
-            android:id="@+id/Dmes3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 мес"
-            android:layout_below="@id/DSumZhel"
-            android:layout_alignRight="@id/Dmes6"/>
 
         <TextView
             android:id="@+id/Dmes6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 мес"
-            android:layout_below="@id/Dmes3"
+            android:layout_below="@id/DSumZhel"
             android:layout_alignRight="@id/Dmes12"/>
 
         <TextView
@@ -516,19 +509,11 @@
             android:layout_below="@id/Dmes24"/>
 
         <TextView
-            android:id="@+id/Dmes3Z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 мес"
-            android:layout_below="@id/DSumZhel"
-            android:layout_alignRight="@id/DSumZhel"/>
-
-        <TextView
             android:id="@+id/Dmes6Z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 мес"
-            android:layout_below="@id/Dmes3Z"
+            android:layout_below="@id/DSumZhel"
             android:layout_alignRight="@id/DSumZhel"/>
 
         <TextView
@@ -564,19 +549,11 @@
             android:layout_alignRight="@id/DSumZhel"/>
 
         <TextView
-            android:id="@+id/Dmes3M"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 мес"
-            android:layout_below="@id/DSumZhel"
-            android:layout_alignRight="@id/DSumMin"/>
-
-        <TextView
             android:id="@+id/Dmes6M"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 мес"
-            android:layout_below="@id/Dmes3M"
+            android:layout_below="@id/DSumZhel"
             android:layout_alignRight="@id/DSumMin"/>
 
         <TextView
@@ -649,20 +626,13 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/DSumZhelMes"/>
 
-        <TextView
-            android:id="@+id/Dmes3E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 мес"
-            android:layout_below="@id/DSumZhelMes"
-            android:layout_alignRight="@id/Dmes6E"/>
 
         <TextView
             android:id="@+id/Dmes6E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 мес"
-            android:layout_below="@id/Dmes3E"
+            android:layout_below="@id/DSumZhelMes"
             android:layout_alignRight="@id/Dmes12E"/>
 
         <TextView
@@ -693,20 +663,13 @@
             android:text="36 мес"
             android:layout_below="@id/Dmes24E"/>
 
-        <TextView
-            android:id="@+id/Dmes3EZ"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 мес"
-            android:layout_below="@id/DSumZhelMes"
-            android:layout_alignRight="@id/DSumZhel"/>
 
         <TextView
             android:id="@+id/Dmes6EZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 мес"
-            android:layout_below="@id/Dmes3EZ"
+            android:layout_below="@id/DSumZhelMes"
             android:layout_alignRight="@id/DSumZhel"/>
 
         <TextView
@@ -741,20 +704,13 @@
             android:layout_below="@id/Dmes24EZ"
             android:layout_alignRight="@id/DSumZhel"/>
 
-        <TextView
-            android:id="@+id/Dmes3EM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3 мес"
-            android:layout_below="@id/DSumMinMes"
-            android:layout_alignRight="@id/DSumMin"/>
 
         <TextView
             android:id="@+id/Dmes6EM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 мес"
-            android:layout_below="@id/Dmes3EM"
+            android:layout_below="@id/DSumZhelMes"
             android:layout_alignRight="@id/DSumMin"/>
 
         <TextView

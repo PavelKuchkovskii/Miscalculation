@@ -8,15 +8,21 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.TextView;
 
 public class ChangeActivity extends AppCompatActivity {
 
     static boolean addFromList = false;
 
+    static TextView version;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change);
+
+        version = findViewById(R.id.version);
+        version.setText("Версия от " + MainActivity.prices.version);
 
         final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
 
