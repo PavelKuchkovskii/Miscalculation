@@ -625,9 +625,10 @@
     <string-array name="dtaProfile">
         <item>Brusbox 60</item>
         <item>Brusbox 70</item>
+        <item>Brusbox 70 (А-класс)</item>
         <item>Rehau 60</item>
         <item>Rehau 70</item>
-        <item>Salamander 76</item>
+        <!--<item>Salamander 76</item>-->
     </string-array>
 
     <string-array name="dtaFurnit">

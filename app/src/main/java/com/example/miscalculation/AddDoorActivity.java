@@ -1362,11 +1362,11 @@ public class AddDoorActivity extends AppCompatActivity {
     }
     //____________________________________________________________________
     public double setRegionPrice(){
-        return  Math.ceil(((((price + lockPrice + porogPrice + keyPrice)* profileCoefficient)*laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass));
+        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass));
     }
 
     public double setMinskPrice() {
-        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass)*1.05);
+        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass));
     }
 
     public List<String> addList(@ArrayRes int id) {

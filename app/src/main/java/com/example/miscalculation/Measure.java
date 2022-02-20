@@ -24,9 +24,11 @@ public class Measure implements Serializable {
     private List<Integer> prodWidth = new ArrayList<>();
 
     public Measure(Measure measure) {
+        this.version = measure.version;
         this.region = measure.region;
         this.delivery = measure.delivery;
         this.other = measure.other;
+        this.course = measure.course;
 
         this.prodList = new ArrayList<>(measure.prodList);
         this.itemInfo = new ArrayList<>(measure.itemInfo);

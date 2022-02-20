@@ -165,18 +165,26 @@ public class ContinePrice extends AppCompatActivity {
     }
 
     public void setPriceOutcome(int i) {
-        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other) * course) * 1.165);
-        continePriceM = (int) Math.ceil(((mounting + slopes + (interest / 2.0) + price + delivery + other) * course) * 1.165);
-        int b = (int) Math.ceil( (100.00 / discont) * continePriceZh);
-        textPriceR.setText(b + " руб");
+        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other) * course) * 1.185);
+
+        continePriceM = (int) Math.ceil(((mounting + slopes + (interest / 2.0) + price + delivery + other) * course) * 1.185);
+
+
+        //Это ЗАВЫШЕННАЯ стоимость для скидок, сейчас она СКРЫТА
+        //int b = (int) Math.ceil( (100.00 / discont) * continePriceZh);
+        //textPriceR.setText(b + " руб");
 
         if (i == 0) {
             textPriceOutcome.setText( continePriceZh + " руб");
-            textDiscont.setText((b - continePriceZh) + " руб");
+
+            //Сумма скидки, СКРЫТА
+            //textDiscont.setText((b - continePriceZh) + " руб");
 
         } else {
             textPriceOutcome.setText( continePriceM + " руб");
-            textDiscont.setText((b - continePriceM) + " руб");
+
+            //Сумма скидки, СКРЫТА
+            //textDiscont.setText((b - continePriceM) + " руб");
         }
     }
 
@@ -292,8 +300,8 @@ public class ContinePrice extends AppCompatActivity {
         priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
 
-        double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * 1.165 * course;
-        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 1.165 * course;
+        double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * 1.185 * course;
+        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 1.185 * course;
 
         all = priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery;
         percent = all * percentN;
@@ -328,7 +336,7 @@ public class ContinePrice extends AppCompatActivity {
         double percent2;
         double NDS2;
 
-        int sumP = (int) (prepaid/course/1.165);
+        int sumP = (int) (prepaid/course/1.185);
 
 
         double pLizZh;

@@ -386,7 +386,7 @@ public class AddWindowActivity extends AppCompatActivity {
                 //Если выбрана балконная дверь и меняется профиль
                 if(balDorFlag) {
                     //Если выбрано заполнение сендвичем на 100% или 50%
-                    if ( (positionFilling1 == 1 || positionFilling1 == 2) && positionProfile1 != 4) {
+                    if ( (positionFilling1 == 1 || positionFilling1 == 2) && positionProfile1 != 5) {
                         setProfile(positionProfile1, positionTypeOfGlass1);
                         positionTypeOfGlass1 = 1;
                         spinnerTypeOfGlass.setSelection(1);
@@ -424,7 +424,7 @@ public class AddWindowActivity extends AppCompatActivity {
                     if ((positionFilling1 == 1 || positionFilling1 == 2) && !salamander) {
 
                         //Если выбран профиль 60мм и пытаются выбрать 24 стеклопакет
-                        if( (positionProfile1 == 0 || positionProfile1 == 2) && positionTypeOfGlass1 == 0 ) {
+                        if( (positionProfile1 == 0 || positionProfile1 == 3) && positionTypeOfGlass1 == 0 ) {
                             positionTypeOfGlass1 = 1;
                             spinnerTypeOfGlass.setSelection(1);
                         }
@@ -1583,9 +1583,35 @@ public class AddWindowActivity extends AppCompatActivity {
             return;
         }
 
+        // BB 70/24 (A-Класс)
+        if(p1 == 2 && p2 == 0) {
+            BB6024 = true;
+            BB6032 = false;
+            profileCoefficient = MainActivity.prices.BBA7024W;
+
+            adapterTypeOfGlass.clear();
+            adapterTypeOfGlass.addAll(addList(R.array.TypeOfGlass70));
+            return;
+        }
+
+        // BB 70/32 (A-Класс)
+        if(p1 == 2 && p2 == 1) {
+            BB6024 = false;
+            BB6032 = true;
+            profileCoefficient = MainActivity.prices.BBA7032W;
+            return;
+        }
+
+        // BB 70/40 (A-Класс)
+        if(p1 == 2 && p2 == 2) {
+            BB6024 = false;
+            BB6032 = true;
+            profileCoefficient = MainActivity.prices.BBA7040W;
+            return;
+        }
 
         // Rehau 60/24
-        if(p1 == 2 && p2 == 0) {
+        if(p1 == 3 && p2 == 0) {
             BB6024 = true;
             BB6032 = false;
             profileCoefficient = MainActivity.prices.REHAU6024W;
@@ -1597,7 +1623,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
 
         // Rehau 60/32
-        if(p1 == 2 && p2 == 1) {
+        if(p1 == 3 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
             profileCoefficient = MainActivity.prices.REHAU6032W;
@@ -1606,7 +1632,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
 
         // Rehau 70/24
-        if(p1 == 3 && p2 == 0) {
+        if(p1 == 4 && p2 == 0) {
             BB6024 = true;
             BB6032 = false;
             profileCoefficient = MainActivity.prices.REHAU7024W;
@@ -1618,7 +1644,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
 
         // Rehau 70/32
-        if(p1 == 3 && p2 == 1) {
+        if(p1 == 4 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
             profileCoefficient = MainActivity.prices.REHAU7032W;
@@ -1627,7 +1653,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
 
         // Rehau 70/40
-        if(p1 == 3 && p2 == 2) {
+        if(p1 == 4 && p2 == 2) {
             BB6024 = false;
             BB6032 = true;
             profileCoefficient = MainActivity.prices.REHAU7040W;
@@ -1635,7 +1661,7 @@ public class AddWindowActivity extends AppCompatActivity {
         }
 
         // Salamander 76/32
-        if(p1 == 4 && p2 == 0) {
+        if(p1 == 5 && p2 == 0) {
             profileCoefficient = MainActivity.prices.SALAMANDER7032W;
             BB6024 = false;
             BB6032 = true;
@@ -1655,7 +1681,7 @@ public class AddWindowActivity extends AppCompatActivity {
         }
 
         // Salamander 76/40
-        if(p1 == 4 && p2 == 1) {
+        if(p1 == 5 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
             salamander = true;
@@ -1701,7 +1727,7 @@ public class AddWindowActivity extends AppCompatActivity {
                     laminationCoefficient = MainActivity.prices.lamWBB60_1st;
                 }
                 //БРУСБОКС 70
-                else if(positionProfile1 == 1) {
+                else if(positionProfile1 == 1 || positionProfile1 == 2) {
                     laminationCoefficient = MainActivity.prices.lamWBB70_1st;
                 }
                 //REHAU\SALAMANDER
@@ -1717,7 +1743,7 @@ public class AddWindowActivity extends AppCompatActivity {
                     laminationCoefficient = MainActivity.prices.lamWBB60_2st;
                 }
                 //БРУСБОКС 70
-                else if(positionProfile1 == 1) {
+                else if(positionProfile1 == 1 || positionProfile1 == 2) {
                     laminationCoefficient = MainActivity.prices.lamWBB70_2st;
                 }
                 //REHAU\SALAMANDER
@@ -1729,11 +1755,11 @@ public class AddWindowActivity extends AppCompatActivity {
     }
     //____________________________________________________________
     public double setRegionPrice(){
-        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp)* profileCoefficient)*laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
+        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
     }
 
     public double setMinskPrice() {
-        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass)*1.05);
+        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
     }
 
     public List<String> addList(@ArrayRes int id) {
