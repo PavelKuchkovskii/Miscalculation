@@ -1321,13 +1321,13 @@ public class AddWorkActivity extends AppCompatActivity {
                 if (region) {
                     spinnerTypeOfType.setVisibility(View.VISIBLE);
                     adapterTypeOfType.clear();
-                    adapterTypeOfType.addAll(addList(R.array.dtaTypeWorkSlopesR));
+                    adapterTypeOfType.addAll(addList(R.array.dtaTypeWorkSlopes));
                 }
                 //Минск
                 else {
                     spinnerTypeOfType.setVisibility(View.VISIBLE);
                     adapterTypeOfType.clear();
-                    adapterTypeOfType.addAll(addList(R.array.dtaTypeWorkSlopesM));
+                    adapterTypeOfType.addAll(addList(R.array.dtaTypeWorkSlopes));
                 }
             }
 

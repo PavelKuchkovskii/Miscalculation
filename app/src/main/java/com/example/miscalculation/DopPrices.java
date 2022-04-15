@@ -1,6 +1,10 @@
 package com.example.miscalculation;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import handles.HandleFurnit;
 
 public class DopPrices implements Serializable{
   //Версия от какого числа(version)
@@ -143,40 +147,14 @@ public class DopPrices implements Serializable{
 
 //'----------------------------ЛИСТ 2 (ФУРНИТУРА ОКОННАЯ)--------------------------------------------
 
-  //'---------ЦЕНЫ УКАЗЫВАЕТСЯ В ВВИДЕ РАЗНИЦЫ ОТ СТАНДАРТНОЙ РУЧКИ
-
-  //Ручка оконная Roto Samba белая(ruchkaSambaBel)
-  public double ruchkaSambaBel;
-
-  //Ручка оконная Hoppe коричневая(ruchkaHopeKorich)
-  public double ruchkaHopeKorich;
-
-  //Ручка оконная Roto Line белая, латунь, серо-коричневая, серебро, шампань, титан, темная бронза, бронза(ruchkaRotoLine)
-  public double ruchkaRotoLine;
-
-  //Ручка оконная Roto Swing белая, серебро, титан мат(ruchkaRotoSwingV1)
-  public double ruchkaRotoSwingV1;
-
-  //Ручка оконная Roto Swing черно-коричневая, новое серебро, латунь матовая, бронза, темная бронза(ruchkaRotoSwingV2)
-  public double ruchkaRotoSwingV2;
-
-  //Ручка 2-хсторонняя белая, коричневая(ruchka2storon)
-  public double ruchka2storon;
-
-  //Ручка с ключом белая, коричневая(ruchkaSKluchom)
-  public double ruchkaSKluchom;
-
-  //Хваталка балконная антрацит, золотой дуб(hvatalkaCvet)
-  public double hvatalkaCvet;
+  //Ручки
+  public List<HandleFurnit> handles = new ArrayList<>();
 
   //Комплект фурнитуры на Roto (стандартное окно)(rotoW)
   public double rotoW;
 
   //Комплект фурнитуры на Roto (балконная дверь)(rotoBD)
   public double rotoBD;
-
-  //Комлект декоративных накладок цветной(dekorNakladkaCvet)
-  public double dekorNakladkaCvet;
 
 //'----------------------------ЛИСТ 3 (ДВЕРНАЯ ФУРНИТУРА)--------------------------------------------
 
@@ -381,11 +359,8 @@ public class DopPrices implements Serializable{
   //Rehau 70/40 окно(REHAU7040W)
   public double REHAU7040W;
 
-  //Salamander 70/32 окно(SALAMANDER7032W)
-  public double SALAMANDER7032W;
-
-  //Salamander 70/40 окно(SALAMANDER7040W)
-  public double SALAMANDER7040W;
+  //REHAU Intelio 80/50 окно (REHAUINTELIO)
+  public double REHAUINTELIO;
 
   //'---------------------------ДВЕРНЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
 
@@ -717,17 +692,8 @@ public class DopPrices implements Serializable{
   public double LIZING24M;
 //'------------------------------АЛЬФА-БАНК------------------------------
           //'------------------------------ПО МЕСЯЦАМ-----------------------------------------------
-  // 6 месяцев(AMES6)
-  public double AMES6;
-
-  //10 месяцев(AMES10)
-  public double AMES10;
-
-  //12 месяцев(AMES12)
+  // 12 месяцев(AMES12)
   public double AMES12;
-
-  //15 месяцев(AMES15)
-  public double AMES15;
 
   //18 месяцев(AMES18)
   public double AMES18;
@@ -737,28 +703,14 @@ public class DopPrices implements Serializable{
 
   //36 месяцев(AMES36)
   public double AMES36;
-//'------------------------------ЕЖЕМЕС------------------------------------------------------
 
-  //6 месяцев(AMES_E6)
-  public double AMES_E6;
+  //48 месяцев(AMES48)
+  public double AMES48;
 
-  //10 месяцев(AMES_E10)
-  public double AMES_E10;
+  //Процентная ставка по кредитам АЛЬФА-БАНК(ALFASTVK)
+  public double ALFASTVK;
 
-  //12 месяцев(AMES_E12)
-  public double AMES_E12;
 
-  //15 месяцев(AMES_E15)
-  public double AMES_E15;
-
-  //18 месяцев(AMES_E18)
-  public double AMES_E18;
-
-  //24 месяцев(AMES_E24)
-  public double AMES_E24;
-
-  //36 месяцев(AMES_E36)
-  public double AMES_E36;
 //'------------------------------ДОБРОБЫТ------------------------------
          //'------------------------------ПО МЕСЯЦАМ------------------------------------------------
   //3-6 месяцев(DMES6)
@@ -873,6 +825,11 @@ public class DopPrices implements Serializable{
 
 //'------------------------------------ДВЕРИ ПВХ------------------------------------
 
+  //D - Дверной профиль
+  //W - Оконный профиль
+  //1 - Одна стоврка
+  //2 - Штульповая
+
   //'------------------60/32----------------------------------------
   public int [][] doorBB6032D1;
 
@@ -881,6 +838,11 @@ public class DopPrices implements Serializable{
   public int [][] doorBB6032W1;
 
   public int [][] doorBB6032W2;
+
+  public int [][] doorREHAU6032D1;
+
+  public int [][] doorREHAU6032D2;
+
 
 //'------------------70/32----------------------------------------
 
@@ -891,5 +853,10 @@ public class DopPrices implements Serializable{
   public int [][] doorBB7032W1;
 
   public int [][] doorBB7032W2;
+
+  public int [][] doorREHAU7032D1;
+
+  public int [][] doorREHAU7032D2;
+
 
 }

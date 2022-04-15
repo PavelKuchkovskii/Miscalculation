@@ -189,7 +189,7 @@ public class ContinePrice extends AppCompatActivity {
     }
 
 
-    //отправляем qr код в виде uri изображения
+    //отправляем файл
     public void sendMeasure() throws IOException {
         Gson gson= new Gson();
         //Создаем временный hasmap
@@ -214,6 +214,14 @@ public class ContinePrice extends AppCompatActivity {
             OutputStream fos = resolver.openOutputStream(measureUri);
             fos.write(json.getBytes());
             file = new File(getRealPathFromURI(measureUri));
+
+            /////////////////////////////////////////////////////
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, measureUri);
+            shareIntent.setType("application/octet-stream");
+            startActivity(Intent.createChooser(shareIntent, null));
+            /////////////////////////////////////////////////////////////
         }else {
              //Сохраняем замер в папку приложения
              FileOutputStream fos;
@@ -222,12 +230,14 @@ public class ContinePrice extends AppCompatActivity {
              file = getExternalPath();
         }
 
-        final Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("text/plain");
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-        startActivity(Intent.createChooser(shareIntent, "Share image using"));
+        //final Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        //shareIntent.setType("application/octet-stream");
+        //StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        //StrictMode.setVmPolicy(builder.build());
+        //shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+        //startActivity(Intent.createChooser(shareIntent, "Share image using"));
+
+
     }
 
     private File getExternalPath() {

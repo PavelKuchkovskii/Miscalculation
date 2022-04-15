@@ -285,7 +285,7 @@ public class ProductList extends AppCompatActivity {
         spinnerCourse.setPrompt("Курс");
         // выделяем элемент
         //Если замер не выбран, то позиция ставится на 0(2.55)
-        spinnerCourse.setSelection(MainActivity.nameMeasure != null ? getCourse(MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse()) : 0);
+        spinnerCourse.setSelection(MainActivity.nameMeasure != null ? getCourse(MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse(), adapterCourse) : 0);
         // устанавливаем обработчик нажатия
         spinnerCourse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -945,53 +945,8 @@ public class ProductList extends AppCompatActivity {
     }
 
     //Устанавливает курс
-    public int getCourse(double d) {
-        if (d == 2.5) {
-            return 0;
-        }
-        else if (d == 2.55) {
-            return 1;
-        }
-        else if (d == 2.6) {
-            return 2;
-        }
-        else if (d == 2.65) {
-            return 3;
-        }
-        else if (d == 2.7) {
-            return 4;
-        }
-        else if (d == 2.75) {
-            return 5;
-        }
-        else if (d == 2.8) {
-            return 6;
-        }
-        else if (d == 2.85) {
-            return 7;
-        }
-        else if (d == 2.9) {
-            return 8;
-        }
-        else if (d == 2.95) {
-            return 9;
-        }
-        else if (d == 3) {
-            return 10;
-        }
-        else if (d == 3.05) {
-            return 11;
-        }
-        else if (d == 3.1) {
-            return 12;
-        }
-        else if (d == 3.15) {
-            return 13;
-        }
-        else {
-            return 14;
-        }
-
+    public int getCourse(double d, ArrayAdapter<String> courseAmount) {
+        return courseAmount.getPosition(String.valueOf(d));
     }
 
     public void writeHash(LinkedHashMap<String, Measure> wHashMap) throws IOException {

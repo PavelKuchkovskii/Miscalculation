@@ -51,40 +51,19 @@
             android:layout_alignRight="@id/ASumMinMes"/>
 
         <TextView
-            android:id="@+id/Ames6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6 мес"
-            android:layout_below="@id/ASumZhel"
-            android:layout_alignRight="@id/Ames10"/>
-
-        <TextView
-            android:id="@+id/Ames10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 мес"
-            android:layout_below="@id/Ames6"/>
-
-        <TextView
             android:id="@+id/Ames12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 мес"
-            android:layout_below="@id/Ames10"/>
-
-        <TextView
-            android:id="@+id/Ames15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 мес"
-            android:layout_below="@id/Ames12"/>
+            android:layout_below="@id/ASumZhel"
+            android:layout_alignRight="@id/Ames18"/>
 
         <TextView
             android:id="@+id/Ames18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18 мес"
-            android:layout_below="@id/Ames15"/>
+            android:layout_below="@id/Ames12"/>
 
         <TextView
             android:id="@+id/Ames24"
@@ -100,43 +79,20 @@
             android:text="36 мес"
             android:layout_below="@id/Ames24"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#262626"
-            android:layout_below="@+id/Ames36"
-            android:layout_alignRight="@id/ASumMin"/>
-
         <TextView
-            android:id="@+id/Ames6Z"
+            android:id="@+id/Ames48"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6 мес"
-            android:layout_below="@id/ASumZhel"
-            android:layout_alignRight="@id/ASumZhel"/>
+            android:text="48 мес"
+            android:layout_below="@id/Ames36"/>
 
-        <TextView
-            android:id="@+id/Ames10Z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 мес"
-            android:layout_below="@id/Ames6Z"
-            android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
             android:id="@+id/Ames12Z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 мес"
-            android:layout_below="@id/Ames10Z"
-            android:layout_alignRight="@id/ASumZhel"/>
-
-        <TextView
-            android:id="@+id/Ames15Z"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 мес"
-            android:layout_below="@id/Ames12Z"
+            android:layout_below="@id/ASumZhel"
             android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
@@ -144,7 +100,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18 мес"
-            android:layout_below="@id/Ames15Z"
+            android:layout_below="@id/Ames12Z"
             android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
@@ -164,35 +120,20 @@
             android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
-            android:id="@+id/Ames6M"
+            android:id="@+id/Ames48Z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6 мес"
-            android:layout_below="@id/ASumZhel"
-            android:layout_alignRight="@id/ASumMin"/>
+            android:text="48 мес"
+            android:layout_below="@id/Ames36Z"
+            android:layout_alignRight="@id/ASumZhel"/>
 
-        <TextView
-            android:id="@+id/Ames10M"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 мес"
-            android:layout_below="@id/Ames6M"
-            android:layout_alignRight="@id/ASumMin"/>
 
         <TextView
             android:id="@+id/Ames12M"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 мес"
-            android:layout_below="@id/Ames10M"
-            android:layout_alignRight="@id/ASumMin"/>
-
-        <TextView
-            android:id="@+id/Ames15M"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 мес"
-            android:layout_below="@id/Ames12M"
+            android:layout_below="@id/ASumZhel"
             android:layout_alignRight="@id/ASumMin"/>
 
         <TextView
@@ -200,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18 мес"
-            android:layout_below="@id/Ames15M"
+            android:layout_below="@id/Ames12M"
             android:layout_alignRight="@id/ASumMin"/>
 
         <TextView
@@ -218,11 +159,20 @@
             android:text="36 мес"
             android:layout_below="@id/Ames24M"
             android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames48M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="48 мес"
+            android:layout_below="@id/Ames36M"
+            android:layout_alignRight="@id/ASumMin"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#262626"
-            android:layout_below="@+id/Ames36M"
+            android:layout_below="@+id/Ames48M"
             android:layout_alignRight="@id/ASumMin"/>
 
 
@@ -234,7 +184,7 @@
             android:layout_height="wrap_content"
             android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
             android:textSize="25sp"
-            android:layout_below="@id/Ames36"
+            android:layout_below="@id/Ames48"
             android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"/>
 
@@ -245,7 +195,7 @@
             android:text="Ежемес ЖЕЛ"
             android:layout_below="@id/AEzhMes"
             android:layout_marginLeft="25dp"
-            android:layout_toRightOf="@id/Ames6E"/>
+            android:layout_toRightOf="@id/Ames12E"/>
 
         <TextView
             android:id="@+id/ASumMinMes"
@@ -257,40 +207,19 @@
             android:layout_toRightOf="@id/ASumZhelMes"/>
 
         <TextView
-            android:id="@+id/Ames6E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6 мес"
-            android:layout_below="@id/ASumZhelMes"
-            android:layout_alignRight="@id/Ames10E"/>
-
-        <TextView
-            android:id="@+id/Ames10E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 мес"
-            android:layout_below="@id/Ames6E"/>
-
-        <TextView
             android:id="@+id/Ames12E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 мес"
-            android:layout_below="@id/Ames10E"/>
-
-        <TextView
-            android:id="@+id/Ames15E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 мес"
-            android:layout_below="@id/Ames12E"/>
+            android:layout_below="@id/ASumZhelMes"
+            android:layout_alignRight="@id/Ames18E"/>
 
         <TextView
             android:id="@+id/Ames18E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18 мес"
-            android:layout_below="@id/Ames15E"/>
+            android:layout_below="@id/Ames12E"/>
 
         <TextView
             android:id="@+id/Ames24E"
@@ -307,35 +236,18 @@
             android:layout_below="@id/Ames24E"/>
 
         <TextView
-            android:id="@+id/Ames6EZ"
+            android:id="@+id/Ames48E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6 мес"
-            android:layout_below="@id/ASumZhelMes"
-            android:layout_alignRight="@id/ASumZhel"/>
-
-        <TextView
-            android:id="@+id/Ames10EZ"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 мес"
-            android:layout_below="@id/Ames6EZ"
-            android:layout_alignRight="@id/ASumZhel"/>
+            android:text="48 мес"
+            android:layout_below="@id/Ames36E"/>
 
         <TextView
             android:id="@+id/Ames12EZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 мес"
-            android:layout_below="@id/Ames10EZ"
-            android:layout_alignRight="@id/ASumZhel"/>
-
-        <TextView
-            android:id="@+id/Ames15EZ"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 мес"
-            android:layout_below="@id/Ames12EZ"
+            android:layout_below="@id/ASumZhelMes"
             android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
@@ -343,7 +255,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18 мес"
-            android:layout_below="@id/Ames15EZ"
+            android:layout_below="@id/Ames12EZ"
             android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
@@ -363,35 +275,20 @@
             android:layout_alignRight="@id/ASumZhel"/>
 
         <TextView
-            android:id="@+id/Ames6EM"
+            android:id="@+id/Ames48EZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="6 мес"
-            android:layout_below="@id/ASumMinMes"
-            android:layout_alignRight="@id/ASumMin"/>
+            android:text="48 мес"
+            android:layout_below="@id/Ames36EZ"
+            android:layout_alignRight="@id/ASumZhel"/>
 
-        <TextView
-            android:id="@+id/Ames10EM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10 мес"
-            android:layout_below="@id/Ames6EM"
-            android:layout_alignRight="@id/ASumMin"/>
 
         <TextView
             android:id="@+id/Ames12EM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="12 мес"
-            android:layout_below="@id/Ames10EM"
-            android:layout_alignRight="@id/ASumMin"/>
-
-        <TextView
-            android:id="@+id/Ames15EM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="15 мес"
-            android:layout_below="@id/Ames12EM"
+            android:layout_below="@id/ASumMinMes"
             android:layout_alignRight="@id/ASumMin"/>
 
         <TextView
@@ -399,7 +296,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18 мес"
-            android:layout_below="@id/Ames15EM"
+            android:layout_below="@id/Ames12EM"
             android:layout_alignRight="@id/ASumMin"/>
 
         <TextView
@@ -417,11 +314,20 @@
             android:text="36 мес"
             android:layout_below="@id/Ames24EM"
             android:layout_alignRight="@id/ASumMin"/>
+
+        <TextView
+            android:id="@+id/Ames48EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="48 мес"
+            android:layout_below="@id/Ames36EM"
+            android:layout_alignRight="@id/ASumMin"/>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#262626"
-            android:layout_below="@+id/Ames36EM"
+            android:layout_below="@+id/Ames48EM"
             android:layout_alignRight="@id/ASumMin"/>
 
 
@@ -444,7 +350,7 @@
             android:text="ДОБРОБЫТ"
             android:textSize="25sp"
             android:layout_marginTop="40dp"
-            android:layout_below="@id/Ames36E"
+            android:layout_below="@id/Ames48E"
             android:layout_centerHorizontal="true"/>
 
         <View

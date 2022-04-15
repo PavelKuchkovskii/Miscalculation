@@ -604,6 +604,32 @@
         <item>3.1</item>
         <item>3.15</item>
         <item>3.2</item>
+        <item>3.25</item>
+        <item>3.3</item>
+        <item>3.35</item>
+        <item>3.4</item>
+        <item>3.45</item>
+        <item>3.5</item>
+        <item>3.55</item>
+        <item>3.6</item>
+        <item>3.65</item>
+        <item>3.7</item>
+        <item>3.75</item>
+        <item>3.8</item>
+        <item>3.85</item>
+        <item>3.9</item>
+        <item>3.95</item>
+        <item>4</item>
+        <item>4.05</item>
+        <item>4.1</item>
+        <item>4.15</item>
+        <item>4.2</item>
+        <item>4.25</item>
+        <item>4.3</item>
+        <item>4.35</item>
+        <item>4.4</item>
+        <item>4.45</item>
+        <item>4.5</item>
     </string-array>
 
     <string-array name="TypeOfGlass60">
@@ -617,9 +643,8 @@
         <item>40</item>
     </string-array>
 
-    <string-array name="TypeOfGlass76">
-        <item>32</item>
-        <item>40</item>
+    <string-array name="TypeOfGlass80">
+        <item>50</item>
     </string-array>
 
     <string-array name="dtaProfile">
@@ -628,7 +653,7 @@
         <item>Brusbox 70 (А-класс)</item>
         <item>Rehau 60</item>
         <item>Rehau 70</item>
-        <!--<item>Salamander 76</item>-->
+        <item>Rehau INTELIO 80</item>
     </string-array>
 
     <string-array name="dtaFurnit">
@@ -745,6 +770,8 @@
         <item>Дверной 60</item>
         <item>Оконный 70</item>
         <item>Оконный 60</item>
+        <item>Дверной REHAU 70</item>
+        <item>Дверной REHAU 60</item>
     </string-array>
 
     <string-array name="Type_Door">
@@ -957,11 +984,6 @@
         <item>"Арка"</item>
     </string-array>
 
-    <string-array name="dtaHandle1">
-        <item>"Комплект декоративных накладок (белый, коричневый)"</item>
-        <item>"Комплект декоративных накладок (цветной)"</item>
-    </string-array>
-
     <string-array name="dtaHandle2">
         <item>"Ручка стндрт.(белая, коричневая)"</item>
         <item>"Ручка Roto Samba (белая)"</item>
@@ -1101,14 +1123,9 @@
         <item>"Из 5 частей"</item>
     </string-array>
 
-    <string-array name="dtaTypeWorkSlopesR">
+    <string-array name="dtaTypeWorkSlopes">
         <item>"До 250 мм"</item>
         <item>"Свыше 250 мм"</item>
-        <item>"Свыше 450 мм"</item>
-    </string-array>
-
-    <string-array name="dtaTypeWorkSlopesM">
-        <item>"До 450 мм"</item>
         <item>"Свыше 450 мм"</item>
     </string-array>
 

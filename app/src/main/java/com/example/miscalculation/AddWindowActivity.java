@@ -30,6 +30,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import handles.AdapterHandleFurnit;
+import handles.HandleFurnit;
+
+
 public class AddWindowActivity extends AppCompatActivity {
 
     static boolean addFromList = false;
@@ -40,7 +44,7 @@ public class AddWindowActivity extends AppCompatActivity {
     static boolean getPriceFlag = false;
     static boolean BB6024 = false;
     static boolean BB6032 = false;
-    static boolean salamander = false;
+    static boolean rehauIntelio = false;
 
 
     static Spinner spinnerType = null;
@@ -105,8 +109,8 @@ public class AddWindowActivity extends AppCompatActivity {
     static List<String> dataGlassList = new ArrayList<>();
     static List<String> dataFigure = new ArrayList<>();
     static List<String> dataFilling = new ArrayList<>();
-    static List<String> dataHandle = new ArrayList<>();
-    static List<String> dataHandleList = new ArrayList<>();
+    static List<HandleFurnit> dataHandle = MainActivity.prices.handles;
+    static List<HandleFurnit> dataHandleList = new ArrayList<>();
     static List<String> dataShtulp = new ArrayList<>();
 
 //--------------------------------------------------------------------------------------------
@@ -137,8 +141,8 @@ public class AddWindowActivity extends AppCompatActivity {
 
     static ArrayAdapter<String> adapterFilling;
 
-    static ArrayAdapter<String> adapterHandle;
-    static ArrayAdapter<String> adapterHandleLst;
+    static AdapterHandleFurnit<HandleFurnit> adapterHandle;
+    static ArrayAdapter<HandleFurnit> adapterHandleLst;
 
     static ArrayAdapter<String> adapterShtulp;
 
@@ -187,7 +191,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
         adapterFilling = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataFilling);
 
-        adapterHandle = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataHandle);
+        adapterHandle = new AdapterHandleFurnit<>(this, android.R.layout.simple_spinner_item, dataHandle);
         adapterHandleLst = new ArrayAdapter<>(this, R.layout.listglassitem, dataHandleList);
         listHandle.setAdapter(adapterHandleLst);
 
@@ -240,8 +244,6 @@ public class AddWindowActivity extends AppCompatActivity {
         adapterFilling.addAll(addList(R.array.Type_Door));
 
         adapterHandle.setDropDownViewResource(R.layout.layout_spinner_handle);
-        adapterHandle.clear();
-        adapterHandle.addAll(addList(R.array.dtaHandle1));
 
         adapterShtulp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterShtulp.clear();
@@ -420,8 +422,8 @@ public class AddWindowActivity extends AppCompatActivity {
                 //Если выбрана балконная дверь
                 if(balDorFlag) {
 
-                    //Если выбрано заполнение сендвичем на 100 или 50 % и профиль не salamander
-                    if ((positionFilling1 == 1 || positionFilling1 == 2) && !salamander) {
+                    //Если выбрано заполнение сендвичем на 100 или 50 % и профиль не rehauIntelio
+                    if ((positionFilling1 == 1 || positionFilling1 == 2) && !rehauIntelio) {
 
                         //Если выбран профиль 60мм и пытаются выбрать 24 стеклопакет
                         if( (positionProfile1 == 0 || positionProfile1 == 3) && positionTypeOfGlass1 == 0 ) {
@@ -429,7 +431,7 @@ public class AddWindowActivity extends AppCompatActivity {
                             spinnerTypeOfGlass.setSelection(1);
                         }
 
-                        //Если выбран профиль 70мм, но не саламандер
+                        //Если выбран профиль 70мм, но не Rehau intelio
                         else {
                             //Если пытаюстся выбрать стекло 24мм, то автоматически ставится на 32мм
                             if(positionTypeOfGlass1 == 0) {
@@ -463,8 +465,8 @@ public class AddWindowActivity extends AppCompatActivity {
                 positionFurnit1 = positionFurnit;
                 furnitPrice = 0;
 
-                //с 2-x сторонней ручкой и пытаются выбрать kale
-                if (!gluhFlag && (dataHandleList.get(0).equals(dataHandle.get(6))) && positionFurnit1 == 0) {
+                //Если с выбранной ручкой обязательно ставится рото
+                if (!dataHandleList.isEmpty() && dataHandleList.get(0).getROTO()) {
                     positionFurnit1 = 1;
                     spinnerFurnit.setSelection(1);
                 }
@@ -589,7 +591,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Если заполнение сендвичем 100 или 50 процентов и не саламандер
                 //Стеклопакет ставится на 32 мм
-                if ( (positionFilling1 == 1 || positionFilling1 == 2) && !salamander) {
+                if ( (positionFilling1 == 1 || positionFilling1 == 2) && !rehauIntelio) {
                     positionTypeOfGlass1 = 1;
                     spinnerTypeOfGlass.setSelection(1);
                 }
@@ -955,13 +957,16 @@ public class AddWindowActivity extends AppCompatActivity {
         public void onClick(View v) {
             v.startAnimation(animAlpha);
             setHandlePriceItems(positionHandle1);
-            //Если выбирается 2-х сторонняя ручка
-            if(positionHandle1 == 6) {
+
+            //Если на ручку обязательно ставится рото, то меняем фурнитуру на рото
+            if(dataHandleList.get(0).getROTO()) {
                 positionFurnit1 = 1;
                 spinnerFurnit.setSelection(1);
             }
             Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(100);
+
+            adapterHandle.notifyDataSetChanged();
         }
     });
     }
@@ -976,8 +981,6 @@ public class AddWindowActivity extends AppCompatActivity {
             adapterFigure.clear();
             adapterFigure.addAll(addList(R.array.dtaFigure));
 
-            adapterHandle.clear();
-            adapterHandle.addAll(addList(R.array.dtaHandle1));
             handlePriceItems[0] = 0;
             handlePriceItems[1] = 0;
             handlePriceItems[2] = 0;
@@ -989,14 +992,14 @@ public class AddWindowActivity extends AppCompatActivity {
             adapterFigure.clear();
             adapterFigure.addAll(addList(R.array.dtaFigure2));
 
-            adapterHandle.clear();
-            adapterHandle.addAll(addList(R.array.dtaHandle2));
+            //Устанавливаем видимые и невидимые элементы(В случае с балконной дверью показываем\скрываем хваталки)
+            setHandleVisibility(balDorFlag);
             handlePriceItems[0] = 0;
             handlePriceItems[1] = 0;
             handlePriceItems[2] = 0;
             adapterHandleLst.clear();
-            adapterHandleLst.add("Ручка стндрт.(белая, коричневая)");
-            adapterHandleLst.add("Комплект декоративных накладок (белый, коричневый)");
+            adapterHandleLst.add(dataHandle.get(0));//Ручка стандарт
+            adapterHandleLst.add(dataHandle.get(1));//Накладка стандарт
         }
 
         // 1 створка глухая
@@ -1480,15 +1483,15 @@ public class AddWindowActivity extends AppCompatActivity {
                 flag = false;
                 balDorFlag = true;
 
-                adapterHandle.clear();
-                adapterHandle.addAll(addList(R.array.dtaHandle3));
+                //Устанавливаем видимые и невидимые элементы(В случае с балконной дверью показываем\скрываем хваталки)
+                setHandleVisibility(balDorFlag);
                 handlePriceItems[0] = 0;
                 handlePriceItems[1] = 0;
                 handlePriceItems[2] = 0;
                 adapterHandleLst.clear();
-                adapterHandleLst.add("Ручка стндрт.(белая, коричневая)");
-                adapterHandleLst.add("Комплект декоративных накладок (белый, коричневый)");
-                adapterHandleLst.add("Хваталка балконная (белая, коричневая)");
+                adapterHandleLst.add(dataHandle.get(0));//Ручка стандарт
+                adapterHandleLst.add(dataHandle.get(1));//накладка стандарт
+                adapterHandleLst.add(dataHandle.get(2));//хвталака стандарт
             }
 
             if (getPriceFlag == true) {
@@ -1511,7 +1514,7 @@ public class AddWindowActivity extends AppCompatActivity {
     //_____________________________________________________________________________________
     public void setProfile(int p1, int p2) {
 
-        salamander = false;
+        rehauIntelio = false;
 
         //Если 24мм стекло
         if (p2 == 0) {
@@ -1660,32 +1663,14 @@ public class AddWindowActivity extends AppCompatActivity {
             return;
         }
 
-        // Salamander 76/32
+        // rehauIntelio 80/50
         if(p1 == 5 && p2 == 0) {
-            profileCoefficient = MainActivity.prices.SALAMANDER7032W;
+            profileCoefficient = MainActivity.prices.REHAUINTELIO;
             BB6024 = false;
             BB6032 = true;
-            salamander = true;
+            rehauIntelio = true;
             adapterTypeOfGlass.clear();
-            adapterTypeOfGlass.addAll(addList(R.array.TypeOfGlass76));
-
-            glassPriceItems[0] = 0.0;
-            glassPriceItems[1] = 0.0;
-            glassPriceItems[2] = 0.0;
-            glassPriceItems[3] = 0.0;
-            adapterGlassDifLst.clear();
-            adapterGlassDifLst.add("Обычное стекло");
-            adapterGlassDifLst.add("Обычное стекло");
-            adapterGlassDifLst.add("Обычное стекло");
-            return;
-        }
-
-        // Salamander 76/40
-        if(p1 == 5 && p2 == 1) {
-            BB6024 = false;
-            BB6032 = true;
-            salamander = true;
-            profileCoefficient = MainActivity.prices.SALAMANDER7040W;
+            adapterTypeOfGlass.addAll(addList(R.array.TypeOfGlass80));
 
             glassPriceItems[0] = 0.0;
             glassPriceItems[1] = 0.0;
@@ -1730,7 +1715,7 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if(positionProfile1 == 1 || positionProfile1 == 2) {
                     laminationCoefficient = MainActivity.prices.lamWBB70_1st;
                 }
-                //REHAU\SALAMANDER
+                //REHAU
                 else {
                     laminationCoefficient = MainActivity.prices.lamWRS_1st;
                 }
@@ -1746,7 +1731,7 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if(positionProfile1 == 1 || positionProfile1 == 2) {
                     laminationCoefficient = MainActivity.prices.lamWBB70_2st;
                 }
-                //REHAU\SALAMANDER
+                //REHAU
                 else {
                     laminationCoefficient = MainActivity.prices.lamWRS_2st;
                 }
@@ -1845,7 +1830,7 @@ public class AddWindowActivity extends AppCompatActivity {
             if (positionFigure1 == 0) {
                 priceFigure = 0;
             }
-            //Арка
+            //Арка ----- Тут не добавлен ИМПОСТ из класса c ценами, цена стоит 10$
             else{
                 priceFigure = MainActivity.prices.arka + (Integer.parseInt(dataWidth.get(positionWidth1))/1000.0 * 10);
             }
@@ -1865,132 +1850,50 @@ public class AddWindowActivity extends AppCompatActivity {
         if(!gluhFlag) {
 
             //Если выбраны ручки
-            if(p1 == 0 || p1 == 1 || p1 == 2 || p1 == 3 || p1 == 4 || p1 == 5 || p1 == 6 || p1 == 7) {
+            if(dataHandle.get(p1).getHANDLE()) {
                 dataHandleList.set(0, dataHandle.get(positionHandle1));
+                handlePriceItems[0] = dataHandle.get(p1).getPrice() - dataHandle.get(0).getPrice();
             }
             //Если выбраны накладки
-            else{
+            else if(dataHandle.get(p1).getNAKLADKA()){
                 dataHandleList.set(1, dataHandle.get(positionHandle1));
+                handlePriceItems[1] = dataHandle.get(p1).getPrice() - dataHandle.get(1).getPrice();
             }
+
             adapterHandleLst.notifyDataSetInvalidated();
 
-            //Ручка стндрт.
-            if(p1 == 0) {
-                handlePriceItems[0] = 0;
-            }
-            //Ручка Roto Samba (белая)
-            else if(p1 == 1) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaSambaBel;
-            }
-            //Ручка Hoppe (коричневая)
-            else if(p1 == 2) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaHopeKorich;
-            }
-            //Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)
-            else if(p1 == 3) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaRotoLine;
-            }
-            //Ручка Roto Swing (белая, серебро, титан мат)
-            else if(p1 == 4) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaRotoSwingV1;
-            }
-            //Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)
-            else if(p1 == 5) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaRotoSwingV2;
-            }
-            //Ручка 2-х сторонняя (белая, коричневая)
-            else if(p1 == 6) {
-                handlePriceItems[0] = MainActivity.prices.ruchka2storon;
-            }
-            //Ручка с ключом (белая, коричневая)
-            else if(p1 == 7) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaSKluchom;
-            }
-            //Комплект декоративных накладок (белый, коричневый)
-            else if(p1 == 8) {
-                handlePriceItems[1] = 0;
-            }
-            //Комплект декоративных накладок (цветной)
-            else {
-                handlePriceItems[1] = MainActivity.prices.dekorNakladkaCvet;
-            }
         }
 
         //Если балконная дверь
         else if(balDorFlag) {
             //Если выбраны ручки
-            if(p1 == 0 || p1 == 1 || p1 == 2 || p1 == 3 || p1 == 4 || p1 == 5 || p1 == 6 || p1 == 7) {
+            if(dataHandle.get(p1).getHANDLE()) {
                 dataHandleList.set(0, dataHandle.get(positionHandle1));
-                adapterHandleLst.notifyDataSetInvalidated();
-            }
-            //Если выбраны хваталки
-            else if (p1 == 8 || p1 == 9){
-                dataHandleList.set(2, dataHandle.get(positionHandle1));
-                adapterHandleLst.notifyDataSetInvalidated();
+                handlePriceItems[0] = dataHandle.get(p1).getPrice() - dataHandle.get(0).getPrice();
             }
             //Если выбраны накладки
-            else {
+            else if (dataHandle.get(p1).getNAKLADKA()){
                 dataHandleList.set(1, dataHandle.get(positionHandle1));
-                adapterHandleLst.notifyDataSetInvalidated();
+                handlePriceItems[1] = dataHandle.get(p1).getPrice() - dataHandle.get(1).getPrice();
             }
-
-            //Ручка стндрт.
-            if(p1 == 0) {
-                handlePriceItems[0] = 0;
+            //Если выбраны хваталки
+            else {
+                dataHandleList.set(2, dataHandle.get(positionHandle1));
+                handlePriceItems[2] = dataHandle.get(p1).getPrice() - dataHandle.get(2).getPrice();
             }
-            //Ручка Roto Samba (белая)
-            else if(p1 == 1) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaSambaBel;
-            }
-            //Ручка Hoppe (коричневая)
-            else if(p1 == 2) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaHopeKorich;
-            }
-            //Ручка Roto Line (белая, латунь, серо-коричневая, бронза, серебро, шампань, титан, темная бронза)
-            else if(p1 == 3) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaRotoLine;
-            }
-            //Ручка Roto Swing (белая, серебро, титан мат)
-            else if(p1 == 4) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaRotoSwingV1;
-            }
-            //Ручка Roto Swing (черно-коричневая, новое серебро, латунь мат, бронза, темная бронза)
-            else if(p1 == 5) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaRotoSwingV2;
-            }
-            //Ручка 2-х сторонняя (белая, коричневая)
-            else if(p1 == 6) {
-                handlePriceItems[0] = MainActivity.prices.ruchka2storon;
-            }
-            //Ручка с ключом (белая, коричневая)
-            else if(p1 == 7) {
-                handlePriceItems[0] = MainActivity.prices.ruchkaSKluchom;
-            }
-            //Хваталка балконная (белая, коричневая)
-            else if(p1 == 8) {
-                handlePriceItems[2] = 0;
-            }
-            //Хваталка балконная (антрацит, золотой дуб)
-            else if(p1 == 9) {
-                handlePriceItems[2] = MainActivity.prices.hvatalkaCvet;
-            }
-            //Комплект декоративных накладок (белый, коричневый)
-            else if(p1 == 10) {
-                handlePriceItems[1] = 0;
-            }
-            //Комплект декоративных накладок (цветной)
-            else  {
-                handlePriceItems[1] = MainActivity.prices.dekorNakladkaCvet;
-            }
+            adapterHandleLst.notifyDataSetInvalidated();
         }
     }
 
     public void setPriceHandle() {
         //Вызывается после нажатия на кнопку добавить изделие
 
+        //Окна
         if (!balDorFlag) {
             priceHandle = (handlePriceItems[0] * positionTypeOfType1) + handlePriceItems[1];
-        } else {
+        }
+        //Балконная дверь
+        else {
             priceHandle = handlePriceItems[0] + handlePriceItems[1] + handlePriceItems[2];
         }
 
@@ -2096,6 +1999,25 @@ public class AddWindowActivity extends AppCompatActivity {
         //Если заходили обычно
         else {
             getOnBackPressedDispatcher().onBackPressed();
+        }
+    }
+
+    public void setHandleVisibility(boolean b) {
+        //Если не балконная дверь
+        if(!b) {
+            for(HandleFurnit handleFurnit : dataHandle) {
+                if(handleFurnit.getHVATALKA()) {
+                    handleFurnit.setVisible(false);
+                }
+            }
+        }
+        //Если балконная дверь
+        else {
+            for(HandleFurnit handleFurnit : dataHandle) {
+                if(handleFurnit.getHVATALKA()) {
+                    handleFurnit.setVisible(true);
+                }
+            }
         }
     }
 }

@@ -366,7 +366,7 @@ public class AddDoorActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         }) ;
-//_____________________ТИП ЗАПОЛНЕНИЯ__________________
+//_____________________ТИП ЗАПОЛНЕНИЯ (СТЕКЛО\СЕНДВИЧ\50*50)__________________
         spinnerTypeOfType.setAdapter(adapterTypeOfType);
         // заголовок
         spinnerTypeOfType.setPrompt("Тип");
@@ -412,7 +412,7 @@ public class AddDoorActivity extends AppCompatActivity {
             }
         }) ;
 
-        //____________________ТИП ПЕТЕЛЬ__________________
+//____________________ТИП ПЕТЕЛЬ____________________________________________________________________
         spinnerTypeOfLoop.setAdapter(adapterTypeOfLoop);
         // заголовок
         spinnerTypeOfLoop.setPrompt("Тип петель");
@@ -758,11 +758,11 @@ public class AddDoorActivity extends AppCompatActivity {
     public void setPrice(int p1, int p2) {
 
         //Если деврной профиль, то скоба ставится
-        if (p2 == 0 || p2 == 1) {
+        if (p2 == 0 || p2 == 1 || p2 == 4 || p2 == 5) {
             adapterTypeOfGarnit.clear();
             adapterTypeOfGarnit.addAll(addList(R.array.dtaTypeOfGarnitDoorProf));
         }
-        //Если деврной профиль, то скоба НЕ ставится
+        //Если оконный профиль, то скоба НЕ ставится
         else if (p2 == 2 || p2 == 3) {
             adapterTypeOfGarnit.clear();
             adapterTypeOfGarnit.addAll(addList(R.array.dtaTypeOfGarnitWindowProf));
@@ -792,7 +792,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // Одностворчатаяя дверь - Дверной профиль 60
-        if(p1 == 0 && p2 == 1) {
+        else if(p1 == 0 && p2 == 1) {
             dDoor = true;
             wDoor = false;
 
@@ -815,7 +815,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // Одностворчатаяя дверь - Оконный профиль 70
-        if(p1 == 0 && p2 == 2) {
+        else if(p1 == 0 && p2 == 2) {
             dDoor = false;
             wDoor = true;
 
@@ -838,7 +838,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // Одностворчатаяя дверь - Оконный профиль 60
-        if(p1 == 0 && p2 == 3) {
+        else if(p1 == 0 && p2 == 3) {
             dDoor = false;
             wDoor = true;
 
@@ -860,8 +860,54 @@ public class AddDoorActivity extends AppCompatActivity {
             return;
         }
 
+        // Одностворчатаяя дверь - Дверной профиль REHAU 70
+        else if(p1 == 0 && p2 == 4) {
+            dDoor = true;
+            wDoor = false;
+
+            if (flag == true) {
+                adapterWidth.clear();
+                adapterWidth.addAll(addList(R.array.Width_Door1));
+                adapterFurnit.clear();
+                adapterFurnit.addAll(addList(R.array.dtaLoop1));
+                flag = false;
+            }
+
+            if (getPriceFlag == true) {
+                getPriceFlag = false;
+
+                itemInterest = MainActivity.prices.INTDOOR1ST;
+
+                price = MainActivity.prices.doorREHAU7032D1[positionHight1][positionWidth1];
+            }
+            return;
+        }
+
+        // Одностворчатаяя дверь - Дверной профиль REHAU 60
+        else if(p1 == 0 && p2 == 5) {
+            dDoor = true;
+            wDoor = false;
+
+            if (flag == true) {
+                adapterWidth.clear();
+                adapterWidth.addAll(addList(R.array.Width_Door1));
+                adapterFurnit.clear();
+                adapterFurnit.addAll(addList(R.array.dtaLoop1));
+                flag = false;
+            }
+
+            if (getPriceFlag == true) {
+                getPriceFlag = false;
+
+                itemInterest = MainActivity.prices.INTDOOR1ST;
+
+                price = MainActivity.prices.doorREHAU6032D1[positionHight1][positionWidth1];
+            }
+            return;
+        }
+
         // Штульповая дверь - Дверной профиль 70
-        if(p1 == 1 && p2 == 0) {
+        else if(p1 == 1 && p2 == 0) {
             dDoor = true;
             wDoor = false;
 
@@ -884,7 +930,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // Штульповая дверь - Дверной профиль 60
-        if(p1 == 1 && p2 == 1) {
+        else if(p1 == 1 && p2 == 1) {
             dDoor = true;
             wDoor = false;
 
@@ -907,7 +953,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // Штульповая дверь - Оконный профиль 70
-        if(p1 == 1 && p2 == 2) {
+        else if(p1 == 1 && p2 == 2) {
             dDoor = false;
             wDoor = true;
 
@@ -931,7 +977,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // Штульповая дверь - Оконный профиль 60
-        if(p1 == 1 && p2 == 3) {
+        else if(p1 == 1 && p2 == 3) {
             dDoor = false;
             wDoor = true;
 
@@ -950,6 +996,52 @@ public class AddDoorActivity extends AppCompatActivity {
                 itemInterest = MainActivity.prices.INTDOOR2ST;
 
                 price = MainActivity.prices.doorBB6032W2[positionHight1][positionWidth1];
+            }
+            return;
+        }
+
+        // Штульповая дверь - Дверной профиль REHAU 70
+        else if(p1 == 1 && p2 == 4) {
+            dDoor = true;
+            wDoor = false;
+
+            if (flag == true) {
+                adapterWidth.clear();
+                adapterWidth.addAll(addList(R.array.Width_Door2));
+                adapterFurnit.clear();
+                adapterFurnit.addAll(addList(R.array.dtaLoop2));
+                flag = false;
+            }
+
+            if (getPriceFlag == true) {
+                getPriceFlag = false;
+
+                itemInterest = MainActivity.prices.INTDOOR2ST;
+
+                price = MainActivity.prices.doorREHAU7032D2[positionHight1][positionWidth1];
+            }
+            return;
+        }
+
+        // Штульповая дверь - Дверной профиль REHAU 60
+        else if(p1 == 1 && p2 == 5) {
+            dDoor = true;
+            wDoor = false;
+
+            if (flag == true) {
+                adapterWidth.clear();
+                adapterWidth.addAll(addList(R.array.Width_Door2));
+                adapterFurnit.clear();
+                adapterFurnit.addAll(addList(R.array.dtaLoop2));
+                flag = false;
+            }
+
+            if (getPriceFlag == true) {
+                getPriceFlag = false;
+
+                itemInterest = MainActivity.prices.INTDOOR2ST;
+
+                price = MainActivity.prices.doorREHAU6032D2[positionHight1][positionWidth1];
             }
             return;
         }
@@ -979,7 +1071,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 70/40 Дверной/Оконный
-        if ((p1 == 0 || p1 == 2) && p2 == 0) {
+        if ((p1 == 0 || p1 == 2 || p2 == 4) && p2 == 0) {
             profileCoefficient = MainActivity.prices.BB7040D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
@@ -990,7 +1082,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 70/32 Дверной/Оконный
-        if ((p1 == 0 || p1 == 2) && p2 == 1) {
+        if ((p1 == 0 || p1 == 2 || p2 == 4) && p2 == 1) {
             profileCoefficient = MainActivity.prices.BB7032D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
@@ -1001,7 +1093,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 70/24 Дверной/Оконный
-        if ((p1 == 0 || p1 == 2) && p2 == 2) {
+        if ((p1 == 0 || p1 == 2 || p2 == 4) && p2 == 2) {
             profileCoefficient = MainActivity.prices.BB7024D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
@@ -1012,7 +1104,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 60/32 Дверной/Оконный
-        if ((p1 == 1 || p1 == 3) && p2 == 0) {
+        if ((p1 == 1 || p1 == 3 || p2 == 5) && p2 == 0) {
             profileCoefficient = MainActivity.prices.BB6032D;
             if(bb70) {
                 adapterTypeOfGlass.clear();
@@ -1023,7 +1115,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 60/24 Дверной/Оконный
-        if ((p1 == 1 || p1 == 3) && p2 == 1) {
+        if ((p1 == 1 || p1 == 3 || p2 == 5) && p2 == 1) {
             profileCoefficient = MainActivity.prices.BB6024D;
             if(bb70) {
                 adapterTypeOfGlass.clear();
@@ -1076,30 +1168,25 @@ public class AddDoorActivity extends AppCompatActivity {
         //Если стекло 100%
         if(positionTypeOfType1 == 0) {
             lam = 0;
-            return;
         }
 
         //Если Сендвич 100%
-        if(positionTypeOfType1 == 1) {
+        else if(positionTypeOfType1 == 1) {
             //Если ламинация с 1 стороны
             if (positionLamination1 == 1) {
                 lam = ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.lamSend;
-                return;
             }
             //Если ламинация с 2 сторон
-            if (positionLamination1 == 2) {
+            else if (positionLamination1 == 2) {
                 lam = (((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.lamSend) * 2;
-                return;
             }
         }
-        if(positionTypeOfType1 == 2) {
+        else if(positionTypeOfType1 == 2) {
             if (positionLamination1 == 1) {
                 lam = ( ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) / 2) * MainActivity.prices.lamSend;
-                return;
             }
-            if (positionLamination1 == 2) {
+            else if (positionLamination1 == 2) {
                 lam = ( ( ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) / 2) * MainActivity.prices.lamSend) * 2;
-                return;
             }
         }
     }
@@ -1112,46 +1199,39 @@ public class AddDoorActivity extends AppCompatActivity {
             //Стандартные петли
             if(positionTypeOfLoop1 == 0) {
                loopPrice = loopValue * MainActivity.prices.petliDverStndtr - loopValueStnd * MainActivity.prices.petliDverStndtr;
-               return;
             }
             //Петли Jocker
-            if(positionTypeOfLoop1 == 1) {
+            else if(positionTypeOfLoop1 == 1) {
                 //Белые или Коричневые
                 if (positionColorLoop1 == 0 || positionColorLoop1 == 1) {
                     loopPrice = loopValue * MainActivity.prices.petliJoker120BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
                 //Другие цвета
                 else {
                     loopPrice = loopValue * MainActivity.prices.petliJoker120Cvet - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
             }
             //Петли Roto
-            if(positionTypeOfLoop1 == 2) {
+            else if(positionTypeOfLoop1 == 2) {
                 //Белые или Коричневые
                 if (positionColorLoop1 == 0 || positionColorLoop1 == 1) {
                     loopPrice = loopValue * MainActivity.prices.petliRoto120BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
                 //Антрацит
-                if(positionColorLoop1 == 2) {
+                else if(positionColorLoop1 == 2) {
                     loopPrice = loopValue * MainActivity.prices.petliRoto120Antracit - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
                 //Серебро
-                if(positionColorLoop1 == 3) {
+                else if(positionColorLoop1 == 3) {
                     loopPrice = loopValue * MainActivity.prices.petliRoto120Serebro - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
                 //Бронза
-                if(positionColorLoop1 == 4) {
+                else if(positionColorLoop1 == 4) {
                     loopPrice = loopValue * MainActivity.prices.petliRoto120Bronza - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
             }
         }
-        if(wDoor) {
+        else if(wDoor) {
             //Стандартные петли
             if(positionTypeOfLoop1 == 0) {
                 loopPrice = loopValue * MainActivity.prices.petliDverStndtr - loopValueStnd * MainActivity.prices.petliDverStndtr;
@@ -1162,19 +1242,16 @@ public class AddDoorActivity extends AppCompatActivity {
                 //Белые или Коричневые
                 if (positionColorLoop1 == 0 || positionColorLoop1 == 1) {
                     loopPrice = loopValue * MainActivity.prices.petliJoker80BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
                 //Другие цвета
                 else {
                     loopPrice = loopValue * MainActivity.prices.petliJoker80Cvet - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
                 }
             }
             //Петли Roto
-            if(positionTypeOfLoop1 == 2) {
+            else if(positionTypeOfLoop1 == 2) {
                 //Белые или Коричневые
                     loopPrice = loopValue * MainActivity.prices.petliRoto80BelKorich - loopValueStnd * MainActivity.prices.petliDverStndtr;
-                    return;
             }
         }
 
@@ -1373,7 +1450,7 @@ public class AddDoorActivity extends AppCompatActivity {
         return Arrays.asList(getResources().getStringArray(id));
     }
 
-    public void setGlassPriceItems(int p1, int p2) {
+    public void  setGlassPriceItems(int p1, int p2) {
         //Вызывается при нажатии на эелемент листа
         //p1 - тип стекла
         //p2 - Позиция стекла в лсите
@@ -1381,27 +1458,22 @@ public class AddDoorActivity extends AppCompatActivity {
         //Обычное стекло
         if (p1 == 0) {
             glassPriceItems[p2] = 0.0;
-            return;
         }
         //Мультик простой
-        if (p1 == 1) {
+        else if (p1 == 1) {
             glassPriceItems[p2] = MainActivity.prices.multik;
-            return;
         }
         //Бронза в массе
-        if (p1 == 2) {
+        else if (p1 == 2) {
             glassPriceItems[p2] = MainActivity.prices.bronza;
-            return;
         }
         //Матовое заводское
-        if (p1 == 3) {
+        else if (p1 == 3) {
             glassPriceItems[p2] = MainActivity.prices.mat;
-            return;
         }
         //Тонировка пленка
-        if (p1 == 4) {
+        else if (p1 == 4) {
             glassPriceItems[p2] = MainActivity.prices.tonirovka;
-            return;
         }
     }
 
