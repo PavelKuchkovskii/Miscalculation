@@ -29,6 +29,9 @@ public class DopPrices implements Serializable{
   //Профиль расширительный на 60 профиль 65мм с армированием(profRashNa60Profile65mmBB)
   public double profRashNa60Profile65mmBB;
 
+  //Профиль расширительный на 60 профиль 100мм с армированием(profRashNa60Profile100mmBB)
+  public double profRashNa60Profile100mmBB;
+
   //Соединитель-молоток 18 мм на 60 профиль с армированием(soedMolotokNA60ProfileBB)
   public double soedMolotokNA60ProfileBB;
 
@@ -42,11 +45,17 @@ public class DopPrices implements Serializable{
   //Балконный соединитель 3мм на 70 профиль(balSoed3mmNa70ProfileBB)
   public double balSoed3mmNa70ProfileBB;
 
+  //Профиль расширительный на 70 профиль 20мм с армированием(profRashNa70Profile20mmBB)
+  public double profRashNa70Profile20mmBB;
+
   //Профиль расширительный на 70 профиль 40мм с армированием(profRashNa70Profile40mmBB)
   public double profRashNa70Profile40mmBB;
 
   //Профиль расширительный на 70 профиль 65мм с армированием(profRashNa70Profile65mmBB)
   public double profRashNa70Profile65mmBB;
+
+  //Профиль расширительный на 70 профиль 100мм с армированием(profRashNa70Profile100mmBB)
+  public double profRashNa70Profile100mmBB;
 
   //Соединитель-молоток 18 мм на 70 профиль(soedMolotokNA70ProfileBB)
   public double soedMolotokNA70ProfileBB;
@@ -57,23 +66,66 @@ public class DopPrices implements Serializable{
   //Соединитель труба с адаптерами 70 мм с армированием(soedTruba70mmBB)
   public double soedTruba70mmBB;
 
-  //'-----------------------------Соединители на Salamander STL:-----------------------------------
+  //'-----------------------------Соединители на INTELIO-----------------------------------
 
-  //Балконный соединитель(balSoedNaSal)
-  public double balSoedNaSal;
+  //Балконный соединитель(balSoedNaIntel)
+  public double balSoedNaIntel;
 
-  //Расширитель 40мм(profRashNaSal40mm)
-  public double profRashNaSal40mm;
+  //Расширитель 20мм(profRashNaIntel20mm)
+  public double profRashNaIntel20mm;
 
-  //Расширитель 60мм  с армированием(profRashNaSal60mm)
-  public double profRashNaSal60mm;
+  //Расширитель 45мм(profRashNaIntel45mm)
+  public double profRashNaIntel45mm;
 
-  //Соединитель угловой 90°(soed90naSal)
-  public double soed90naSal;
+  //Расширитель 60мм с армированием(profRashNaIntel60mm)
+  public double profRashNaIntel60mm;
 
-  //Соединитель труба(soedTrubaNaSal)
-  public double soedTrubaNaSal;
+  //Расширитель 100мм с армированием(profRashNaIntel100mm)
+  public double profRashNaIntel100mm;
 
+  //Соединитель угловой 90°(soed90naIntel)
+  public double soed90naIntel;
+
+  //Соединитель труба(soedTrubaNaIntel)
+  public double soedTrubaNaIntel;
+
+  //'--------------------------Соединители на Proplex 58:------------------------------------------
+  //Балконный соединитель 3мм на 58 профиль(balSoed3mmNa58ProfileProplex)
+  public double balSoed3mmNa58ProfileProplex;
+
+  //Профиль расширительный на 58 профиль 45мм  с армированием(profRashNa58Profile45mmProplex)
+  public double profRashNa58Profile45mmProplex;
+
+  //Профиль расширительный на 58 профиль 60мм с армированием(profRashNa58Profile60mmProplex)
+  public double profRashNa58Profile60mmProplex;
+
+  //Соединитель (кость) 58 профиль с армированием(soedKostNA58ProfileProplex)
+  public double soedKostNA58ProfileProplex;
+
+  //Соединитель угловой 90° на 58 профиль с армированием(soed90na58ProfileProplex)
+  public double soed90na58ProfileProplex;
+
+  //Соединитель труба с адаптерами 58 мм с армированием(soedTruba58mmProplex)
+  public double soedTruba58mmProplex;
+
+  //'--------------------------Соединители на Proplex 70:------------------------------------------
+  //Балконный соединитель 3мм на 70 профиль(balSoed3mmNa70ProfileProplex)
+  public double balSoed3mmNa70ProfileProplex;
+
+  //Профиль расширительный на 70 профиль 35мм  с армированием(profRashNa70Profile35mmProplex)
+  public double profRashNa70Profile35mmProplex;
+
+  //Профиль расширительный на 70 профиль 60мм с армированием(profRashNa70Profile60mmProplex)
+  public double profRashNa70Profile60mmProplex;
+
+  //Соединитель (кость) 70 профиль с армированием(soedKostNA70ProfileProplex)
+  public double soedKostNA70ProfileProplex;
+
+  //Соединитель угловой 90° на 70 профиль с армированием(soed90na70ProfileProplex)
+  public double soed90na70ProfileProplex;
+
+  //Соединитель труба с адаптерами 70 мм с армированием(soedTruba70mmProplex)
+  public double soedTruba70mmProplex;
 
   //'----------------------------------------------------------------------------------------------
 
@@ -89,6 +141,8 @@ public class DopPrices implements Serializable{
   //'--------------------------------------ЛАМИНАЦИЯ-----------------------------------------------
 
   //'------------------------------------ОКОН------------------------------------
+
+  /** БОЛЕЕ НЕ ИСПОЛЬЗУЕТСЯ
   //Ламинация односторонняя BRUSBOX 60(lamWBB60_1st)
   public double lamWBB60_1st;
   //Ламинация двухсторонняя BRUSBOX 60(lamWBB60_2st)
@@ -103,9 +157,29 @@ public class DopPrices implements Serializable{
   public double lamWRS_1st;
   //Ламинация двухсторонняя REHAU 60\70, SALAMANDER(lamWRS_2st)
   public double lamWRS_2st;
+   */
+
+  //Ламинация ВСЕХ окон, цвет группы 1 с 1 стороны(lamG1St1)
+  public double lamG1St1;
+
+  //Ламинация ВСЕХ окон, цвет группы 1 с 2 стороны(lamG1St2)
+  public double lamG1St2;
+
+  //Ламинация ВСЕХ окон, цвет группы 2 с 1 стороны(lamG2St1)
+  public double lamG2St1;
+
+  //Ламинация ВСЕХ окон, цвет группы 2 с 2 стороны(lamG2St2)
+  public double lamG2St2;
+
+  //Ламинация ВСЕХ окон, цвет группы 3 с 1 стороны(lamG3St1)
+  public double lamG3St1;
+
+  //Ламинация ВСЕХ окон, цвет группы 3 с 2 стороны(lamG3St2)
+  public double lamG3St2;
+
 
   //'------------------------------------ДВЕРЕЙ------------------------------------
-
+  /** БОЛЕЕ НЕ ИСПОЛЬЗУЕТСЯ
   //Ламинация односторонняя - Дверной профиль(lamD1stD)
   public double lamD1stD;
   //Ламинация односторонняя - Оконный профиль(lamD1stW)
@@ -115,6 +189,27 @@ public class DopPrices implements Serializable{
   public double lamD2stD;
   //Ламинация двухсторонняя - Оконный профиль(lamD2stW)
   public double lamD2stW;
+   */
+
+  //Ламинация ВСЕХ дверей, цвет группы 1 с 1 стороны(lamG1St1Door)
+  public double lamG1St1Door;
+
+  //Ламинация ВСЕХ дверей, цвет группы 1 с 2 стороны(lamG1St2Door)
+  public double lamG1St2Door;
+
+  //Ламинация ВСЕХ дверей, цвет группы 2 с 1 стороны(lamG2St1Door)
+  public double lamG2St1Door;
+
+  //Ламинация ВСЕХ дверей, цвет группы 2 с 2 стороны(lamG2St2Door)
+  public double lamG2St2Door;
+
+  //Ламинация ВСЕХ дверей, цвет группы 3 с 1 стороны(lamG3St1Door)
+  public double lamG3St1Door;
+
+  //Ламинация ВСЕХ дверей, цвет группы 3 с 2 стороны(lamG3St2Door)
+  public double lamG3St2Door;
+
+
   //'----------------------------------------------------------------------------------------------
 
   //Коричневый Алюминий(korichAlumin)
@@ -361,6 +456,21 @@ public class DopPrices implements Serializable{
 
   //REHAU Intelio 80/50 окно (REHAUINTELIO)
   public double REHAUINTELIO;
+
+  //PROPLEX 58/24 окно(PROPLEX5824W)
+  public double PROPLEX5824W;
+
+  //PROPLEX 58/32 окно(PROPLEX5832W)
+  public double PROPLEX5832W;
+
+  //PROPLEX 70/24 окно(PROPLEX7024W)
+  public double PROPLEX7024W;
+
+  //PROPLEX 70/32 окно(PROPLEX7032W)
+  public double PROPLEX7032W;
+
+  //PROPLEX 70/40 окно(PROPLEX7040W)
+  public double PROPLEX7040W;
 
   //'---------------------------ДВЕРНЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
 

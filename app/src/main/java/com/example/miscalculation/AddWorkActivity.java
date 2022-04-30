@@ -301,15 +301,30 @@ public class AddWorkActivity extends AppCompatActivity {
                         (positionWork1 == 0 ? positionType1 == 3 ? dataTypeOfType.get(positionTypeOfType1) : positionType1 == 4 ? dataTypeOfType.get(positionTypeOfType1) + " " + dataHightWork.get(positionHight1) + " " + dataWidthWork.get(positionWidth1) : "" :
                                 positionWork1 == 1 ? positionType1 == 3 ? dataTypeOfType.get(positionTypeOfType1) + " " + dataTypeOfType2.get(positionTypeOfType1_2): dataTypeOfType.get(positionTypeOfType1) :
                                 "");
+                if (positionWork1 == 2) {
+                    itemName += "\n" + dataTypeOfType.get(positionTypeOfType1);
+                }
                 String itemInfo = "";
 
                 //Если монтаж
                 if (positionWork1 == 0 || positionWork1 == 1) {
+
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(itemName, itemInfo, priceWork, 0);
+                    }
+
                     ProductList.addProdLst(itemName, 0.0, 0, priceWork,0);
                     MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, priceWork, 0);
                 }
                 //Если монтаж откосов или нащельников
                 else {
+
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(itemName, itemInfo, 0, priceWork);
+                    }
+
                     ProductList.addProdLst(itemName, 0.0, 0,0,priceWork);
                     MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, 0, priceWork);
                 }

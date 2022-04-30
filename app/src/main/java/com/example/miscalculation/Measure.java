@@ -6,13 +6,17 @@ import java.util.List;
 
 public class Measure implements Serializable {
 
+    public Pockets pockets;
+
     private String version;
 
-    private boolean region = false;
+    private final boolean region;
 
     private double course;
     private int delivery;
     private int other;
+
+    private final boolean isPocket;
 
     private List<String> prodList = new ArrayList<>();
     private List<String> itemInfo = new ArrayList<>();
@@ -38,13 +42,18 @@ public class Measure implements Serializable {
         this.prodSlopes = new ArrayList<>(measure.prodSlopes);
 
         this.prodWidth = new ArrayList<>(measure.prodWidth);
+        this.isPocket = measure.isPocket();
     }
 
-    public Measure() {
+    //Регион - true
+    //Минск - false
+    public Measure(boolean region, boolean isPocket) {
         this.version = MainActivity.prices.version;
         this.course = MainActivity.prices.course;
         this.delivery = MainActivity.prices.delivery;
         ProductList.delivery = this.delivery;
+        this.region = region;
+        this.isPocket = isPocket;
     }
 
     public void setCourse(double d) {
@@ -134,17 +143,6 @@ public class Measure implements Serializable {
         other = 0;
     }
 
-    //Вызывается при создании новго замера
-    //Регион - true
-    //Минск - false
-    public void setRegion(int i) {
-        if (i == 0) {
-            region = true;
-        }else{
-            region = false;
-        }
-    }
-
     //Вызывается при инициализации региона
     public boolean getRegion() {
         return region;
@@ -158,5 +156,54 @@ public class Measure implements Serializable {
     public void setInterest(int index, int interest) {
         prodInterest.set(index, interest);
     }
+
+    //Вызывает при просчете стоимости (На данный момент только в пакете)
+    public double getPrice() {
+        double sum = 0;
+        for(Double d : prodItemPrice) {
+            sum+=d;
+        }
+        return sum;
+    }
+
+    //Вызывает при просчете стоимости (На данный момент только в пакете)
+    public int getInterest() {
+        int sum = 0;
+        for(int d : prodInterest) {
+            sum+=d;
+        }
+        return sum;
+    }
+
+    //Вызывает при просчете стоимости (На данный момент только в пакете)
+    public int getSlopes() {
+        int sum = 0;
+        for(int d : prodSlopes) {
+            sum+=d;
+        }
+        return sum;
+    }
+
+    //Вызывает при просчете стоимости (На данный момент только в пакете)
+    public int getMounting() {
+        int sum = 0;
+        for(int d : prodMounting) {
+            sum+=d;
+        }
+        return sum;
+    }
+
+    public int getDelivery() {
+        return delivery;
+    }
+
+    public int getOther() {
+        return other;
+    }
+
+    public boolean isPocket() {
+        return this.isPocket;
+    }
+
 
 }

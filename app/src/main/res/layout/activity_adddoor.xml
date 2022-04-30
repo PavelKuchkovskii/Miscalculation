@@ -113,7 +113,15 @@
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop = "240dp"
-        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf ="@id/XTop"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_laminationVar"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "240dp"
+        android:layout_toRightOf ="@id/XTop"
         android:background="@android:color/white"/>
 
     <Spinner

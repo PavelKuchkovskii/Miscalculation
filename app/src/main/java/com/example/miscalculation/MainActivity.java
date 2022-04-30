@@ -332,8 +332,9 @@ public class MainActivity extends AppCompatActivity
                                 }else {
                                     ProductList.clearAll();
                                     nameMeasure = String.valueOf(userInput.getText());
-                                    hashMap.put(nameMeasure, new Measure());
-                                    hashMap.get(nameMeasure).setRegion(positionRegion1);
+                                    //Регион - true
+                                    //Минск - false
+                                    hashMap.put(nameMeasure, new Measure(positionRegion1 == 0, false));
                                     try {
                                         writeHash(hashMap);
                                     } catch (IOException e) {
@@ -451,6 +452,15 @@ public class MainActivity extends AppCompatActivity
         gunzip.close();
         in.close();
         return out.toByteArray();
+    }
+
+    public static boolean isDiffName(String s) {
+        for (String name : dataMeasureList) {
+            if (name.equals(s)) {
+                return false;
+            }
+        }
+        return true;
     }
 
 //===========================АУНТЕНТИФИКАЦИЯ========================================================

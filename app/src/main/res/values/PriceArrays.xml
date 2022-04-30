@@ -654,6 +654,8 @@
         <item>Rehau 60</item>
         <item>Rehau 70</item>
         <item>Rehau INTELIO 80</item>
+        <item>PROPLEX 58</item>
+        <item>PROPLEX 70</item>
     </string-array>
 
     <string-array name="dtaFurnit">
@@ -682,33 +684,63 @@
         <item>70 профиль</item>
     </string-array>
 
+    <string-array name="dtaProfileProplexMM">
+        <item>58 профиль</item>
+        <item>70 профиль</item>
+    </string-array>
+
     <string-array name="dtaPipeMM">
         <item>60 мм</item>
         <item>70 мм</item>
     </string-array>
 
+    <string-array name="dtaPipeProplexMM">
+        <item>58 мм</item>
+        <item>70 мм</item>
+    </string-array>
+
     <string-array name="dtaProfRash60MM">
+        <item>100 мм</item>
         <item>65 мм</item>
         <item>40 мм</item>
         <item>20 мм</item>
     </string-array>
 
     <string-array name="dtaProfRash70MM">
+        <item>100 мм</item>
         <item>65 мм</item>
         <item>40 мм</item>
+        <item>20 мм</item>
     </string-array>
 
-    <string-array name="dtaProfRashSal">
+    <string-array name="dtaProfRash58MM">
+        <item>60 мм</item>
+        <item>45 мм</item>
+    </string-array>
+
+    <string-array name="dtaProfRash70ProplexMM">
+        <item>60 мм</item>
+        <item>35 мм</item>
+    </string-array>
+
+    <string-array name="dtaProfRashIntel">
+        <item>100 мм</item>
+        <item>60 мм</item>
+        <item>45 мм</item>
+        <item>20 мм</item>
+    </string-array>
+
+    <string-array name="dtaProfRashAl">
         <item>60 мм</item>
         <item>40 мм</item>
     </string-array>
 
-    <string-array name="dtaSoedSal">
+    <string-array name="dtaSoedIntel">
         <item>3 мм</item>
     </string-array>
 
     <string-array name="dtaSoedAdapt">
-        <item>76 мм</item>
+        <item>80 мм</item>
     </string-array>
 
     <string-array name="dtaBrus">
@@ -1052,7 +1084,9 @@
         <item>"Нащельник ПВХ"</item>
     </string-array>
 
-    <string-array name="dtaDopSalamander">
+
+
+    <string-array name="dtaDopIntelio">
         <item>"Подоконник"</item>
         <item>"Отливы"</item>
         <item>"М/С"</item>
@@ -1072,6 +1106,20 @@
         <item>"Соединитель труба"</item>
         <item>"Соединитель 90°"</item>
         <item>"Расширитель + двутавр"</item>
+        <item>"Брус деревянный"</item>
+        <item>"Нащельник ПВХ"</item>
+    </string-array>
+
+    <string-array name="dtaDopProplex">
+        <item>"Подоконник"</item>
+        <item>"Отливы"</item>
+        <item>"М/С"</item>
+        <item>"Балконный соединитель 3мм"</item>
+        <item>"Соединитель труба с адапт."</item>
+        <item>"Соединитель 90°"</item>
+        <item>"Соединитель (кость)"</item>
+        <item>"Расширитель 58 профиль"</item>
+        <item>"Расширитель 70 профиль"</item>
         <item>"Брус деревянный"</item>
         <item>"Нащельник ПВХ"</item>
     </string-array>
@@ -1176,4 +1224,53 @@
         <item>"Штульп. дверь с фрамугой"</item>
     </string-array>
 
+    <string-array name="laminationVar">
+        <item>Золотой дуб (UK117_z8)</item>
+        <item>Темный дуб (UQ901_z8)</item>
+        <item>Махагон КВЕ (UJ301_z8)</item>
+        <item>Махагон сапели (UR601_z8)</item>
+        <item>Натуральный дуб (UR001_z8)</item>
+        <item>Черная вишня (UJ401_z8)</item>
+        <item>Золотой орех (UK103_z8)</item>
+        <item>Рустикальный дуб (G1501_z8)</item>
+        <item>Средне-серый (KACV8_z8)</item>
+        <item>Антрацитово-серый (KDB74_z8)</item>
+        <item>Шоколадно коричневый (KDB75_z8)</item>
+        <item>Черно коричневый (KDD17_z8)</item>
+        <item>Мареный дуб (UR401_z8)</item>
+        <item>Базальтово-серый (KAEX9_z8)</item>
+        <item>Светло-серый (KACH7_z8)</item>
+        <item>Кварцево серый (KDF8_z8)</item>
+        <item>Темно зеленый (GAP45_z8)</item>
+        <item>Столетняя вишня (UA114_z3)</item>
+        <item>Светлый дуб (UF711_G7)</item>
+        <item>Кинотти темный (UR907_z3)</item>
+        <item>Темный тик (US906_z3)</item>
+        <item>Старинный дуб (US805_z8)</item>
+        <item>Полосатый дуглас (G0502_z8)</item>
+        <item>Орех натуральный (UQ902_z8)</item>
+        <item>Африканская вишня (US601_z8)</item>
+        <item>Ярко синий (BES89_z8)</item>
+        <item>Античная сосна (B2302_G7)</item>
+        <item>Винтажная сосна (B2303_G7)</item>
+        <item>Мареная сосна (B2304_G7)</item>
+        <item>Коричневый каштан (NDT46_z8)</item>
+        <item>Грецкий орех (G0302_G7)</item>
+        <item>Антрацитово серый браш (KDB74_34)</item>
+        <item>Шоколадно коричневый браш (KDB75_34)</item>
+        <item>Польская сосна (G4301_G7)</item>
+        <item>Черный (BK02H)</item>
+        <item>Кремовый (YEL88_34)</item>
+        <item>Белый кристалл (WAQ50_34)</item>
+        <item>Агора тик (FZP20_z3)</item>
+        <item>Сиена (UR103_z3)</item>
+        <item>Горная сосна (UR916_z8)</item>
+        <item>Брызги шампанского (DJ603_42)</item>
+        <item>Дуб антик (Z1402_J6)</item>
+        <item>Береза (G8101_G7)</item>
+        <item>Дуб шеффилд светлый (GF4025F)</item>
+        <item>Кадет серый (D3202_z6)</item>
+    </string-array>
+
 </resources>
+

@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -49,6 +50,7 @@ public class ContinePrice extends AppCompatActivity {
     static Spinner spinnerPrice;
     static ImageView imSendQr;
     static ImageView imBank;
+    static Button pockets;
     static ListView productList;
 
 
@@ -78,6 +80,7 @@ public class ContinePrice extends AppCompatActivity {
         String[] dataPrice = {"Ж", "М"};
 
         final Intent bankActivity = new Intent(ContinePrice.this, Bank.class);
+        final Intent pocketActivity = new Intent(ContinePrice.this, PocketsActivity.class);
         final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
 
         textPriceOutcome = findViewById(R.id.priceAmountContinePrice);
@@ -96,6 +99,8 @@ public class ContinePrice extends AppCompatActivity {
 
         imSendQr = findViewById(R.id.imSendQR);
         imBank = findViewById(R.id.imBank);
+
+        pockets = findViewById(R.id.button_pockets);
 
         productList = findViewById(R.id.listProductContinePrice);
         productList.setAdapter(adapterProdLst);
@@ -148,6 +153,15 @@ public class ContinePrice extends AppCompatActivity {
             }
         });
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        pockets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(animAlpha);
+
+                startActivity(pocketActivity);
+            }
+        });
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     }
 
@@ -170,21 +184,21 @@ public class ContinePrice extends AppCompatActivity {
         continePriceM = (int) Math.ceil(((mounting + slopes + (interest / 2.0) + price + delivery + other) * course) * 1.185);
 
 
-        //Это ЗАВЫШЕННАЯ стоимость для скидок, сейчас она СКРЫТА
-        //int b = (int) Math.ceil( (100.00 / discont) * continePriceZh);
-        //textPriceR.setText(b + " руб");
+        //Это ЗАВЫШЕННАЯ стоимость для скидок
+        int b = (int) Math.ceil( (100.00 / discont) * continePriceZh);
+        textPriceR.setText(b + " руб");
 
         if (i == 0) {
             textPriceOutcome.setText( continePriceZh + " руб");
 
-            //Сумма скидки, СКРЫТА
-            //textDiscont.setText((b - continePriceZh) + " руб");
+            //Сумма скидки
+            textDiscont.setText((b - continePriceZh) + " руб");
 
         } else {
             textPriceOutcome.setText( continePriceM + " руб");
 
-            //Сумма скидки, СКРЫТА
-            //textDiscont.setText((b - continePriceM) + " руб");
+            //Сумма скидки
+            textDiscont.setText((b - continePriceM) + " руб");
         }
     }
 
@@ -215,13 +229,6 @@ public class ContinePrice extends AppCompatActivity {
             fos.write(json.getBytes());
             file = new File(getRealPathFromURI(measureUri));
 
-            /////////////////////////////////////////////////////
-            Intent shareIntent = new Intent();
-            shareIntent.setAction(Intent.ACTION_SEND);
-            shareIntent.putExtra(Intent.EXTRA_STREAM, measureUri);
-            shareIntent.setType("application/octet-stream");
-            startActivity(Intent.createChooser(shareIntent, null));
-            /////////////////////////////////////////////////////////////
         }else {
              //Сохраняем замер в папку приложения
              FileOutputStream fos;
@@ -230,12 +237,12 @@ public class ContinePrice extends AppCompatActivity {
              file = getExternalPath();
         }
 
-        //final Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        //shareIntent.setType("application/octet-stream");
-        //StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        //StrictMode.setVmPolicy(builder.build());
-        //shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-        //startActivity(Intent.createChooser(shareIntent, "Share image using"));
+        final Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("application/octet-stream");
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+        startActivity(Intent.createChooser(shareIntent, "Share image using"));
 
 
     }

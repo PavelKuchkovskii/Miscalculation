@@ -15,6 +15,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -46,6 +47,9 @@ public class AddWindowActivity extends AppCompatActivity {
     static boolean BB6032 = false;
     static boolean rehauIntelio = false;
 
+    //Группа ламинации
+    static int GROUP;
+
 
     static Spinner spinnerType = null;
     static Spinner spinnerProfile = null;
@@ -55,6 +59,7 @@ public class AddWindowActivity extends AppCompatActivity {
     static Spinner spinnerHight = null;
     static Spinner spinnerWidth = null;
     static Spinner spinnerLamination = null;
+    static Spinner spinnerLaminationVar = null;
     static Spinner spinnerRegion = null;
     static Spinner spinnerShpros = null;
     static Spinner spinnerShprosWidth = null;
@@ -72,6 +77,7 @@ public class AddWindowActivity extends AppCompatActivity {
     static int positionProfile1;
     static int positionTypeOfGlass1;
     static int positionLamination1;
+    static int positionLaminationVar1;
     static int positionRegion1;
     static int positionShpros1;
     static int positionShprosWidth1;
@@ -81,8 +87,13 @@ public class AddWindowActivity extends AppCompatActivity {
     static int positionHandle1;
     static int positionShtulp1;
 
+    private CheckBox addToPocketFlag;
+
 
     static int price;
+
+    static int pocketPrice;
+
     static double furnitPrice;
     static int itemInterest;
     static double priceFigure;
@@ -99,6 +110,7 @@ public class AddWindowActivity extends AppCompatActivity {
     static List<String> dataTypeOfGlass = new ArrayList<>();
     static List<String> dataFurnit = new ArrayList<>();
     static List<String> dataLamination = new ArrayList<>();
+    static List<String> dataLaminationVar = new ArrayList<>();
     static List<String> dataRegion = new ArrayList<>();
     static List<String> dataProfile = new ArrayList<>();
     static List<String> dataHight = new ArrayList<>();
@@ -125,6 +137,7 @@ public class AddWindowActivity extends AppCompatActivity {
 
     static ArrayAdapter<String> adapterFurnit;
     static ArrayAdapter<String> adapterLamination;
+    static ArrayAdapter<String> adapterLaminationVar;
     static ArrayAdapter<String> adapterRegion;
     static ArrayAdapter<String> adapterProfile;
 
@@ -176,6 +189,7 @@ public class AddWindowActivity extends AppCompatActivity {
         adapterWidth = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataWidth);
 
         adapterLamination = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataLamination);
+        adapterLaminationVar = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataLaminationVar);
 
         adapterRegion = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataRegion);
 
@@ -218,6 +232,10 @@ public class AddWindowActivity extends AppCompatActivity {
         adapterLamination.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterLamination.clear();
         adapterLamination.addAll(addList(R.array.dtaLamination));
+
+        adapterLaminationVar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterLaminationVar.clear();
+        adapterLaminationVar.addAll(addList(R.array.laminationVar));
 
         adapterRegion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterRegion.clear();
@@ -266,6 +284,8 @@ public class AddWindowActivity extends AppCompatActivity {
         spinnerWidth = findViewById(R.id.spinner_width);
 
         spinnerLamination = findViewById(R.id.spinner_lamination);
+        spinnerLaminationVar = findViewById(R.id.spinner_laminationVar);
+        spinnerLaminationVar.setVisibility(View.INVISIBLE);
 
         spinnerRegion = findViewById(R.id.spinner_region);
         spinnerRegion.setVisibility(View.INVISIBLE);
@@ -287,6 +307,8 @@ public class AddWindowActivity extends AppCompatActivity {
 
         spinnerShtulp = findViewById(R.id.spinner_shtulp);
         spinnerShtulp.setVisibility(View.INVISIBLE);
+
+        addToPocketFlag = findViewById(R.id.addToPocketFlag);
 
 //----------------------------------------
         final Button setTypeButton = findViewById(R.id.button_addType);
@@ -707,6 +729,44 @@ public class AddWindowActivity extends AppCompatActivity {
                                        int positionLamination, long idLamination) {
 
                 positionLamination1 = positionLamination;
+                if (positionLamination1 == 0) {
+                    spinnerLaminationVar.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    spinnerLaminationVar.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        }) ;
+//_____________ЦВЕТ ЛАМИНАЦИИ_______________
+
+        spinnerLaminationVar.setAdapter(adapterLaminationVar);
+        // заголовок
+        spinnerLaminationVar.setPrompt("Цвет ламинации");
+        // выделяем элемент
+        spinnerLaminationVar.setSelection(0);
+        // устанавливаем обработчик нажатия
+        spinnerLaminationVar.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int positionLaminationVar, long idLaminationVar) {
+
+                positionLaminationVar1 = positionLaminationVar;
+
+                if (positionLaminationVar1 <= 13) {
+                    GROUP = 1;
+                }
+                else if (positionLaminationVar1 <= 36) {
+                    GROUP = 2;
+                }
+                else {
+                    GROUP = 3;
+                }
 
             }
 
@@ -892,7 +952,7 @@ public class AddWindowActivity extends AppCompatActivity {
                         "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 || balDorFlag ? " " + dataFurnit.get(positionFurnit1) + "\n" : "\n") +
                                   dataType[positionType1] + " " + (positionType1 != 4 ? dataTypeOfType.get(positionTypeOfType1) + "\n" : dataFilling.get(positionFilling1) + "\n") +
                                   "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
-                        (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1)) + "\n" +
+                        (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1) + " " + dataLaminationVar.get(positionLaminationVar1)) + "\n" +
                                   (dataGlassList.size() > 0 ? (dataGlassList.size() > 2 ?
                                           (dataGlassList.get(0).equals("Обычное стекло") ? "Обычное стекло;" : dataGlassList.get(0) + ";") +
                                           (dataGlassList.get(1).equals("Обычное стекло") ? "Обычное стекло;" : dataGlassList.get(1) + ";") +
@@ -906,10 +966,31 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Если добавление не в блок из списка
                 if(!addFromList) {
+
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        //Если не выбрали добавление произвольного окна
+                        if (addToPocketFlag.isChecked()) {
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, getPocketNameItem(MainActivity.prices.PROPLEX7032W), getPocketInfoItem(MainActivity.prices.PROPLEX7032W), setPriceToPockets(MainActivity.prices.PROPLEX7032W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, getPocketNameItem(MainActivity.prices.BB7040W), getPocketInfoItem(MainActivity.prices.BB7040W), setPriceToPockets(MainActivity.prices.BB7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, getPocketNameItem(MainActivity.prices.REHAU7040W), getPocketInfoItem(MainActivity.prices.REHAU7040W), setPriceToPockets(MainActivity.prices.REHAU7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, getPocketNameItem(MainActivity.prices.REHAUINTELIO), getPocketInfoItem(MainActivity.prices.REHAUINTELIO), setPriceToPockets(MainActivity.prices.REHAUINTELIO), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                        } else {
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+
+                        }
+                    }
+
+
+
                     if (positionRegion1 == 0) {
                         ProductList.addProdLst(itemName, setRegionPrice(), itemInterest, 0, 0);
                         MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    } else {
+                    }
+                    else {
                         ProductList.addProdLst(itemName, setMinskPrice(), itemInterest, 0, 0);
                         MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
                     }
@@ -924,6 +1005,23 @@ public class AddWindowActivity extends AppCompatActivity {
                 }
                 //Если добавление в блок из списка
                 else {
+
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        //Если не выбрали добавление произвольного окна
+                        if (addToPocketFlag.isChecked()) {
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, getPocketNameItem(MainActivity.prices.PROPLEX7032W), getPocketInfoItem(MainActivity.prices.PROPLEX7032W), setPriceToPockets(MainActivity.prices.PROPLEX7032W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, getPocketNameItem(MainActivity.prices.BB7040W), getPocketInfoItem(MainActivity.prices.BB7040W), setPriceToPockets(MainActivity.prices.BB7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, getPocketNameItem(MainActivity.prices.REHAU7040W), getPocketInfoItem(MainActivity.prices.REHAU7040W), setPriceToPockets(MainActivity.prices.REHAU7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, getPocketNameItem(MainActivity.prices.REHAUINTELIO), getPocketInfoItem(MainActivity.prices.REHAUINTELIO), setPriceToPockets(MainActivity.prices.REHAUINTELIO), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                        } else {
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                        }
+                    }
+
                     if (positionRegion1 == 0) {
                         ProductList.addProdLst(itemName, setRegionPrice(), itemInterest, 0, 0);
                         MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
@@ -1035,6 +1133,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true){
                     price = MainActivity.prices.BB6032wind1stNo[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind1stNo[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1068,6 +1169,10 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind2stNo[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind2stNo[positionHight1][positionWidth1];
+
             }
             return;
         }
@@ -1101,6 +1206,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind3stNo[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind3stNo[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1137,6 +1245,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind1stOp[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind1stOp[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1169,6 +1280,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind2st1Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind2st1Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1202,6 +1316,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind2st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind2st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1235,6 +1352,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind3st1Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind3st1Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1268,6 +1388,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1301,6 +1424,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = 25 + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = 25 + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1334,6 +1460,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1367,6 +1496,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1400,6 +1532,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1433,6 +1568,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = 25 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = 25 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1466,6 +1604,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = 50 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = 50 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1505,6 +1646,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 else if (BB6032 == true) {
                     price = MainActivity.prices.BB6032balDor[positionHight1][positionWidth1];
                 }
+
+                //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
+                pocketPrice = MainActivity.prices.BB6032balDor[positionHight1][positionWidth1];
             }
             return;
         }
@@ -1683,9 +1827,55 @@ public class AddWindowActivity extends AppCompatActivity {
             return;
         }
 
+        // PROPLEX 58/24
+        if(p1 == 6 && p2 == 0) {
+            BB6024 = true;
+            BB6032 = false;
+            profileCoefficient = MainActivity.prices.PROPLEX5824W;
+
+            adapterTypeOfGlass.clear();
+            adapterTypeOfGlass.addAll(addList(R.array.TypeOfGlass60));
+            return;
+        }
+
+        // PROPLEX 58/32
+        if(p1 == 6 && p2 == 1) {
+            BB6024 = false;
+            BB6032 = true;
+            profileCoefficient = MainActivity.prices.PROPLEX5832W;
+            return;
+        }
+
+        // PROPLEX 70/24
+        if(p1 == 7 && p2 == 0) {
+            BB6024 = true;
+            BB6032 = false;
+            profileCoefficient = MainActivity.prices.PROPLEX7024W;
+
+            adapterTypeOfGlass.clear();
+            adapterTypeOfGlass.addAll(addList(R.array.TypeOfGlass70));
+            return;
+        }
+
+        // PROPLEX 70/32
+        if(p1 == 7 && p2 == 1) {
+            BB6024 = false;
+            BB6032 = true;
+            profileCoefficient = MainActivity.prices.PROPLEX7032W;
+            return;
+        }
+
+        // PROPLEX 70/40
+        if(p1 == 7 && p2 == 2) {
+            BB6024 = false;
+            BB6032 = true;
+            profileCoefficient = MainActivity.prices.PROPLEX7040W;
+            return;
+        }
+
     }
     //----------------------------------------------------------------------------
-    public void setFurntitPrice(){
+    public void setFurntitPrice() {
 
         furnitPrice = 0;
 
@@ -1696,6 +1886,227 @@ public class AddWindowActivity extends AppCompatActivity {
             furnitPrice = MainActivity.prices.rotoBD;
         }
     }
+//==================================================================================================
+    //Устанавливает стоимость фурнитуры для Пакета
+    public double setPocketFurnitPrice(double pocketCoff){
+
+        //Если балконная дверь
+        if(balDorFlag){
+
+            //ПОКЕТ LITE PROPLEX7032
+            if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
+                return 0;
+            }
+            //ПОКЕТ STANDARD BB7040
+            else if (pocketCoff == MainActivity.prices.BB7040W) {
+                return 0;
+            }
+            //ПОКЕТ KOMFORT REHAU7040
+            else if (pocketCoff == MainActivity.prices.REHAU7040W) {
+                return MainActivity.prices.rotoBD;
+            }
+            //ПОКЕТ PREMIUM INTELIO
+            else {
+                return MainActivity.prices.rotoBD;
+            }
+        }
+        //Если окно
+        else if (positionTypeOfType1 > 0) {
+            //ПОКЕТ LITE PROPLEX7032
+            if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
+                return 0;
+            }
+            //ПОКЕТ STANDARD BB7040
+            else if (pocketCoff == MainActivity.prices.BB7040W) {
+                return 0;
+            }
+            //ПОКЕТ KOMFORT REHAU7040
+            else if (pocketCoff == MainActivity.prices.REHAU7040W) {
+                return MainActivity.prices.rotoW * positionTypeOfType1;
+            }
+            //ПОКЕТ PREMIUM INTELIO
+            else {
+                return MainActivity.prices.rotoW * positionTypeOfType1;
+            }
+        }
+        return 0;
+    }
+
+    //Устанавливает стоимость ручек для Пакета
+    public double setPocketHandlePrice(double pocketCoff){
+
+        double handleKomfort = 0;
+        double handlePremium = 0;
+
+        for (HandleFurnit s : dataHandle) {
+            if(s.getName().contains("KOMFORTPOCKET")) {
+                handleKomfort = s.getPrice() - dataHandle.get(0).getPrice();
+            }
+            else if (s.getName().contains("PREMIUMPOCKET")) {
+                handlePremium = s.getPrice() - dataHandle.get(0).getPrice();
+            }
+
+        }
+
+        //Если балконная дверь
+        if(balDorFlag){
+
+            //ПОКЕТ LITE PROPLEX7032
+            if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
+                return 0;
+            }
+            //ПОКЕТ STANDARD BB7040
+            else if (pocketCoff == MainActivity.prices.BB7040W) {
+                return 0;
+            }
+            //ПОКЕТ KOMFORT REHAU7040
+            else if (pocketCoff == MainActivity.prices.REHAU7040W) {
+                return handleKomfort;
+            }
+            //ПОКЕТ PREMIUM INTELIO
+            else {
+                return handlePremium;
+            }
+        }
+        //Если окно
+        else if (positionTypeOfType1 > 0) {
+            //ПОКЕТ LITE PROPLEX7032
+            if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
+                return 0;
+            }
+            //ПОКЕТ STANDARD BB7040
+            else if (pocketCoff == MainActivity.prices.BB7040W) {
+                return 0;
+            }
+            //ПОКЕТ KOMFORT REHAU7040
+            else if (pocketCoff == MainActivity.prices.REHAU7040W) {
+                return handleKomfort * positionTypeOfType1;
+            }
+            //ПОКЕТ PREMIUM INTELIO
+            else {
+                return handlePremium* positionTypeOfType1;
+
+            }
+        }
+        return 0;
+    }
+
+    //Устанавливает стоимость стеклопакета для Пакета
+    public double setPocketGlassPrice(double pocketCoff){
+
+        //Если балконная дверь
+        if (balDorFlag) {
+
+            //Если пакет лайт или стандарт, там без мультика так что 0
+            if (pocketCoff == MainActivity.prices.PROPLEX7032W || pocketCoff == MainActivity.prices.BB7040W) {
+                return 0;
+            }
+            //Если другой пакет, то считаем стоимость СП
+            else {
+                //Если заполнение стеклом
+                if (positionFilling1 == 0) {
+                    return ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.multik;
+                }
+                //Если заполнение 50\50 - делим на 2
+                else if (positionFilling1 == 1) {
+                    return ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.multik/2;
+
+                }
+                //Если заполнение сендвичем, то 0
+                else {
+                    return 0;
+                }
+            }
+        }
+        //Если окна
+        else {
+            //Если пакет лайт или стандарт, там без мультика так что 0
+            if (pocketCoff == MainActivity.prices.PROPLEX7032W || pocketCoff == MainActivity.prices.BB7040W) {
+                return 0;
+            }
+            //Если пакет комфорт и премиум, то считаем мультик
+            else {
+                return ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * MainActivity.prices.multik;
+            }
+        }
+
+    }
+
+    public String getPocketNameItem(double pocketCoff) {
+        //ПОКЕТ LITE PROPLEX7032
+        if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
+            return dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" +
+                    dataProfile.get(7) + "/32" + (positionTypeOfType1 > 0 ? "Kale   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
+        }
+        //ПОКЕТ STANDARD BB7040
+        else if (pocketCoff == MainActivity.prices.BB7040W) {
+            return dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" +
+                    dataProfile.get(1) + "/40" + (positionTypeOfType1 > 0 ? "Kale   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
+        }
+        //ПОКЕТ KOMFORT REHAU7040
+        else if (pocketCoff == MainActivity.prices.REHAU7040W) {
+            return dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" +
+                    dataProfile.get(4) + "/40" + (positionTypeOfType1 > 0 ? "Roto   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
+        }
+        //ПОКЕТ PREMIUM INTELIO
+        else {
+            return dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" +
+                    dataProfile.get(5) + "/50" + (positionTypeOfType1 > 0 ? "Roto   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
+        }
+    }
+
+    public String getPocketInfoItem(double pocketCoff) {
+
+        String rotoLine = "";
+        String rotoSwing = "";
+
+        for (HandleFurnit s : dataHandle) {
+            if(s.getName().contains("KOMFORTPOCKET")) {
+                rotoLine = s.getName();
+            }
+            else if (s.getName().contains("PREMIUMPOCKET")) {
+                rotoSwing = s.getName();
+            }
+        }
+
+        String profile = pocketCoff == MainActivity.prices.PROPLEX7032W ? dataProfile.get(7) + "/32" :
+                         pocketCoff == MainActivity.prices.BB7040W ? dataProfile.get(1) + "/40" :
+                         pocketCoff == MainActivity.prices.REHAU7040W ? dataProfile.get(4) + "/40" :
+                                 dataProfile.get(5) + "/50";
+
+        String furnit = pocketCoff == MainActivity.prices.PROPLEX7032W || pocketCoff == MainActivity.prices.BB7040W  ? "Kale" : "Roto";
+
+        String glass = pocketCoff == MainActivity.prices.PROPLEX7032W || pocketCoff == MainActivity.prices.BB7040W  ? "Обычное стекло;Обычное стекло;Обычное стекло" : "Мультик;Обычное стекло;Обычное стекло";
+
+        String handleBD = pocketCoff == MainActivity.prices.PROPLEX7032W || pocketCoff == MainActivity.prices.BB7040W ?
+                dataHandle.get(0) + "\n" + dataHandle.get(1) + "\n" + dataHandle.get(2) + "\n" :
+                pocketCoff == MainActivity.prices.REHAU7040W ?
+                rotoLine + "\n" + dataHandle.get(1) + "\n" + dataHandle.get(2) + "\n" :
+                rotoSwing + "\n" + dataHandle.get(1) + "\n" + dataHandle.get(2) + "\n";
+
+        String handleW = pocketCoff == MainActivity.prices.PROPLEX7032W || pocketCoff == MainActivity.prices.BB7040W ?
+                dataHandle.get(0) + "\n" + dataHandle.get(1) + "\n" :
+                pocketCoff == MainActivity.prices.REHAU7040W ?
+                rotoLine + "\n" + dataHandle.get(1) + "\n" :
+                rotoSwing + "\n" + dataHandle.get(1) + "\n";
+
+
+        String itemInfo = "Фигура окна: " + (positionFigure1 == 0 ? "обычная\n\n" : dataFigure.get(positionFigure1) + "\n\n") +
+                "Профиль: " + profile + (positionTypeOfType1 > 0 || balDorFlag ? " " + furnit + "\n" : "\n") +
+                dataType[positionType1] + " " + (positionType1 != 4 ? dataTypeOfType.get(positionTypeOfType1) + "\n" : dataFilling.get(positionFilling1) + "\n") +
+                "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
+                (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1) + " " + dataLaminationVar.get(positionLaminationVar1)) + "\n" +
+                (glass + "\n") +
+                (positionTypeOfType1 > 0 || balDorFlag ? (dataHandleList.size() > 2 ? handleBD :
+                        handleW): "") +
+                (positionTypeOfType1 > 1 ? dataShtulp.get(positionShtulp1) + "\n" : "") +
+                (positionShpros1 > 0 ? dataShpros.get(positionShpros1) + " " + dataShprosWidth.get(positionShprosWidth1) : dataShpros.get(positionShpros1));
+
+        return itemInfo;
+    }
+//==================================================================================================
+
+
     //______________________________________________________
     public void setLaminationCoefficient(){
 
@@ -1707,45 +2118,50 @@ public class AddWindowActivity extends AppCompatActivity {
             //Если ламинация с одной стороны
             else if (positionLamination1 == 1) {
 
-                //БРУСБОКС 60
-                if(positionProfile1 == 0) {
-                    laminationCoefficient = MainActivity.prices.lamWBB60_1st;
+                //Если цвет из группы 1
+                if (GROUP == 1) {
+                    laminationCoefficient = MainActivity.prices.lamG1St1;
                 }
-                //БРУСБОКС 70
-                else if(positionProfile1 == 1 || positionProfile1 == 2) {
-                    laminationCoefficient = MainActivity.prices.lamWBB70_1st;
+                //Если цвет из группы 2
+                else if (GROUP == 2) {
+                    laminationCoefficient = MainActivity.prices.lamG2St1;
                 }
-                //REHAU
+                //Если цвет из группы 3
                 else {
-                    laminationCoefficient = MainActivity.prices.lamWRS_1st;
+                    laminationCoefficient = MainActivity.prices.lamG3St1;
                 }
             }
 
             //Если ламинация с 2 сторон
             else {
-                //БРУСБОКС 60
-                if(positionProfile1 == 0) {
-                    laminationCoefficient = MainActivity.prices.lamWBB60_2st;
+                //Если цвет из группы 1
+                if (GROUP == 1) {
+                    laminationCoefficient = MainActivity.prices.lamG1St2;
                 }
-                //БРУСБОКС 70
-                else if(positionProfile1 == 1 || positionProfile1 == 2) {
-                    laminationCoefficient = MainActivity.prices.lamWBB70_2st;
+                //Если цвет из группы 2
+                else if (GROUP == 2) {
+                    laminationCoefficient = MainActivity.prices.lamG2St2;
                 }
-                //REHAU
+                //Если цвет из группы 3
                 else {
-                    laminationCoefficient = MainActivity.prices.lamWRS_2st;
+                    laminationCoefficient = MainActivity.prices.lamG3St2;
                 }
             }
 
     }
     //____________________________________________________________
-    public double setRegionPrice(){
+    public double setRegionPrice() {
         return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
     }
 
     public double setMinskPrice() {
         return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
     }
+
+    public double setPriceToPockets(double pocketCoff) {
+        return Math.ceil(((((pocketPrice + setPocketFurnitPrice(pocketCoff) + priceFigure + priceShtulp) * pocketCoff) * laminationCoefficient) + lam + shpros + setPocketHandlePrice(pocketCoff) + setPocketGlassPrice(pocketCoff)));
+    }
+
 
     public List<String> addList(@ArrayRes int id) {
         return Arrays.asList(getResources().getStringArray(id));
@@ -1754,7 +2170,7 @@ public class AddWindowActivity extends AppCompatActivity {
     public void setGlassPriceItems(int p1, int p2) {
         //Вызывается при нажатии на эелемент листа
         //p1 - тип стекла
-        //p2 - Позиция стекла в лсите
+        //p2 - Позиция стекла в лиcте
 
         //Обычное стекло
         if (p1 == 0) {
@@ -1791,9 +2207,13 @@ public class AddWindowActivity extends AppCompatActivity {
         glass1 = ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * glassPriceItems[0];
         glass2 = ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * glassPriceItems[1];
         glass3 = ((Double.parseDouble(dataHight.get(positionHight1)) / 1000) * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000)) * glassPriceItems[2];
+
+        //Если 100% стекло
         if (positionFilling1 == 0) {
             priceGlass = glass1 + glass2 + glass3;
-        }else {
+        }
+        //Если 50\50, есть еще вариант сендвич 100%, но там цена СП автоматом 0
+        else {
             priceGlass = glass1 + glass2 + glass3;
             priceGlass /= 2;
         }

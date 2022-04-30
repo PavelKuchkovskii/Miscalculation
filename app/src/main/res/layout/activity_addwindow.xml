@@ -121,7 +121,15 @@
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop = "240dp"
-        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf ="@id/XTop"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_laminationVar"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "240dp"
+        android:layout_toRightOf ="@id/XTop"
         android:background="@android:color/white"/>
 
     <Spinner
@@ -193,6 +201,15 @@
         android:layout_marginTop="360dp"
         android:layout_toRightOf ="@id/spinner_handle"
         android:background="@android:color/white"/>
+
+    <CheckBox
+        android:id="@+id/addToPocketFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/button_addType"
+        android:layout_alignBottom="@+id/button_addType"
+        android:layout_marginLeft="15dp"
+        android:checked="true"/>
 
     <Button
         android:id="@+id/button_addType"

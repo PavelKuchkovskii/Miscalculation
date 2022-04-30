@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 
 public class AddDoorActivity extends AppCompatActivity {
 
@@ -40,6 +41,8 @@ public class AddDoorActivity extends AppCompatActivity {
 
     static boolean bb70 = false;
 
+    static int GROUP;
+
     static int positionType1;
     static int positionTypeOfType1;
     static int positionTypeOfLoop1;
@@ -50,6 +53,7 @@ public class AddDoorActivity extends AppCompatActivity {
     static int positionProfile1;
     static int positionTypeOfGlass1;
     static int positionLamination1;
+    static int positionLaminationVar1;
     static int positionRegion1;
     static int positionTypeOfGarnit1;
     static int positionColorGarnit1;
@@ -78,6 +82,7 @@ public class AddDoorActivity extends AppCompatActivity {
     static List<String> dataTypeOfGlass = new ArrayList<>();
     static List<String> dataFurnit = new ArrayList<>();
     static List<String> dataLamination = new ArrayList<>();
+    static List<String> dataLaminationVar = new ArrayList<>();
     static List<String> dataRegion = new ArrayList<>();
     static List<String> dataProfile = new ArrayList<>();
     static List<String> dataHight = new ArrayList<>();
@@ -101,6 +106,7 @@ public class AddDoorActivity extends AppCompatActivity {
 
     static ArrayAdapter<String> adapterFurnit;
     static ArrayAdapter<String> adapterLamination;
+    static ArrayAdapter<String> adapterLaminationVar;
     static ArrayAdapter<String> adapterRegion;
     static ArrayAdapter<String> adapterProfile;
 
@@ -146,6 +152,7 @@ public class AddDoorActivity extends AppCompatActivity {
         adapterWidth = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataWidth);
 
         adapterLamination = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataLamination);
+        adapterLaminationVar = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataLaminationVar);
 
         adapterRegion = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataRegion);
 
@@ -200,6 +207,10 @@ public class AddDoorActivity extends AppCompatActivity {
         adapterLamination.clear();
         adapterLamination.addAll(addList(R.array.dtaLamination));
 
+        adapterLaminationVar.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterLaminationVar.clear();
+        adapterLaminationVar.addAll(addList(R.array.laminationVar));
+
         adapterRegion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapterRegion.clear();
         adapterRegion.addAll(addList(R.array.dtaRegion));
@@ -245,6 +256,8 @@ public class AddDoorActivity extends AppCompatActivity {
         final Spinner spinnerWidth = findViewById(R.id.spinner_width);
 
         final Spinner spinnerLamination = findViewById(R.id.spinner_lamination);
+
+        final Spinner spinnerLaminationVar = findViewById(R.id.spinner_laminationVar);
 
         final Spinner spinnerRegion = findViewById(R.id.spinner_region);
         spinnerRegion.setVisibility(View.INVISIBLE);
@@ -517,6 +530,45 @@ public class AddDoorActivity extends AppCompatActivity {
 
                 positionLamination1 = positionLamination;
 
+                if (positionLamination1 == 0) {
+                    spinnerLaminationVar.setVisibility(View.INVISIBLE);
+                }
+                else {
+                    spinnerLaminationVar.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        }) ;
+//_____________ЦВЕТ ЛАМИНАЦИИ_______________
+
+        spinnerLaminationVar.setAdapter(adapterLaminationVar);
+        // заголовок
+        spinnerLaminationVar.setPrompt("Цвет ламинации");
+        // выделяем элемент
+        spinnerLaminationVar.setSelection(0);
+        // устанавливаем обработчик нажатия
+        spinnerLaminationVar.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int positionLaminationVar, long idLaminationVar) {
+
+                positionLaminationVar1 = positionLaminationVar;
+
+                if (positionLaminationVar1 <= 13) {
+                    GROUP = 1;
+                }
+                else if (positionLaminationVar1 <= 36) {
+                    GROUP = 2;
+                }
+                else {
+                    GROUP = 3;
+                }
+
             }
 
             @Override
@@ -716,7 +768,7 @@ public class AddDoorActivity extends AppCompatActivity {
                 String itemInfo = "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + "\n" +
                         dataType[positionType1] + " " + dataTypeOfType.get(positionTypeOfType1) + "\n" +
                         "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
-                        (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1)) + "\n" +
+                        (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1) + " " + dataLaminationVar.get(positionLaminationVar1)) + "\n" +
                         dataFurnit.get(positionFurnit1) + " " + dataTypeOfLoop.get(positionTypeOfLoop1) + " " + dataColorLoop.get(positionColorLoop1) + "\n" +
                         dataTypeOfGarnit.get(positionTypeOfGarnit1) + " " + dataColorGarnit.get(positionColorGarnit1) + "\n" +
                         (positionTypeOfGarnit1 != 4 ? "Многозапорный замок": "Монозапорный замок(ролик) ROTO") + " " + dataKey.get(positionKey1) + "\n" +
@@ -732,6 +784,14 @@ public class AddDoorActivity extends AppCompatActivity {
                 else {
                     ProductList.addProdLst(itemName, setMinskPrice(), itemInterest,0,0);
                     MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                }
+
+                //Добавление в пакет, только если активный замер сам не является пакетом
+                if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
                 }
 
                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -1071,7 +1131,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 70/40 Дверной/Оконный
-        if ((p1 == 0 || p1 == 2 || p2 == 4) && p2 == 0) {
+        if ((p1 == 0 || p1 == 2 || p1 == 4) && p2 == 0) {
             profileCoefficient = MainActivity.prices.BB7040D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
@@ -1082,7 +1142,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 70/32 Дверной/Оконный
-        if ((p1 == 0 || p1 == 2 || p2 == 4) && p2 == 1) {
+        if ((p1 == 0 || p1 == 2 || p1 == 4) && p2 == 1) {
             profileCoefficient = MainActivity.prices.BB7032D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
@@ -1093,7 +1153,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 70/24 Дверной/Оконный
-        if ((p1 == 0 || p1 == 2 || p2 == 4) && p2 == 2) {
+        if ((p1 == 0 || p1 == 2 || p1 == 4) && p2 == 2) {
             profileCoefficient = MainActivity.prices.BB7024D;
             if(!bb70) {
                 adapterTypeOfGlass.clear();
@@ -1104,7 +1164,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 60/32 Дверной/Оконный
-        if ((p1 == 1 || p1 == 3 || p2 == 5) && p2 == 0) {
+        if ((p1 == 1 || p1 == 3 || p1 == 5) && p2 == 0) {
             profileCoefficient = MainActivity.prices.BB6032D;
             if(bb70) {
                 adapterTypeOfGlass.clear();
@@ -1115,7 +1175,7 @@ public class AddDoorActivity extends AppCompatActivity {
         }
 
         // 60/24 Дверной/Оконный
-        if ((p1 == 1 || p1 == 3 || p2 == 5) && p2 == 1) {
+        if ((p1 == 1 || p1 == 3 || p1 == 5) && p2 == 1) {
             profileCoefficient = MainActivity.prices.BB6024D;
             if(bb70) {
                 adapterTypeOfGlass.clear();
@@ -1132,31 +1192,37 @@ public class AddDoorActivity extends AppCompatActivity {
 
         if(positionLamination1 == 0) {
             laminationCoefficient = 1;
-            return;
         }
         //Односторонняя ламинация
-        if(positionLamination1 == 1) {
-            //Оконный профиль
-            if (wDoor) {
-                laminationCoefficient = MainActivity.prices.lamD1stW;
+        else if(positionLamination1 == 1) {
+
+            //Если цвет из группы 1
+            if (GROUP == 1) {
+                laminationCoefficient = MainActivity.prices.lamG1St1Door;
             }
-            //Дверной профиль
+            //Если цвет из группы 2
+            else if (GROUP == 2) {
+                laminationCoefficient = MainActivity.prices.lamG2St1Door;
+            }
+            //Если цвет из группы 3
             else {
-                laminationCoefficient = MainActivity.prices.lamD1stD;
+                laminationCoefficient = MainActivity.prices.lamG3St1Door;
             }
-            return;
         }
         //Двухсторонняя ламинация
-        if(positionLamination1 == 2) {
-            //Оконный профиль
-            if (wDoor) {
-                laminationCoefficient = MainActivity.prices.lamD2stW;
+        else if(positionLamination1 == 2) {
+            //Если цвет из группы 1
+            if (GROUP == 1) {
+                laminationCoefficient = MainActivity.prices.lamG1St2Door;
             }
-            //Дверной профиль
+            //Если цвет из группы 2
+            else if (GROUP == 2) {
+                laminationCoefficient = MainActivity.prices.lamG2St2Door;
+            }
+            //Если цвет из группы 3
             else {
-                laminationCoefficient = MainActivity.prices.lamD2stD;
+                laminationCoefficient = MainActivity.prices.lamG3St2Door;
             }
-            return;
         }
     }
     //____________________________________________________________

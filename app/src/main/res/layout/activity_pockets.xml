@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#262626">
+
+    <TextView
+        android:id="@+id/pocket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Пакет LITE"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textStyle="italic"
+        android:textColor="#f4f743"/>
+
+    <TextView
+        android:id="@+id/litePocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="30dp"
+        android:text="Пакет LITE"
+        android:layout_centerHorizontal="true"
+        android:textColor="#f4f743"/>
+
+    <TextView
+        android:id="@+id/priceLitePocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:text="9999 руб."
+        android:layout_below="@+id/litePocket"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#f4f743"/>
+
+    <Button
+        android:id="@+id/button_addLitePocket"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="+"
+        android:layout_alignBottom="@+id/priceLitePocket"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/white"/>
+
+    <View
+        android:id="@+id/litePocketView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f4f743"
+        android:layout_below="@+id/priceLitePocket"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/standardPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="30dp"
+        android:text="Пакет STANDARD"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/litePocketView"
+        android:textColor="#f4f743"/>
+
+    <TextView
+        android:id="@+id/priceStandardPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:text="9999 руб."
+        android:layout_below="@+id/standardPocket"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#f4f743"/>
+
+    <Button
+        android:id="@+id/button_addStandardPocket"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="+"
+        android:layout_alignBottom="@+id/priceStandardPocket"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/white"/>
+
+    <View
+        android:id="@+id/standardPocketView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f4f743"
+        android:layout_below="@+id/priceStandardPocket"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/comfortPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="30dp"
+        android:text="Пакет COMFORT"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/standardPocketView"
+        android:textColor="#f4f743"/>
+
+    <TextView
+        android:id="@+id/priceComfortPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:text="9999 руб."
+        android:layout_below="@+id/comfortPocket"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#f4f743"/>
+
+    <Button
+        android:id="@+id/button_addComfortPocket"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="+"
+        android:layout_alignBottom="@+id/priceComfortPocket"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/white"/>
+
+    <View
+        android:id="@+id/comfortPocketView"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#f4f743"
+        android:layout_below="@+id/priceComfortPocket"
+        android:layout_marginTop="10dp"/>
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/premiumPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="30dp"
+        android:text="Пакет PREMIUM"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/comfortPocketView"
+        android:textColor="#f4f743"/>
+
+    <TextView
+        android:id="@+id/pricePremiumPocket"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:text="9999 руб."
+        android:layout_below="@+id/premiumPocket"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:textColor="#f4f743"/>
+
+    <Button
+        android:id="@+id/button_addPremiumPocket"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="+"
+        android:layout_alignBottom="@+id/pricePremiumPocket"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="30dp"
+        android:background="@android:color/white"/>
+
+</RelativeLayout>

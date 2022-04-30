@@ -176,6 +176,7 @@ public class ProductList extends AppCompatActivity {
         adapterBlock.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         final Spinner spinnerCourse = findViewById(R.id.spinner_course);
+        spinnerCourse.setVisibility(View.INVISIBLE);
         final Spinner spinnerDiscont = findViewById(R.id.spinner_discont);
 
         productList.setOnItemClickListener(new OnItemClickListener() {
@@ -198,6 +199,14 @@ public class ProductList extends AppCompatActivity {
                         }
                         //Если удаляется элемент списка
                         else {
+
+                            //Удаление из пакетов
+                            //Делаем проверку является ли текущий замер пакетом
+                            if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.removeItem(position);
+                            }
+
+
                             MainActivity.hashMap.get(MainActivity.nameMeasure).removeItem(position);
 
                             priceOutcome = priceOutcome - prodItemPrice.get(position);
@@ -351,6 +360,8 @@ public class ProductList extends AppCompatActivity {
                     textInterestNP.setVisibility(View.VISIBLE);
                     textMountingNP.setVisibility(View.VISIBLE);
                     textSlopesNP.setVisibility(View.VISIBLE);
+
+                    spinnerCourse.setVisibility(View.VISIBLE);
                 }
                 setTextRegion();
 
@@ -430,6 +441,11 @@ public class ProductList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Очищаем в hashmap
+                //Делаем проверку является ли текущий замер пакетом
+                if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.clearAll();
+                }
+
                 MainActivity.hashMap.get(MainActivity.nameMeasure).clearAll();
                 clearAll();
                 try {
@@ -500,14 +516,16 @@ public class ProductList extends AppCompatActivity {
                     mDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
 
-                            if (positionBlock1 == 0 || positionBlock1 == 1 || positionBlock1 == 2) {
-                                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(String.valueOf(positionBlock1), "", 0.0, 0, 0);
-                                addProdLst(String.valueOf(positionBlock1), 0.0, 0, 0, 0);
+                            //Добавление в пакет, только если активный замер сам не является пакетом
+                            if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, String.valueOf(positionBlock1), "", 0.0, 0, 0);
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, String.valueOf(positionBlock1), "", 0.0, 0, 0);
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, String.valueOf(positionBlock1), "", 0.0, 0, 0);
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, String.valueOf(positionBlock1), "", 0.0, 0, 0);
                             }
-                            else {
-                                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(String.valueOf(positionBlock1), "", 0.0, 0, 0);
-                                addProdLst(String.valueOf(positionBlock1), 0.0, 0, 0, 0);
-                            }
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(String.valueOf(positionBlock1), "", 0.0, 0, 0);
+                            addProdLst(String.valueOf(positionBlock1), 0.0, 0, 0, 0);
+
 
                             findBlock(prodList);
 
@@ -532,6 +550,13 @@ public class ProductList extends AppCompatActivity {
                 }
                 //Если Блок открыт
                 else {
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, String.valueOf(3), "", 0.0, 0, 0);
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, String.valueOf(3), "", 0.0, 0, 0);
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, String.valueOf(3), "", 0.0, 0, 0);
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, String.valueOf(3), "", 0.0, 0, 0);
+                    }
                     MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(String.valueOf(3), "", 0.0, 0, 0);
                     addProdLst(String.valueOf(3), 0.0, 0, 0, 0);
                     findBlock(prodList);
@@ -696,6 +721,12 @@ public class ProductList extends AppCompatActivity {
                                 }
                                 prodInterest.set(y, 0);
                                 MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(y, 0);
+
+                                //Добавление в пакеты
+                                //Делаем проверку является ли текущий замер пакетом
+                                if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(y, 0);
+                                }
                             }
                             //Только если между началом блока и концом есть элементы
                             if(b - i > 1) {
@@ -703,11 +734,23 @@ public class ProductList extends AppCompatActivity {
                                 if(countWindows > 1) {
                                     prodInterest.set(b - 1, MainActivity.prices.INTBALBLOCK2);
                                     MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTBALBLOCK2);
+
+                                    //Добавление в пакеты
+                                    //Делаем проверку является ли текущий замер пакетом
+                                    if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, MainActivity.prices.INTBALBLOCK2);
+                                    }
                                 }
                                 //Присваиваем интерес 55 элементу предшествующему концу блока, если 1 окно
                                 else {
                                     prodInterest.set(b - 1, MainActivity.prices.INTBALBLOCK);
                                     MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTBALBLOCK);
+
+                                    //Добавление в пакеты
+                                    //Делаем проверку является ли текущий замер пакетом
+                                    if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, MainActivity.prices.INTBALBLOCK);
+                                    }
                                 }
 
                             }
@@ -751,10 +794,22 @@ public class ProductList extends AppCompatActivity {
                                 }
                                 prodInterest.set(y, 0);
                                 MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(y, 0);
+
+                                //Добавление в пакеты
+                                //Делаем проверку является ли текущий замер пакетом
+                                if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(y, 0);
+                                }
                             }
                             //Присваиваем интерес 20 * на количество створок элементу предшествующему концу блока
                             prodInterest.set(b - 1, countWindows * MainActivity.prices.INTPOLRAM);
                             MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, countWindows * MainActivity.prices.INTPOLRAM);
+
+                            //Добавление в пакеты
+                            //Делаем проверку является ли текущий замер пакетом
+                            if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, countWindows * MainActivity.prices.INTPOLRAM);
+                            }
                             break;
                         }
                     }
@@ -790,6 +845,12 @@ public class ProductList extends AppCompatActivity {
                         for (int b2 = i + 1;b2 < b - 1;b2++) {
                             prodInterest.set(b2, 0);
                             MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b2, 0);
+
+                            //Добавление в пакеты
+                            //Делаем проверку является ли текущий замер пакетом
+                            if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b2, 0);
+                            }
                         }
                         //Если ширин меньше 5000
                         if (width < 5000) {
@@ -799,23 +860,47 @@ public class ProductList extends AppCompatActivity {
                                 if (width < 3300) {
                                     prodInterest.set(b - 1, MainActivity.prices.INTW4ST);
                                     MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4ST);
+
+                                    //Добавление в пакеты
+                                    //Делаем проверку является ли текущий замер пакетом
+                                    if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, MainActivity.prices.INTW4ST);
+                                    }
                                 }
                                 //Если ширина 3300-4000
                                 else {
                                     prodInterest.set(b - 1, MainActivity.prices.INTW4STV3);
                                     MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4STV3);
+
+                                    //Добавление в пакеты
+                                    //Делаем проверку является ли текущий замер пакетом
+                                    if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, MainActivity.prices.INTW4STV3);
+                                    }
                                 }
                             }
                             //если ширина 4000-5000
                             else {
                                 prodInterest.set(b - 1, MainActivity.prices.INTW4STV4);
                                 MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4STV4);
+
+                                //Добавление в пакеты
+                                //Делаем проверку является ли текущий замер пакетом
+                                if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, MainActivity.prices.INTW4STV4);
+                                }
                             }
                         }
                         //Если ширина больше 5000
                         else {
                             prodInterest.set(b - 1, MainActivity.prices.INTW4STV5);
                             MainActivity.hashMap.get(MainActivity.nameMeasure).setInterest(b - 1, MainActivity.prices.INTW4STV5);
+
+                            //Добавление в пакеты
+                            //Делаем проверку является ли текущий замер пакетом
+                            if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.setInterest(b - 1, MainActivity.prices.INTW4STV5);
+                            }
                         }
                         break;
                     }
@@ -887,7 +972,14 @@ public class ProductList extends AppCompatActivity {
     public void deleteBlock(int start, int end) {
 
         for(int i = start;i <= end;i++) {
+            //Удаление из пакетов
+            //Делаем проверку является ли текущий замер пакетом
+            if (!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.removeItem(start);
+            }
+
             MainActivity.hashMap.get(MainActivity.nameMeasure).removeItem(start);
+
 
             priceOutcome = priceOutcome - prodItemPrice.get(start);
             interest = interest - prodInterest.get(start);

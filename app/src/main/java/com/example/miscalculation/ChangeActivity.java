@@ -40,6 +40,11 @@ public class ChangeActivity extends AppCompatActivity {
         final Button setWork = findViewById(R.id.button_addWork);
         final Button prodLstBut = findViewById(R.id.button_ProdLst);
 
+        //Добавляем пакеты, в активные замеры
+        if (MainActivity.hashMap.get(MainActivity.nameMeasure).pockets == null) {
+            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets = new Pockets(MainActivity.hashMap.get(MainActivity.nameMeasure).getRegion());
+        }
+
 
 //---------------------------------КНОПКИ------------------------
 

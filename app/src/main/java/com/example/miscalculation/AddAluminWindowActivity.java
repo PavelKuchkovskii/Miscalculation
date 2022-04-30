@@ -264,6 +264,15 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     ProductList.addProdLst(itemName, Math.ceil(price * laminationCoefficient), itemInterest, 0, 0);
                     MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
 
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    }
+
+
                     Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     vibrator.vibrate(100);
                     try {
@@ -276,6 +285,15 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 else {
                     ProductList.addProdLst(itemName, Math.ceil(price * laminationCoefficient), itemInterest, 0, 0);
                     MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+
+                    //Добавление в пакет, только если активный замер сам не является пакетом
+                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    }
+
 
                     Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                     vibrator.vibrate(100);

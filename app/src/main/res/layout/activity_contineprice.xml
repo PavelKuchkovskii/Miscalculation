@@ -25,7 +25,7 @@
         android:layout_marginBottom="10dp"
         android:layout_above="@+id/priceDiscontPR"
         android:text="ЦЕНА :"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:textColor="#ffd11a"/>
     <TextView
         android:id="@+id/priceR"
@@ -36,7 +36,7 @@
         android:layout_alignBottom="@id/priceRPR"
         android:layout_toRightOf="@+id/priceRPR"
         android:text="ЦЕНА :"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:textColor="#ffd11a"/>
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_marginBottom="10dp"
         android:layout_above="@+id/priceAmountContinePricePR"
         android:text="СКИДКА :"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:textColor="#ffd11a"/>
     <TextView
         android:id="@+id/priceDiscont"
@@ -59,7 +59,7 @@
         android:layout_alignBottom="@id/priceDiscontPR"
         android:layout_toRightOf="@+id/priceDiscontPR"
         android:text="СКИДКА :"
-        android:visibility="invisible"
+        android:visibility="visible"
         android:textColor="#ffd11a"/>
 
     <TextView
@@ -112,5 +112,17 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="75dp" />
+
+    <Button
+        android:id="@+id/button_pockets"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="ПАКЕТЫ"
+        android:layout_alignLeft="@+id/priceAmountContinePricePR"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:background="#00994d"
+        android:textColor="#ffd11a"/>
 
 </RelativeLayout>
