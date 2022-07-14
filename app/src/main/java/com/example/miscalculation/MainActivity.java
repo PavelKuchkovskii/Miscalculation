@@ -10,16 +10,19 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -27,6 +30,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -40,7 +44,6 @@ import com.google.api.client.util.ExponentialBackOff;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.api.services.sheets.v4.model.ValueRange;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import androidx.annotation.NonNull;
@@ -51,7 +54,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -64,9 +71,9 @@ import pub.devrel.easypermissions.EasyPermissions;
 
 
 public class MainActivity extends AppCompatActivity
-        implements EasyPermissions.PermissionCallbacks{
+        implements EasyPermissions.PermissionCallbacks {
 
-//==================================GOOGLE==========================================================
+    //==================================GOOGLE==========================================================
     static boolean isOAuth_OK = false;
 
     static TextView mOutputText;
@@ -80,7 +87,7 @@ public class MainActivity extends AppCompatActivity
     static final int REQUEST_PERMISSION_GET_ACCOUNTS = 1003;
 
     private static final String PREF_ACCOUNT_NAME = "accountName";
-    private static final String[] SCOPES = { SheetsScopes.SPREADSHEETS };
+    private static final String[] SCOPES = {SheetsScopes.SPREADSHEETS};
 
 //==================================================================================================
 
@@ -93,7 +100,7 @@ public class MainActivity extends AppCompatActivity
 
     static Gson gson = new Gson();
 
-    static String nameMeasure;
+    public static String nameMeasure;
     static final String fileName = "dtaHashMap";
 
     static int positionRegion1;
@@ -115,6 +122,9 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        AssetManager am = getAssets();
+
         mOutputText = findViewById(R.id.textOAuth);
         mOutputText.setVisibility(View.INVISIBLE);
 
@@ -151,7 +161,6 @@ public class MainActivity extends AppCompatActivity
         if (!isOAuth_OK) {
             getResultsFromApi();
         }
-
 
 //---------------------------------------------ЛИСТ----------------------------------------------------------------
         measureLst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -193,6 +202,11 @@ public class MainActivity extends AppCompatActivity
                                 AlertDialog.Builder mDialogBuilder = new AlertDialog.Builder(context);
                                 //Настраиваем prompt.xml для нашего AlertDialog:
                                 mDialogBuilder.setView(promptsView);
+
+                                CheckBox box = promptsView.findViewById(R.id.isDoSpecification);
+                                box.setVisibility(View.INVISIBLE);
+                                TextView text = promptsView.findViewById(R.id.isDoSpecificationText);
+                                text.setVisibility(View.INVISIBLE);
                                 //Настраиваем отображение поля для ввода текста в открытом диалоге:
                                 final EditText userInput = promptsView.findViewById(R.id.input_text);
                                 userInput.setText(dataMeasureList.get(position) + " (" + 1 + ")");
@@ -213,7 +227,7 @@ public class MainActivity extends AppCompatActivity
                                         else {
                                             ProductList.clearAll();
                                             nameMeasure = String.valueOf(userInput.getText());
-                                            hashMap.put(nameMeasure, new Measure(hashMap.get(dataMeasureList.get(position))));
+                                            hashMap.put(nameMeasure, new Measure(hashMap.get(dataMeasureList.get(position)), false));
                                             hashMap.get(nameMeasure).getProdList();
                                             try {
                                                 writeHash(hashMap);
@@ -321,20 +335,42 @@ public class MainActivity extends AppCompatActivity
                         mDialogBuilder.setView(promptsView);
                         //Настраиваем отображение поля для ввода текста в открытом диалоге:
                         final EditText userInput = promptsView.findViewById(R.id.input_text);
+                        CheckBox isDoSpecification = promptsView.findViewById(R.id.isDoSpecification);
 
-                        //Настраиваем сообщение в диалоговом окне:
+                        //Обработчик нажатия на чекбокс добавления коммерческого предложения
+                        isDoSpecification.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                LayoutInflater layoutInflater = LayoutInflater.from(context);
+                                View view = layoutInflater.inflate(R.layout.prompt4_information_specification, null);
+                                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                                alert.setView(view);
+                                //Если нажали на чекбокс то вызывается информация
+                                alert.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,int id) {
+
+                                    }
+                                });
+                                AlertDialog alertDialogcb = alert.create();
+                                alertDialogcb.show();
+                            }
+
+                        });
+
+                        //После воода нзвания и нажатия на ОК
                         mDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog,int id) {
 
                                 if(String.valueOf(userInput.getText()).equals("")) {
-                                    Toast toast = Toast.makeText(getApplicationContext(), "Поле не может быть пустым.", Toast.LENGTH_SHORT);
-                                    toast.show();
+                                    Toast.makeText(getApplicationContext(), "Поле не может быть пустым.", Toast.LENGTH_SHORT).show();
                                 }else {
                                     ProductList.clearAll();
                                     nameMeasure = String.valueOf(userInput.getText());
+
+                                    //Теперь регион всегда МИНСК, нет разницы в цене между регионами, везде ВСЕГДА одна ЦЕНА
                                     //Регион - true
                                     //Минск - false
-                                    hashMap.put(nameMeasure, new Measure(positionRegion1 == 0, false));
+                                    hashMap.put(nameMeasure, new Measure(false, false, isDoSpecification.isChecked(), am));
                                     try {
                                         writeHash(hashMap);
                                     } catch (IOException e) {
@@ -500,16 +536,17 @@ public class MainActivity extends AppCompatActivity
         if (EasyPermissions.hasPermissions(this, Manifest.permission.GET_ACCOUNTS)) {
             String accountName = getPreferences(Context.MODE_PRIVATE).getString(PREF_ACCOUNT_NAME, null);
 
-            //Для Сечко и ему подобным, этот If удалять
+            /**Для почти ВСЕХ этот If удалять
+            //Нужно раобраться с этой проблемой(не проблемой)
             if (accountName != null) {
                 mCredential.setSelectedAccountName(accountName);
                 getResultsFromApi();
-            } else {
+            } else {*/
                 // Start a dialog from which the user can choose an account
                 startActivityForResult(
                         mCredential.newChooseAccountIntent(),
                         REQUEST_ACCOUNT_PICKER);
-            }
+            //}
         } else {
             // Request the GET_ACCOUNTS permission via a user dialog
             EasyPermissions.requestPermissions(

@@ -3,20 +3,25 @@ package com.example.miscalculation;
 import androidx.annotation.ArrayRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import android.widget.Button;
 
+import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -28,6 +33,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class AddAluminWindowActivity extends AppCompatActivity  {
+
+    final Context context = this;
 
     static boolean addFromList = false;
 
@@ -259,50 +266,35 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                         dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1);
                 String itemInfo = "";
 
-                //Если добавление в конец списка
-                if(!addFromList) {
-                    ProductList.addProdLst(itemName, Math.ceil(price * laminationCoefficient), itemInterest, 0, 0);
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
 
-                    //Добавление в пакет, только если активный замер сам не является пакетом
-                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    }
+                //Пришлось разделить просто добавление и добавление если это со спецификацией
+                //Для того что бы была возможность дождаться ввода точных размеров
+                //По другому не ждет ввода, а сразу вписывает что есть
+                if(MainActivity.hashMap.get(MainActivity.nameMeasure).getIsDoSpecification()) {
+                    //Добавляем высоту и ширину для коммерческого предложения
+                    LayoutInflater layoutInflater = LayoutInflater.from(context);
+                    View view = layoutInflater.inflate(R.layout.prompt5_height_width_specification, null);
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    alert.setView(view);
+                    EditText realHeight = view.findViewById(R.id.input_text_height);
+                    EditText realWidth = view.findViewById(R.id.input_text_width);
+                    realHeight.setText(dataHight.get(positionHight1));
+                    realWidth.setText(dataWidth.get(positionWidth1));
+                    alert.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            int height = Integer.parseInt(realHeight.getText().toString());
+                            int width = Integer.parseInt(realWidth.getText().toString());
+                            ExcelCreator.setTmpHeight(height);
+                            ExcelCreator.setTmpWidth(width);
 
-
-                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    vibrator.vibrate(100);
-                    try {
-                        writeHash(MainActivity.hashMap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                            startAdd(itemName,itemInfo);
+                        }
+                    });
+                    AlertDialog alertDialogcb = alert.create();
+                    alertDialogcb.show();
                 }
-                //Если добавление в блок
                 else {
-                    ProductList.addProdLst(itemName, Math.ceil(price * laminationCoefficient), itemInterest, 0, 0);
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-
-                    //Добавление в пакет, только если активный замер сам не является пакетом
-                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Math.ceil(price * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                    }
-
-
-                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    vibrator.vibrate(100);
-                    try {
-                        writeHash(MainActivity.hashMap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    onBackPressed();
+                    startAdd(itemName, itemInfo);
                 }
 
             }
@@ -316,6 +308,55 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
             }
         });
 //-------------------------------------------------------------------------------------
+    }
+
+    //Метод для добавление, вынесен из кнопки что бы при создании спецификации можно было дождаться ввода точных размеров
+    public void startAdd(String itemName, String itemInfo) {
+        //Если добавление в конец списка
+        if(!addFromList) {
+            ProductList.addProdLst(itemName, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, 0, 0);
+            MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+
+            //Добавление в пакет, только если активный замер сам не является пакетом
+            if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+            }
+
+
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(100);
+            try {
+                writeHash(MainActivity.hashMap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        //Если добавление в блок
+        else {
+            ProductList.addProdLst(itemName, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, 0, 0);
+            MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+
+            //Добавление в пакет, только если активный замер сам не является пакетом
+            if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Math.ceil(price * MainActivity.prices.ALUMIN * laminationCoefficient), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+            }
+
+
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(100);
+            try {
+                writeHash(MainActivity.hashMap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            onBackPressed();
+        }
     }
 
     public void setPrice(int p1, int p2) {
@@ -342,6 +383,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW1ST;
                 }
                 price = MainActivity.prices.windAl1stNo[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL1STNO_PICTURE);
             }
             return;
         }
@@ -367,6 +411,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW2ST;
                 }
                 price = MainActivity.prices.windAl2st1Op[positionHight1][positionWidth1] - 3;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL2STNO_PICTURE);
             }
             return;
         }
@@ -392,6 +439,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW3ST;
                 }
                 price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1] - 3;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL3STNO_PICTURE);
             }
             return;
         }
@@ -416,6 +466,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW2ST;
                 }
                 price = MainActivity.prices.windAl2st1Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL2ST1OP_PICTURE);
             }
             return;
         }
@@ -441,6 +494,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW2ST;
                 }
                 price = MainActivity.prices.windAl2st1Op[positionHight1][positionWidth1] + 3;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL2ST2OP_PICTURE);
             }
             return;
         }
@@ -466,6 +522,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW3ST;
                 }
                 price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL3ST1OP_PICTURE);
             }
             return;
         }
@@ -492,6 +551,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 }
 
                 price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1] + 3;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL3ST2OP_PICTURE);
             }
             return;
         }
@@ -517,6 +579,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW3ST;
                 }
                 price = MainActivity.prices.windAl3st1Op[positionHight1][positionWidth1] + 6;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL3ST3OP_PICTURE);
             }
             return;
         }
@@ -542,6 +607,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                     itemInterest = MainActivity.prices.INTW4ST;
                 }
                 price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] - 6;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL4STNO_PICTURE);
             }
             return;
         }
@@ -569,6 +637,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
 
                 price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] - 3;
 
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL4ST1OP_PICTURE);
+
             }
             return;
         }
@@ -595,6 +666,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 }
 
                 price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL4ST2OP_PICTURE);
             }
             return;
         }
@@ -620,6 +694,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 }
 
                 price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] + 3;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL4ST3OP_PICTURE);
             }
             return;
         }
@@ -646,6 +723,9 @@ public class AddAluminWindowActivity extends AppCompatActivity  {
                 }
 
                 price = MainActivity.prices.windAl4st2Op[positionHight1][positionWidth1] + 6;
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.AL4ST4OP_PICTURE);
             }
             return;
         }

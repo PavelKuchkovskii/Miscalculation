@@ -15,6 +15,12 @@ public class DopPrices implements Serializable{
 
   //Стандартная доставка(delivery)
   public int delivery;
+
+  //Стоимость топлива(fuel)
+  public double fuel;
+
+  //Процент в калькуляторе(CALCPERC)
+  public double CALCPERC;
   //'----------------------------ЛИСТ 1 (ДОПЫ)---------------------------------------------------------
   //'--------------------------Соединители на Brusbox 60:------------------------------------------
   //Балконный соединитель 3мм на 60 профиль(balSoed3mmNa60ProfileBB)
@@ -471,6 +477,9 @@ public class DopPrices implements Serializable{
 
   //PROPLEX 70/40 окно(PROPLEX7040W)
   public double PROPLEX7040W;
+
+  //Коэффициент на алюминиевые рамы (ALUMIN)
+  public double ALUMIN;
 
   //'---------------------------ДВЕРНЫЕ КОЭФИЦЕНТЫ-------------------------------------------------
 

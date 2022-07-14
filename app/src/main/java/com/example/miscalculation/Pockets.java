@@ -1,5 +1,7 @@
 package com.example.miscalculation;
 
+import android.content.res.AssetManager;
+
 public class Pockets {
 
     private final Measure lite;
@@ -7,11 +9,20 @@ public class Pockets {
     private final Measure comfort;
     private final Measure premium;
 
-    public Pockets (boolean region) {
-        lite = new Measure(region, true);
-        standard = new Measure(region,true);
-        comfort = new Measure(region,true);
-        premium = new Measure(region,true);
+    //Конструктор пакетов
+    public Pockets (boolean region, boolean ids, AssetManager am) {
+        lite = new Measure(region, true, ids,am);
+        standard = new Measure(region,true, ids,am);
+        comfort = new Measure(region,true, ids,am);
+        premium = new Measure(region,true, ids,am);
+    }
+
+    //Копирователь замеров с пакетами
+    public Pockets (Pockets pockets) {
+        lite = new Measure(pockets.lite);
+        standard = new Measure(pockets.standard);
+        comfort = new Measure(pockets.comfort);
+        premium = new Measure(pockets.premium);
     }
 
     public void addToPocket(double coff, String itemName, String itemInfo, Double price, Integer itemInterest, Integer width) {
@@ -81,50 +92,50 @@ public class Pockets {
         //true - жел
         //false - мин
 
-        double calcPercent = 1.185;
+        double calcPercent = MainActivity.prices.CALCPERC;
 
         //Если LITE ПАКЕТ
         if (coff == MainActivity.prices.PROPLEX7032W) {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((lite.getMounting() + lite.getSlopes() + lite.getInterest() + lite.getPrice() + lite.getDelivery() + lite.getOther()) * lite.getCourse()) * calcPercent);
+                return Math.ceil(((lite.getMounting() + lite.getSlopes() + lite.getInterest() + Math.ceil(lite.getPrice()) + lite.getDelivery() + lite.getOther()) * lite.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
-                return Math.ceil(((lite.getMounting() + lite.getSlopes() + (lite.getInterest()/2.0) + lite.getPrice() + lite.getDelivery() + lite.getOther()) * lite.getCourse()) * calcPercent);
+                return Math.ceil(((lite.getMounting() + lite.getSlopes() + (lite.getInterest()/2.0) + Math.ceil(lite.getPrice()) + lite.getDelivery() + lite.getOther()) * lite.getCourse()) * calcPercent);
             }
         }
         //Если STANDARD ПАКЕТ
         else if (coff == MainActivity.prices.BB7040W) {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((standard.getMounting() + standard.getSlopes() + standard.getInterest() + standard.getPrice() + standard.getDelivery() + standard.getOther()) * standard.getCourse()) * calcPercent);
+                return Math.ceil(((standard.getMounting() + standard.getSlopes() + standard.getInterest() + Math.ceil(standard.getPrice()) + standard.getDelivery() + standard.getOther()) * standard.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
-                return Math.ceil(((standard.getMounting() + standard.getSlopes() + (standard.getInterest()/2.0) + standard.getPrice() + standard.getDelivery() + standard.getOther()) * standard.getCourse()) * calcPercent);
+                return Math.ceil(((standard.getMounting() + standard.getSlopes() + (standard.getInterest()/2.0) + Math.ceil(standard.getPrice()) + standard.getDelivery() + standard.getOther()) * standard.getCourse()) * calcPercent);
             }
         }
         //Если COMFORT ПАКЕТ
         else if (coff == MainActivity.prices.REHAU7040W) {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((comfort.getMounting() + comfort.getSlopes() + comfort.getInterest() + comfort.getPrice() + comfort.getDelivery() + comfort.getOther()) * comfort.getCourse()) * calcPercent);
+                return Math.ceil(((comfort.getMounting() + comfort.getSlopes() + comfort.getInterest() + Math.ceil(comfort.getPrice()) + comfort.getDelivery() + comfort.getOther()) * comfort.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
-                return Math.ceil(((comfort.getMounting() + comfort.getSlopes() + (comfort.getInterest()/2.0) + comfort.getPrice() + comfort.getDelivery() + comfort.getOther()) * comfort.getCourse()) * calcPercent);
+                return Math.ceil(((comfort.getMounting() + comfort.getSlopes() + (comfort.getInterest()/2.0) + Math.ceil(comfort.getPrice()) + comfort.getDelivery() + comfort.getOther()) * comfort.getCourse()) * calcPercent);
             }
         }
         //Если PREMIUM ПАКЕТ
         else {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((premium.getMounting() + premium.getSlopes() + premium.getInterest() + premium.getPrice() + premium.getDelivery() + premium.getOther()) * premium.getCourse()) * calcPercent);
+                return Math.ceil(((premium.getMounting() + premium.getSlopes() + premium.getInterest() + Math.ceil(premium.getPrice()) + premium.getDelivery() + premium.getOther()) * premium.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
-                return Math.ceil(((premium.getMounting() + premium.getSlopes() + (premium.getInterest()/2.0) + premium.getPrice() + premium.getDelivery() + premium.getOther()) * premium.getCourse()) * calcPercent);
+                return Math.ceil(((premium.getMounting() + premium.getSlopes() + (premium.getInterest()/2.0) + Math.ceil(premium.getPrice()) + premium.getDelivery() + premium.getOther()) * premium.getCourse()) * calcPercent);
             }
         }
 

@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -16,11 +17,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -161,6 +165,8 @@ public class AddWindowActivity extends AppCompatActivity {
 
 //-----------------------------------------------------------------------------------------------------
     public AlertDialog.Builder builder;
+
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -964,81 +970,37 @@ public class AddWindowActivity extends AppCompatActivity {
                                   (positionTypeOfType1 > 1 ? dataShtulp.get(positionShtulp1) + "\n" : "") +
                         (positionShpros1 > 0 ? dataShpros.get(positionShpros1) + " " + dataShprosWidth.get(positionShprosWidth1) : dataShpros.get(positionShpros1));
 
-                //Если добавление не в блок из списка
-                if(!addFromList) {
 
-                    //Добавление в пакет, только если активный замер сам не является пакетом
-                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
-                        //Если не выбрали добавление произвольного окна
-                        if (addToPocketFlag.isChecked()) {
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, getPocketNameItem(MainActivity.prices.PROPLEX7032W), getPocketInfoItem(MainActivity.prices.PROPLEX7032W), setPriceToPockets(MainActivity.prices.PROPLEX7032W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, getPocketNameItem(MainActivity.prices.BB7040W), getPocketInfoItem(MainActivity.prices.BB7040W), setPriceToPockets(MainActivity.prices.BB7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, getPocketNameItem(MainActivity.prices.REHAU7040W), getPocketInfoItem(MainActivity.prices.REHAU7040W), setPriceToPockets(MainActivity.prices.REHAU7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, getPocketNameItem(MainActivity.prices.REHAUINTELIO), getPocketInfoItem(MainActivity.prices.REHAUINTELIO), setPriceToPockets(MainActivity.prices.REHAUINTELIO), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                        } else {
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                //Пришлось разделить просто добавление и добавление если это со спецификацией
+                //Для того что бы была возможность дождаться ввода точных размеров
+                //По другому не ждет ввода, а сразу вписывает что есть
+                if(MainActivity.hashMap.get(MainActivity.nameMeasure).getIsDoSpecification()) {
+                    //Добавляем высоту и ширину для коммерческого предложения
+                    LayoutInflater layoutInflater = LayoutInflater.from(context);
+                    View view = layoutInflater.inflate(R.layout.prompt5_height_width_specification, null);
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    alert.setView(view);
+                    EditText realHeight = view.findViewById(R.id.input_text_height);
+                    EditText realWidth = view.findViewById(R.id.input_text_width);
+                    realHeight.setText(dataHight.get(positionHight1));
+                    realWidth.setText(dataWidth.get(positionWidth1));
+                    alert.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            int height = Integer.parseInt(realHeight.getText().toString());
+                            int width = Integer.parseInt(realWidth.getText().toString());
+                            ExcelCreator.setTmpHeight(height);
+                            ExcelCreator.setTmpWidth(width);
 
+                            startAdd(itemName,itemInfo);
                         }
-                    }
-
-
-
-                    if (positionRegion1 == 0) {
-                        ProductList.addProdLst(itemName, setRegionPrice(), itemInterest, 0, 0);
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    }
-                    else {
-                        ProductList.addProdLst(itemName, setMinskPrice(), itemInterest, 0, 0);
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    }
-
-                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    vibrator.vibrate(100);
-                    try {
-                        writeHash(MainActivity.hashMap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    });
+                    AlertDialog alertDialogcb = alert.create();
+                    alertDialogcb.show();
                 }
-                //Если добавление в блок из списка
                 else {
-
-                    //Добавление в пакет, только если активный замер сам не является пакетом
-                    if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
-                        //Если не выбрали добавление произвольного окна
-                        if (addToPocketFlag.isChecked()) {
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, getPocketNameItem(MainActivity.prices.PROPLEX7032W), getPocketInfoItem(MainActivity.prices.PROPLEX7032W), setPriceToPockets(MainActivity.prices.PROPLEX7032W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, getPocketNameItem(MainActivity.prices.BB7040W), getPocketInfoItem(MainActivity.prices.BB7040W), setPriceToPockets(MainActivity.prices.BB7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, getPocketNameItem(MainActivity.prices.REHAU7040W), getPocketInfoItem(MainActivity.prices.REHAU7040W), setPriceToPockets(MainActivity.prices.REHAU7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, getPocketNameItem(MainActivity.prices.REHAUINTELIO), getPocketInfoItem(MainActivity.prices.REHAUINTELIO), setPriceToPockets(MainActivity.prices.REHAUINTELIO), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                        } else {
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                        }
-                    }
-
-                    if (positionRegion1 == 0) {
-                        ProductList.addProdLst(itemName, setRegionPrice(), itemInterest, 0, 0);
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                    } else {
-                        ProductList.addProdLst(itemName, setMinskPrice(), itemInterest, 0, 0);
-                        MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
-                    }
-
-                    Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                    vibrator.vibrate(100);
-                    try {
-                        writeHash(MainActivity.hashMap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    onBackPressed();
+                    startAdd(itemName, itemInfo);
                 }
+
             }
         });
 //__________________________________________________________________________________-
@@ -1070,6 +1032,82 @@ public class AddWindowActivity extends AppCompatActivity {
     }
 //-------------------------------------------------------------------------------------
 
+    //Метод для добавление, вынесен из кнопки что бы при создании спецификации можно было дождаться ввода точных размеров
+    public void startAdd(String itemName, String itemInfo) {
+        //Если добавление не в блок
+        if(!addFromList) {
+
+            //Добавление в пакет, только если активный замер сам не является пакетом
+            if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                //Если не выбрали добавление произвольного окна
+                if (addToPocketFlag.isChecked()) {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, getPocketNameItem(MainActivity.prices.PROPLEX7032W), getPocketInfoItem(MainActivity.prices.PROPLEX7032W), setPriceToPockets(MainActivity.prices.PROPLEX7032W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, getPocketNameItem(MainActivity.prices.BB7040W), getPocketInfoItem(MainActivity.prices.BB7040W), setPriceToPockets(MainActivity.prices.BB7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, getPocketNameItem(MainActivity.prices.REHAU7040W), getPocketInfoItem(MainActivity.prices.REHAU7040W), setPriceToPockets(MainActivity.prices.REHAU7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, getPocketNameItem(MainActivity.prices.REHAUINTELIO), getPocketInfoItem(MainActivity.prices.REHAUINTELIO), setPriceToPockets(MainActivity.prices.REHAUINTELIO), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                } else {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+
+                }
+            }
+
+            if (positionRegion1 == 0) {
+                ProductList.addProdLst(itemName, setRegionPrice(), itemInterest, 0, 0);
+                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+            }
+            else {
+                ProductList.addProdLst(itemName, setMinskPrice(), itemInterest, 0, 0);
+                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+            }
+
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(100);
+            try {
+                writeHash(MainActivity.hashMap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        //Если добавление в блок из списка
+        else {
+
+            //Добавление в пакет, только если активный замер сам не является пакетом
+            if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+                //Если не выбрали добавление произвольного окна
+                if (addToPocketFlag.isChecked()) {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, getPocketNameItem(MainActivity.prices.PROPLEX7032W), getPocketInfoItem(MainActivity.prices.PROPLEX7032W), setPriceToPockets(MainActivity.prices.PROPLEX7032W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, getPocketNameItem(MainActivity.prices.BB7040W), getPocketInfoItem(MainActivity.prices.BB7040W), setPriceToPockets(MainActivity.prices.BB7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, getPocketNameItem(MainActivity.prices.REHAU7040W), getPocketInfoItem(MainActivity.prices.REHAU7040W), setPriceToPockets(MainActivity.prices.REHAU7040W), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, getPocketNameItem(MainActivity.prices.REHAUINTELIO), getPocketInfoItem(MainActivity.prices.REHAUINTELIO), setPriceToPockets(MainActivity.prices.REHAUINTELIO), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                } else {
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+                }
+            }
+
+            if (positionRegion1 == 0) {
+                ProductList.addProdLst(itemName, setRegionPrice(), itemInterest, 0, 0);
+                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+            } else {
+                ProductList.addProdLst(itemName, setMinskPrice(), itemInterest, 0, 0);
+                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)), ProductList.getIndexOfAddToBlock());
+            }
+
+            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(100);
+            try {
+                writeHash(MainActivity.hashMap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            onBackPressed();
+        }
+    }
 
     public void setPrice(int p1, int p2) {
 
@@ -1136,6 +1174,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind1stNo[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND1STNO_PICTURE);
             }
             return;
         }
@@ -1173,6 +1214,8 @@ public class AddWindowActivity extends AppCompatActivity {
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind2stNo[positionHight1][positionWidth1];
 
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND2STNO_PICTURE);
             }
             return;
         }
@@ -1209,6 +1252,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind3stNo[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND3STNO_PICTURE);
             }
             return;
         }
@@ -1248,6 +1294,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind1stOp[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND1STOP_PICTURE);
             }
             return;
         }
@@ -1283,6 +1332,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind2st1Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND2ST1OP_PICTURE);
             }
             return;
         }
@@ -1319,6 +1371,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind2st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND2ST2OP_PICTURE);
             }
             return;
         }
@@ -1355,6 +1410,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind3st1Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND3ST1OP_PICTURE);
             }
             return;
         }
@@ -1391,6 +1449,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND3ST2OP_PICTURE);
             }
             return;
         }
@@ -1427,6 +1488,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = 25 + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND3ST3OP_PICTURE);
             }
             return;
         }
@@ -1463,6 +1527,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4STNO_PICTURE);
             }
             return;
         }
@@ -1499,6 +1566,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4ST1OP_PICTURE);
             }
             return;
         }
@@ -1535,6 +1605,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4ST2OP_PICTURE);
             }
             return;
         }
@@ -1571,6 +1644,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = 25 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4ST3OP_PICTURE);
             }
             return;
         }
@@ -1607,6 +1683,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = 50 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4ST4OP_PICTURE);
             }
             return;
         }
@@ -1649,6 +1728,9 @@ public class AddWindowActivity extends AppCompatActivity {
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
                 pocketPrice = MainActivity.prices.BB6032balDor[positionHight1][positionWidth1];
+
+                //Добавляем информацию о том какую картинку использовать
+                ExcelCreator.setTmpPicturePath(ExcelCreator.BALDOR_PICTURE);
             }
             return;
         }

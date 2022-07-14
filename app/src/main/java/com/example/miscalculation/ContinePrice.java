@@ -2,8 +2,10 @@ package com.example.miscalculation;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.gson.Gson;
 
 import java.io.ByteArrayOutputStream;
@@ -50,6 +53,7 @@ public class ContinePrice extends AppCompatActivity {
     static Spinner spinnerPrice;
     static ImageView imSendQr;
     static ImageView imBank;
+    static ImageView getSpecificationImage;
     static Button pockets;
     static ListView productList;
 
@@ -71,6 +75,8 @@ public class ContinePrice extends AppCompatActivity {
 
     static int continePriceZh;
     static int continePriceM;
+
+    static int positionPrice1;
 
 
     @Override
@@ -99,6 +105,11 @@ public class ContinePrice extends AppCompatActivity {
 
         imSendQr = findViewById(R.id.imSendQR);
         imBank = findViewById(R.id.imBank);
+        getSpecificationImage = findViewById(R.id.getSpecificationImage);
+        getSpecificationImage.setVisibility(View.INVISIBLE);
+        if (MainActivity.hashMap.get(MainActivity.nameMeasure).getIsDoSpecification()) {
+            getSpecificationImage.setVisibility(View.VISIBLE);
+        }
 
         pockets = findViewById(R.id.button_pockets);
 
@@ -118,7 +129,11 @@ public class ContinePrice extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int positionPrice, long idPrice) {
+                positionPrice1 = positionPrice;
                 setPriceOutcome(positionPrice);
+                if(MainActivity.nameMeasure.contains("COMFORTPOCKET") || MainActivity.nameMeasure.contains("PREMIUMPOCKET")) {
+                    spinnerPrice.setVisibility(View.INVISIBLE);
+                }
             }
 
             @Override
@@ -153,6 +168,21 @@ public class ContinePrice extends AppCompatActivity {
             }
         });
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        getSpecificationImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.startAnimation(animAlpha);
+                ExcelCreator ec = MainActivity.hashMap.get(MainActivity.nameMeasure).getExcelCreator();
+                int price = positionPrice1 == 0 ? continePriceZh : continePriceM;
+                try {
+                    sendSpecification(ec, price);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
         pockets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,9 +209,9 @@ public class ContinePrice extends AppCompatActivity {
     }
 
     public void setPriceOutcome(int i) {
-        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other) * course) * 1.185);
+        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
 
-        continePriceM = (int) Math.ceil(((mounting + slopes + (interest / 2.0) + price + delivery + other) * course) * 1.185);
+        continePriceM = (int) Math.ceil(((mounting + slopes + (interest / 2.0) + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
 
 
         //Это ЗАВЫШЕННАЯ стоимость для скидок
@@ -215,57 +245,78 @@ public class ContinePrice extends AppCompatActivity {
         //Перезаписывем строку сжимая ее
         json = gson.toJson(compress(json));
 
-        File file;
+        //Для андроид 10+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            ContentResolver resolver = getContentResolver();
             ContentValues contentValues = new ContentValues();
             contentValues.put(MediaStore.MediaColumns.DISPLAY_NAME, MainActivity.nameMeasure + ".msr");
             contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "application/octet-stream");
             contentValues.put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOCUMENTS + File.separator + "Miscalculation");
-            Uri measureUri = MediaStore.Files.getContentUri("external");
-            getContentResolver().delete(measureUri, null, null);
-            measureUri = resolver.insert(MediaStore.Files.getContentUri("external"), contentValues);
-            OutputStream fos = resolver.openOutputStream(measureUri);
-            fos.write(json.getBytes());
-            file = new File(getRealPathFromURI(measureUri));
+            ContentResolver resolver = getContentResolver();
+            Uri uri = null;
 
-        }else {
+
+            final Uri contentUri = MediaStore.Files.getContentUri("external");
+            //Перед созданием нового элемента, полностью удаляем всю таблицу файлов "external"
+            resolver.delete(contentUri, null, null);
+
+            uri = resolver.insert(contentUri, contentValues);
+
+            OutputStream fos = resolver.openOutputStream(uri);
+            fos.write(json.getBytes());
+
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+            shareIntent.setType("application/octet-stream");
+            startActivity(Intent.createChooser(shareIntent, null));
+
+        }
+        //Для более старых версий
+        else {
              //Сохраняем замер в папку приложения
              FileOutputStream fos;
              fos = new FileOutputStream(getExternalPath());
              fos.write(json.getBytes());
-             file = getExternalPath();
+
+            final Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("application/octet-stream");
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(getExternalPath()));
+            startActivity(Intent.createChooser(shareIntent, "Share image using"));
         }
-
-        final Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("application/octet-stream");
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
-        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
-        startActivity(Intent.createChooser(shareIntent, "Share image using"));
-
-
     }
 
+    //отправляем спецификацию
+    public void sendSpecification(ExcelCreator ec, int price) throws IOException {
+        Uri uri = ec.getSpecification(price,this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+            shareIntent.setType("application/octet-stream");
+            startActivity(Intent.createChooser(shareIntent, null));
+        }
+        else {
+            final Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("application/octet-stream");
+            StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+            StrictMode.setVmPolicy(builder.build());
+            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(getExternalPathSpec()));
+            startActivity(Intent.createChooser(shareIntent, "Share image using"));
+        }
+    }
+
+    //Для старых андроид
     private File getExternalPath() {
         return new File(getExternalFilesDir(null), MainActivity.nameMeasure + ".msr");
     }
 
-    public String getRealPathFromURI(Uri contentUri) {
-        Cursor cursor = null;
-        try {
-            String[] proj = { MediaStore.Images.Media.DATA };
-            cursor = getContentResolver().query(contentUri,  proj, null, null, null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
+    //Это для старых андроид
+    public File getExternalPathSpec() {
+        return new File(getExternalFilesDir(null), MainActivity.nameMeasure + " спец.xls");
     }
-
 
     //Вызывается из метода с сжатием строки
     public static byte[] compress(byte[] data) throws IOException {
@@ -317,8 +368,8 @@ public class ContinePrice extends AppCompatActivity {
         priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
 
-        double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * 1.185 * course;
-        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 1.185 * course;
+        double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * MainActivity.prices.CALCPERC * course;
+        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * MainActivity.prices.CALCPERC * course;
 
         all = priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery;
         percent = all * percentN;
@@ -353,7 +404,7 @@ public class ContinePrice extends AppCompatActivity {
         double percent2;
         double NDS2;
 
-        int sumP = (int) (prepaid/course/1.185);
+        int sumP = (int) (prepaid/course/MainActivity.prices.CALCPERC);
 
 
         double pLizZh;

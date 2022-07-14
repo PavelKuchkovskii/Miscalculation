@@ -46,4 +46,7 @@ dependencies {
     implementation('com.google.apis:google-api-services-sheets:v4-rev581-1.25.0') {
         exclude group: 'org.apache.httpcomponents'
     }
+    implementation group: 'com.google.android.gms', name: 'play-services-location', version: '19.0.1'
+    implementation 'commons-codec:commons-codec:1.15'
+
 }

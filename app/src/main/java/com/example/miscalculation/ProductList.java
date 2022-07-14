@@ -39,7 +39,7 @@ public class ProductList extends AppCompatActivity {
     static int indexOfAddToBlock = 0;
 
     static boolean mainActivityFlag = true;
-    private static final boolean isManager = true;
+    public static final boolean isManager = false;
 
     static double Course = 0.0;
 
@@ -126,11 +126,13 @@ public class ProductList extends AppCompatActivity {
         textInterestNP.setVisibility(View.INVISIBLE);
 
         textDelivery = findViewById(R.id.txtDelivery);
+        textDelivery.setVisibility(View.VISIBLE);
         textOther = findViewById(R.id.txtOther);
         textDelivKM = findViewById(R.id.txtDelivKM);
         itemSum = findViewById(R.id.SumItem);
 
         textRegion = findViewById(R.id.txtRegion);
+        textRegion.setVisibility(View.INVISIBLE);
 
         textMounting.setText(mounting + ".00");
         textMounting.setVisibility(View.INVISIBLE);
@@ -149,10 +151,12 @@ public class ProductList extends AppCompatActivity {
         productList = findViewById(R.id.listProduct);
 
         final EditText editTextDelivery = findViewById(R.id.editTextDelivery);
+        editTextDelivery.setVisibility(View.VISIBLE);
         final EditText editTextOther = findViewById(R.id.editTextOther);
         final EditText editTextDelivKM = findViewById(R.id.editTextDelivKM);
 
         final Button addDelivery = findViewById(R.id.button_addDelivery);
+        addDelivery.setVisibility(View.VISIBLE);
         final Button addOther = findViewById(R.id.button_addOther);
         final Button addDelivKM = findViewById(R.id.button_addDelivKM);
         final Button butClearAll = findViewById(R.id.button_clearAll);
@@ -185,6 +189,7 @@ public class ProductList extends AppCompatActivity {
                 builder = new AlertDialog.Builder(ProductList.this);
                 builder.setTitle("Удалить?");
                 builder.setMessage(MainActivity.hashMap.get(MainActivity.nameMeasure).getItemInfo(position));
+                builder.setIcon(R.drawable.trash);
 
                 builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -362,6 +367,12 @@ public class ProductList extends AppCompatActivity {
                     textSlopesNP.setVisibility(View.VISIBLE);
 
                     spinnerCourse.setVisibility(View.VISIBLE);
+
+                    editTextDelivery.setVisibility(View.VISIBLE);
+                    textDelivery.setVisibility(View.VISIBLE);
+                    addDelivery.setVisibility(View.VISIBLE);
+
+                    textRegion.setVisibility(View.VISIBLE);
                 }
                 setTextRegion();
 
@@ -428,9 +439,11 @@ public class ProductList extends AppCompatActivity {
                     hideKeyboard(ProductList.this);
                 }
                 else {
+                    delivKM = Math.ceil(((((Double.valueOf(editTextDelivKM.getText().toString()) * 0.1) * MainActivity.prices.fuel) * 4) /
+                            MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse())  + 20);
+                    textDelivKM.setText( String.valueOf(delivKM));
+                    editTextDelivKM.getText().clear();
 
-                    delivKM = (Double.valueOf(editTextDelivKM.getText().toString())*0.4) + 10;
-                    textDelivKM.setText(  String.format("%.2f", ((Double.valueOf(editTextDelivKM.getText().toString())*0.4) + 10)) );
                     hideKeyboard(ProductList.this);
                 }
             }

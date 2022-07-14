@@ -9,17 +9,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import android.widget.Button;
 
+import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.gson.Gson;
 
 import java.io.File;
@@ -32,6 +35,8 @@ import java.util.List;
 import java.util.Locale;
 
 public class AddDoorActivity extends AppCompatActivity {
+
+    final Context context = this;
 
     static boolean flag = false;
     static boolean getPriceFlag = false;
@@ -777,29 +782,35 @@ public class AddDoorActivity extends AppCompatActivity {
                                 dataGlassList.get(0) + ";" + dataGlassList.get(1) + ";" + dataGlassList.get(2) + ";" + "\n" :
                                 dataGlassList.get(0) + ";" + dataGlassList.get(1) + ";" + "\n") : "");
 
-                if (positionRegion1 == 0) {
-                    ProductList.addProdLst(itemName, setRegionPrice(), itemInterest,0,0);
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+
+                //Пришлось разделить просто добавление и добавление если это со спецификацией
+                //Для того что бы была возможность дождаться ввода точных размеров
+                //По другому не ждет ввода, а сразу вписывает что есть
+                if(MainActivity.hashMap.get(MainActivity.nameMeasure).getIsDoSpecification()) {
+                    //Добавляем высоту и ширину для коммерческого предложения
+                    LayoutInflater layoutInflater = LayoutInflater.from(context);
+                    View view = layoutInflater.inflate(R.layout.prompt5_height_width_specification, null);
+                    AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                    alert.setView(view);
+                    EditText realHeight = view.findViewById(R.id.input_text_height);
+                    EditText realWidth = view.findViewById(R.id.input_text_width);
+                    realHeight.setText(dataHight.get(positionHight1));
+                    realWidth.setText(dataWidth.get(positionWidth1));
+                    alert.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            int height = Integer.parseInt(realHeight.getText().toString());
+                            int width = Integer.parseInt(realWidth.getText().toString());
+                            ExcelCreator.setTmpHeight(height);
+                            ExcelCreator.setTmpWidth(width);
+
+                            startAdd(itemName,itemInfo);
+                        }
+                    });
+                    AlertDialog alertDialogcb = alert.create();
+                    alertDialogcb.show();
                 }
                 else {
-                    ProductList.addProdLst(itemName, setMinskPrice(), itemInterest,0,0);
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                }
-
-                //Добавление в пакет, только если активный замер сам не является пакетом
-                if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
-                }
-
-                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                vibrator.vibrate(100);
-                try {
-                    writeHash(MainActivity.hashMap);
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    startAdd(itemName, itemInfo);
                 }
             }
         });
@@ -814,8 +825,46 @@ public class AddDoorActivity extends AppCompatActivity {
     }
 //-------------------------------------------------------------------------------------
 
+    //Метод для добавление, вынесен из кнопки что бы при создании спецификации можно было дождаться ввода точных размеров
+    public void startAdd(String itemName, String itemInfo) {
+        if (positionRegion1 == 0) {
+            ProductList.addProdLst(itemName, setRegionPrice(), itemInterest,0,0);
+            MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setRegionPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+        }
+        else {
+            ProductList.addProdLst(itemName, setMinskPrice(), itemInterest,0,0);
+            MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+        }
+
+        //Добавление в пакет, только если активный замер сам не является пакетом
+        if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
+            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+            MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, setMinskPrice(), itemInterest, Integer.parseInt(dataWidth.get(positionWidth1)));
+        }
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(100);
+        try {
+            writeHash(MainActivity.hashMap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void setPrice(int p1, int p2) {
+
+        //Если одностворчатая дверь
+        if (p1 == 0) {
+            //Добавляем информацию о том какую картинку использовать
+            ExcelCreator.setTmpPicturePath(ExcelCreator.DOOR1ST_PICTURE);
+        }
+        //Если штульповая дверь
+        else {
+            //Добавляем информацию о том какую картинку использовать
+            ExcelCreator.setTmpPicturePath(ExcelCreator.DOOR2ST_PICTURE);
+        }
 
         //Если деврной профиль, то скоба ставится
         if (p2 == 0 || p2 == 1 || p2 == 4 || p2 == 5) {

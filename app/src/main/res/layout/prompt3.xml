@@ -14,6 +14,23 @@
         android:text="ВВЕДИТЕ НАЗВАНИЕ: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <CheckBox
+        android:id="@+id/isDoSpecification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_text"
+        android:layout_marginTop="25dp"
+        android:checked="false"/>
+
+    <TextView
+        android:id="@+id/isDoSpecificationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Делать спецификацию"
+        android:layout_toRightOf="@id/isDoSpecification"
+        android:layout_alignBottom="@id/isDoSpecification"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <EditText
         android:id="@+id/input_text"
         android:layout_width="match_parent"

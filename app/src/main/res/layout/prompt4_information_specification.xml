@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/infoDoSpecification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Это новая функция, которая позволит вам сформировать спецификацию к изделиям.На сегодняшний день, она работает неидеально
+и в ближайшие НЕДЕЛИ\\МЕСЯЦЫ\\ГОДЫ, иначе она работать не будет =)))\n
+При добавлении изделий, они добавляются в спецификацию автоматически, но при удалении, они из спецификации НЕ УДАЛЯЮТСЯ.\n
+Так что у Вас есть один шанс сделать все правильно, а значит с первого раза!!!\n
+После ЗАКРЫТИЯ ПРИЛОЖЕНИЯ\\ЗАМЕРА и повторного его открытия, спецификация уже формироваться НЕ БУДЕТ\n
+Так же спецификация не формируется для ПАКЕТОВ(Если не просчитывать их вручную)\n
+Не формируется для скопированных замеров.Фактически ее можно получить, только один раз, при первом просчете\n
+Спецификация предоставляет общую стоимость!!! НЕ ПО ПОЗИЦИЯМ\n
+Формируется на экране итоговой стоимости и цена в ней зависит от активной стоимости(ЖЕЛ\\МИН)"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</ScrollView>

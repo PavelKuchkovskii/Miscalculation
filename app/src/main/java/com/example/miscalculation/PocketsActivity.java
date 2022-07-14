@@ -152,7 +152,7 @@ public class PocketsActivity extends AppCompatActivity {
         comfortPocket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (comfortFlag) {
+                /**if (comfortFlag) {
                     comfortFlag = false;
                     comfortPocket.setTextColor(Color.parseColor("#43c4f7"));
                     priceComfortPocket.setTextColor(Color.parseColor("#43c4f7"));
@@ -163,6 +163,7 @@ public class PocketsActivity extends AppCompatActivity {
                     priceComfortPocket.setTextColor(Color.parseColor("#f4f743"));
                     comfortPocketView.setBackgroundColor(Color.parseColor("#f4f743"));
                 }
+                 */ //КОМФОРТ И ПРЕМИУМ ПАКЕТЫ, ТОЛЬКО ПО ЖЕЛАЕМОЙ ЦЕНЕ
 
                 priceComfortPocket.setText(String.valueOf(MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.getPrice(MainActivity.prices.REHAU7040W, comfortFlag)));
 
@@ -171,7 +172,7 @@ public class PocketsActivity extends AppCompatActivity {
         premiumPocket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (premiumFlag) {
+                /**if (premiumFlag) {
                     premiumFlag = false;
                     premiumPocket.setTextColor(Color.parseColor("#43c4f7"));
                     pricePremiumPocket.setTextColor(Color.parseColor("#43c4f7"));
@@ -179,7 +180,7 @@ public class PocketsActivity extends AppCompatActivity {
                     premiumFlag = true;
                     premiumPocket.setTextColor(Color.parseColor("#f4f743"));
                     pricePremiumPocket.setTextColor(Color.parseColor("#f4f743"));
-                }
+                } */ //КОМФОРТ И ПРЕМИУМ ПАКЕТЫ, ТОЛЬКО ПО ЖЕЛАЕМОЙ ЦЕНЕ
 
                 pricePremiumPocket.setText(String.valueOf(MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.getPrice(MainActivity.prices.REHAUINTELIO, premiumFlag)));
 

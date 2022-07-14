@@ -261,17 +261,19 @@ public class Bank extends AppCompatActivity {
 
     public void setPriceBank() {
 
+        boolean isPocket = MainActivity.nameMeasure.contains("COMFORTPOCKET") || MainActivity.nameMeasure.contains("PREMIUMPOCKET");
+
         Ames12Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES12) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES12) + rub : "-");
         Ames18Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES18) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES18) + rub : "-");
         Ames24Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES24) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES24) + rub : "-");
         Ames36Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES36) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES36) + rub : "-");
         Ames48Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES48) ? (int) Math.ceil(priceZ * MainActivity.prices.AMES48) + rub : "-");
 
-        Ames12M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES12) ? (int) Math.ceil(priceM * MainActivity.prices.AMES12) + rub : "-");
-        Ames18M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES18) ? (int) Math.ceil(priceM * MainActivity.prices.AMES18) + rub : "-");
-        Ames24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES24) ? (int) Math.ceil(priceM * MainActivity.prices.AMES24) + rub : "-");
-        Ames36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES36) ? (int) Math.ceil(priceM * MainActivity.prices.AMES36) + rub : "-");
-        Ames48M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES48) ? (int) Math.ceil(priceM * MainActivity.prices.AMES48) + rub : "-");
+        Ames12M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES12) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.AMES12) + rub : "-");
+        Ames18M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES18) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.AMES18) + rub : "-");
+        Ames24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES24) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.AMES24) + rub : "-");
+        Ames36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES36) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.AMES36) + rub : "-");
+        Ames48M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES48) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.AMES48) + rub : "-");
 
         Ames12EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES12) ? getPltAlfa(MainActivity.prices.ALFASTVK, 12, priceZ) + rub : "-");
         Ames18EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES18) ? getPltAlfa(MainActivity.prices.ALFASTVK, 18, priceZ) + rub : "-");
@@ -279,11 +281,11 @@ public class Bank extends AppCompatActivity {
         Ames36EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES36) ? getPltAlfa(MainActivity.prices.ALFASTVK, 36, priceZ) + rub : "-");
         Ames48EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.AMES48) ? getPltAlfa(MainActivity.prices.ALFASTVK, 48, priceZ) + rub : "-");
 
-        Ames12EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES12) ? getPltAlfa(MainActivity.prices.ALFASTVK, 12, priceM) + rub : "-");
-        Ames18EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES18) ? getPltAlfa(MainActivity.prices.ALFASTVK, 18, priceM) + rub : "-");
-        Ames24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES24) ? getPltAlfa(MainActivity.prices.ALFASTVK, 24, priceM) + rub : "-");
-        Ames36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES36) ? getPltAlfa(MainActivity.prices.ALFASTVK, 36, priceM) + rub : "-");
-        Ames48EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES48) ? getPltAlfa(MainActivity.prices.ALFASTVK, 48, priceM) + rub : "-");
+        Ames12EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES12) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 12, priceM) + rub : "-");
+        Ames18EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES18) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 18, priceM) + rub : "-");
+        Ames24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES24) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 24, priceM) + rub : "-");
+        Ames36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES36) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 36, priceM) + rub : "-");
+        Ames48EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.AMES48) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 48, priceM) + rub : "-");
 
 
 
@@ -294,11 +296,11 @@ public class Bank extends AppCompatActivity {
         Dmes24Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES24) + rub : "-");
         Dmes36Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES36) + rub : "-");
 
-        Dmes6M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES6) ? (int) Math.ceil(priceM * MainActivity.prices.DMES6) + rub : "-");
-        Dmes12M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES12) ? (int) Math.ceil(priceM * MainActivity.prices.DMES12) + rub : "-");
-        Dmes18M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES18) ? (int) Math.ceil(priceM * MainActivity.prices.DMES18) + rub : "-");
-        Dmes24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES24) ? (int) Math.ceil(priceM * MainActivity.prices.DMES24) + rub : "-");
-        Dmes36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES36) ? (int) Math.ceil(priceM * MainActivity.prices.DMES36) + rub : "-");
+        Dmes6M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES6) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES6) + rub : "-");
+        Dmes12M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES12) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES12) + rub : "-");
+        Dmes18M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES18) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES18) + rub : "-");
+        Dmes24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES24) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES24) + rub : "-");
+        Dmes36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES36) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES36) + rub : "-");
 
         Dmes6EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES6) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
         Dmes12EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES12) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
@@ -306,11 +308,11 @@ public class Bank extends AppCompatActivity {
         Dmes24EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
         Dmes36EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(priceZ * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
-        Dmes6EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES6) ? (int) Math.ceil(priceM * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
-        Dmes12EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES12) ? (int) Math.ceil(priceM * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
-        Dmes18EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES18) ? (int) Math.ceil(priceM * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
-        Dmes24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES24) ? (int) Math.ceil(priceM * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
-        Dmes36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES36) ? (int) Math.ceil(priceM * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
+        Dmes6EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES6) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
+        Dmes12EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES12) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
+        Dmes18EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES18) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
+        Dmes24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES24) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
+        Dmes36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.DMES36) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
 
         //ЛИЗИНГ
@@ -320,11 +322,11 @@ public class Bank extends AppCompatActivity {
         Lmes20Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING20M) + rub : "-");
         Lmes24Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING24M) + rub : "-");
 
-        Lmes4M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING4M) + rub : "-");
-        Lmes6M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING6M) + rub : "-");
-        Lmes12M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING12M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING12M) + rub : "-");
-        Lmes20M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING20M) + rub : "-");
-        Lmes24M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING24M) + rub : "-");
+        Lmes4M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING4M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING4M) + rub : "-");
+        Lmes6M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING6M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING6M) + rub : "-");
+        Lmes12M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING12M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING12M) + rub : "-");
+        Lmes20M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING20M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING20M) + rub : "-");
+        Lmes24M.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING24M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING24M) + rub : "-");
 
 
         Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING4M)/4 + rub : "-");
@@ -333,15 +335,16 @@ public class Bank extends AppCompatActivity {
         Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING20M)/20 + rub : "-");
         Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING24M)/24 + rub : "-");
 
-        Lmes4EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING4M)/4 + rub : "-");
-        Lmes6EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING6M)/6 + rub : "-");
-        Lmes12EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING12M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING12M)/12 + rub : "-");
-        Lmes20EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING20M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING20M)/20 + rub : "-");
-        Lmes24EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING24M) ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING24M)/24 + rub : "-");
+        Lmes4EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING4M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING4M)/4 + rub : "-");
+        Lmes6EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING6M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING6M)/6 + rub : "-");
+        Lmes12EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING12M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING12M)/12 + rub : "-");
+        Lmes20EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING20M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING20M)/20 + rub : "-");
+        Lmes24EM.setText(minLiz <= Math.ceil(priceLizM * MainActivity.prices.LIZING24M) && !isPocket ? (int) Math.ceil(priceLizM * MainActivity.prices.LIZING24M)/24 + rub : "-");
     }
 
     //Вызывается при добовлении предоплаты
     public void setPriceBank(int i) {
+        boolean isPocket = MainActivity.nameMeasure.contains("COMFORTPOCKET") || MainActivity.nameMeasure.contains("PREMIUMPOCKET");
         int tmpPriceZ = priceZ - i;
         int tmpPriceM = priceM - i;
         ContinePrice.forLizingFromBank(i);
@@ -353,11 +356,11 @@ public class Bank extends AppCompatActivity {
         Ames36Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES36) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES36) + rub : "-");
         Ames48Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES48) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.AMES48) + rub : "-");
 
-        Ames12M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES12) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES12) + rub : "-");
-        Ames18M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES18) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES18) + rub : "-");
-        Ames24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES24) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES24) + rub : "-");
-        Ames36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES36) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES36) + rub : "-");
-        Ames48M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES48) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES48) + rub : "-");
+        Ames12M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES12) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES12) + rub : "-");
+        Ames18M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES18) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES18) + rub : "-");
+        Ames24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES24) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES24) + rub : "-");
+        Ames36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES36) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES36) + rub : "-");
+        Ames48M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES48) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.AMES48) + rub : "-");
 
         Ames12EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES12) ? getPltAlfa(MainActivity.prices.ALFASTVK, 12, tmpPriceZ) + rub : "-");
         Ames18EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES18) ? getPltAlfa(MainActivity.prices.ALFASTVK, 18, tmpPriceZ) + rub : "-");
@@ -365,11 +368,11 @@ public class Bank extends AppCompatActivity {
         Ames36EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES36) ? getPltAlfa(MainActivity.prices.ALFASTVK, 36, tmpPriceZ) + rub : "-");
         Ames48EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.AMES48) ? getPltAlfa(MainActivity.prices.ALFASTVK, 48, tmpPriceZ) + rub : "-");
 
-        Ames12EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES12) ? getPltAlfa(MainActivity.prices.ALFASTVK, 12, tmpPriceM) + rub : "-");
-        Ames18EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES18) ? getPltAlfa(MainActivity.prices.ALFASTVK, 18, tmpPriceM) + rub : "-");
-        Ames24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES24) ? getPltAlfa(MainActivity.prices.ALFASTVK, 24, tmpPriceM) + rub : "-");
-        Ames36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES36) ? getPltAlfa(MainActivity.prices.ALFASTVK, 36, tmpPriceM) + rub : "-");
-        Ames48EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES48) ? getPltAlfa(MainActivity.prices.ALFASTVK, 48, tmpPriceM) + rub : "-");
+        Ames12EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES12) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 12, tmpPriceM) + rub : "-");
+        Ames18EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES18) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 18, tmpPriceM) + rub : "-");
+        Ames24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES24) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 24, tmpPriceM) + rub : "-");
+        Ames36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES36) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 36, tmpPriceM) + rub : "-");
+        Ames48EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.AMES48) && !isPocket ? getPltAlfa(MainActivity.prices.ALFASTVK, 48, tmpPriceM) + rub : "-");
 
 
         //ДОБРОБЫТ
@@ -379,11 +382,11 @@ public class Bank extends AppCompatActivity {
         Dmes24Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES24) + rub : "-");
         Dmes36Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES36) + rub : "-");
 
-        Dmes6M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES6) + rub : "-");
-        Dmes12M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES12) + rub : "-");
-        Dmes18M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES18) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES18) + rub : "-");
-        Dmes24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES24) + rub : "-");
-        Dmes36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES36) + rub : "-");
+        Dmes6M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES6) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES6) + rub : "-");
+        Dmes12M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES12) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES12) + rub : "-");
+        Dmes18M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES18) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES18) + rub : "-");
+        Dmes24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES24) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES24) + rub : "-");
+        Dmes36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES36) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES36) + rub : "-");
 
         Dmes6EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
         Dmes12EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
@@ -391,11 +394,11 @@ public class Bank extends AppCompatActivity {
         Dmes24EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
         Dmes36EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
-        Dmes6EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES6) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
-        Dmes12EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES12) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
-        Dmes18EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES18) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
-        Dmes24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES24) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
-        Dmes36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES36) ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
+        Dmes6EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES6) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES6 * MainActivity.prices.DMES_E6)/6 + rub : "-");
+        Dmes12EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES12) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES12 * MainActivity.prices.DMES_E12)/12 + rub : "-");
+        Dmes18EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES18) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES18 * MainActivity.prices.DMES_E18)/18 + rub : "-");
+        Dmes24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES24) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES24 * MainActivity.prices.DMES_E24)/24 + rub : "-");
+        Dmes36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.DMES36) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.DMES36 * MainActivity.prices.DMES_E36)/36 + rub : "-");
 
 
 
@@ -406,11 +409,11 @@ public class Bank extends AppCompatActivity {
         Lmes20Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M) + rub : "-");
         Lmes24Z.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M) + rub : "-");
 
-        Lmes4M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) + rub : "-");
-        Lmes6M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) + rub : "-");
-        Lmes12M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) + rub : "-");
-        Lmes20M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) + rub : "-");
-        Lmes24M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M) + rub : "-");
+        Lmes4M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) + rub : "-");
+        Lmes6M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) + rub : "-");
+        Lmes12M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) + rub : "-");
+        Lmes20M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) + rub : "-");
+        Lmes24M.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M) + rub : "-");
 
 
         Lmes4EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING4M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING4M)/4 + rub : "-");
@@ -419,11 +422,11 @@ public class Bank extends AppCompatActivity {
         Lmes20EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING20M)/20 + rub : "-");
         Lmes24EZ.setText(minLiz <= Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M) && i <= prepaidLizZh ? (int) Math.ceil(priceLizZhWPrepaid * MainActivity.prices.LIZING24M)/24 + rub : "-");
 
-        Lmes4EM.setText(minLiz <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M)/4 + rub : "-");
-        Lmes6EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M)/6 + rub : "-");
-        Lmes12EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M)/12 + rub : "-");
-        Lmes20EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) && i <= prepaidLizM ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M)/20 + rub : "-");
-        Lmes24EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M)  && i <= prepaidLizM? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M)/24 + rub : "-");
+        Lmes4EM.setText(minLiz <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING4M)/4 + rub : "-");
+        Lmes6EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING6M)/6 + rub : "-");
+        Lmes12EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING12M)/12 + rub : "-");
+        Lmes20EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M) && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING20M)/20 + rub : "-");
+        Lmes24EM.setText(minLiz  <= Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M)  && i <= prepaidLizM && !isPocket ? (int) Math.ceil(priceLizMWPrepaid  * MainActivity.prices.LIZING24M)/24 + rub : "-");
     }
 
     public static void setPriceDopAndItem(double pLizZh, double pLizMin, double zhMaxPrepaid, double minMaxPrepaid) {

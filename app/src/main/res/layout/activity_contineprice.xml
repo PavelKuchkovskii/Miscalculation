@@ -113,6 +113,16 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="75dp" />
 
+    <ImageView
+        android:id="@+id/getSpecificationImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/pdficon"
+        android:layout_above="@+id/imBank"
+        android:layout_toLeftOf="@+id/imBank"
+        android:layout_marginRight="50dp"
+        android:layout_alignBottom="@+id/imBank" />
+
     <Button
         android:id="@+id/button_pockets"
         android:layout_width="wrap_content"
