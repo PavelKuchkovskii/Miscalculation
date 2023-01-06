@@ -24,7 +24,7 @@
         android:gravity="center"
         android:text="ЦЕНА"
         android:layout_alignBottom="@+id/spinner_discont"
-        android:layout_toRightOf="@+id/button_addOther"
+        android:layout_toRightOf="@+id/txtDelivery"
         android:background="#00994d"
         android:textColor="#ffd11a"/>
 
@@ -71,7 +71,7 @@
         android:background="#ffd11a"
         android:layout_below="@+id/txtInterest"
         android:layout_marginBottom="1dp"
-        android:layout_alignRight="@+id/button_addDelivery"/>
+        android:layout_alignRight="@+id/txtDelivery"/>
 
     <TextView
         android:id="@+id/txtMounting"
@@ -100,7 +100,7 @@
         android:background="#ffd11a"
         android:layout_below="@+id/txtMounting"
         android:layout_marginBottom="1dp"
-        android:layout_alignRight="@+id/button_addDelivery"/>
+        android:layout_alignRight="@+id/txtDelivery"/>
 
     <TextView
         android:id="@+id/txtSlopes"
@@ -130,7 +130,7 @@
         android:background="#ffd11a"
         android:layout_above="@+id/editTextDelivery"
         android:layout_marginBottom="10dp"
-        android:layout_alignRight="@+id/button_addDelivery"/>
+        android:layout_alignRight="@+id/txtDelivery"/>
 
 
 
@@ -149,24 +149,13 @@
         android:textColor="#ffd11a"
         android:textColorHint="#ffd11a"/>
 
-    <Button
-        android:id="@+id/button_addDelivery"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="+"
-        android:layout_alignBottom ="@+id/editTextDelivery"
-        android:layout_toRightOf="@+id/editTextDelivery"
-        android:background="#00994d"
-        android:textColor="#ffd11a"/>
-
     <TextView
         android:id="@+id/txtDelivery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:layout_alignBottom ="@+id/editTextDelivery"
-        android:layout_toRightOf="@+id/button_addDelivery"
+        android:layout_toRightOf="@+id/editTextDelivery"
         android:layout_marginLeft="10dp"
         android:text="0.00"
         android:textColor="#ffd11a"/>
@@ -183,24 +172,13 @@
         android:textColor="#ffd11a"
         android:textColorHint="#ffd11a"/>
 
-    <Button
-        android:id="@+id/button_addOther"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:gravity="center"
-        android:text="+"
-        android:layout_alignBottom ="@+id/editTextOther"
-        android:layout_toRightOf="@+id/editTextOther"
-        android:background="#00994d"
-        android:textColor="#ffd11a"/>
-
     <TextView
         android:id="@+id/txtOther"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:layout_alignBottom ="@+id/editTextOther"
-        android:layout_toRightOf="@+id/button_addOther"
+        android:layout_toRightOf="@+id/editTextOther"
         android:layout_marginLeft="10dp"
         android:text="0.00"
         android:textColor="#ffd11a"/>
@@ -217,18 +195,6 @@
         android:hint = "КМ"
         android:textColor="#ffd11a"
         android:textColorHint="#ffd11a"/>
-
-    <Button
-        android:id="@+id/button_addDelivKM"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="205dp"
-        android:layout_marginBottom="120dp"
-        android:background="#00994d"
-        android:textColor="#ffd11a"
-        android:gravity="center"
-        android:text="=" />
 
     <TextView
         android:id="@+id/txtDelivKM"

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -39,7 +40,7 @@ public class ProductList extends AppCompatActivity {
     static int indexOfAddToBlock = 0;
 
     static boolean mainActivityFlag = true;
-    public static final boolean isManager = false;
+    public static final boolean isManager = true;
 
     static double Course = 0.0;
 
@@ -154,11 +155,7 @@ public class ProductList extends AppCompatActivity {
         editTextDelivery.setVisibility(View.VISIBLE);
         final EditText editTextOther = findViewById(R.id.editTextOther);
         final EditText editTextDelivKM = findViewById(R.id.editTextDelivKM);
-
-        final Button addDelivery = findViewById(R.id.button_addDelivery);
-        addDelivery.setVisibility(View.VISIBLE);
-        final Button addOther = findViewById(R.id.button_addOther);
-        final Button addDelivKM = findViewById(R.id.button_addDelivKM);
+        
         final Button butClearAll = findViewById(R.id.button_clearAll);
         final Button butPrice = findViewById(R.id.button_price);
         butAddBlock = findViewById(R.id.button_addBlock);
@@ -295,12 +292,12 @@ public class ProductList extends AppCompatActivity {
         });
 //---------------------------------------------------------------------------------------
         spinnerCourse.setAdapter(adapterCourse);
-        // заголовок
+        //заголовок
         spinnerCourse.setPrompt("Курс");
-        // выделяем элемент
+        //выделяем элемент
         //Если замер не выбран, то позиция ставится на 0(2.55)
         spinnerCourse.setSelection(MainActivity.nameMeasure != null ? getCourse(MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse(), adapterCourse) : 0);
-        // устанавливаем обработчик нажатия
+        //устанавливаем обработчик нажатия
         spinnerCourse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -370,7 +367,6 @@ public class ProductList extends AppCompatActivity {
 
                     editTextDelivery.setVisibility(View.VISIBLE);
                     textDelivery.setVisibility(View.VISIBLE);
-                    addDelivery.setVisibility(View.VISIBLE);
 
                     textRegion.setVisibility(View.VISIBLE);
                 }
@@ -383,71 +379,85 @@ public class ProductList extends AppCompatActivity {
             }
         }) ;
 //---------------------------------------------------------------------------------------------
+        editTextDelivery.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-        addDelivery.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(editTextDelivery.getText().toString().equals("")){
-                    hideKeyboard(ProductList.this);
-                }
-                else {
-                    delivery = Integer.parseInt(editTextDelivery.getText().toString());
-                    textDelivery.setText(delivery + ".00");
-                    editTextDelivery.getText().clear();
-
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).setDelivery(delivery);
-                    try {
-                        writeHash(MainActivity.hashMap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                if(event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    if(editTextDelivery.getText().toString().equals("")){
+                        hideKeyboard(ProductList.this);
                     }
-                    setProdLstPriceOutcome();
-                    hideKeyboard(ProductList.this);
-                }
-            }
-        });
-//---------------------------------------------------------------------------------------------
+                    else {
+                        delivery = Integer.parseInt(editTextDelivery.getText().toString());
+                        textDelivery.setText(delivery + ".00");
+                        editTextDelivery.getText().clear();
 
-        addOther.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(editTextOther.getText().toString().equals("")){
-                    hideKeyboard(ProductList.this);
-                }
-                else {
-                    other = Integer.parseInt(editTextOther.getText().toString());
-                    textOther.setText(other + ".00");
-                    editTextOther.getText().clear();
-
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).setOther(other);
-                    try {
-                        writeHash(MainActivity.hashMap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).setDelivery(delivery);
+                        try {
+                            writeHash(MainActivity.hashMap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        setProdLstPriceOutcome();
+                        hideKeyboard(ProductList.this);
                     }
-                    setProdLstPriceOutcome();
-                    hideKeyboard(ProductList.this);
+                    return true;
                 }
+                return false;
             }
-        });
+        }
+        );
 //---------------------------------------------------------------------------------------------
+        editTextOther.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-        addDelivKM.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(editTextDelivKM.getText().toString().equals("")){
-                    hideKeyboard(ProductList.this);
-                }
-                else {
-                    delivKM = Math.ceil(((((Double.valueOf(editTextDelivKM.getText().toString()) * 0.1) * MainActivity.prices.fuel) * 4) /
-                            MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse())  + 20);
-                    textDelivKM.setText( String.valueOf(delivKM));
-                    editTextDelivKM.getText().clear();
+                if(event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
 
-                    hideKeyboard(ProductList.this);
+                    if(editTextOther.getText().toString().equals("")){
+                        hideKeyboard(ProductList.this);
+                    }
+                    else {
+                        other = Integer.parseInt(editTextOther.getText().toString());
+                        textOther.setText(other + ".00");
+                        editTextOther.getText().clear();
+
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).setOther(other);
+                        try {
+                            writeHash(MainActivity.hashMap);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        setProdLstPriceOutcome();
+                        hideKeyboard(ProductList.this);
+                    }
+                    return true;
                 }
+                return false;
             }
-        });
+        }
+        );
+//---------------------------------------------------------------------------------------------
+        editTextDelivKM.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if(event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    if (editTextDelivKM.getText().toString().equals("")) {
+
+                    }
+                    // сохраняем текст, введённый до нажатия Enter в переменную
+                    else {
+                        delivKM = Math.ceil(((((Double.valueOf(editTextDelivKM.getText().toString()) * 0.1) * MainActivity.prices.fuel) * 4) /
+                                MainActivity.hashMap.get(MainActivity.nameMeasure).getCourse())  + 20);
+                        textDelivKM.setText( String.valueOf(delivKM));
+                        editTextDelivKM.getText().clear();
+                    }
+                    hideKeyboard(ProductList.this);
+                    return true;
+                }
+                return false;
+            }
+        }
+        );
 //---------------------------------------------------------------------------------------------
 
         butClearAll.setOnClickListener(new View.OnClickListener() {

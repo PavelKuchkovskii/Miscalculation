@@ -483,7 +483,7 @@ public class AddWindowActivity extends AppCompatActivity {
         // заголовок
         spinnerFurnit.setPrompt("Тип профиля");
         // выделяем элемент
-        spinnerFurnit.setSelection(0);
+        spinnerFurnit.setSelection(1);
         // устанавливаем обработчик нажатия
         spinnerFurnit.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -1480,14 +1480,14 @@ public class AddWindowActivity extends AppCompatActivity {
                 }
 
                 if (BB6024 == true) {
-                    price = 25 + MainActivity.prices.BB6024wind3st2Op[positionHight1][positionWidth1];
+                    price = MainActivity.prices.DopStvor + MainActivity.prices.BB6024wind3st2Op[positionHight1][positionWidth1];
                 }
                 else if (BB6032 == true) {
-                    price = 25 + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
+                    price = MainActivity.prices.DopStvor + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
                 }
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
-                pocketPrice = 25 + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
+                pocketPrice = MainActivity.prices.DopStvor + MainActivity.prices.BB6032wind3st2Op[positionHight1][positionWidth1];
 
                 //Добавляем информацию о том какую картинку использовать
                 ExcelCreator.setTmpPicturePath(ExcelCreator.WIND3ST3OP_PICTURE);
@@ -1636,14 +1636,14 @@ public class AddWindowActivity extends AppCompatActivity {
                 }
 
                 if (BB6024 == true) {
-                    price = 25 + MainActivity.prices.BB6024wind4st2Op[positionHight1][positionWidth1];
+                    price = MainActivity.prices.DopStvor + MainActivity.prices.BB6024wind4st2Op[positionHight1][positionWidth1];
                 }
                 else if (BB6032 == true) {
-                    price = 25 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+                    price = MainActivity.prices.DopStvor + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
-                pocketPrice = 25 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+                pocketPrice = MainActivity.prices.DopStvor + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
 
                 //Добавляем информацию о том какую картинку использовать
                 ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4ST3OP_PICTURE);
@@ -1675,14 +1675,14 @@ public class AddWindowActivity extends AppCompatActivity {
                 }
 
                 if (BB6024 == true) {
-                    price = 50 + MainActivity.prices.BB6024wind4st2Op[positionHight1][positionWidth1];
+                    price = MainActivity.prices.DopStvor * 2 + MainActivity.prices.BB6024wind4st2Op[positionHight1][positionWidth1];
                 }
                 else if (BB6032 == true) {
-                    price = 50 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+                    price = MainActivity.prices.DopStvor * 2 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
                 }
 
                 //Добавляем цену для просчета пакетов(Считается все от ББ60\32)
-                pocketPrice = 50 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
+                pocketPrice = MainActivity.prices.DopStvor * 2 + MainActivity.prices.BB6032wind4st2Op[positionHight1][positionWidth1];
 
                 //Добавляем информацию о том какую картинку использовать
                 ExcelCreator.setTmpPicturePath(ExcelCreator.WIND4ST4OP_PICTURE);
@@ -1977,11 +1977,11 @@ public class AddWindowActivity extends AppCompatActivity {
 
             //ПОКЕТ LITE PROPLEX7032
             if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
-                return 0;
+                return MainActivity.prices.rotoBD;
             }
             //ПОКЕТ STANDARD BB7040
             else if (pocketCoff == MainActivity.prices.BB7040W) {
-                return 0;
+                return MainActivity.prices.rotoBD;
             }
             //ПОКЕТ KOMFORT REHAU7040
             else if (pocketCoff == MainActivity.prices.REHAU7040W) {
@@ -1996,11 +1996,11 @@ public class AddWindowActivity extends AppCompatActivity {
         else if (positionTypeOfType1 > 0) {
             //ПОКЕТ LITE PROPLEX7032
             if (pocketCoff == MainActivity.prices.PROPLEX7032W) {
-                return 0;
+                return MainActivity.prices.rotoW * positionTypeOfType1;
             }
             //ПОКЕТ STANDARD BB7040
             else if (pocketCoff == MainActivity.prices.BB7040W) {
-                return 0;
+                return MainActivity.prices.rotoW * positionTypeOfType1;
             }
             //ПОКЕТ KOMFORT REHAU7040
             else if (pocketCoff == MainActivity.prices.REHAU7040W) {
@@ -2011,7 +2011,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 return MainActivity.prices.rotoW * positionTypeOfType1;
             }
         }
-        return 0;
+        else {
+            return 0;
+        }
     }
 
     //Устанавливает стоимость ручек для Пакета

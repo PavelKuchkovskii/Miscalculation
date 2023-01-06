@@ -414,6 +414,9 @@ public class DopPrices implements Serializable{
   //Штульп(shtulp)
   public int shtulp;
 
+  //Дополнительная открыв створка(DopStvor)
+  public int DopStvor;
+
   //Порог ПВХ(porogPvh)
   public int porogPvh;
 
@@ -809,10 +812,22 @@ public class DopPrices implements Serializable{
 
   //24 месяцев(LIZING24M)
   public double LIZING24M;
-//'------------------------------АЛЬФА-БАНК------------------------------
+//'------------------------------АЛЬФА-БАНК ЭКСПРЕСС КРЕДИТ ПЛЮС------------------------------------
           //'------------------------------ПО МЕСЯЦАМ-----------------------------------------------
-  // 12 месяцев(AMES12)
+  //3 месяцев(AMES3)
+  public double AMES3;
+
+  //6 месяцев(AMES6)
+  public double AMES6;
+
+  //10 месяцев(AMES10)
+  public double AMES10;
+
+  //12 месяцев(AMES12)
   public double AMES12;
+
+  //15 месяцев(AMES15)
+  public double AMES15;
 
   //18 месяцев(AMES18)
   public double AMES18;
@@ -826,41 +841,69 @@ public class DopPrices implements Serializable{
   //48 месяцев(AMES48)
   public double AMES48;
 
+//'------------------------------АЛЬФА-БАНК РАССРОЧКА-----------------------------------------------
+  //'------------------------------ПО МЕСЯЦАМ-----------------------------------------------
+
+  //4 месяцев(A_RASROCH_MES4)
+  public double A_RASROCH_MES4;
+
+  //5 месяцев(A_RASROCH_MES5)
+  public double A_RASROCH_MES5;
+
+//'------------------------------СКРЕПКА------------------------------
+         //'------------------------------ДАБРАБЫТ------------------------------------------------
+         //'------------------------------ПО МЕСЯЦАМ------------------------------------------------
+  //6 месяцев(SCDMES6)
+  public double SCDMES6;
+
+  //12 месяцев(SCDMES12)
+  public double SCDMES12;
+
+  //18 месяцев(SCDMES18)
+  public double SCDMES18;
+
+  //24 месяцев(SCDMES24)
+  public double SCDMES24;
+
+  //36 месяцев(SCDMES36)
+  public double SCDMES36;
+
+  //'------------------------------ПАРИТЕТ------------------------------------------------
+  //'------------------------------ПО МЕСЯЦАМ------------------------------------------------
+  //6 месяцев(SCPMES6)
+  public double SCPMES6;
+
+  //12 месяцев(SCPMES12)
+  public double SCPMES12;
+
+  //18 месяцев(SCPMES18)
+  public double SCPMES18;
+
+  //24 месяцев(SCPMES24)
+  public double SCPMES24;
+
+  //36 месяцев(SCPMES36)
+  public double SCPMES36;
+
+  //60 месяцев(SCPMES60)
+  public double SCPMES60;
+
+
+//'------------------------------ПРОЦЕНТНЫЕ СТАВКИ------------------------------------
+
   //Процентная ставка по кредитам АЛЬФА-БАНК(ALFASTVK)
   public double ALFASTVK;
 
+  //Процентная ставка по кредитам АЛЬФА-БАНК ПЛЮС(ALFASTVK_PLUS)
+  public double ALFASTVK_PLUS;
 
-//'------------------------------ДОБРОБЫТ------------------------------
-         //'------------------------------ПО МЕСЯЦАМ------------------------------------------------
-  //3-6 месяцев(DMES6)
-  public double DMES6;
+  //Процентная ставка по кредитам СКРЕПКИ-ДАБРАБЫТ(SCREPSTVK_DB)
+  public double SCREPSTVK_DB;
 
-  //7-12 месяцев(DMES12)
-  public double DMES12;
+  //Процентная ставка по кредитам СКРЕПКИ-ПАРИТЕТ(SCREPSTVK_PR)
+  public double SCREPSTVK_PR;
 
-  //13-18 месяцев(DMES18)
-  public double DMES18;
 
-  //19-24 месяцев(DMES24)
-  public double DMES24;
-
-  //25-36 месяцев(DMES36)
-  public double DMES36;
-//'------------------------------ЕЖЕМЕС------------------------------------------------------
-  //3-6 месяцев(DMES_E3)
-  public double DMES_E6;
-
-  //7-12 месяцев(DMES_E12)
-  public double DMES_E12;
-
-  //13-18 месяцев(DMES_E18)
-  public double DMES_E18;
-
-  //19-24 месяцев(DMES_E24)
-  public double DMES_E24;
-
-  //25-36 месяцев(DMES_E36)
-  public double DMES_E36;
 //'------------------------------------МАССИВЫ-------------------------------
 
   //'------------------------------------ОКНА ПВХ------------------------------------
