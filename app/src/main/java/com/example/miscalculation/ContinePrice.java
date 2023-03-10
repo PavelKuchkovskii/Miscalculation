@@ -2,10 +2,7 @@ package com.example.miscalculation;
 
 import android.content.ContentResolver;
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -211,7 +208,7 @@ public class ContinePrice extends AppCompatActivity {
     public void setPriceOutcome(int i) {
         continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
 
-        continePriceM = (int) Math.ceil(((mounting + slopes + (interest / 2.0) + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
+        continePriceM = (int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
 
 
         //Это ЗАВЫШЕННАЯ стоимость для скидок
@@ -369,15 +366,15 @@ public class ContinePrice extends AppCompatActivity {
         priceItems2 = Math.ceil(priceItems2);
 
         double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * MainActivity.prices.CALCPERC * course;
-        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * MainActivity.prices.CALCPERC * course;
+        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * MainActivity.prices.CALCPERC * course;
 
         all = priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery;
         percent = all * percentN;
         NDS = (priceItems2 + other + mounting + slopes + interest + delivery) * 0.2;
 
-        all2 = priceItems1 + priceItems2 + other + mounting + slopes + interest/2.0 + delivery;
+        all2 = priceItems1 + priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery;
         percent2 = all2 * percentN;
-        NDS2 = (priceItems2 + other + mounting + slopes + interest/2.0 + delivery) * 0.2;
+        NDS2 = (priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * 0.2;
 
         pLizZh = Math.ceil((NDS + all + percent) * course);
         pLizM = Math.ceil((NDS2 + all2 + percent2) * course);
@@ -424,9 +421,9 @@ public class ContinePrice extends AppCompatActivity {
         percent = all * percentN;
         NDS = ((priceItems2 + other + mounting + slopes + interest + delivery)-sumP) * 0.2;
 
-        all2 = (priceItems1 + priceItems2 + other + mounting + slopes + interest/2.0 + delivery)-sumP;
+        all2 = (priceItems1 + priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery)-sumP;
         percent2 = all2 * percentN;
-        NDS2 = ((priceItems2 + other + mounting + slopes + interest/2.0 + delivery)-sumP) * 0.2;
+        NDS2 = ((priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery)-sumP) * 0.2;
 
         pLizZh = Math.ceil((NDS + all + percent) * course);
         pLizM = Math.ceil((NDS2 + all2 + percent2) * course);

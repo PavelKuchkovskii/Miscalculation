@@ -40,7 +40,7 @@ public class ProductList extends AppCompatActivity {
     static int indexOfAddToBlock = 0;
 
     static boolean mainActivityFlag = true;
-    public static final boolean isManager = true;
+    public static final boolean isManager = false;
 
     static double Course = 0.0;
 
