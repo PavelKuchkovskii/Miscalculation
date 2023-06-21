@@ -22,7 +22,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.gson.Gson;
@@ -50,6 +49,8 @@ public class AddWindowActivity extends AppCompatActivity {
     static boolean BB6024 = false;
     static boolean BB6032 = false;
     static boolean rehauIntelio = false;
+
+    static boolean standProfile = false;
 
     //Группа ламинации
     static int GROUP;
@@ -109,6 +110,8 @@ public class AddWindowActivity extends AppCompatActivity {
     static double priceGlass;
     static double lam;
     static double shpros;
+
+    static double priceStandProfile;
 
     static List<String> dataTypeOfType = new ArrayList<>();
     static List<String> dataTypeOfGlass = new ArrayList<>();
@@ -952,9 +955,11 @@ public class AddWindowActivity extends AppCompatActivity {
                 setLam();
                 setPriceShtulp();
                 setPriceShpros();
+                setPriceStandProfile();
 
                 String itemName = dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 ? dataFurnit.get(positionFurnit1) + "   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
-                String itemInfo = "Фигура окна: " + (positionFigure1 == 0 ? "обычная\n\n" : dataFigure.get(positionFigure1) + "\n\n") +
+                String itemInfo = "Фигура окна: " + (positionFigure1 == 0 ? "обычная\n" : dataFigure.get(positionFigure1) + "\n") +
+                        "Подставочный профиль: " + priceStandProfile + "\n" +
                         "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 || balDorFlag ? " " + dataFurnit.get(positionFurnit1) + "\n" : "\n") +
                                   dataType[positionType1] + " " + (positionType1 != 4 ? dataTypeOfType.get(positionTypeOfType1) + "\n" : dataFilling.get(positionFilling1) + "\n") +
                                   "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
@@ -1742,6 +1747,8 @@ public class AddWindowActivity extends AppCompatActivity {
 
         rehauIntelio = false;
 
+        standProfile = false;
+
         //Если 24мм стекло
         if (p2 == 0) {
             glassPriceItems[0] = 0.0;
@@ -1788,6 +1795,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 1 && p2 == 0) {
             BB6024 = true;
             BB6032 = false;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.BB7024W;
 
             adapterTypeOfGlass.clear();
@@ -1799,6 +1809,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 1 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.BB7032W;
             return;
         }
@@ -1808,6 +1821,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 1 && p2 == 2) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.BB7040W;
             return;
         }
@@ -1816,6 +1832,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 2 && p2 == 0) {
             BB6024 = true;
             BB6032 = false;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.BBA7024W;
 
             adapterTypeOfGlass.clear();
@@ -1827,6 +1846,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 2 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.BBA7032W;
             return;
         }
@@ -1835,6 +1857,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 2 && p2 == 2) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.BBA7040W;
             return;
         }
@@ -1864,6 +1889,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 4 && p2 == 0) {
             BB6024 = true;
             BB6032 = false;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.REHAU7024W;
 
             adapterTypeOfGlass.clear();
@@ -1876,6 +1904,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 4 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.REHAU7032W;
             return;
         }
@@ -1885,6 +1916,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 4 && p2 == 2) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.REHAU7040W;
             return;
         }
@@ -1895,6 +1929,9 @@ public class AddWindowActivity extends AppCompatActivity {
             BB6024 = false;
             BB6032 = true;
             rehauIntelio = true;
+
+            standProfile = true;
+
             adapterTypeOfGlass.clear();
             adapterTypeOfGlass.addAll(addList(R.array.TypeOfGlass80));
 
@@ -1932,6 +1969,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 7 && p2 == 0) {
             BB6024 = true;
             BB6032 = false;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.PROPLEX7024W;
 
             adapterTypeOfGlass.clear();
@@ -1943,6 +1983,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 7 && p2 == 1) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.PROPLEX7032W;
             return;
         }
@@ -1951,6 +1994,9 @@ public class AddWindowActivity extends AppCompatActivity {
         if(p1 == 7 && p2 == 2) {
             BB6024 = false;
             BB6032 = true;
+
+            standProfile = true;
+
             profileCoefficient = MainActivity.prices.PROPLEX7040W;
             return;
         }
@@ -2235,15 +2281,24 @@ public class AddWindowActivity extends AppCompatActivity {
     }
     //____________________________________________________________
     public double setRegionPrice() {
-        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
+        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass + priceStandProfile));
     }
 
     public double setMinskPrice() {
-        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass));
+        return Math.ceil(((((price + furnitPrice + priceFigure + priceShtulp) * profileCoefficient) * laminationCoefficient) + lam + shpros + priceHandle + priceGlass + priceStandProfile));
     }
 
     public double setPriceToPockets(double pocketCoff) {
         return Math.ceil(((((pocketPrice + setPocketFurnitPrice(pocketCoff) + priceFigure + priceShtulp) * pocketCoff) * laminationCoefficient) + lam + shpros + setPocketHandlePrice(pocketCoff) + setPocketGlassPrice(pocketCoff)));
+    }
+
+    public void setPriceStandProfile() {
+        if(standProfile) {
+            priceStandProfile = MainActivity.prices.standProfile * (Double.parseDouble(dataWidth.get(positionWidth1)) / 1000);
+        }
+        else {
+            priceStandProfile = 0;
+        }
     }
 
 
