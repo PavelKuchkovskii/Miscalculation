@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 public class AddDoorActivity extends AppCompatActivity {
 
@@ -126,6 +127,8 @@ public class AddDoorActivity extends AppCompatActivity {
     static ArrayAdapter<String> adapterGlassDifLst;
 
     public AlertDialog.Builder builder;
+
+    static Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -770,7 +773,9 @@ public class AddDoorActivity extends AppCompatActivity {
                 setGlassPrice();
 
                 String itemName = dataType[positionType1] + " " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1);
-                String itemInfo = "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + "\n" +
+                String itemInfo =
+                        "УНЗ_№_" +"V" + random.nextInt(10) + "G" + random.nextInt(10) + "\n" +
+                        "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + "\n" +
                         dataType[positionType1] + " " + dataTypeOfType.get(positionTypeOfType1) + "\n" +
                         "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
                         (positionLamination1 == 0 ? dataLamination.get(positionLamination1) : "Ламинация: " + dataLamination.get(positionLamination1) + " " + dataLaminationVar.get(positionLaminationVar1)) + "\n" +

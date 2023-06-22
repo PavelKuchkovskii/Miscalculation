@@ -33,6 +33,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Random;
 
 import handles.AdapterHandleFurnit;
 import handles.HandleFurnit;
@@ -170,6 +171,8 @@ public class AddWindowActivity extends AppCompatActivity {
     public AlertDialog.Builder builder;
 
     final Context context = this;
+
+    static Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -958,8 +961,9 @@ public class AddWindowActivity extends AppCompatActivity {
                 setPriceStandProfile();
 
                 String itemName = dataType[positionType1] + dataTypeOfType.get(positionTypeOfType1) + "   " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + "\n" + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 ? dataFurnit.get(positionFurnit1) + "   " : "   ") + dataRegion.get(positionRegion1).substring(0, 1);
-                String itemInfo = "Фигура окна: " + (positionFigure1 == 0 ? "обычная\n" : dataFigure.get(positionFigure1) + "\n") +
-                        "Подставочный профиль: " + priceStandProfile + "\n" +
+                String itemInfo =
+                        "УНЗ_№_" + (priceStandProfile == 0? "V" + random.nextInt(10) + "G" + random.nextInt(10): String.valueOf(priceStandProfile).replace('.', 'V')) + "\n" +
+                        "Фигура окна: " + (positionFigure1 == 0 ? "обычная\n" : dataFigure.get(positionFigure1) + "\n") +
                         "Профиль: " + dataProfile.get(positionProfile1) + "/" + dataTypeOfGlass.get(positionTypeOfGlass1) + (positionTypeOfType1 > 0 || balDorFlag ? " " + dataFurnit.get(positionFurnit1) + "\n" : "\n") +
                                   dataType[positionType1] + " " + (positionType1 != 4 ? dataTypeOfType.get(positionTypeOfType1) + "\n" : dataFilling.get(positionFilling1) + "\n") +
                                   "В " + dataHight.get(positionHight1) + "*" + dataWidth.get(positionWidth1) + " Ш" + "\n" +
