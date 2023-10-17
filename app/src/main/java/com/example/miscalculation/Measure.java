@@ -17,13 +17,14 @@ public class Measure implements Serializable {
     public Pockets pockets;
 
     private String versionData;
-    private final String versionMiscalculation = " \njune_21_23";
+    private final String versionMiscalculation = " \nsept_19_23";
 
     private final boolean region;
 
     private double course;
     private int delivery;
     private int other;
+    private int plus;
 
     private final boolean isPocket;
 
@@ -42,6 +43,7 @@ public class Measure implements Serializable {
         this.region = measure.region;
         this.delivery = measure.delivery;
         this.other = measure.other;
+        this.plus = measure.plus;
         this.course = measure.course;
 
         this.prodList = new ArrayList<>(measure.prodList);
@@ -62,6 +64,7 @@ public class Measure implements Serializable {
         this.region = measure.region;
         this.delivery = measure.delivery;
         this.other = measure.other;
+        this.plus = measure.plus;
         this.course = measure.course;
 
         this.prodList = new ArrayList<>(measure.prodList);
@@ -191,7 +194,7 @@ public class Measure implements Serializable {
 
     //Вызывется при открытии сохраненного замера
     public void getProdList() {
-        ProductList.addProdLst(delivery, other);
+        ProductList.addProdLst(delivery, other, plus);
 
         for (int i = 0; i < prodList.size();i++) {
             ProductList.addProdLst(prodList.get(i), prodItemPrice.get(i), prodInterest.get(i), prodMounting.get(i), prodSlopes.get(i));
@@ -215,6 +218,10 @@ public class Measure implements Serializable {
         this.other = other;
     }
 
+    public void setPlus(int plus) {
+        this.plus = plus;
+    }
+
     public void removeItem(int p) {
         prodList.remove(p);
         itemInfo.remove(p);
@@ -235,6 +242,7 @@ public class Measure implements Serializable {
         prodWidth.clear();
         delivery = MainActivity.prices.delivery;
         other = 0;
+        plus = 0;
     }
 
     //Вызывается при инициализации региона
@@ -293,6 +301,10 @@ public class Measure implements Serializable {
 
     public int getOther() {
         return other;
+    }
+
+    public int getPlus() {
+        return plus;
     }
 
     public boolean isPocket() {

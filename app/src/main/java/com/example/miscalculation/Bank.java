@@ -160,7 +160,7 @@ public class Bank extends AppCompatActivity {
     static TextView SCPmes36M;
     static TextView SCPmes60M;
 
-    //ЕЖЕМЕСЯЧНЫЕ СКРЕПКА-ДОБРОБЫТ
+    //ЕЖЕМЕСЯЧНЫЕ СКРЕПКА-ПАРИТЕТ
     static TextView SCPmes6EZ;
     static TextView SCPmes12EZ;
     static TextView SCPmes18EZ;
@@ -174,6 +174,64 @@ public class Bank extends AppCompatActivity {
     static TextView SCPmes24EM;
     static TextView SCPmes36EM;
     static TextView SCPmes60EM;
+
+
+    //СБЕРБАНК ПРОСТО
+    static TextView SBPmes13Z;
+    static TextView SBPmes15Z;
+    static TextView SBPmes18Z;
+    static TextView SBPmes24Z;
+    static TextView SBPmes36Z;
+    static TextView SBPmes48Z;
+    static TextView SBPmes60Z;
+
+    static TextView SBPmes13M;
+    static TextView SBPmes15M;
+    static TextView SBPmes18M;
+    static TextView SBPmes24M;
+    static TextView SBPmes36M;
+    static TextView SBPmes48M;
+    static TextView SBPmes60M;
+
+    //ЕЖЕМЕСЯЧНЫЕ СБЕРБАНК ПРОСТО
+    static TextView SBPmes13EZ;
+    static TextView SBPmes15EZ;
+    static TextView SBPmes18EZ;
+    static TextView SBPmes24EZ;
+    static TextView SBPmes36EZ;
+    static TextView SBPmes48EZ;
+    static TextView SBPmes60EZ;
+
+    static TextView SBPmes13EM;
+    static TextView SBPmes15EM;
+    static TextView SBPmes18EM;
+    static TextView SBPmes24EM;
+    static TextView SBPmes36EM;
+    static TextView SBPmes48EM;
+    static TextView SBPmes60EM;
+
+
+    //СБЕРБАНК ГРЕЙС 6 МЕС
+    static TextView SBGmes24Z;
+    static TextView SBGmes36Z;
+    static TextView SBGmes48Z;
+    static TextView SBGmes60Z;
+
+    static TextView SBGmes24M;
+    static TextView SBGmes36M;
+    static TextView SBGmes48M;
+    static TextView SBGmes60M;
+
+    //ЕЖЕМЕСЯЧНЫЕ СБЕРБАНК ГРЕЙС 6 МЕС
+    static TextView SBGmes24EZ;
+    static TextView SBGmes36EZ;
+    static TextView SBGmes48EZ;
+    static TextView SBGmes60EZ;
+
+    static TextView SBGmes24EM;
+    static TextView SBGmes36EM;
+    static TextView SBGmes48EM;
+    static TextView SBGmes60EM;
 
 
     //ЛИЗИНГ
@@ -282,6 +340,8 @@ public class Bank extends AppCompatActivity {
         APlusmes36EM = findViewById(R.id.APlusmes36EM);
         APlusmes48EM = findViewById(R.id.APlusmes48EM);
 
+
+
         //АЛЬФАБАНК РАССРОЧКА
         ARasrochMes4Z = findViewById(R.id.ARasrMes4Z);
         ARasrochMes5Z = findViewById(R.id.ARasrMes5Z);
@@ -289,12 +349,14 @@ public class Bank extends AppCompatActivity {
         ARasrochMes4M = findViewById(R.id.ARasrMes4M);
         ARasrochMes5M = findViewById(R.id.ARasrMes5M);
 
-        //ЕЖЕМЕСЯЧНЫЕ АЛЬФАБАНК
+        //ЕЖЕМЕСЯЧНЫЕ АЛЬФАБАНК РАССРОЧКА
         ARasrochMes4EZ = findViewById(R.id.ARasrMes4EZ);
         ARasrochMes5EZ = findViewById(R.id.ARasrMes5EZ);
 
         ARasrochMes4EM = findViewById(R.id.ARasrMes4EM);
         ARasrochMes5EM = findViewById(R.id.ARasrMes5EM);
+
+
 
         //СКРЕПКА-ДАБРАБЫТ
         SCDmes6Z = findViewById(R.id.SCDmes6Z);
@@ -323,6 +385,8 @@ public class Bank extends AppCompatActivity {
         SCDmes36EM = findViewById(R.id.SCDmes36EM);
 
 
+
+
         //СКРЕПКА-ПАРИТЕТ
         SCPmes6Z = findViewById(R.id.SCPmes6Z);
         SCPmes12Z = findViewById(R.id.SCPmes12Z);
@@ -338,7 +402,7 @@ public class Bank extends AppCompatActivity {
         SCPmes36M = findViewById(R.id.SCPmes36M);
         SCPmes60M = findViewById(R.id.SCPmes60M);
 
-        //ЕЖЕМЕСЯЧНЫЕ ДОБРОБЫТ
+        //ЕЖЕМЕСЯЧНЫЕ ПАРИТЕТ
         SCPmes6EZ = findViewById(R.id.SCPmes6EZ);
         SCPmes12EZ = findViewById(R.id.SCPmes12EZ);
         SCPmes18EZ = findViewById(R.id.SCPmes18EZ);
@@ -352,6 +416,70 @@ public class Bank extends AppCompatActivity {
         SCPmes24EM = findViewById(R.id.SCPmes24EM);
         SCPmes36EM = findViewById(R.id.SCPmes36EM);
         SCPmes60EM = findViewById(R.id.SCPmes60EM);
+
+
+
+
+        //СБЕРБАНК ПРОСТО
+        SBPmes13Z = findViewById(R.id.SBPmes13Z);
+        SBPmes15Z = findViewById(R.id.SBPmes15Z);
+        SBPmes18Z = findViewById(R.id.SBPmes18Z);
+        SBPmes24Z = findViewById(R.id.SBPmes24Z);
+        SBPmes36Z = findViewById(R.id.SBPmes36Z);
+        SBPmes48Z = findViewById(R.id.SBPmes48Z);
+        SBPmes60Z = findViewById(R.id.SBPmes60Z);
+
+        SBPmes13M = findViewById(R.id.SBPmes13M);
+        SBPmes15M = findViewById(R.id.SBPmes15M);
+        SBPmes18M = findViewById(R.id.SBPmes18M);
+        SBPmes24M = findViewById(R.id.SBPmes24M);
+        SBPmes36M = findViewById(R.id.SBPmes36M);
+        SBPmes48M = findViewById(R.id.SBPmes48M);
+        SBPmes60M = findViewById(R.id.SBPmes60M);
+
+        //ЕЖЕМЕСЯЧНЫЕ СБЕРБАНК ПРОСТО
+        SBPmes13EZ = findViewById(R.id.SBPmes13EZ);
+        SBPmes15EZ = findViewById(R.id.SBPmes15EZ);
+        SBPmes18EZ = findViewById(R.id.SBPmes18EZ);
+        SBPmes24EZ = findViewById(R.id.SBPmes24EZ);
+        SBPmes36EZ = findViewById(R.id.SBPmes36EZ);
+        SBPmes48EZ = findViewById(R.id.SBPmes48EZ);
+        SBPmes60EZ = findViewById(R.id.SBPmes60EZ);
+
+        SBPmes13EM = findViewById(R.id.SBPmes13EM);
+        SBPmes15EM = findViewById(R.id.SBPmes15EM);
+        SBPmes18EM = findViewById(R.id.SBPmes18EM);
+        SBPmes24EM = findViewById(R.id.SBPmes24EM);
+        SBPmes36EM = findViewById(R.id.SBPmes36EM);
+        SBPmes48EM = findViewById(R.id.SBPmes48EM);
+        SBPmes60EM = findViewById(R.id.SBPmes60EM);
+
+
+
+
+        //СБЕРБАНК ГРЕЙС 6 МЕС
+        SBGmes24Z = findViewById(R.id.SBGmes24Z);
+        SBGmes36Z = findViewById(R.id.SBGmes36Z);
+        SBGmes48Z = findViewById(R.id.SBGmes48Z);
+        SBGmes60Z = findViewById(R.id.SBGmes60Z);
+
+        SBGmes24M = findViewById(R.id.SBGmes24M);
+        SBGmes36M = findViewById(R.id.SBGmes36M);
+        SBGmes48M = findViewById(R.id.SBGmes48M);
+        SBGmes60M = findViewById(R.id.SBGmes60M);
+
+        //ЕЖЕМЕСЯЧНЫЕ СБЕРБАНК ГРЕЙС 6 МЕС
+        SBGmes24EZ = findViewById(R.id.SBGmes24EZ);
+        SBGmes36EZ = findViewById(R.id.SBGmes36EZ);
+        SBGmes48EZ = findViewById(R.id.SBGmes48EZ);
+        SBGmes60EZ = findViewById(R.id.SBGmes60EZ);
+
+        SBGmes24EM = findViewById(R.id.SBGmes24EM);
+        SBGmes36EM = findViewById(R.id.SBGmes36EM);
+        SBGmes48EM = findViewById(R.id.SBGmes48EM);
+        SBGmes60EM = findViewById(R.id.SBGmes60EM);
+
+
 
         //ЛИЗИНГ
         Lmes4Z = findViewById(R.id.Lmes4Z);
@@ -589,6 +717,62 @@ public class Bank extends AppCompatActivity {
 
 
 
+        //СБЕРБАНК ПРОСТО
+        SBPmes13Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+        SBPmes15Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+        SBPmes18Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+        SBPmes24Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+        SBPmes36Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+        SBPmes48Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+        SBPmes60Z.setText(minBank <= Math.ceil(priceZ) ? (int) Math.ceil(priceZ) + rub : "-");
+
+        SBPmes13M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+        SBPmes15M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+        SBPmes18M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+        SBPmes24M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+        SBPmes36M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+        SBPmes48M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+        SBPmes60M.setText(minBank <= Math.ceil(priceM) && !isPocket ? (int) Math.ceil(priceM) + rub : "-");
+
+        SBPmes13EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 13, priceZ) + rub : "-");
+        SBPmes15EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 15, priceZ) + rub : "-");
+        SBPmes18EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 18, priceZ) + rub : "-");
+        SBPmes24EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, priceZ) + rub : "-");
+        SBPmes36EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, priceZ) + rub : "-");
+        SBPmes48EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, priceZ) + rub : "-");
+        SBPmes60EZ.setText(minBank <= Math.ceil(priceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, priceZ) + rub : "-");
+
+        SBPmes13EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 13, priceM) + rub : "-");
+        SBPmes15EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 15, priceM) + rub : "-");
+        SBPmes18EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 18, priceM) + rub : "-");
+        SBPmes24EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, priceM) + rub : "-");
+        SBPmes36EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, priceM) + rub : "-");
+        SBPmes48EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, priceM) + rub : "-");
+        SBPmes60EM.setText(minBank <= Math.ceil(priceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, priceM) + rub : "-");
+
+
+        //СБЕРБАНК ГРЕЙС 6 МЕС
+        SBGmes24Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes36Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes48Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes60Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+
+        SBGmes24M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes36M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes48M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes60M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+
+        SBGmes24EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, (int) (priceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes36EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, (int) (priceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes48EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, (int) (priceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes60EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, (int) (priceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+
+        SBGmes24EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, (int) (priceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes36EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, (int) (priceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes48EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, (int) (priceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes60EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, (int) (priceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+
+
         //ЛИЗИНГ
         Lmes4Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING4M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING4M) + rub : "-");
         Lmes6Z.setText(minLiz <= Math.ceil(priceLizZh * MainActivity.prices.LIZING6M) ? (int) Math.ceil(priceLizZh * MainActivity.prices.LIZING6M) + rub : "-");
@@ -763,6 +947,62 @@ public class Bank extends AppCompatActivity {
         SCPmes24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SCPMES24) && !isPocket ? getPltBank(MainActivity.prices.SCREPSTVK_PR, 24, (int) (tmpPriceM * MainActivity.prices.SCPMES24)) + rub : "-");
         SCPmes36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SCPMES36) && !isPocket ? getPltBank(MainActivity.prices.SCREPSTVK_PR, 36, (int) (tmpPriceM * MainActivity.prices.SCPMES36)) + rub : "-");
         SCPmes60EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SCPMES60) && !isPocket ? getPltBank(MainActivity.prices.SCREPSTVK_PR, 60, (int) (tmpPriceM * MainActivity.prices.SCPMES60)) + rub : "-");
+
+        //СБЕРБАНК ПРОСТО
+        SBPmes13Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+        SBPmes15Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+        SBPmes18Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+        SBPmes24Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+        SBPmes36Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+        SBPmes48Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+        SBPmes60Z.setText(minBank <= Math.ceil(tmpPriceZ) ? (int) Math.ceil(tmpPriceZ) + rub : "-");
+
+        SBPmes13M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+        SBPmes15M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+        SBPmes18M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+        SBPmes24M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+        SBPmes36M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+        SBPmes48M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+        SBPmes60M.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? (int) Math.ceil(tmpPriceM) + rub : "-");
+
+        SBPmes13EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 13, tmpPriceZ) + rub : "-");
+        SBPmes15EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 15, tmpPriceZ) + rub : "-");
+        SBPmes18EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 18, tmpPriceZ) + rub : "-");
+        SBPmes24EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, tmpPriceZ) + rub : "-");
+        SBPmes36EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, tmpPriceZ) + rub : "-");
+        SBPmes48EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, tmpPriceZ) + rub : "-");
+        SBPmes60EZ.setText(minBank <= Math.ceil(tmpPriceZ) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, tmpPriceZ) + rub : "-");
+
+        SBPmes13EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 13, tmpPriceM) + rub : "-");
+        SBPmes15EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 15, tmpPriceM) + rub : "-");
+        SBPmes18EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 18, tmpPriceM) + rub : "-");
+        SBPmes24EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, tmpPriceM) + rub : "-");
+        SBPmes36EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, tmpPriceM) + rub : "-");
+        SBPmes48EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, tmpPriceM) + rub : "-");
+        SBPmes60EM.setText(minBank <= Math.ceil(tmpPriceM) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, tmpPriceM) + rub : "-");
+
+
+        //СБЕРБАНК ГРЕЙС 6 МЕС
+        SBGmes24Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes36Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes48Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes60Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+
+        SBGmes24M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes36M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes48M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+        SBGmes60M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) + rub : "-");
+
+        SBGmes24EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, (int) (tmpPriceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes36EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, (int) (tmpPriceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes48EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, (int) (tmpPriceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes60EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.SBERBANKMES_G) ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, (int) (tmpPriceZ * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+
+        SBGmes24EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 24, (int) (tmpPriceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes36EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 36, (int) (tmpPriceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes48EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 48, (int) (tmpPriceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+        SBGmes60EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.SBERBANKMES_G) && !isPocket ? getPltBank(MainActivity.prices.SBERBANKSTVK, 60, (int) (tmpPriceM * MainActivity.prices.SBERBANKMES_G)) + rub : "-");
+
 
 
         //ЛИЗИНГ

@@ -6,9 +6,18 @@
     android:background="#262626">
 
     <Spinner
+        android:id="@+id/spinner_profile"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"/>
+
+    <Spinner
         android:id="@+id/spinner_dop"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginTop = "30dp"
+        android:layout_below="@id/spinner_profile"
         android:background="@android:color/white"/>
 
     <TextView
@@ -16,8 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="В"
-        android:layout_marginTop = "70dp"
+        android:layout_marginTop = "40dp"
         android:layout_marginRight="10dp"
+        android:layout_below="@id/spinner_dop"
         android:layout_toLeftOf="@+id/spinner_hightDop"
         android:textStyle="bold"
         android:textColor="@android:color/white"/>
@@ -26,8 +36,9 @@
         android:id="@+id/spinner_hightDop"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_marginTop = "60dp"
+        android:layout_marginTop = "30dp"
         android:layout_marginRight = "10dp"
+        android:layout_below="@id/spinner_dop"
         android:layout_toLeftOf="@id/XDown"
         android:background="@android:color/white"/>
 
@@ -36,16 +47,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="X"
-        android:layout_marginTop = "70dp"
+        android:layout_marginTop = "40dp"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/spinner_dop"
         android:textColor="@android:color/white"/>
 
     <Spinner
         android:id="@+id/spinner_widthDop"
         android:layout_width="120dp"
         android:layout_height="40dp"
-        android:layout_marginTop = "60dp"
+        android:layout_marginTop = "30dp"
         android:layout_marginLeft = "10dp"
+        android:layout_below="@id/spinner_dop"
         android:layout_toRightOf="@id/XDown"
         android:background="@android:color/white"/>
 
@@ -54,8 +67,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ш"
-        android:layout_marginTop = "70dp"
+        android:layout_marginTop = "40dp"
         android:layout_marginLeft="10dp"
+        android:layout_below="@id/spinner_dop"
         android:layout_toRightOf="@+id/spinner_widthDop"
         android:textStyle="bold"
         android:textColor="@android:color/white"/>
@@ -64,17 +78,12 @@
         android:id="@+id/spinner_lamination"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginTop = "120dp"
-        android:layout_toLeftOf="@id/XDown"
+        android:layout_marginTop = "30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/XDown"
         android:background="@android:color/white"/>
 
-    <Spinner
-        android:id="@+id/spinner_profile"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginTop = "120dp"
-        android:layout_toRightOf="@id/XDown"
-        android:background="@android:color/white"/>
+
 
     <Button
         android:id="@+id/button_addDop"

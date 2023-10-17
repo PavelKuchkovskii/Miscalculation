@@ -46,6 +46,7 @@ public class ProductList extends AppCompatActivity {
 
     static ArrayAdapter<String> adapterProdLst;
     static ArrayAdapter<String> adapterCourse;
+    static ArrayAdapter<String> adapterPlus;
     static ArrayAdapter<String> adapterDiscont;
     static ArrayAdapter<String> adapterBlock;
 
@@ -53,6 +54,7 @@ public class ProductList extends AppCompatActivity {
     static List<Double> prodItemPrice = new ArrayList<>();
     static List<Integer> prodInterest = new ArrayList<>();
     static List<String> CourseAmount = new ArrayList<>();
+    static List<String> plusDif = new ArrayList<>();
     static List<Integer> prodMounting = new ArrayList<>();
     static List<Integer> prodSlopes = new ArrayList<>();
 
@@ -64,6 +66,7 @@ public class ProductList extends AppCompatActivity {
     static TextView textInterest;
     static TextView textDelivery;
     static TextView textOther;
+    static TextView textPlus;
     static TextView textDelivKM;
     static TextView itemSum;
 
@@ -82,9 +85,12 @@ public class ProductList extends AppCompatActivity {
     static int mounting = 0;
     static int delivery = 0;
     static int other = 0;
+    static int plus = 0;
     static double priceOutcome = 0;
     static double delivKM = 0;
     static int discontAm = 0;
+
+    static int positionPlus = 0;
 
     static int positionBlock1;
 
@@ -129,6 +135,7 @@ public class ProductList extends AppCompatActivity {
         textDelivery = findViewById(R.id.txtDelivery);
         textDelivery.setVisibility(View.VISIBLE);
         textOther = findViewById(R.id.txtOther);
+        textPlus = findViewById(R.id.txtPlus);
         textDelivKM = findViewById(R.id.txtDelivKM);
         itemSum = findViewById(R.id.SumItem);
 
@@ -143,17 +150,20 @@ public class ProductList extends AppCompatActivity {
         textInterest.setVisibility(View.INVISIBLE);
         textDelivery.setText(delivery + ".00");
         textOther.setText(other + ".00");
+        textPlus.setText(plus + ".00");
         textDelivKM.setText(String.format("%.2f", delivKM));
         itemSum.setText("∑ = " + String.format("%.2f", priceOutcome));
         itemSum.setVisibility(View.INVISIBLE);
 
         CourseAmount = Arrays.asList(getResources().getStringArray(R.array.CourseAm));
+        plusDif = Arrays.asList(getResources().getStringArray(R.array.plusDif));
 
         productList = findViewById(R.id.listProduct);
 
         final EditText editTextDelivery = findViewById(R.id.editTextDelivery);
         editTextDelivery.setVisibility(View.VISIBLE);
         final EditText editTextOther = findViewById(R.id.editTextOther);
+        final EditText editTextPlus = findViewById(R.id.editTextPlus);
         final EditText editTextDelivKM = findViewById(R.id.editTextDelivKM);
         
         final Button butClearAll = findViewById(R.id.button_clearAll);
@@ -170,6 +180,9 @@ public class ProductList extends AppCompatActivity {
         adapterCourse = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, CourseAmount);
         adapterCourse.setDropDownViewResource(R.layout.listspinner_item);
 
+        adapterPlus = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, plusDif);
+        adapterPlus.setDropDownViewResource(R.layout.listspinner_item);
+
         adapterDiscont = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, discont);
         adapterDiscont.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -179,6 +192,7 @@ public class ProductList extends AppCompatActivity {
         final Spinner spinnerCourse = findViewById(R.id.spinner_course);
         spinnerCourse.setVisibility(View.INVISIBLE);
         final Spinner spinnerDiscont = findViewById(R.id.spinner_discont);
+        final Spinner spinnerPlus = findViewById(R.id.spinner_plus);
 
         productList.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -317,6 +331,27 @@ public class ProductList extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         }) ;
+
+//---------------------------------------------------------------------------------------
+        spinnerPlus.setAdapter(adapterPlus);
+        //заголовок
+        spinnerPlus.setPrompt("Плюс");
+        //выделяем элемент
+        spinnerPlus.setSelection(0);
+        //устанавливаем обработчик нажатия
+        spinnerPlus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int positionPlus1, long idCourse) {
+                positionPlus = positionPlus1;
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        }) ;
 //---------------------------------------------------------------------------------------
         spinnerDiscont.setAdapter(adapterDiscont);
         // заголовок
@@ -436,6 +471,64 @@ public class ProductList extends AppCompatActivity {
         }
         );
 //---------------------------------------------------------------------------------------------
+        editTextPlus.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if(event.getAction() == KeyEvent.ACTION_DOWN && (keyCode == KeyEvent.KEYCODE_ENTER)) {
+
+                    if(editTextPlus.getText().toString().equals("")) {
+                        hideKeyboard(ProductList.this);
+                    }
+                    else {
+                        plus = Integer.parseInt(editTextPlus.getText().toString());
+
+                        //Если это НАЛИЧКА
+                        if(positionPlus == 0) {
+
+                            int continePriceZh = (int) Math.ceil(((mounting + slopes + interest + Math.ceil(priceOutcome) + delivery + other) * Course) * MainActivity.prices.CALCPERC);
+
+                            int max = (int) ((continePriceZh * 1.10) - continePriceZh);
+
+                            max = (int) Math.ceil(max/Course);
+
+                            if(plus > max) {
+                                plus = max;
+                            }
+
+                            Toast.makeText(getApplicationContext(), "Максимальный размер плюса: " + max, Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        //Если это БАНК
+                        else {
+
+                            if(plus > 200) {
+                                plus = 200;
+                            }
+
+                            Toast.makeText(getApplicationContext(), "Максимальный размер плюса: " + 200, Toast.LENGTH_SHORT).show();
+                        }
+
+
+                        textPlus.setText(plus + ".00");
+                        editTextPlus.getText().clear();
+
+                        MainActivity.hashMap.get(MainActivity.nameMeasure).setPlus(plus);
+                        try {
+                            writeHash(MainActivity.hashMap);
+                        }
+                        catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        setProdLstPriceOutcome();
+                        hideKeyboard(ProductList.this);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        }
+        );
         editTextDelivKM.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
@@ -494,7 +587,7 @@ public class ProductList extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    ContinePrice.setContinePrice(prodList,interest,mounting,delivery,other,slopes, Course, Math.ceil(priceOutcome), discontAm);
+                    ContinePrice.setContinePrice(prodList,interest,mounting,delivery,other,plus,slopes, Course, Math.ceil(priceOutcome), discontAm);
                     startActivity(continePrice);
                 }
                 else {
@@ -679,11 +772,13 @@ public class ProductList extends AppCompatActivity {
 
 
     //Вызывается из Класса замера при открытии сохраненного замера
-    public static void addProdLst(int delivery1, int other1) {
+    public static void addProdLst(int delivery1, int other1, int plus1) {
         delivery = delivery1;
         other = other1;
+        plus = plus1;
         textDelivery.setText(delivery + ".00");
         textOther.setText(other + ".00");
+        textPlus.setText(plus + ".00");
     }
 
     public static void setProdLstPriceOutcome (){
@@ -703,8 +798,10 @@ public class ProductList extends AppCompatActivity {
         slopes = 0;
         delivery = MainActivity.prices.delivery;
         other = 0;
+        plus = 0;
         textDelivery.setText(delivery + ".00");
         textOther.setText(other + ".00");
+        textPlus.setText(plus + ".00");
         textMounting.setText(mounting + ".00");
         textSlopes.setText(slopes + ".00");
         textInterest.setText(interest + ".00");

@@ -993,7 +993,7 @@
             android:layout_below="@id/APlusmes48EM"
             android:layout_centerHorizontal="true"
             android:text="АЛЬФА-РАССРОЧКА"
-            android:textColor="#32599C"
+            android:textColor="#1974d2"
             android:textSize="22sp" />
 
         <TextView
@@ -1004,7 +1004,7 @@
             android:layout_alignRight="@id/APlusSumZhelMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма ЖЕЛ"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrSumMin"
@@ -1014,7 +1014,7 @@
             android:layout_alignRight="@id/APlusSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes4"
@@ -1023,7 +1023,7 @@
             android:layout_below="@id/ARasrSumZhel"
             android:layout_alignRight="@id/APlusmes6"
             android:text="4 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5"
@@ -1031,7 +1031,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ARasrMes4"
             android:text="5 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes4Z"
@@ -1040,7 +1040,7 @@
             android:layout_below="@id/ARasrSumZhel"
             android:layout_alignRight="@id/APlusSumZhel"
             android:text="4 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5Z"
@@ -1049,7 +1049,7 @@
             android:layout_below="@id/ARasrMes4Z"
             android:layout_alignRight="@id/APlusSumZhel"
             android:text="5 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes4M"
@@ -1058,7 +1058,7 @@
             android:layout_below="@id/ARasrSumZhel"
             android:layout_alignRight="@id/APlusSumMin"
             android:text="4 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5M"
@@ -1067,7 +1067,7 @@
             android:layout_below="@id/ARasrMes4M"
             android:layout_alignRight="@id/APlusSumMin"
             android:text="5 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <View
             android:layout_width="match_parent"
@@ -1084,7 +1084,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
-            android:textColor="#32599C"
+            android:textColor="#1974d2"
             android:textSize="25sp" />
 
         <TextView
@@ -1095,7 +1095,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/APlusmes3E"
             android:text="Ежемес ЖЕЛ"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrSumMinMes"
@@ -1105,7 +1105,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/APlusSumZhelMes"
             android:text="Ежемес МИН"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes4E"
@@ -1114,7 +1114,7 @@
             android:layout_below="@id/ARasrSumZhelMes"
             android:layout_alignRight="@id/APlusmes6E"
             android:text="4 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5E"
@@ -1122,7 +1122,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ARasrMes4E"
             android:text="5 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes4EZ"
@@ -1131,7 +1131,7 @@
             android:layout_below="@id/ARasrSumZhelMes"
             android:layout_alignRight="@id/APlusSumZhel"
             android:text="4 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5EZ"
@@ -1140,7 +1140,7 @@
             android:layout_below="@id/ARasrMes4EZ"
             android:layout_alignRight="@id/APlusSumZhel"
             android:text="5 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes4EM"
@@ -1149,7 +1149,7 @@
             android:layout_below="@id/ARasrSumZhelMes"
             android:layout_alignRight="@id/APlusSumMin"
             android:text="4 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5EM"
@@ -1158,7 +1158,7 @@
             android:layout_below="@id/ARasrMes4EM"
             android:layout_alignRight="@id/APlusSumMin"
             android:text="5 мес"
-            android:textColor="#32599C" />
+            android:textColor="#1974d2" />
 
         <View
             android:layout_width="match_parent"
@@ -1527,7 +1527,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:text="СКРЕПКА-ПАРИТЕТ"
-            android:textColor="#FFF200"
+            android:textColor="#ffaa00"
             android:textSize="25sp" />
 
         <View
@@ -1544,7 +1544,7 @@
             android:layout_alignRight="@id/SCPSumZhelMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма ЖЕЛ"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPSumMin"
@@ -1554,7 +1554,7 @@
             android:layout_alignRight="@id/SCPSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
 
         <TextView
@@ -1564,7 +1564,7 @@
             android:layout_below="@id/SCPSumZhel"
             android:layout_alignRight="@id/SCPmes12"
             android:text="6 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes12"
@@ -1572,7 +1572,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes6"
             android:text="12 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes18"
@@ -1580,7 +1580,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes12"
             android:text="18 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes24"
@@ -1588,7 +1588,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes18"
             android:text="24 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes36"
@@ -1596,7 +1596,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes24"
             android:text="36 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes60"
@@ -1604,7 +1604,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes36"
             android:text="60 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes6Z"
@@ -1613,7 +1613,7 @@
             android:layout_below="@id/SCPSumZhel"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="6 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes12Z"
@@ -1622,7 +1622,7 @@
             android:layout_below="@id/SCPmes6Z"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="12 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes18Z"
@@ -1631,7 +1631,7 @@
             android:layout_below="@id/SCPmes12Z"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="18 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes24Z"
@@ -1640,7 +1640,7 @@
             android:layout_below="@id/SCPmes18Z"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="24 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes36Z"
@@ -1649,7 +1649,7 @@
             android:layout_below="@id/SCPmes24Z"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="36 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes60Z"
@@ -1658,7 +1658,7 @@
             android:layout_below="@id/SCPmes36Z"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="60 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes6M"
@@ -1667,7 +1667,7 @@
             android:layout_below="@id/SCPSumZhel"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="6 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes12M"
@@ -1676,7 +1676,7 @@
             android:layout_below="@id/SCPmes6M"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="12 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes18M"
@@ -1685,7 +1685,7 @@
             android:layout_below="@id/SCPmes12M"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="18 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes24M"
@@ -1694,7 +1694,7 @@
             android:layout_below="@id/SCPmes18M"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="24 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes36M"
@@ -1703,7 +1703,7 @@
             android:layout_below="@id/SCPmes24M"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="36 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes60M"
@@ -1712,7 +1712,7 @@
             android:layout_below="@id/SCPmes36M"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="60 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <View
             android:layout_width="match_parent"
@@ -1730,7 +1730,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
-            android:textColor="#FFF200"
+            android:textColor="#ffaa00"
             android:textSize="25sp" />
 
         <TextView
@@ -1741,7 +1741,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/SCPmes6E"
             android:text="Ежемес ЖЕЛ"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPSumMinMes"
@@ -1751,7 +1751,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/SCPSumZhelMes"
             android:text="Ежемес МИН"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
 
         <TextView
@@ -1761,7 +1761,7 @@
             android:layout_below="@id/SCPSumZhelMes"
             android:layout_alignRight="@id/SCPmes12E"
             android:text="6 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes12E"
@@ -1769,7 +1769,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes6E"
             android:text="12 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes18E"
@@ -1777,7 +1777,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes12E"
             android:text="18 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes24E"
@@ -1785,7 +1785,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes18E"
             android:text="24 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes36E"
@@ -1793,7 +1793,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes24E"
             android:text="36 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes60E"
@@ -1801,7 +1801,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/SCPmes36E"
             android:text="60 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
 
         <TextView
@@ -1811,7 +1811,7 @@
             android:layout_below="@id/SCPSumZhelMes"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="6 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes12EZ"
@@ -1820,7 +1820,7 @@
             android:layout_below="@id/SCPmes6EZ"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="12 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes18EZ"
@@ -1829,7 +1829,7 @@
             android:layout_below="@id/SCPmes12EZ"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="18 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes24EZ"
@@ -1838,7 +1838,7 @@
             android:layout_below="@id/SCPmes18EZ"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="24 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes36EZ"
@@ -1847,7 +1847,7 @@
             android:layout_below="@id/SCPmes24EZ"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="36 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes60EZ"
@@ -1856,7 +1856,7 @@
             android:layout_below="@id/SCPmes36EZ"
             android:layout_alignRight="@id/SCPSumZhel"
             android:text="60 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
 
         <TextView
@@ -1866,7 +1866,7 @@
             android:layout_below="@id/SCPSumZhelMes"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="6 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes12EM"
@@ -1875,7 +1875,7 @@
             android:layout_below="@id/SCPmes6EM"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="12 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes18EM"
@@ -1884,7 +1884,7 @@
             android:layout_below="@id/SCPmes12EM"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="18 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes24EM"
@@ -1893,7 +1893,7 @@
             android:layout_below="@id/SCPmes18EM"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="24 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <TextView
             android:id="@+id/SCPmes36EM"
@@ -1902,7 +1902,7 @@
             android:layout_below="@id/SCPmes24EM"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="36 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
 
         <TextView
@@ -1912,7 +1912,7 @@
             android:layout_below="@id/SCPmes36EM"
             android:layout_alignRight="@id/SCPSumMin"
             android:text="60 мес"
-            android:textColor="#FFF200" />
+            android:textColor="#ffaa00" />
 
         <View
             android:layout_width="match_parent"
@@ -1921,6 +1921,771 @@
             android:layout_alignRight="@id/ASumMin"
             android:background="#262626" />
 
+        <!--...............SBERBANK...............-->
+
+        <TextView
+            android:id="@+id/sberbank_P"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SCPmes60EM"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="СБЕРБАНК ПРОСТО"
+            android:textColor="#8ac74b"
+            android:textSize="25sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/sberbank_P"
+            android:background="#262626" />
+
+        <TextView
+            android:id="@+id/SBPSumZhel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sberbank_P"
+            android:layout_alignRight="@id/SBPSumZhelMes"
+            android:layout_marginLeft="25dp"
+            android:text="Сумма ЖЕЛ"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPSumMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sberbank_P"
+            android:layout_alignRight="@id/SBPSumMinMes"
+            android:layout_marginLeft="25dp"
+            android:text="Сумма МИН"
+            android:textColor="#8ac74b" />
+
+
+        <TextView
+            android:id="@+id/SBPmes13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPSumZhel"
+            android:layout_alignRight="@id/SBPmes15"
+            android:text="13 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes13"
+            android:text="15 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes15"
+            android:text="18 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes18"
+            android:text="24 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes24"
+            android:text="36 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes36"
+            android:text="48 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes48"
+            android:text="60 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes13Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPSumZhel"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="13 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes15Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes13Z"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="15 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes18Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes15Z"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="18 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes24Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes18Z"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="24 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes36Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes24Z"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="36 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes48Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes36Z"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="48 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes60Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes48Z"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="60 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes13M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPSumZhel"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="13 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes15M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes13M"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="15 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes18M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes15M"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="18 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes24M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes18M"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="24 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes36M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes24M"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="36 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes48M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes36M"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="48 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes60M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes48M"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="60 мес"
+            android:textColor="#8ac74b" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/SBPmes60M"
+            android:layout_alignRight="@id/ASumMin"
+            android:background="#262626" />
+
+
+        <TextView
+            android:id="@+id/SBPEzhMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes60"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
+            android:textColor="#8ac74b"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/SBPSumZhelMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/SBPmes13E"
+            android:text="Ежемес ЖЕЛ"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPSumMinMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/SBPSumZhelMes"
+            android:text="Ежемес МИН"
+            android:textColor="#8ac74b" />
+
+
+        <TextView
+            android:id="@+id/SBPmes13E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPSumZhelMes"
+            android:layout_alignRight="@id/SBPmes15E"
+            android:text="13 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes15E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes13E"
+            android:text="15 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes18E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes15E"
+            android:text="18 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes24E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes18E"
+            android:text="24 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes36E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes24E"
+            android:text="36 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes48E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes36E"
+            android:text="48 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes60E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes48E"
+            android:text="60 мес"
+            android:textColor="#8ac74b" />
+
+
+        <TextView
+            android:id="@+id/SBPmes13EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPSumZhelMes"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="13 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes15EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes13EZ"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="15 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes18EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes15EZ"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="18 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes24EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes18EZ"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="24 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes36EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes24EZ"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="36 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes48EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes36EZ"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="48 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes60EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes48EZ"
+            android:layout_alignRight="@id/SBPSumZhel"
+            android:text="60 мес"
+            android:textColor="#8ac74b" />
+
+
+        <TextView
+            android:id="@+id/SBPmes13EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPSumZhelMes"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="13 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes15EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes13EM"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="15 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes18EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes15EM"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="18 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes24EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes18EM"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="24 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes36EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes24EM"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="36 мес"
+            android:textColor="#8ac74b" />
+
+        <TextView
+            android:id="@+id/SBPmes48EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes36EM"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="48 мес"
+            android:textColor="#8ac74b" />
+
+
+        <TextView
+            android:id="@+id/SBPmes60EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes48EM"
+            android:layout_alignRight="@id/SBPSumMin"
+            android:text="60 мес"
+            android:textColor="#8ac74b" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/SBPmes60EM"
+            android:layout_alignRight="@id/ASumMin"
+            android:background="#262626" />
+
+
+
+        <!--...............SBERBANK - GRAIS 6...............-->
+
+        <TextView
+            android:id="@+id/sberbank_G"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBPmes60EM"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="СБЕРБАНК - ГРЕЙС 6 МЕС"
+            android:textColor="#180131"
+            android:textSize="25sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/sberbank_G"
+            android:background="#262626" />
+
+        <TextView
+            android:id="@+id/SBGSumZhel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sberbank_G"
+            android:layout_alignRight="@id/SBGSumZhelMes"
+            android:layout_marginLeft="25dp"
+            android:text="Сумма ЖЕЛ"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGSumMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sberbank_G"
+            android:layout_alignRight="@id/SBGSumMinMes"
+            android:layout_marginLeft="25dp"
+            android:text="Сумма МИН"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGSumZhel"
+            android:layout_alignRight="@id/SBPmes15"
+            android:text="24 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes24"
+            android:text="36 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes48"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes36"
+            android:text="48 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes60"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes48"
+            android:text="60 мес"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes24Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGSumZhel"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="24 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes36Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes24Z"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="36 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes48Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes36Z"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="48 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes60Z"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes48Z"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="60 мес"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes24M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGSumZhel"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="24 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes36M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes24M"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="36 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes48M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes36M"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="48 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes60M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes48M"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="60 мес"
+            android:textColor="#180131" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/SBGmes60M"
+            android:layout_alignRight="@id/ASumMin"
+            android:background="#262626" />
+
+
+        <TextView
+            android:id="@+id/SBGEzhMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes60"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
+            android:textColor="#180131"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/SBGSumZhelMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/SBGmes24E"
+            android:text="Ежемес ЖЕЛ"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGSumMinMes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGEzhMes"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@id/SBGSumZhelMes"
+            android:text="Ежемес МИН"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes24E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGSumZhelMes"
+            android:layout_alignRight="@id/SBGmes24E"
+            android:text="24 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes36E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes24E"
+            android:text="36 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes48E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes36E"
+            android:text="48 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes60E"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes48E"
+            android:text="60 мес"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes24EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGSumZhelMes"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="24 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes36EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes24EZ"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="36 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes48EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes36EZ"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="48 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes60EZ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes48EZ"
+            android:layout_alignRight="@id/SBGSumZhel"
+            android:text="60 мес"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes24EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGSumZhelMes"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="24 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes36EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes24EM"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="36 мес"
+            android:textColor="#180131" />
+
+        <TextView
+            android:id="@+id/SBGmes48EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes36EM"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="48 мес"
+            android:textColor="#180131" />
+
+
+        <TextView
+            android:id="@+id/SBGmes60EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/SBGmes48EM"
+            android:layout_alignRight="@id/SBGSumMin"
+            android:text="60 мес"
+            android:textColor="#180131" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/SBGmes60EM"
+            android:layout_alignRight="@id/ASumMin"
+            android:background="#262626" />
+
+
+
+
+
+
 
         <!--...............LIZING...............-->
 
@@ -1928,7 +2693,7 @@
             android:id="@+id/lizing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/SCPmes60EM"
+            android:layout_below="@id/SBGmes60EM"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:text="СОБСТВЕННАЯ РАССРОЧКА"

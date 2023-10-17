@@ -65,6 +65,7 @@ public class ContinePrice extends AppCompatActivity {
     static int mounting;
     static int delivery;
     static int other;
+    static int plus;
     static int slopes;
     static int discont;
     static double course;
@@ -193,12 +194,13 @@ public class ContinePrice extends AppCompatActivity {
     }
 
 
-    public static void setContinePrice(List<String> lst, int interest1, int mounting1, int delivery1, int other1, int slopes1, double course1, double price1, int discont1) {
+    public static void setContinePrice(List<String> lst, int interest1, int mounting1, int delivery1, int other1, int plus1, int slopes1, double course1, double price1, int discont1) {
         list = lst;
         interest = interest1;
         mounting = mounting1;
         delivery = delivery1;
         other = other1;
+        plus = plus1;
         course = course1;
         slopes = slopes1;
         price = price1;
@@ -206,7 +208,7 @@ public class ContinePrice extends AppCompatActivity {
     }
 
     public void setPriceOutcome(int i) {
-        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
+        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other + plus) * course) * MainActivity.prices.CALCPERC);
 
         continePriceM = (int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
 
@@ -365,12 +367,12 @@ public class ContinePrice extends AppCompatActivity {
         priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
 
-        double pLizZhMaxPrepaid = (priceItems2 + other + mounting + slopes + interest + delivery) * MainActivity.prices.CALCPERC * course;
-        double pLizMinMaxPrepaid = (priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * MainActivity.prices.CALCPERC * course;
+        double pLizZhMaxPrepaid = (priceItems2 + other + plus + mounting + slopes + interest + delivery) * MainActivity.prices.CALCPERC * course;
+        double pLizMinMaxPrepaid = (priceItems2 + other + plus + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * MainActivity.prices.CALCPERC * course;
 
-        all = priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery;
+        all = priceItems1 + priceItems2 + other + plus + mounting + slopes + interest + delivery;
         percent = all * percentN;
-        NDS = (priceItems2 + other + mounting + slopes + interest + delivery) * 0.2;
+        NDS = (priceItems2 + other + plus + mounting + slopes + interest + delivery) * 0.2;
 
         all2 = priceItems1 + priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery;
         percent2 = all2 * percentN;
@@ -417,9 +419,9 @@ public class ContinePrice extends AppCompatActivity {
         priceItems1 = Math.ceil(priceItems1);
         priceItems2 = Math.ceil(priceItems2);
 
-        all = (priceItems1 + priceItems2 + other + mounting + slopes + interest + delivery) - sumP;
+        all = (priceItems1 + priceItems2 + other + plus + mounting + slopes + interest + delivery) - sumP;
         percent = all * percentN;
-        NDS = ((priceItems2 + other + mounting + slopes + interest + delivery)-sumP) * 0.2;
+        NDS = ((priceItems2 + other + plus + mounting + slopes + interest + delivery)-sumP) * 0.2;
 
         all2 = (priceItems1 + priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery)-sumP;
         percent2 = all2 * percentN;

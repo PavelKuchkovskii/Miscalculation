@@ -98,7 +98,7 @@ public class Pockets {
         if (coff == MainActivity.prices.PROPLEX7032W) {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((lite.getMounting() + lite.getSlopes() + lite.getInterest() + Math.ceil(lite.getPrice()) + lite.getDelivery() + lite.getOther()) * lite.getCourse()) * calcPercent);
+                return Math.ceil(((lite.getMounting() + lite.getSlopes() + lite.getInterest() + Math.ceil(lite.getPrice()) + lite.getDelivery() + lite.getOther() + lite.getPlus()) * lite.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
@@ -109,7 +109,7 @@ public class Pockets {
         else if (coff == MainActivity.prices.BB7040W) {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((standard.getMounting() + standard.getSlopes() + standard.getInterest() + Math.ceil(standard.getPrice()) + standard.getDelivery() + standard.getOther()) * standard.getCourse()) * calcPercent);
+                return Math.ceil(((standard.getMounting() + standard.getSlopes() + standard.getInterest() + Math.ceil(standard.getPrice()) + standard.getDelivery() + standard.getOther() + standard.getPlus()) * standard.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
@@ -120,7 +120,7 @@ public class Pockets {
         else if (coff == MainActivity.prices.REHAU7040W) {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((comfort.getMounting() + comfort.getSlopes() + comfort.getInterest() + Math.ceil(comfort.getPrice()) + comfort.getDelivery() + comfort.getOther()) * comfort.getCourse()) * calcPercent);
+                return Math.ceil(((comfort.getMounting() + comfort.getSlopes() + comfort.getInterest() + Math.ceil(comfort.getPrice()) + comfort.getDelivery() + comfort.getOther() + comfort.getPlus()) * comfort.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {
@@ -131,7 +131,7 @@ public class Pockets {
         else {
             //ЕСЛИ ЖЕЛ ЦЕНА
             if (b) {
-                return Math.ceil(((premium.getMounting() + premium.getSlopes() + premium.getInterest() + Math.ceil(premium.getPrice()) + premium.getDelivery() + premium.getOther()) * premium.getCourse()) * calcPercent);
+                return Math.ceil(((premium.getMounting() + premium.getSlopes() + premium.getInterest() + Math.ceil(premium.getPrice()) + premium.getDelivery() + premium.getOther() + premium.getPlus()) * premium.getCourse()) * calcPercent);
             }
             //ЕСЛИ МИН ЦЕНА
             else {

@@ -98,7 +98,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Добавить допы"
+        android:text="Добавить Работу"
         android:layout_alignParentBottom ="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom ="10dp"
