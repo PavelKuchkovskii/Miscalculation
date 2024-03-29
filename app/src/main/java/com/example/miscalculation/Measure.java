@@ -17,10 +17,10 @@ public class Measure implements Serializable {
     public Pockets pockets;
 
     private String versionData;
-    private final String versionMiscalculation = " \nsept_19_23";
+    private final String versionMiscalculation = " \nmarch_01_24";
 
     private final boolean region;
-
+    private boolean isStand = true;
     private double course;
     private int delivery;
     private int other;
@@ -34,7 +34,6 @@ public class Measure implements Serializable {
     private List<Integer> prodInterest = new ArrayList<>();
     private List<Integer> prodMounting = new ArrayList<>();
     private List<Integer> prodSlopes = new ArrayList<>();
-
     private List<Integer> prodWidth = new ArrayList<>();
 
     //Конструктор копирования замера c пакетами (Вызывается из MainActivity)
@@ -210,6 +209,10 @@ public class Measure implements Serializable {
         return itemInfo.get(i);
     }
 
+    public int getItemInfoSize() {
+        return itemInfo.size();
+    }
+
     public void setDelivery(int delivery) {
         this.delivery = delivery;
     }
@@ -321,5 +324,13 @@ public class Measure implements Serializable {
 
     public boolean getIsDoSpecification() {
         return this.isDoSpecification;
+    }
+
+    public boolean isStand() {
+        return isStand;
+    }
+
+    public void setStand(boolean stand) {
+        isStand = stand;
     }
 }

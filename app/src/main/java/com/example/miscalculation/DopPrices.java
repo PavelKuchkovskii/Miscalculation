@@ -377,6 +377,9 @@ public class DopPrices implements Serializable{
   //Подоконник ESTERA(PODESTERA)
   public double PODESTERA;
 
+  //Подоконник Клинтач(PODCLEANTOUCH)
+  public double PODCLEANTOUCH;
+
   //ЗАГЛУШКА ДЛЯ ОБЫЧНОГО(ZAGLSTNDRT)
   public double ZAGLSTNDRT;
 
@@ -391,6 +394,9 @@ public class DopPrices implements Serializable{
 
   //ЗАГЛУШКА ДЛЯ ESTERA(ZAGLESTERA)
   public double ZAGLESTERA;
+
+  //ЗАГЛУШКА ДЛЯ Клинтач(ZAGCLEANTOUCH)
+  public double ZAGCLEANTOUCH;
 
   //'----------------------------------------------------------------------------------------------
 
@@ -851,11 +857,11 @@ public class DopPrices implements Serializable{
 //'------------------------------АЛЬФА-БАНК РАССРОЧКА-----------------------------------------------
   //'------------------------------ПО МЕСЯЦАМ-----------------------------------------------
 
-  //4 месяцев(A_RASROCH_MES4)
-  public double A_RASROCH_MES4;
-
   //5 месяцев(A_RASROCH_MES5)
   public double A_RASROCH_MES5;
+
+  //6 месяцев(A_RASROCH_MES6)
+  public double A_RASROCH_MES6;
 
 //'------------------------------СКРЕПКА------------------------------
          //'------------------------------ДАБРАБЫТ------------------------------------------------

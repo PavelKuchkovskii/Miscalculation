@@ -15,6 +15,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -39,20 +41,23 @@ import java.util.zip.GZIPOutputStream;
 
 public class ContinePrice extends AppCompatActivity {
 
-
-
     static TextView textPriceOutcome;
     static TextView textPriceR;
     static TextView textDiscont;
     static TextView textPriceOutcomePR;
     static TextView textPriceRPR;
     static TextView textDiscontPR;
+    static TextView salary;
+    static TextView salaryText;
     static Spinner spinnerPrice;
     static ImageView imSendQr;
     static ImageView imBank;
     static ImageView getSpecificationImage;
     static Button pockets;
     static ListView productList;
+    static CheckBox isCheckSalary;
+    static CheckBox isCheckStand;
+    static boolean isCheckStand1 = true;
 
 
     static ArrayAdapter<String> adapterPrice;
@@ -93,6 +98,8 @@ public class ContinePrice extends AppCompatActivity {
         textPriceOutcomePR = findViewById(R.id.priceAmountContinePricePR);
         textPriceRPR = findViewById(R.id.priceRPR);
         textDiscontPR = findViewById(R.id.priceDiscontPR);
+        salary = findViewById(R.id.salaryAmount);
+        salaryText = findViewById(R.id.salaryText);
 
         adapterPrice = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataPrice);
         adapterPrice.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -113,6 +120,10 @@ public class ContinePrice extends AppCompatActivity {
 
         productList = findViewById(R.id.listProductContinePrice);
         productList.setAdapter(adapterProdLst);
+
+        isCheckSalary = findViewById(R.id.isCheckSalary);
+        isCheckStand = findViewById(R.id.isCheckStand);
+        isCheckStand.setChecked(MainActivity.hashMap.get(MainActivity.nameMeasure).isStand());
 
 
 //----------------------------------СПИННЕР------------------------------------------------------------------------
@@ -180,6 +191,39 @@ public class ContinePrice extends AppCompatActivity {
 
             }
         });
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
+        // Создание слушателя для CheckBox
+        isCheckSalary.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                // Обработка события изменения состояния CheckBox
+                if (isChecked) {
+                    // Если CheckBox отмечен
+                    salaryText.setVisibility(View.VISIBLE);
+                    salary.setVisibility(View.VISIBLE);
+                } else {
+                    // Если CheckBox не отмечен
+                    salaryText.setVisibility(View.INVISIBLE);
+                    salary.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------
+        // Создание слушателя для CheckBox
+        isCheckStand.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                isCheckStand1 = isChecked;
+                MainActivity.hashMap.get(MainActivity.nameMeasure).setStand(isCheckStand1);
+                setPriceOutcome(positionPrice1);
+                if(MainActivity.nameMeasure.contains("COMFORTPOCKET") || MainActivity.nameMeasure.contains("PREMIUMPOCKET")) {
+                    spinnerPrice.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
         pockets.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -208,9 +252,17 @@ public class ContinePrice extends AppCompatActivity {
     }
 
     public void setPriceOutcome(int i) {
-        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other + plus) * course) * MainActivity.prices.CALCPERC);
 
-        continePriceM = (int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other) * course) * MainActivity.prices.CALCPERC);
+        double standPrice = 0;
+
+        for (int i1 = 0; i1 < MainActivity.hashMap.get(MainActivity.nameMeasure).getItemInfoSize(); i1++) {
+            String[] str = MainActivity.hashMap.get(MainActivity.nameMeasure).getItemInfo(i1).split("\n");
+            standPrice += getStandPrice(str[0]);
+        }
+
+        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other + plus - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC);
+
+        continePriceM = (int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC);
 
 
         //Это ЗАВЫШЕННАЯ стоимость для скидок
@@ -223,12 +275,30 @@ public class ContinePrice extends AppCompatActivity {
             //Сумма скидки
             textDiscont.setText((b - continePriceZh) + " руб");
 
+            salary.setText(Math.round(((int) Math.ceil(((mounting + slopes + interest + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC)) * (isCheckStand1 ? 0.04 : 0.03) * 100.0) / 100.0 + " руб");
+
         } else {
             textPriceOutcome.setText( continePriceM + " руб");
 
             //Сумма скидки
             textDiscont.setText((b - continePriceM) + " руб");
+
+            salary.setText((Math.round((int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC)) * 0.03 * 100.0) / 100.0 + " руб");
         }
+    }
+
+    public static double getStandPrice(String e) {
+        String result  = "";
+
+        if(e.contains("УНЗ_№_") && !e.contains("G")) {
+            result = e.replace("УНЗ_№_", "");
+            result = result.replace('V', '.');
+        }
+        else {
+            return 0;
+        }
+
+        return Double.parseDouble(result);
     }
 
 
@@ -433,5 +503,11 @@ public class ContinePrice extends AppCompatActivity {
 
         Bank.setPriceLizWithPrepaid(pLizZh,pLizM);
 
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        setPriceOutcome(positionPrice1);
     }
 }

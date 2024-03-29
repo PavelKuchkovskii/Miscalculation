@@ -337,6 +337,11 @@ public class AddDopActivity extends AppCompatActivity {
                         dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODESTERA) + MainActivity.prices.ZAGLESTERA;
                         return;
                     }
+                    //Клинтач (Минск)
+                    if (positionLamination1 == 7) {
+                        dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODCLEANTOUCH) + MainActivity.prices.ZAGCLEANTOUCH;
+                        return;
+                    }
                 }
 
             }
@@ -695,6 +700,11 @@ public class AddDopActivity extends AppCompatActivity {
                         dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODESTERA) + MainActivity.prices.ZAGLESTERA;
                         return;
                     }
+                    //Клинтач (Минск)
+                    if (positionLamination1 == 7) {
+                        dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODCLEANTOUCH) + MainActivity.prices.ZAGCLEANTOUCH;
+                        return;
+                    }
                 }
 
             }
@@ -955,6 +965,11 @@ public class AddDopActivity extends AppCompatActivity {
                         dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODESTERA) + MainActivity.prices.ZAGLESTERA;
                         return;
                     }
+                    //Клинтач (Минск)
+                    if (positionLamination1 == 7) {
+                        dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODCLEANTOUCH) + MainActivity.prices.ZAGCLEANTOUCH;
+                        return;
+                    }
                 }
 
             }
@@ -1182,6 +1197,11 @@ public class AddDopActivity extends AppCompatActivity {
                     //Подоконник ESTERA
                     if (positionLamination1 == 6) {
                         dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODESTERA) + MainActivity.prices.ZAGLESTERA;
+                        return;
+                    }
+                    //Клинтач (Минск)
+                    if (positionLamination1 == 7) {
+                        dopPrice = ( (Double.valueOf(dataHightDop.get(positionHightDop1)) / 1000) * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1) ) / 1000) * MainActivity.prices.PODCLEANTOUCH) + MainActivity.prices.ZAGCLEANTOUCH;
                         return;
                     }
                 }

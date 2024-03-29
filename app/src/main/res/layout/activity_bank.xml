@@ -60,6 +60,7 @@
             android:layout_alignRight="@id/ASumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
+            android:visibility="invisible"
             android:textColor="#AC1E10" />
 
         <TextView
@@ -261,6 +262,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/ASumZhelMes"
             android:text="Ежемес МИН"
+            android:visibility="invisible"
             android:textColor="#AC1E10" />
 
         <TextView
@@ -447,7 +449,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/expressPlus"
-            android:layout_alignRight="@id/APlusSumZhelMes"
+            android:layout_alignRight="@id/ASumZhelMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма ЖЕЛ"
             android:textColor="#32599C" />
@@ -460,6 +462,7 @@
             android:layout_alignRight="@id/APlusSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
+            android:visibility="invisible"
             android:textColor="#32599C" />
 
         <TextView
@@ -467,7 +470,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/APlusSumZhel"
-            android:layout_alignRight="@id/APlusmes6"
+            android:layout_alignRight="@id/Ames48E"
             android:text="3 мес"
             android:textColor="#32599C" />
 
@@ -476,6 +479,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/APlusmes3"
+            android:layout_alignRight="@id/APlusmes3"
             android:text="6 мес"
             android:textColor="#32599C" />
 
@@ -736,6 +740,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/APlusSumZhelMes"
             android:text="Ежемес МИН"
+            android:visibility="invisible"
             android:textColor="#32599C" />
 
         <TextView
@@ -743,7 +748,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/APlusSumZhelMes"
-            android:layout_alignRight="@id/APlusmes6E"
+            android:layout_alignRight="@id/APlusmes48"
             android:text="3 мес"
             android:textColor="#32599C" />
 
@@ -752,6 +757,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/APlusmes3E"
+            android:layout_alignRight="@id/APlusmes3E"
             android:text="6 мес"
             android:textColor="#32599C" />
 
@@ -1014,65 +1020,67 @@
             android:layout_alignRight="@id/APlusSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
-            android:textColor="#1974d2" />
-
-        <TextView
-            android:id="@+id/ARasrMes4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrSumZhel"
-            android:layout_alignRight="@id/APlusmes6"
-            android:text="4 мес"
+            android:visibility="invisible"
             android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4"
+            android:layout_below="@id/ARasrSumZhel"
+            android:layout_alignRight="@id/APlusmes6"
             android:text="5 мес"
             android:textColor="#1974d2" />
 
         <TextView
-            android:id="@+id/ARasrMes4Z"
+            android:id="@+id/ARasrMes6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrSumZhel"
-            android:layout_alignRight="@id/APlusSumZhel"
-            android:text="4 мес"
+            android:layout_below="@id/ARasrMes5"
+            android:layout_alignRight="@id/ARasrMes5"
+            android:text="6 мес"
             android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5Z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4Z"
+            android:layout_below="@id/ARasrSumZhel"
             android:layout_alignRight="@id/APlusSumZhel"
             android:text="5 мес"
             android:textColor="#1974d2" />
 
         <TextView
-            android:id="@+id/ARasrMes4M"
+            android:id="@+id/ARasrMes6Z"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrSumZhel"
-            android:layout_alignRight="@id/APlusSumMin"
-            android:text="4 мес"
+            android:layout_below="@id/ARasrMes5Z"
+            android:layout_alignRight="@id/APlusSumZhel"
+            android:text="6 мес"
             android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5M"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4M"
+            android:layout_below="@id/ARasrSumZhel"
             android:layout_alignRight="@id/APlusSumMin"
             android:text="5 мес"
+            android:textColor="#1974d2" />
+
+        <TextView
+            android:id="@+id/ARasrMes6M"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ARasrMes5M"
+            android:layout_alignRight="@id/APlusSumMin"
+            android:text="6 мес"
             android:textColor="#1974d2" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/ARasrMes5M"
+            android:layout_below="@+id/ARasrMes6M"
             android:layout_alignRight="@id/APlusSumMin"
             android:background="#262626" />
 
@@ -1080,7 +1088,7 @@
             android:id="@+id/ARasrEzhMes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4M"
+            android:layout_below="@id/ARasrMes5M"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ"
@@ -1105,65 +1113,67 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/APlusSumZhelMes"
             android:text="Ежемес МИН"
-            android:textColor="#1974d2" />
-
-        <TextView
-            android:id="@+id/ARasrMes4E"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrSumZhelMes"
-            android:layout_alignRight="@id/APlusmes6E"
-            android:text="4 мес"
+            android:visibility="invisible"
             android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4E"
+            android:layout_below="@id/ARasrSumZhelMes"
+            android:layout_alignRight="@id/APlusmes6E"
             android:text="5 мес"
             android:textColor="#1974d2" />
 
         <TextView
-            android:id="@+id/ARasrMes4EZ"
+            android:id="@+id/ARasrMes6E"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrSumZhelMes"
-            android:layout_alignRight="@id/APlusSumZhel"
-            android:text="4 мес"
+            android:layout_below="@id/ARasrMes5E"
+            android:layout_alignRight="@id/ARasrMes5E"
+            android:text="6 мес"
             android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5EZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4EZ"
+            android:layout_below="@id/ARasrSumZhelMes"
             android:layout_alignRight="@id/APlusSumZhel"
             android:text="5 мес"
             android:textColor="#1974d2" />
 
         <TextView
-            android:id="@+id/ARasrMes4EM"
+            android:id="@+id/ARasrMes6EZ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrSumZhelMes"
-            android:layout_alignRight="@id/APlusSumMin"
-            android:text="4 мес"
+            android:layout_below="@id/ARasrMes5EZ"
+            android:layout_alignRight="@id/APlusSumZhel"
+            android:text="6 мес"
             android:textColor="#1974d2" />
 
         <TextView
             android:id="@+id/ARasrMes5EM"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes4EM"
+            android:layout_below="@id/ARasrSumZhelMes"
             android:layout_alignRight="@id/APlusSumMin"
             android:text="5 мес"
+            android:textColor="#1974d2" />
+
+        <TextView
+            android:id="@+id/ARasrMes6EM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ARasrMes5EM"
+            android:layout_alignRight="@id/APlusSumMin"
+            android:text="6 мес"
             android:textColor="#1974d2" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@+id/ARasrMes5EM"
+            android:layout_below="@+id/ARasrMes6EM"
             android:layout_alignRight="@id/APlusSumMin"
             android:background="#262626" />
 
@@ -1173,7 +1183,7 @@
             android:id="@+id/screp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ARasrMes5EM"
+            android:layout_below="@id/ARasrMes6EM"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:text="СКРЕПКА-ДАБРАБЫТ"
@@ -1205,6 +1215,7 @@
             android:layout_alignRight="@id/SCDSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
+            android:visibility="invisible"
             android:textColor="#26972D" />
 
 
@@ -1376,6 +1387,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/SCDSumZhelMes"
             android:text="Ежемес МИН"
+            android:visibility="invisible"
             android:textColor="#26972D" />
 
 
@@ -1554,6 +1566,7 @@
             android:layout_alignRight="@id/SCPSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
+            android:visibility="invisible"
             android:textColor="#ffaa00" />
 
 
@@ -1751,6 +1764,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/SCPSumZhelMes"
             android:text="Ежемес МИН"
+            android:visibility="invisible"
             android:textColor="#ffaa00" />
 
 
@@ -1958,6 +1972,7 @@
             android:layout_alignRight="@id/SBPSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
+            android:visibility="invisible"
             android:textColor="#8ac74b" />
 
 
@@ -2181,6 +2196,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/SBPSumZhelMes"
             android:text="Ежемес МИН"
+            android:visibility="invisible"
             android:textColor="#8ac74b" />
 
 
@@ -2416,6 +2432,7 @@
             android:layout_alignRight="@id/SBGSumMinMes"
             android:layout_marginLeft="25dp"
             android:text="Сумма МИН"
+            android:visibility="invisible"
             android:textColor="#180131" />
 
 
@@ -2563,6 +2580,7 @@
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/SBGSumZhelMes"
             android:text="Ежемес МИН"
+            android:visibility="invisible"
             android:textColor="#180131" />
 
 
@@ -2721,7 +2739,8 @@
             android:layout_below="@id/lizing"
             android:layout_alignRight="@id/LSumMinMes"
             android:layout_marginLeft="25dp"
-            android:text="Сумма МИН" />
+            android:text="Сумма МИН"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/Lmes4"
@@ -2876,7 +2895,8 @@
             android:layout_below="@id/LEzhMes"
             android:layout_marginLeft="25dp"
             android:layout_toRightOf="@id/LSumZhelMes"
-            android:text="Ежемес МИН" />
+            android:text="Ежемес МИН"
+            android:visibility="invisible"/>
 
         <TextView
             android:id="@+id/Lmes4E"

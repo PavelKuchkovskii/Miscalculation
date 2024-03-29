@@ -106,18 +106,18 @@ public class Bank extends AppCompatActivity {
 
 
     //АЛЬФА-БАНК РАССРОЧКА
-    static TextView ARasrochMes4Z;
     static TextView ARasrochMes5Z;
+    static TextView ARasrochMes6Z;
 
-    static TextView ARasrochMes4M;
     static TextView ARasrochMes5M;
+    static TextView ARasrochMes6M;
 
     //ЕЖЕМЕСЯЧНЫЕ АЛЬФА
-    static TextView ARasrochMes4EZ;
     static TextView ARasrochMes5EZ;
+    static TextView ARasrochMes6EZ;
 
-    static TextView ARasrochMes4EM;
     static TextView ARasrochMes5EM;
+    static TextView ARasrochMes6EM;
 
     //СКРЕПКА-ДОБРОБЫТ
     static TextView SCDmes6Z;
@@ -343,18 +343,18 @@ public class Bank extends AppCompatActivity {
 
 
         //АЛЬФАБАНК РАССРОЧКА
-        ARasrochMes4Z = findViewById(R.id.ARasrMes4Z);
         ARasrochMes5Z = findViewById(R.id.ARasrMes5Z);
+        ARasrochMes6Z = findViewById(R.id.ARasrMes6Z);
 
-        ARasrochMes4M = findViewById(R.id.ARasrMes4M);
         ARasrochMes5M = findViewById(R.id.ARasrMes5M);
+        ARasrochMes6M = findViewById(R.id.ARasrMes6M);
 
         //ЕЖЕМЕСЯЧНЫЕ АЛЬФАБАНК РАССРОЧКА
-        ARasrochMes4EZ = findViewById(R.id.ARasrMes4EZ);
         ARasrochMes5EZ = findViewById(R.id.ARasrMes5EZ);
+        ARasrochMes6EZ = findViewById(R.id.ARasrMes6EZ);
 
-        ARasrochMes4EM = findViewById(R.id.ARasrMes4EM);
         ARasrochMes5EM = findViewById(R.id.ARasrMes5EM);
+        ARasrochMes6EM = findViewById(R.id.ARasrMes6EM);
 
 
 
@@ -645,17 +645,17 @@ public class Bank extends AppCompatActivity {
 
 
         //АЛЬФА-РАССРОЧКА
-        ARasrochMes4Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES4) ? (int) Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES4) + rub : "-");
         ARasrochMes5Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES5) ? (int) Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES5) + rub : "-");
+        ARasrochMes6Z.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES6) ? (int) Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES6) + rub : "-");
 
-        ARasrochMes4M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES4) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES4) + rub : "-");
         ARasrochMes5M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES5) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES5) + rub : "-");
+        ARasrochMes6M.setText(minBank <= Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES6) && !isPocket ? (int) Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES6) + rub : "-");
 
-        ARasrochMes4EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES4) ? Math.ceil( (priceZ * MainActivity.prices.A_RASROCH_MES4)/4) + rub : "-");
         ARasrochMes5EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES5) ? Math.ceil( (priceZ * MainActivity.prices.A_RASROCH_MES5)/5) + rub : "-");
+        ARasrochMes6EZ.setText(minBank <= Math.ceil(priceZ * MainActivity.prices.A_RASROCH_MES6) ? Math.ceil( (priceZ * MainActivity.prices.A_RASROCH_MES6)/6) + rub : "-");
 
-        ARasrochMes4EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES4) && !isPocket ? Math.ceil( (priceM * MainActivity.prices.A_RASROCH_MES4)/4) + rub : "-");
         ARasrochMes5EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES5) && !isPocket ? Math.ceil( (priceM * MainActivity.prices.A_RASROCH_MES5)/5) + rub : "-");
+        ARasrochMes6EM.setText(minBank <= Math.ceil(priceM * MainActivity.prices.A_RASROCH_MES6) && !isPocket ? Math.ceil( (priceM * MainActivity.prices.A_RASROCH_MES6)/6) + rub : "-");
 
 
 
@@ -880,17 +880,17 @@ public class Bank extends AppCompatActivity {
 
 
         //АЛЬФА-РАССРОЧКА
-        ARasrochMes4Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES4) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES4) + rub : "-");
         ARasrochMes5Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES5) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES5) + rub : "-");
+        ARasrochMes6Z.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES6) ? (int) Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES6) + rub : "-");
 
-        ARasrochMes4M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES4) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES4) + rub : "-");
         ARasrochMes5M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES5) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES5) + rub : "-");
+        ARasrochMes6M.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES6) && !isPocket ? (int) Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES6) + rub : "-");
 
-        ARasrochMes4EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES4) ? Math.ceil( (tmpPriceZ * MainActivity.prices.A_RASROCH_MES4)/4) + rub : "-");
         ARasrochMes5EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES5) ? Math.ceil( (tmpPriceZ * MainActivity.prices.A_RASROCH_MES5)/5) + rub : "-");
+        ARasrochMes6EZ.setText(minBank <= Math.ceil(tmpPriceZ * MainActivity.prices.A_RASROCH_MES6) ? Math.ceil( (tmpPriceZ * MainActivity.prices.A_RASROCH_MES6)/6) + rub : "-");
 
-        ARasrochMes4EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES4) && !isPocket ? Math.ceil( (tmpPriceM * MainActivity.prices.A_RASROCH_MES4)/4) + rub : "-");
         ARasrochMes5EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES5) && !isPocket ? Math.ceil( (tmpPriceM * MainActivity.prices.A_RASROCH_MES5)/5) + rub : "-");
+        ARasrochMes6EM.setText(minBank <= Math.ceil(tmpPriceM * MainActivity.prices.A_RASROCH_MES6) && !isPocket ? Math.ceil( (tmpPriceM * MainActivity.prices.A_RASROCH_MES6)/6) + rub : "-");
 
 
         //СКРЕПКА-ДАБРАБЫТ

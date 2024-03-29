@@ -363,8 +363,9 @@ public class MainActivity extends AppCompatActivity
 
                                 if(String.valueOf(userInput.getText()).equals("")) {
                                     Toast.makeText(getApplicationContext(), "Поле не может быть пустым.", Toast.LENGTH_SHORT).show();
-                                }else {
-                                    ProductList.clearAll();
+                                }
+                                else {
+
                                     nameMeasure = String.valueOf(userInput.getText());
 
                                     //Теперь регион всегда МИНСК, нет разницы в цене между регионами, везде ВСЕГДА одна ЦЕНА

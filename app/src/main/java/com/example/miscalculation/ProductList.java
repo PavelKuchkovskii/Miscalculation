@@ -405,7 +405,9 @@ public class ProductList extends AppCompatActivity {
 
                     textRegion.setVisibility(View.VISIBLE);
                 }
-                setTextRegion();
+                if(MainActivity.hashMap.get(MainActivity.nameMeasure) != null) {
+                    setTextRegion();
+                }
 
             }
 

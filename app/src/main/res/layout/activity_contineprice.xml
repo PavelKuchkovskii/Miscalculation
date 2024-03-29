@@ -83,6 +83,28 @@
         android:text="ИТОГО :"
         android:textColor="#ffd11a"/>
 
+    <TextView
+        android:id="@+id/salaryText"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
+        android:text="ЗП :"
+        android:textColor="#ffd11a"/>
+
+    <TextView
+        android:id="@+id/salaryAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignBottom="@id/salaryText"
+        android:layout_toRightOf="@+id/salaryText"
+        android:text="ЗП"
+        android:textColor="#ffd11a"/>
+
     <Spinner
         android:id="@+id/spinner_price"
         android:layout_width="55dp"
@@ -134,5 +156,39 @@
         android:layout_marginBottom="15dp"
         android:background="#00994d"
         android:textColor="#ffd11a"/>
+
+    <CheckBox
+        android:id="@+id/isCheckSalary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_toRightOf="@+id/button_pockets"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        android:checked="true"/>
+
+    <TextView
+        android:id="@+id/standIsCheckText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_toRightOf="@+id/isCheckSalary"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="15dp"
+        android:text="ТП"
+        android:textColor="#ffd11a"/>
+
+    <CheckBox
+        android:id="@+id/isCheckStand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_toRightOf="@+id/isCheckSalary"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="30dp"
+        android:checked="true"/>
 
 </RelativeLayout>
