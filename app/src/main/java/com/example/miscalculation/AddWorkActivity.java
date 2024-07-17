@@ -390,6 +390,7 @@ public class AddWorkActivity extends AppCompatActivity {
 
                     //Если полукруглая рама
                     if (positionTypeOfType1 == 3) {
+                        spinnerTypeOfType2.setVisibility(View.VISIBLE);
                         adapterTypeOfType2.clear();
                         adapterTypeOfType2.addAll(addList(R.array.dtaTypeWorkBalRam3));
                     }

@@ -124,6 +124,7 @@ public class ContinePrice extends AppCompatActivity {
         isCheckSalary = findViewById(R.id.isCheckSalary);
         isCheckStand = findViewById(R.id.isCheckStand);
         isCheckStand.setChecked(MainActivity.hashMap.get(MainActivity.nameMeasure).isStand());
+        isCheckStand1 = isCheckStand.isChecked();
 
 
 //----------------------------------СПИННЕР------------------------------------------------------------------------
@@ -217,6 +218,7 @@ public class ContinePrice extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
                 isCheckStand1 = isChecked;
+
                 MainActivity.hashMap.get(MainActivity.nameMeasure).setStand(isCheckStand1);
                 setPriceOutcome(positionPrice1);
                 if(MainActivity.nameMeasure.contains("COMFORTPOCKET") || MainActivity.nameMeasure.contains("PREMIUMPOCKET")) {
@@ -260,9 +262,9 @@ public class ContinePrice extends AppCompatActivity {
             standPrice += getStandPrice(str[0]);
         }
 
-        continePriceZh = (int) Math.ceil(((mounting + slopes + interest + price + delivery + other + plus - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC);
+        continePriceZh = roundUpToNearestTen((int) Math.ceil(((mounting + slopes + interest + price + delivery + other + plus - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC));
 
-        continePriceM = (int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC);
+        continePriceM = roundUpToNearestTen((int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC));
 
 
         //Это ЗАВЫШЕННАЯ стоимость для скидок
@@ -448,8 +450,8 @@ public class ContinePrice extends AppCompatActivity {
         percent2 = all2 * percentN;
         NDS2 = (priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * 0.2;
 
-        pLizZh = Math.ceil((NDS + all + percent) * course);
-        pLizM = Math.ceil((NDS2 + all2 + percent2) * course);
+        pLizZh = roundUpToNearestTen((int) Math.ceil((NDS + all + percent) * course));
+        pLizM = roundUpToNearestTen((int) Math.ceil((NDS2 + all2 + percent2) * course));
 
 
         Bank.setPriceDopAndItem(pLizZh,pLizM, pLizZhMaxPrepaid, pLizMinMaxPrepaid);
@@ -497,12 +499,14 @@ public class ContinePrice extends AppCompatActivity {
         percent2 = all2 * percentN;
         NDS2 = ((priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery)-sumP) * 0.2;
 
-        pLizZh = Math.ceil((NDS + all + percent) * course);
-        pLizM = Math.ceil((NDS2 + all2 + percent2) * course);
-
+        pLizZh = roundUpToNearestTen((int) Math.ceil((NDS + all + percent) * course));
+        pLizM = roundUpToNearestTen((int) Math.ceil((NDS2 + all2 + percent2) * course));
 
         Bank.setPriceLizWithPrepaid(pLizZh,pLizM);
+    }
 
+    public static int roundUpToNearestTen(int number) {
+        return ((number + 9) / 10) * 10;
     }
 
     @Override
