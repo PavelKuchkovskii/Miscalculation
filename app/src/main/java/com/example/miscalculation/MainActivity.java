@@ -15,7 +15,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -30,7 +29,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.miscalculation.excelUtill.ExcelCreator;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -54,11 +52,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -116,7 +110,7 @@ public class MainActivity extends AppCompatActivity
     public static DopPrices prices = new DopPrices();
     public static String versionFromSheet;
     public static String dopPriceUpdateFromSheet;
-
+    public static boolean isManager = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -708,7 +702,7 @@ public class MainActivity extends AppCompatActivity
      * An asynchronous task that handles the Google Sheets API call.
      * Placing the API calls in their own task ensures the UI stays responsive.
      */
-    private class MakeRequestTask extends AsyncTask<Void, Void, List<String>> {
+    private class MakeRequestTask extends AsyncTask<Void, Void, List<User>> {
         private com.google.api.services.sheets.v4.Sheets mService = null;
         private Exception mLastError = null;
 
@@ -726,7 +720,7 @@ public class MainActivity extends AppCompatActivity
          * @param params no parameters needed for this task.
          */
         @Override
-        protected List<String> doInBackground(Void... params) {
+        protected List<User> doInBackground(Void... params) {
             try {
                 return getDataFromApi();
             } catch (Exception e) {
@@ -741,21 +735,26 @@ public class MainActivity extends AppCompatActivity
          * @return List of names and majors
          * @throws IOException
          */
-        private List<String> getDataFromApi() throws IOException {
+        private List<User> getDataFromApi() throws IOException {
             String spreadsheetId = "1DgOBv9SDB804G_3_Gcj7JGgFa_tI2wIH1r2cpwCINHE";
 
             //Получаем Gmail для сравнения, что бы дать доступ
-            String range = "EuroHoll!A1:A";
-            List<String> results = new ArrayList<>();
+            String range = "EuroHoll!A1:F";
+            List<User> results = new ArrayList<>();
             ValueRange response = this.mService.spreadsheets().values()
                     .get(spreadsheetId, range)
                     .execute();
             List<List<Object>> values = response.getValues();
             if (values != null) {
-                for (List row : values) {
-                    results.add((String) row.get(0));
+                for (List<Object> row : values) {
+                    if(!row.isEmpty()) {
+                        if (row.size() > 5) {
+                            results.add(new User(Boolean.parseBoolean((String) row.get(2)), Double.parseDouble(((String) row.get(3)).replace(",", ".")), (String) row.get(0), Integer.parseInt((String) row.get(4)),Double.parseDouble(((String) row.get(5)).replace(",", "."))));
+                        }
+                    }
                 }
             }
+
             //Получаем обновления
             range = "EuroHoll!J1:J";
             response = this.mService.spreadsheets().values()
@@ -780,7 +779,7 @@ public class MainActivity extends AppCompatActivity
 
         @SuppressLint("SetTextI18n")
         @Override
-        protected void onPostExecute(List<String> output) {
+        protected void onPostExecute(List<User> output) {
             mProgress.hide();
             if (output == null || output.size() == 0) {
                 mOutputText.setVisibility(View.VISIBLE);
@@ -789,10 +788,10 @@ public class MainActivity extends AppCompatActivity
             else {
 
                 //Перебираем все полученные email
-                for(String s : output) {
+                for(User user : output) {
 
                     //Если наш email совпадает с тем что есть в таблице
-                    if (s.equals(mCredential.getSelectedAccountName())) {
+                    if (user.getEmail().equals(mCredential.getSelectedAccountName())) {
                         isOAuth_OK = true;
                         if (isOAuth_OK) {
                             //Показываем кнопку добавить замер и скрываем информацию о статусе доступа
@@ -827,6 +826,8 @@ public class MainActivity extends AppCompatActivity
                                     }
                                 }
                         //==========================================================================
+                                //Устанавливаем права
+                                isManager = user.isManager();
 
                                 //Проверяем файл обновлений
                                 File file2 = getExternalPath("Update");
@@ -841,7 +842,7 @@ public class MainActivity extends AppCompatActivity
 
                                     //Обновляем
                                     try {
-                                        update();
+                                        update(user);
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
@@ -852,17 +853,19 @@ public class MainActivity extends AppCompatActivity
                                     //Читаем файл с обновлением
                                     try {
                                         prices = readUpdate();
+                                        prices.CALCPERC = user.getCALCPERC();
+                                        prices.MINPRICE = user.getMINPRICE();
+                                        prices.delivery = user.getDelivery();
                                     } catch (IOException e) {
                                         e.printStackTrace();
                                     }
-
 
                                     //Если версия из таблицы, не соответсвует сохраненной версии, обновляем ее
                                     if(prices.version == null || !prices.version.equals(versionFromSheet)) {
 
                                         //Обновляем
                                         try {
-                                            update();
+                                            update(user);
                                         } catch (IOException e) {
                                             e.printStackTrace();
                                         }
@@ -908,11 +911,14 @@ public class MainActivity extends AppCompatActivity
         }
 
         //Обновляем прайсы
-        public void update() throws IOException {
+        public void update(User user) throws IOException {
             String json = dopPriceUpdateFromSheet;
             byte[] tmpByte = gson.fromJson(json, byte[].class);
             json = new String(uncompress(tmpByte));
             prices = gson.fromJson(json, DopPrices.class);
+            prices.CALCPERC = user.getCALCPERC();
+            prices.MINPRICE = user.getMINPRICE();
+            prices.delivery = user.getDelivery();
             writeUpdate(prices);
         }
     }

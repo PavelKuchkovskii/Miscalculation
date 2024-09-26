@@ -17,7 +17,7 @@ public class Measure implements Serializable {
     public Pockets pockets;
 
     private String versionData;
-    private final String versionMiscalculation = " \njuly_17_24";
+    private final String versionMiscalculation = " \nsept_26_24";
 
     private final boolean region;
     private boolean isStand = true;

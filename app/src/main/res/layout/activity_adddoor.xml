@@ -133,10 +133,26 @@
         android:background="@android:color/white"/>
 
     <Spinner
+        android:id="@+id/spinner_typeOfShpros"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "300dp"
+        android:layout_toLeftOf ="@id/XTop"
+        android:background="@android:color/white"/>
+
+    <Spinner
+        android:id="@+id/spinner_widthShpros"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop = "300dp"
+        android:layout_toRightOf ="@id/XTop"
+        android:background="@android:color/white"/>
+
+    <Spinner
         android:id="@+id/spinner_typeOfGarnit"
         android:layout_width="175dp"
         android:layout_height="40dp"
-        android:layout_marginTop = "300dp"
+        android:layout_marginTop = "360dp"
         android:layout_toLeftOf = "@id/XTop"
         android:background="@android:color/white"/>
 
@@ -145,7 +161,7 @@
         android:layout_width="175dp"
         android:layout_height="40dp"
         android:layout_toRightOf = "@id/XTop"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="360dp"
         android:background="@android:color/white" />
 
     <Spinner
@@ -153,7 +169,7 @@
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_toLeftOf = "@id/XTop"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="420dp"
         android:background="@android:color/white" />
 
     <Spinner
@@ -161,14 +177,14 @@
         android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_toRightOf = "@id/XTop"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="420dp"
         android:background="@android:color/white" />
 
     <Spinner
         android:id="@+id/spinner_glassDif"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginTop = "420dp"
+        android:layout_marginTop = "480dp"
         android:layout_toRightOf = "@id/XTop"
         android:background="@android:color/white"/>
 
@@ -176,7 +192,7 @@
         android:id="@+id/listGlass"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="520dp"
         android:layout_toRightOf = "@id/XTop"
         android:background="#333333"
         android:divider="#666666"

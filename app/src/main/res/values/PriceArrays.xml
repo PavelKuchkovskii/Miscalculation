@@ -757,6 +757,16 @@
         <item>50</item>
     </string-array>
 
+    <string-array name="dtaNalich">
+        <item>55 мм (6 метров)</item>
+        <item>75 мм (6 метров)</item>
+        <item>95 мм (6 метров)</item>
+    </string-array>
+    <string-array name="dtaNalichLam">
+        <item>Без ламинации</item>
+        <item>Ламинированный</item>
+    </string-array>
+
     <string-array name="dtaLamDop">
         <item>Белый</item>
         <item>Ламинированный</item>
@@ -1318,6 +1328,8 @@
         <item>"Расширитель 70 профиль"</item>
         <item>"Брус деревянный"</item>
         <item>"Нащельник ПВХ"</item>
+        <item>"Наличник дверной"</item>
+        <item>"Клипсы для наличников на 1 изделие"</item>
     </string-array>
 
 
@@ -1332,6 +1344,8 @@
         <item>"Расширитель"</item>
         <item>"Брус деревянный"</item>
         <item>"Нащельник ПВХ"</item>
+        <item>"Наличник дверной"</item>
+        <item>"Клипсы для наличников на 1 изделие"</item>
     </string-array>
 
     <string-array name="dtaDopAlumin">
@@ -1344,6 +1358,8 @@
         <item>"Расширитель + двутавр"</item>
         <item>"Брус деревянный"</item>
         <item>"Нащельник ПВХ"</item>
+        <item>"Наличник дверной"</item>
+        <item>"Клипсы для наличников на 1 изделие"</item>
     </string-array>
 
     <string-array name="dtaDopProplex">
@@ -1358,6 +1374,8 @@
         <item>"Расширитель 70 профиль"</item>
         <item>"Брус деревянный"</item>
         <item>"Нащельник ПВХ"</item>
+        <item>"Наличник дверной"</item>
+        <item>"Клипсы для наличников на 1 изделие"</item>
     </string-array>
 
     <string-array name="dtaWork">
@@ -1396,9 +1414,10 @@
     </string-array>
 
     <string-array name="dtaTypeWorkBalRam2">
-        <item>"До 3300"</item>
-        <item>"3300 – 4300"</item>
-        <item>"Более 4300"</item>
+        <item>"До 3000 мм"</item>
+        <item>"3001 мм – 4300 мм"</item>
+        <item>"3301 мм – 4300 мм"</item>
+        <item>"4301 мм – 5000 мм"</item>
         <item>"Более 5000"</item>
     </string-array>
 
@@ -1409,8 +1428,8 @@
 
     <string-array name="dtaTypeWorkSlopes">
         <item>"До 250 мм"</item>
-        <item>"Свыше 250 мм"</item>
-        <item>"Свыше 450 мм"</item>
+        <item>"251 мм - 370 мм"</item>
+        <item>"Свыше 370 мм"</item>
     </string-array>
 
     <string-array name="dtaTypeWorkNash">
@@ -1419,13 +1438,25 @@
     </string-array>
 
     <string-array name="dtaHightWork">
-        <item>"До 1610 мм"</item>
-        <item>"Свыше 1610 мм"</item>
+        <item>"До 1450 мм"</item>
+        <item>"1451 мм - 1550 мм"</item>
+        <item>"1551 мм - 1650 мм"</item>
+        <item>"1651 мм - 1750 мм"</item>
+        <item>"1751 мм - 1850 мм"</item>
+        <item>"1851 мм - 1950 мм"</item>
+        <item>"1951 мм - 2050 мм"</item>
+        <item>"2051 мм - 2150 мм"</item>
+        <item>"2151 мм - 2250 мм"</item>
+        <item>"2251 мм - 2350 мм"</item>
     </string-array>
 
     <string-array name="dtaWidthWork">
         <item>"До 2510 мм"</item>
-        <item>"Свыше 2510 мм"</item>
+        <item>"2511 мм - 2610 мм"</item>
+        <item>"2611 мм - 2710 мм"</item>
+        <item>"2711 мм - 2810 мм"</item>
+        <item>"2811 мм - 2910 мм"</item>
+        <item>"2911 мм - 3010 мм"</item>
     </string-array>
 
     <string-array name="dtaWorkDoor">
@@ -1439,18 +1470,15 @@
     </string-array>
 
     <string-array name="dtaWorkDoorHight">
-        <item>"До 2100 мм"</item>
-        <item>"Свыше 2100 мм"</item>
+        <item>"До 2100 мм (Если выше, нужна фрамуга)"</item>
     </string-array>
 
     <string-array name="dtaWorkDoorWidth1">
-        <item>"До 1000 мм"</item>
-        <item>"Свыше 1000 мм"</item>
+        <item>"До 1000 мм (Шире нельзя)"</item>
     </string-array>
 
     <string-array name="dtaWorkDoorWidth2">
-        <item>"До 2000 мм"</item>
-        <item>"Свыше 2000 мм"</item>
+        <item>"До 2000 мм (Шире нельзя)"</item>
     </string-array>
 
     <string-array name="dtaWorkDoor2">

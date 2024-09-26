@@ -66,6 +66,8 @@ public class AddDoorActivity extends AppCompatActivity {
     static int positionPorog1;
     static int positionKey1;
     static int positionGlassDif1;
+    static int positionShpros1;
+    static int positionShprosWidth1;
 
     static int price;
     static int itemInterest;
@@ -81,6 +83,8 @@ public class AddDoorActivity extends AppCompatActivity {
     static double laminationCoefficient;
     static double lam = 0.0;
     static double priceGlass;
+
+    static double shpros;
 
     static List<String> dataTypeOfType = new ArrayList<>();
     static List<String> dataTypeOfLoop = new ArrayList<>();
@@ -99,6 +103,8 @@ public class AddDoorActivity extends AppCompatActivity {
     static List<String> dataKey = new ArrayList<>();
     static List<String> dataGlassDif = new ArrayList<>();
     static List<String> dataGlassList = new ArrayList<>();
+    static List<String> dataShpros = new ArrayList<>();
+    static List<String> dataShprosWidth = new ArrayList<>();
 //--------------------------------------------------------------------------------------------
 
     String[] dataType = {"1 створ. дверь", "Штульповая дверь"};
@@ -125,6 +131,9 @@ public class AddDoorActivity extends AppCompatActivity {
 
     static ArrayAdapter<String> adapterGlassDif;
     static ArrayAdapter<String> adapterGlassDifLst;
+
+    static ArrayAdapter<String> adapterShpros;
+    static ArrayAdapter<String> adapterShprosWidth;
 
     public AlertDialog.Builder builder;
 
@@ -171,6 +180,10 @@ public class AddDoorActivity extends AppCompatActivity {
         adapterPorog = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataPorog);
 
         adapterKey = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataKey);
+
+        adapterShpros = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataShpros);
+
+        adapterShprosWidth = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataShprosWidth);
 
         adapterGlassDif = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataGlassDif);
         adapterGlassDifLst = new ArrayAdapter<String>(this, R.layout.listglassitem, dataGlassList);
@@ -243,6 +256,14 @@ public class AddDoorActivity extends AppCompatActivity {
         adapterGlassDif.clear();
         adapterGlassDif.addAll(addList(R.array.dtaGlassDif));
 
+        adapterShpros.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterShpros.clear();
+        adapterShpros.addAll(addList(R.array.dtaShpros));
+
+        adapterShprosWidth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapterShprosWidth.clear();
+        adapterShprosWidth.addAll(addList(R.array.Width_shpros));
+
 //----------------------------------------
 
         final Spinner spinnerType = findViewById(R.id.spinner_type);
@@ -279,6 +300,10 @@ public class AddDoorActivity extends AppCompatActivity {
         final Spinner spinnerKey = findViewById(R.id.spinner_typeOfKey);
 
         final Spinner spinnerGlassDif = findViewById(R.id.spinner_glassDif);
+        final Spinner spinnerShpros = findViewById(R.id.spinner_typeOfShpros);
+        final Spinner spinnerShprosWidth = findViewById(R.id.spinner_widthShpros);
+
+        spinnerShprosWidth.setVisibility(View.INVISIBLE);
 //----------------------------------------
         final Button setTypeButton = findViewById(R.id.button_addType);
         final Button prodLstBut = findViewById(R.id.button_ProdLst);
@@ -610,6 +635,60 @@ public class AddDoorActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         }) ;
+//________________________ШПРОСЫ_________________________________________
+
+        spinnerShpros.setAdapter(adapterShpros);
+        // заголовок
+        spinnerShpros.setPrompt("Шпросы");
+        // выделяем элемент
+        spinnerShpros.setSelection(0);
+        // устанавливаем обработчик нажатия
+        spinnerShpros.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int positionShpros, long idShpros) {
+
+                positionShpros1 = positionShpros;
+                //Если шпросы не выбраны, скрывается их длина
+                if (positionShpros1 == 0) {
+                    positionShprosWidth1 = 0;
+                    spinnerShprosWidth.setSelection(0);
+                    spinnerShprosWidth.setVisibility(View.INVISIBLE);
+                }
+                //Если выбраны, длина показывается
+                else {
+                    spinnerShprosWidth.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        }) ;
+//____________________________ДЛИНА ШПРОС_________________________________________
+
+        spinnerShprosWidth.setAdapter(adapterShprosWidth);
+        // заголовок
+        spinnerShprosWidth.setPrompt("Шпросы");
+        // выделяем элемент
+        spinnerShprosWidth.setSelection(0);
+        // устанавливаем обработчик нажатия
+        spinnerShprosWidth.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int positionShprosWidth, long idShprosWidth) {
+
+                positionShprosWidth1 = positionShprosWidth;
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        }) ;
 
         //_____________ТИП ГАРНИТУРЫ_______________
 
@@ -769,6 +848,7 @@ public class AddDoorActivity extends AppCompatActivity {
                 setLoopPrice();
                 setGarnitPrice();
                 setPorogPrice();
+                setPriceShpros();
                 setKeyPrice();
                 setGlassPrice();
 
@@ -785,7 +865,8 @@ public class AddDoorActivity extends AppCompatActivity {
                         dataPorog.get(positionPorog1) + "\n" +
                         (positionTypeOfType1 != 1 ? (!dataTypeOfGlass.get(positionTypeOfGlass1).equals("24") ?
                                 dataGlassList.get(0) + ";" + dataGlassList.get(1) + ";" + dataGlassList.get(2) + ";" + "\n" :
-                                dataGlassList.get(0) + ";" + dataGlassList.get(1) + ";" + "\n") : "");
+                                dataGlassList.get(0) + ";" + dataGlassList.get(1) + ";" + "\n") : "") +
+                                (positionShpros1 > 0 ? dataShpros.get(positionShpros1) + " " + dataShprosWidth.get(positionShprosWidth1) : dataShpros.get(positionShpros1));
 
 
                 //Пришлось разделить просто добавление и добавление если это со спецификацией
@@ -1545,6 +1626,27 @@ public class AddDoorActivity extends AppCompatActivity {
         }
     }
 
+    public void setPriceShpros() {
+        //Вызывается после нажатия на кнопку добавить изделие
+
+        //Без шпрос
+        if (positionShpros1 == 0) {
+            shpros = 0;
+        }
+        //Шпросы белые/коричневые 26мм
+        else if (positionShpros1 == 1) {
+            shpros = (Double.parseDouble(dataShprosWidth.get(positionShprosWidth1)) / 1000) * MainActivity.prices.shprosBelKor26mm;
+        }
+        //Шпросы белые/коричневые 18мм
+        else if (positionShpros1 == 2) {
+            shpros = (Double.parseDouble(dataShprosWidth.get(positionShprosWidth1)) / 1000) * MainActivity.prices.shprosBelKor18mm;
+        }
+        //Шпросы белые/золотые 8мм
+        else {
+            shpros = (Double.parseDouble(dataShprosWidth.get(positionShprosWidth1)) / 1000) * MainActivity.prices.shprosBelZol8mm;
+        }
+    }
+
     //____________________________________________________________________
     public void setKeyPrice() {
         //Если ключ - ключ
@@ -1559,11 +1661,11 @@ public class AddDoorActivity extends AppCompatActivity {
     }
     //____________________________________________________________________
     public double setRegionPrice(){
-        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass));
+        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + shpros + loopPrice + garnitPrice + priceGlass));
     }
 
     public double setMinskPrice() {
-        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + loopPrice + garnitPrice + priceGlass));
+        return Math.ceil(((((price + lockPrice + porogPrice + keyPrice) * profileCoefficient) * laminationCoefficient) + lam + shpros + loopPrice + garnitPrice + priceGlass));
     }
 
     public List<String> addList(@ArrayRes int id) {

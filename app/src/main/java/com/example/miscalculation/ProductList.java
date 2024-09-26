@@ -35,13 +35,9 @@ import com.google.gson.Gson;
 public class ProductList extends AppCompatActivity {
 
     final Context context = this;
-
     static boolean addFromList = false;
     static int indexOfAddToBlock = 0;
-
     static boolean mainActivityFlag = true;
-    public static final boolean isManager = false;
-
     static double Course = 0.0;
 
     static ArrayAdapter<String> adapterProdLst;
@@ -384,7 +380,7 @@ public class ProductList extends AppCompatActivity {
 //************************************ИНИЦИАЛИЗАЦИЯ*************************************************
                 findBlock(prodList);
 //**************************************************************************************************
-                if(isManager) {
+                if(MainActivity.isManager) {
                     v1.setVisibility(View.VISIBLE);
                     v2.setVisibility(View.VISIBLE);
                     v3.setVisibility(View.VISIBLE);
@@ -718,7 +714,7 @@ public class ProductList extends AppCompatActivity {
             else {
 
              //Если менеджер и не работа
-             if (isManager && mounting1 == 0 && slopes1 == 0) {
+             if (MainActivity.isManager && mounting1 == 0 && slopes1 == 0) {
                  adapterProdLst.add(prodLst + ": " + priceItem);
              }
              //Если не менеджер или работа
@@ -736,7 +732,7 @@ public class ProductList extends AppCompatActivity {
             prodInterest.add(indexOfAddToBlock, interest1);
 
             //Если менеджер
-            if (isManager) {
+            if (MainActivity.isManager) {
                 prodList.add(indexOfAddToBlock, prodLst + ": " + priceItem);
                 adapterProdLst.notifyDataSetInvalidated();
             }

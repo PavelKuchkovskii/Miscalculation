@@ -409,6 +409,21 @@ public class DopPrices implements Serializable{
   //Нащельник ПВХ(nashPvh)
   public double nashPvh;
 
+  //Наличник дверной 55мм(nalich55)
+  public double nalich55;
+  //Наличник дверной 55мм ламинированный(nalich55lam)
+  public double nalich55lam;
+  //Наличник дверной 75мм (nalich75)
+  public double nalich75;
+  //Наличник дверной 75мм ламинированный(nalich75lam)
+  public double nalich75lam;
+  //Наличник дверной 95мм (nalich95)
+  public double nalich95;
+  //Наличник дверной 95мм ламинированный(nalich95lam)
+  public double nalich95lam;
+  //Клипсы на наличник (nalichClips)
+  public double nalichClips;
+
   //Двутавр на алюминьку(dvutavr)
   public double dvutavr;
 
@@ -623,16 +638,18 @@ public class DopPrices implements Serializable{
   //МОНТАЖ НА 3 СТВОРЧАТОЕ ОКНО(WORK3ST_M)
   public int WORK3ST_M;
 
-  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) < 3300(WORK4ST1_M)
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) < 3000(WORK4ST1_M)
   public int WORK4ST1_M;
-  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) - 3300 - 4300(WORK4ST2_M)
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) - 3000 - 3300(WORK4ST2_M)
   public int WORK4ST2_M;
-  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 4300(WORK4ST3_M)
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) 3300 - 4300(WORK4ST3_M)
   public int WORK4ST3_M;
-  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 5000(WORK4ST4_M)
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) 4300 - 5000(WORK4ST4_M)
   public int WORK4ST4_M;
-  //МОНТАЖ НА 4 СТВОРЧАТОЕ ЗА ПОВОРОТ(WORK4ST5_M)
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ОКНО(РАМА) > 5000(WORK4ST5_M)
   public int WORK4ST5_M;
+  //МОНТАЖ НА 4 СТВОРЧАТОЕ ЗА ПОВОРОТ(WORK4STPOV_M)
+  public int WORK4STPOV_M;
 
   //МОНТАЖ НА БАЛКОННУЮ ГРУППУ 1 ОКНО(WORKBALBLOCK1_M)
   public int WORKBALBLOCK1_M;

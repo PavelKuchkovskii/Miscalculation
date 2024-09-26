@@ -3,6 +3,7 @@ package com.example.miscalculation;
 import androidx.annotation.ArrayRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 
@@ -40,6 +42,12 @@ public class AddDopActivity extends AppCompatActivity {
     static int positionProfile1;
 
     static Spinner spinnerLamination = null;
+    static Spinner spinnerHightDop = null;
+    static Spinner spinnerWidthDop = null;
+
+    static TextView textHight;
+    static TextView textWidth;
+    static TextView textXWork;
 
     static double dopPrice;
 
@@ -66,6 +74,7 @@ public class AddDopActivity extends AppCompatActivity {
     static ArrayAdapter<String> adapterProfile;
 
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +83,7 @@ public class AddDopActivity extends AppCompatActivity {
         final Animation animAlpha = AnimationUtils.loadAnimation(this, R.anim.alpha);
         final Intent prodListBut = new Intent(AddDopActivity.this, ProductList.class);
 
-        dataWidthPodOtl = Arrays.asList(getResources().getStringArray(R.array.Width_pod_Otl));
+        dataWidthPodOtl = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.Width_pod_Otl)));
 //----------------------------------------
         adapterLamination = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataLamination);
         adapterDop = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, dataDop);
@@ -100,11 +109,15 @@ public class AddDopActivity extends AppCompatActivity {
 
         final Spinner spinnerDop = findViewById(R.id.spinner_dop);
 
-        final Spinner spinnerHightDop = findViewById(R.id.spinner_hightDop);
+        spinnerHightDop = findViewById(R.id.spinner_hightDop);
 
-        final Spinner spinnerWidthDop = findViewById(R.id.spinner_widthDop);
+        spinnerWidthDop = findViewById(R.id.spinner_widthDop);
 
         final Spinner spinnerProfile = findViewById(R.id.spinner_profile);
+
+        textHight = findViewById(R.id.textHigh);
+        textWidth = findViewById(R.id.textWidth);
+        textXWork = findViewById(R.id.XDown);
 //----------------------------------------
         final Button setDopButton = findViewById(R.id.button_addDop);
         final Button prodLstBut = findViewById(R.id.button_ProdLst);
@@ -237,22 +250,22 @@ public class AddDopActivity extends AppCompatActivity {
 
                 getPrice = true;
                 setDopPrice();
-                String itemName = dataDop.get(positionDop1) + " " + (dataLamination.size() > 0 ? dataLamination.get(positionLamination1) : "") + " " + dataHightDop.get(positionHightDop1) + " * " + dataWidthPodOtl.get(positionWidthDop1) +
+                String itemName = dataDop.get(positionDop1) + " " + (dataLamination.size() > 0 ? dataLamination.get(positionLamination1) : "") + (!dataDop.get(positionDop1).equals("Клипсы для наличников на 1 изделие") ? " " + dataHightDop.get(positionHightDop1) + " * " + dataWidthPodOtl.get(positionWidthDop1) +
                         (positionDop1 != 0 && positionDop1 != 1 && positionDop1 != 2 && positionDop1 != dataDop.size() - 1 && positionDop1 != dataDop.size() - 2 ?
-                                "\nДля: " + dataProfile[positionProfile1] : "");
+                                "\nДля: " + dataProfile[positionProfile1] : "") : "");
 
 
                 String itemInfo = "";
 
                 //Добавление в пакет, только если активный замер сам не является пакетом
                 if(!MainActivity.hashMap.get(MainActivity.nameMeasure).isPocket()) {
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1)));
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1)));
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1)));
-                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.PROPLEX7032W, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1) instanceof String ? "0" : dataWidthPodOtl.get(positionWidthDop1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.BB7040W, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1) instanceof String ? "0" : dataWidthPodOtl.get(positionWidthDop1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAU7040W, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1) instanceof String ? "0" : dataWidthPodOtl.get(positionWidthDop1)));
+                    MainActivity.hashMap.get(MainActivity.nameMeasure).pockets.addToPocket(MainActivity.prices.REHAUINTELIO, itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1) instanceof String ? "0" : dataWidthPodOtl.get(positionWidthDop1)));
                 }
                 ProductList.addProdLst(itemName, Double.parseDouble(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, 0, 0);
-                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1)));
+                MainActivity.hashMap.get(MainActivity.nameMeasure).setProdList(itemName, itemInfo, Double.valueOf(String.format(Locale.ROOT, "%.2f", dopPrice)), 0, Integer.parseInt(dataWidthPodOtl.get(positionWidthDop1) instanceof String ? "0" : dataWidthPodOtl.get(positionWidthDop1)));
 
                 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 vibrator.vibrate(100);
@@ -280,7 +293,15 @@ public class AddDopActivity extends AppCompatActivity {
     public void setDopPrice() {
 
         if(dopFlag) {
+            adapterLamination.clear();
             spinnerLamination.setVisibility(View.VISIBLE);
+            spinnerHightDop.setVisibility(View.VISIBLE);
+            spinnerWidthDop.setVisibility(View.VISIBLE);
+            textHight.setVisibility(View.VISIBLE);
+            textWidth.setVisibility(View.VISIBLE);
+            textXWork.setVisibility(View.VISIBLE);
+            adapterWidthDop.clear();
+            adapterWidthDop.addAll(addList(R.array.Width_pod_Otl));
         }
 
         //Если Brusbox,Rehau
@@ -642,6 +663,78 @@ public class AddDopActivity extends AppCompatActivity {
                     return;
                 }
             }
+
+            //Наличник дверной дверной
+            if (positionDop1 == 11) {
+
+                if (dopFlag == true) {
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaNalich));
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaNalichLam));
+                    adapterLamination.clear();
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    //55 мм
+                    if(positionHightDop1 == 0) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich55;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich55lam;
+                        }
+                    }
+                    //75 мм
+                    else if(positionHightDop1 == 1) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich75;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich75lam;
+                        }
+                    }
+                    //95 мм
+                    else if(positionHightDop1 == 2) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich95;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich95lam;
+                        }
+                    }
+                }
+            }
+
+            //Клипсы для наличника
+            if (positionDop1 == 12) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.nalichClips;
+                }
+            }
         }
 
 //------------------------------INTELIO----------------------------------------------------------
@@ -908,6 +1001,78 @@ public class AddDopActivity extends AppCompatActivity {
                     return;
                 }
             }
+
+            //Наличник дверной дверной
+            if (positionDop1 == 9) {
+
+                if (dopFlag == true) {
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaNalich));
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaNalichLam));
+                    adapterLamination.clear();
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    //55 мм
+                    if(positionHightDop1 == 0) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich55;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich55lam;
+                        }
+                    }
+                    //75 мм
+                    else if(positionHightDop1 == 1) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich75;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich75lam;
+                        }
+                    }
+                    //95 мм
+                    else if(positionHightDop1 == 2) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich95;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich95lam;
+                        }
+                    }
+                }
+            }
+
+            //Клипсы для наличника
+            if (positionDop1 == 10) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.nalichClips;
+                }
+            }
         }
 
 //--------------------------------АЛЮМИНИЙ----------------------------------------------------------
@@ -1140,6 +1305,77 @@ public class AddDopActivity extends AppCompatActivity {
                     getPrice = false;
                     dopPrice = (MainActivity.prices.nashPvh * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
                     return;
+                }
+            }
+            //Наличник дверной дверной
+            if (positionDop1 == 9) {
+
+                if (dopFlag == true) {
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaNalich));
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaNalichLam));
+                    adapterLamination.clear();
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    //55 мм
+                    if(positionHightDop1 == 0) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich55;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich55lam;
+                        }
+                    }
+                    //75 мм
+                    else if(positionHightDop1 == 1) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich75;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich75lam;
+                        }
+                    }
+                    //95 мм
+                    else if(positionHightDop1 == 2) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich95;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich95lam;
+                        }
+                    }
+                }
+            }
+
+            //Клипсы для наличника
+            if (positionDop1 == 10) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.nalichClips;
                 }
             }
         }
@@ -1482,6 +1718,76 @@ public class AddDopActivity extends AppCompatActivity {
                     getPrice = false;
                     dopPrice = (MainActivity.prices.nashPvh * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
                     return;
+                }
+            }
+            //Наличник дверной дверной
+            if (positionDop1 == 11) {
+
+                if (dopFlag == true) {
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaNalich));
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaNalichLam));
+                    adapterLamination.clear();
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    //55 мм
+                    if(positionHightDop1 == 0) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich55;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich55lam;
+                        }
+                    }
+                    //75 мм
+                    else if(positionHightDop1 == 1) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich75;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich75lam;
+                        }
+                    }
+                    //95 мм
+                    else if(positionHightDop1 == 2) {
+                        //Без ламинации
+                        if(positionWidthDop1 == 0) {
+                            dopPrice = MainActivity.prices.nalich95;
+                        }
+                        //Ламинированный
+                        else {
+                            dopPrice = MainActivity.prices.nalich95lam;
+                        }
+                    }
+                }
+            }
+            //Клипсы для наличника
+            if (positionDop1 == 12) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.nalichClips;
                 }
             }
         }

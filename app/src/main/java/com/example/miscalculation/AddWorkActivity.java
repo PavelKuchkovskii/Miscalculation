@@ -298,7 +298,11 @@ public class AddWorkActivity extends AppCompatActivity {
                 v.startAnimation(animAlpha);
                 setWorkPrice();
                 String itemName = dataWork.get(positionWork1) + " " + dataType.get(positionType1) + " " +
-                        (positionWork1 == 0 ? positionType1 == 3 ? dataTypeOfType.get(positionTypeOfType1) : positionType1 == 4 ? dataTypeOfType.get(positionTypeOfType1) + " " + dataHightWork.get(positionHight1) + " " + dataWidthWork.get(positionWidth1) : "" :
+                        (positionWork1 == 0 ?
+                                positionType1 == 3 ? dataTypeOfType.get(positionTypeOfType1) :
+                                        positionType1 == 4 ? dataTypeOfType.get(positionTypeOfType1) + " " + dataHightWork.get(positionHight1) + " " + dataWidthWork.get(positionWidth1) :
+                                positionType1 == 2 ? dataHightWork.get(positionHight1) + " " + dataWidthWork.get(positionWidth1) :
+                                        positionType1 == 0 ||  positionType1 == 1 ? dataHightWork.get(positionHight1) : "" :
                                 positionWork1 == 1 ? positionType1 == 3 ? dataTypeOfType.get(positionTypeOfType1) + " " + dataTypeOfType2.get(positionTypeOfType1_2): dataTypeOfType.get(positionTypeOfType1) :
                                 "");
                 if (positionWork1 == 2) {
@@ -684,54 +688,17 @@ public class AddWorkActivity extends AppCompatActivity {
 
                     //1 створчатое окно
                     if (positionType1 == 0) {
-                        //Если высота до 1610 мм
-                        if (positionHight1 == 0) {
-                            priceWork = MainActivity.prices.WORK1ST_M;
-                        }
-                        //Если высота свыше 1610 мм
-                        else {
-                            priceWork = MainActivity.prices.WORK1ST_M + MainActivity.prices.WORKMORE_M;
-                        }
-
+                        priceWork = MainActivity.prices.WORK1ST_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                     }
 
                     //2 створчатое окно
                     else if (positionType1 == 1) {
-                        //Если высота до 1610 мм
-                        if (positionHight1 == 0) {
-                            priceWork = MainActivity.prices.WORK2ST_M;
-                        }
-                        //Если высота свыше 1610 мм
-                        else {
-                            priceWork = MainActivity.prices.WORK2ST_M + MainActivity.prices.WORKMORE_M;
-                        }
+                        priceWork = MainActivity.prices.WORK2ST_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                     }
 
                     //3 створчатое окно
                     else if (positionType1 == 2) {
-                        //Если высота до 1610 мм
-                        if (positionHight1 == 0) {
-                            //Если ширина до 2510 мм
-                            if (positionWidth1 == 0) {
-                                priceWork = MainActivity.prices.WORK3ST_M;
-                            }
-                            //Если ширина свыше 2510 мм
-                            else {
-                                priceWork = MainActivity.prices.WORK3ST_M + MainActivity.prices.WORKMORE_M;
-                            }
-                        }
-                        //Если высота свыше 1610 мм
-                        else {
-                            //Если ширина до 2510 мм
-                            if(positionWidth1 == 0) {
-                                priceWork = MainActivity.prices.WORK3ST_M + MainActivity.prices.WORKMORE_M;
-                            }
-                            //Если ширина свыше 2510 мм
-                            else {
-                                priceWork = MainActivity.prices.WORK3ST_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                            }
-
-                        }
+                        priceWork = MainActivity.prices.WORK3ST_M + (MainActivity.prices.WORKMORE_M * positionHight1) + (MainActivity.prices.WORKMORE_M * positionWidth1);
                     }
 
                     //Балконный блок
@@ -752,60 +719,28 @@ public class AddWorkActivity extends AppCompatActivity {
                         //Если прямая рама
                         if (positionTypeOfType1 == 0) {
 
-                            //Если ширина до 3300
+                            //Если ширина до 3000
                             if (positionWidth1 == 0) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST1_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.WORK4ST1_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина 3300 - 4300
-                            if (positionWidth1 == 1) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST2_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Если ширина 3001 - 3300
+                            else if (positionWidth1 == 1) {
+                                priceWork = MainActivity.prices.WORK4ST2_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                            }
+                            //Если ширина 3301-4300
+                            else if (positionWidth1 == 2) {
+                                priceWork = MainActivity.prices.WORK4ST3_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина свыше 4300
-                            if (positionWidth1 == 2) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST3_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Если ширина 4301-5000
+                            else if (positionWidth1 == 3) {
+                                priceWork = MainActivity.prices.WORK4ST4_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина свыше 5000
-                            if (positionWidth1 == 3) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST4_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Свыше 5000
+                            else if (positionWidth1 == 4) {
+                                priceWork = MainActivity.prices.WORK4ST5_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
                         }
 
@@ -814,58 +749,25 @@ public class AddWorkActivity extends AppCompatActivity {
 
                             //Если ширина до 3300
                             if (positionWidth1 == 0) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                            }
+                            //Если ширина 3001 - 3300
+                            else if (positionWidth1 == 1) {
+                                priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                            }
+                            //Если ширина 3301-4300
+                            else if (positionWidth1 == 2) {
+                                priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина 3300 - 4300
-                            if (positionWidth1 == 1) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Если ширина 4301-5000
+                            else if (positionWidth1 == 3) {
+                                priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина свыше 4300
-                            if (positionWidth1 == 2) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если ширина свыше 5000
-                            if (positionWidth1 == 3) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Свыше 5000
+                            else if (positionWidth1 == 4) {
+                                priceWork = MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
                         }
@@ -875,58 +777,25 @@ public class AddWorkActivity extends AppCompatActivity {
 
                             //Если ширина до 3300
                             if (positionWidth1 == 0) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.WORK4ST1_M + MainActivity.prices.WORK4STPOV_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                            }
+                            //Если ширина 3001 - 3300
+                            else if (positionWidth1 == 1) {
+                                priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4STPOV_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                            }
+                            //Если ширина 3301-4300
+                            else if (positionWidth1 == 2) {
+                                priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4STPOV_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина 3300 - 4300
-                            if (positionWidth1 == 1) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST2_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Если ширина 4301-5000
+                            else if (positionWidth1 == 3) {
+                                priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4STPOV_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
 
-                            //Если ширина свыше 4300
-                            if (positionWidth1 == 2) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST3_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если ширина свыше 5000
-                            if (positionWidth1 == 3) {
-
-                                //Если высота до 1610 мм
-                                if (positionHight1 == 0) {
-                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M;
-                                }
-
-                                //Если высота свыше 1610 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORK4ST4_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORKMORE_M;
-                                }
+                            //Свыше 5000
+                            else if (positionWidth1 == 4) {
+                                priceWork = MainActivity.prices.WORK4ST5_M + MainActivity.prices.WORK4STPOV_M + MainActivity.prices.WORK4STPOV_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                             }
                         }
 
@@ -962,16 +831,10 @@ public class AddWorkActivity extends AppCompatActivity {
                 adapterTypeOfType.clear();
                 adapterTypeOfType.addAll(addList(R.array.dtaWorkDoorType1));
 
-                //Устанавливаем выбор высоты для дверей
-                adapterHightWork.clear();
-                adapterHightWork.addAll(addList(R.array.dtaWorkDoorHight));
-
                 spinnerTypeOfType.setVisibility(View.VISIBLE);
-                spinnerHight.setVisibility(View.VISIBLE);
                 spinnerWidth.setVisibility(View.VISIBLE);
-                textHight.setVisibility(View.VISIBLE);
                 textWidth.setVisibility(View.VISIBLE);
-                textXWork.setVisibility(View.VISIBLE);
+
                 //--------------------------------------------------------------------------------------
 
                 //Если выбрана одностворчатая дверь
@@ -983,6 +846,23 @@ public class AddWorkActivity extends AppCompatActivity {
                 else {
                     adapterWidthWork.clear();
                     adapterWidthWork.addAll(addList(R.array.dtaWorkDoorWidth2));
+                }
+
+                //Если без фрамуги
+                if(positionTypeOfType1 == 0) {
+                    //Устанавливаем выбор высоты для дверей
+                    adapterHightWork.clear();
+                    adapterHightWork.addAll(addList(R.array.dtaWorkDoorHight));
+                    spinnerHight.setVisibility(View.VISIBLE);
+                    textHight.setVisibility(View.VISIBLE);
+                    textXWork.setVisibility(View.VISIBLE);
+                }
+                //Если с фрамугой
+                else {
+                    //Скрываем выбор высоты для дверей
+                    spinnerHight.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
                 }
             }
 
@@ -1140,68 +1020,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                         //Если без фрамуги
                         if (positionTypeOfType1 == 0) {
-
-                            //Если высота до 2100 мм
-                            if (positionHight1 == 0) {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR1ST_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR1ST_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если высота свыше 2100 мм
-                            else {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR1ST_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR1ST_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                            }
+                            priceWork = MainActivity.prices.WORKDOOR1ST_M;
                         }
 
                         //Если с фрамугой
                         else {
-
-                            //Если высота до 2100 мм
-                            if (positionHight1 == 0) {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR1STF_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR1STF_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если высота свыше 2100 мм
-                            else {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR1STF_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR1STF_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                            }
+                            priceWork = MainActivity.prices.WORKDOOR1STF_M;
                         }
                     }
 
@@ -1210,68 +1034,12 @@ public class AddWorkActivity extends AppCompatActivity {
 
                         //Если без фрамуги
                         if (positionTypeOfType1 == 0) {
-
-                            //Если высота до 2100 мм
-                            if (positionHight1 == 0) {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR2ST_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR2ST_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если высота свыше 2100 мм
-                            else {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR2ST_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR2ST_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                            }
+                            priceWork = MainActivity.prices.WORKDOOR2ST_M;
                         }
 
                         //Если с фрамугой
                         else {
-
-                            //Если высота до 2100 мм
-                            if (positionHight1 == 0) {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR2STF_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR2STF_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если высота свыше 2100 мм
-                            else {
-
-                                //Если ширина до 1000 мм
-                                if (positionWidth1 == 0) {
-                                    priceWork = MainActivity.prices.WORKDOOR2STF_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                                //Если ширина свыше 1000 мм
-                                else {
-                                    priceWork = MainActivity.prices.WORKDOOR2STF_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-
-                            }
+                            priceWork = MainActivity.prices.WORKDOOR2STF_M;
                         }
                     }
                 }
@@ -1301,10 +1069,8 @@ public class AddWorkActivity extends AppCompatActivity {
                     adapterTypeOfType2.addAll(addList(R.array.dtaWorkDoor2));
                     spinnerTypeOfType2.setVisibility(View.VISIBLE);
 
-                    adapterHightWork.clear();
-                    adapterHightWork.addAll(addList(R.array.dtaWorkDoorHight));
-                    spinnerHight.setVisibility(View.VISIBLE);
-                    textHight.setVisibility(View.VISIBLE);
+                    spinnerHight.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
                 }
                 //Если выбран балконный блок
                 else if(positionType1 == 3) {
@@ -1691,37 +1457,17 @@ public class AddWorkActivity extends AppCompatActivity {
                 else {
                     //1 створчатое
                     if (positionType1 == 0) {
-
-                        //Если высота до 1610 мм
-                        if (positionHight1 == 0) {
-                            //До 250 мм
-                            if (positionTypeOfType1 == 0) {
-                                priceWork = MainActivity.prices.SLP1ST1_M;
-                            }
-                            //Свыше 250 мм
-                            else if (positionTypeOfType1 == 1) {
-                                priceWork = MainActivity.prices.SLP1ST2_M;
-                            }
-                            //Свыше 450 мм
-                            else {
-                                priceWork = MainActivity.prices.SLP1ST3_M;
-                            }
+                        //До 250 мм
+                        if (positionTypeOfType1 == 0) {
+                            priceWork = MainActivity.prices.SLP1ST1_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                         }
-
-                        //Если высота свыше 1610 мм
+                        //Свыше 250 мм
+                        else if (positionTypeOfType1 == 1) {
+                            priceWork = MainActivity.prices.SLP1ST2_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                        }
+                        //Свыше 450 мм
                         else {
-                            //До 250 мм
-                            if (positionTypeOfType1 == 0) {
-                                priceWork = MainActivity.prices.SLP1ST1_M + MainActivity.prices.WORKMORE_M;
-                            }
-                            //Свыше 250 мм
-                            else if (positionTypeOfType1 == 1) {
-                                priceWork = MainActivity.prices.SLP1ST2_M + MainActivity.prices.WORKMORE_M;
-                            }
-                            //Свыше 450 мм
-                            else {
-                                priceWork = MainActivity.prices.SLP1ST3_M + MainActivity.prices.WORKMORE_M;
-                            }
+                            priceWork = MainActivity.prices.SLP1ST3_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                         }
 
                     }
@@ -1729,115 +1475,35 @@ public class AddWorkActivity extends AppCompatActivity {
                     //2 створчатое
                     else if (positionType1 == 1) {
 
-                        //Если высота до 1610 мм
-                        if (positionHight1 == 0) {
-                            //До 250 мм
-                            if (positionTypeOfType1 == 0) {
-                                priceWork = MainActivity.prices.SLP2ST1_M;
-                            }
-                            //Свыше 250 мм
-                            else if (positionTypeOfType1 == 1) {
-                                priceWork = MainActivity.prices.SLP2ST2_M;
-                            }
-                            //Свыше 450 мм
-                            else {
-                                priceWork = MainActivity.prices.SLP2ST3_M;
-                            }
+                        //До 250 мм
+                        if (positionTypeOfType1 == 0) {
+                            priceWork = MainActivity.prices.SLP2ST1_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                         }
-
-                        //Если высота свыше 1610 мм
+                        //Свыше 250 мм
+                        else if (positionTypeOfType1 == 1) {
+                            priceWork = MainActivity.prices.SLP2ST2_M + (MainActivity.prices.WORKMORE_M * positionHight1);
+                        }
+                        //Свыше 450 мм
                         else {
-                            //До 250 мм
-                            if (positionTypeOfType1 == 0) {
-                                priceWork = MainActivity.prices.SLP2ST1_M + MainActivity.prices.WORKMORE_M;
-                            }
-                            //Свыше 250 мм
-                            else if (positionTypeOfType1 == 1) {
-                                priceWork = MainActivity.prices.SLP2ST2_M + MainActivity.prices.WORKMORE_M;
-                            }
-                            //Свыше 450 мм
-                            else {
-                                priceWork = MainActivity.prices.SLP2ST3_M + MainActivity.prices.WORKMORE_M;
-                            }
+                            priceWork = MainActivity.prices.SLP2ST3_M + (MainActivity.prices.WORKMORE_M * positionHight1);
                         }
 
                     }
 
                     //3 створчатое
                     else if (positionType1 == 2) {
-
-                        //Если высота до 1610 мм
-                        if (positionHight1 == 0) {
-
-                            //Если ширина до 2510 мм
-                            if (positionWidth1 == 0) {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLP3ST1_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLP3ST2_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLP3ST3_M;
-                                }
-                            }
-
-                            //Если ширина свыше 2510 мм
-                            else {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLP3ST1_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLP3ST2_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLP3ST3_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
+                        //До 250 мм
+                        if (positionTypeOfType1 == 0) {
+                            priceWork = MainActivity.prices.SLP3ST1_M + (MainActivity.prices.WORKMORE_M * positionHight1) + (MainActivity.prices.WORKMORE_M * positionWidth1);
                         }
-
-                        //Если высота свыше 1610 мм
+                        //Свыше 250 мм
+                        else if (positionTypeOfType1 == 1) {
+                            priceWork = MainActivity.prices.SLP3ST2_M + (MainActivity.prices.WORKMORE_M * positionHight1) + (MainActivity.prices.WORKMORE_M * positionWidth1);
+                        }
+                        //Свыше 450 мм
                         else {
-
-                            //Если ширина до 2510 мм
-                            if (positionWidth1 == 0) {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLP3ST1_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLP3ST2_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLP3ST3_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
-
-                            //Если ширина свыше 2510 мм
-                            else {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLP3ST1_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLP3ST2_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLP3ST3_M + MainActivity.prices.WORKMORE_M + MainActivity.prices.WORKMORE_M;
-                                }
-                            }
+                            priceWork = MainActivity.prices.SLP3ST3_M + (MainActivity.prices.WORKMORE_M * positionHight1) + (MainActivity.prices.WORKMORE_M * positionWidth1);
                         }
-
                     }
 
                     //Балконный блок
@@ -1882,144 +1548,66 @@ public class AddWorkActivity extends AppCompatActivity {
                         //Если одностворчатая дверь без фрамуги
                         if (positionTypeOfType1_2 == 0) {
 
-                            //Если Высота до 2100 мм
-                            if (positionHight1 == 0) {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR1ST1_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR1ST2_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR1ST3_M;
-                                }
+                            //До 250 мм
+                            if (positionTypeOfType1 == 0) {
+                                priceWork = MainActivity.prices.SLPDOOR1ST1_M;
                             }
-
-                            //Если Высота свыше 2100 мм
+                            //Свыше 250 мм
+                            else if (positionTypeOfType1 == 1) {
+                                priceWork = MainActivity.prices.SLPDOOR1ST2_M;
+                            }
+                            //Свыше 450 мм
                             else {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR1ST1_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR1ST2_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR1ST3_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.SLPDOOR1ST3_M;
                             }
                         }
 
                         //Если Штульповая дверь без фрамуги
                         else if (positionTypeOfType1_2 == 1) {
-
-                            //Если Высота до 2100 мм
-                            if (positionHight1 == 0) {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR2ST1_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR2ST2_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR2ST3_M;
-                                }
+                            //До 250 мм
+                            if (positionTypeOfType1 == 0) {
+                                priceWork = MainActivity.prices.SLPDOOR2ST1_M;
                             }
-
-                            //Если Высота свыше 2100 мм
+                            //Свыше 250 мм
+                            else if (positionTypeOfType1 == 1) {
+                                priceWork = MainActivity.prices.SLPDOOR2ST2_M;
+                            }
+                            //Свыше 450 мм
                             else {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR2ST1_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR2ST2_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR2ST3_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.SLPDOOR2ST3_M;
                             }
                         }
 
                         //Если одностворчатая дверь c фрамугой
                         else if (positionTypeOfType1_2 == 2) {
 
-                            //Если Высота до 2100 мм
-                            if (positionHight1 == 0) {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR1STF1_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR1STF2_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR1STF3_M;
-                                }
+                            //До 250 мм
+                            if (positionTypeOfType1 == 0) {
+                                priceWork = MainActivity.prices.SLPDOOR1STF1_M;
                             }
-
-                            //Если Высота свыше 2100 мм
+                            //Свыше 250 мм
+                            else if (positionTypeOfType1 == 1) {
+                                priceWork = MainActivity.prices.SLPDOOR1STF2_M;
+                            }
+                            //Свыше 450 мм
                             else {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR1STF1_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR1STF2_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR1STF3_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.SLPDOOR1STF3_M;
                             }
                         }
 
                         //Если Штульповая дверь с фрамугой
                         else {
-
-                            //Если Высота до 2100 мм
-                            if (positionHight1 == 0) {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR2STF1_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR2STF2_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR2STF3_M;
-                                }
+                            //До 250 мм
+                            if (positionTypeOfType1 == 0) {
+                                priceWork = MainActivity.prices.SLPDOOR2STF1_M;
                             }
-
-                            //Если Высота свыше 2100 мм
+                            //Свыше 250 мм
+                            else if (positionTypeOfType1 == 1) {
+                                priceWork = MainActivity.prices.SLPDOOR2STF2_M;
+                            }
+                            //Свыше 450 мм
                             else {
-                                //До 250 мм
-                                if (positionTypeOfType1 == 0) {
-                                    priceWork = MainActivity.prices.SLPDOOR2STF1_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 250 мм
-                                else if (positionTypeOfType1 == 1) {
-                                    priceWork = MainActivity.prices.SLPDOOR2STF2_M + MainActivity.prices.WORKMORE_M;
-                                }
-                                //Свыше 450 мм
-                                else {
-                                    priceWork = MainActivity.prices.SLPDOOR2STF3_M + MainActivity.prices.WORKMORE_M;
-                                }
+                                priceWork = MainActivity.prices.SLPDOOR2STF3_M;
                             }
                         }
                     }
