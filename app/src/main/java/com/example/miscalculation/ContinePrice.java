@@ -172,9 +172,8 @@ public class ContinePrice extends AppCompatActivity {
                 v.startAnimation(animAlpha);
 
                 Bank.setPriceZM( continePriceZh, continePriceM );
+                //Bank.setPriceZM( continePriceZh * 1.062, continePriceM * 1.062 );
                 startActivity(bankActivity);
-
-                foLizing();
             }
         });
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -266,6 +265,9 @@ public class ContinePrice extends AppCompatActivity {
 
         continePriceM = roundUpToNearestTen((int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC));
 
+        /*continePriceZh = roundUpToNearestTen((int) Math.ceil(((mounting + slopes + interest + price + delivery + other + plus - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC) + 150);
+
+        continePriceM = continePriceZh;*/
 
         //Это ЗАВЫШЕННАЯ стоимость для скидок
         int b = (int) Math.ceil( (100.00 / discont) * continePriceZh);
@@ -277,6 +279,7 @@ public class ContinePrice extends AppCompatActivity {
             //Сумма скидки
             textDiscont.setText((b - continePriceZh) + " руб");
 
+            //salary.setVisibility(View.INVISIBLE);
             salary.setText(Math.round(((int) Math.ceil(((mounting + slopes + interest + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC)) * (isCheckStand1 ? 0.04 : 0.03) * 100.0) / 100.0 + " руб");
 
         } else {
@@ -285,6 +288,7 @@ public class ContinePrice extends AppCompatActivity {
             //Сумма скидки
             textDiscont.setText((b - continePriceM) + " руб");
 
+            //salary.setVisibility(View.INVISIBLE);
             salary.setText((Math.round((int) Math.ceil(((mounting + slopes + (interest * MainActivity.prices.MINPRICE) + price + delivery + other - (isCheckStand1 ? 0 : standPrice)) * course) * MainActivity.prices.CALCPERC)) * 0.03 * 100.0) / 100.0 + " руб");
         }
     }
@@ -406,103 +410,6 @@ public class ContinePrice extends AppCompatActivity {
             return null;
         }
         return compress(str.getBytes(StandardCharsets.UTF_8));
-    }
-
-
-    public void foLizing(){
-        //Цена изделий тех что покупаем на космоторге
-        double priceItems1 = 0;
-        //Цена изделий которые сами покупаем
-        double priceItems2 = 0;
-
-        double percentN = (8.0/92 *1.2);
-
-        double all;
-        double percent;
-        double NDS;
-
-        double all2;
-        double percent2;
-        double NDS2;
-
-
-        double pLizZh;
-        double pLizM;
-
-        for(int i = 0;i < list.size();i++) {
-            if(list.get(i).contains("Брус деревянный") || list.get(i).contains("Нащельник ПВХ")) {
-                priceItems2 += ProductList.prodItemPrice.get(i);
-            }else {
-                priceItems1 +=ProductList.prodItemPrice.get(i);
-            }
-        }
-        priceItems1 = Math.ceil(priceItems1);
-        priceItems2 = Math.ceil(priceItems2);
-
-        double pLizZhMaxPrepaid = (priceItems2 + other + plus + mounting + slopes + interest + delivery) * MainActivity.prices.CALCPERC * course;
-        double pLizMinMaxPrepaid = (priceItems2 + other + plus + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * MainActivity.prices.CALCPERC * course;
-
-        all = priceItems1 + priceItems2 + other + plus + mounting + slopes + interest + delivery;
-        percent = all * percentN;
-        NDS = (priceItems2 + other + plus + mounting + slopes + interest + delivery) * 0.2;
-
-        all2 = priceItems1 + priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery;
-        percent2 = all2 * percentN;
-        NDS2 = (priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery) * 0.2;
-
-        pLizZh = roundUpToNearestTen((int) Math.ceil((NDS + all + percent) * course));
-        pLizM = roundUpToNearestTen((int) Math.ceil((NDS2 + all2 + percent2) * course));
-
-
-        Bank.setPriceDopAndItem(pLizZh,pLizM, pLizZhMaxPrepaid, pLizMinMaxPrepaid);
-    }
-
-
-    //Вызывается при добовлении предоплаты
-    public static void forLizingFromBank(int prepaid){
-        //Цена изделий тех что покупаем на космоторге
-        double priceItems1 = 0;
-        //Цена изделий которые сами покупаем
-        double priceItems2 = 0;
-
-        double percentN = (8.0/92 *1.2);
-
-        double all;
-        double percent;
-        double NDS;
-
-        double all2;
-        double percent2;
-        double NDS2;
-
-        int sumP = (int) (prepaid/course/MainActivity.prices.CALCPERC);
-
-
-        double pLizZh;
-        double pLizM;
-
-        for(int i = 0;i < list.size();i++) {
-            if(list.get(i).contains("Брус деревянный") || list.get(i).contains("Нащельник ПВХ")) {
-                priceItems2 += ProductList.prodItemPrice.get(i);
-            }else {
-                priceItems1 +=ProductList.prodItemPrice.get(i);
-            }
-        }
-        priceItems1 = Math.ceil(priceItems1);
-        priceItems2 = Math.ceil(priceItems2);
-
-        all = (priceItems1 + priceItems2 + other + plus + mounting + slopes + interest + delivery) - sumP;
-        percent = all * percentN;
-        NDS = ((priceItems2 + other + plus + mounting + slopes + interest + delivery)-sumP) * 0.2;
-
-        all2 = (priceItems1 + priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery)-sumP;
-        percent2 = all2 * percentN;
-        NDS2 = ((priceItems2 + other + mounting + slopes + interest * MainActivity.prices.MINPRICE + delivery)-sumP) * 0.2;
-
-        pLizZh = roundUpToNearestTen((int) Math.ceil((NDS + all + percent) * course));
-        pLizM = roundUpToNearestTen((int) Math.ceil((NDS2 + all2 + percent2) * course));
-
-        Bank.setPriceLizWithPrepaid(pLizZh,pLizM);
     }
 
     public static int roundUpToNearestTen(int number) {

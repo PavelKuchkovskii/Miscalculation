@@ -151,6 +151,63 @@ public class DopPrices implements Serializable{
   //Подставочный профиль(standProfile)
   public double standProfile;
 
+
+
+  //Срезать перила, решётку
+  public double dopPrice1;
+  //Корректировка проёма без сложности (дерево, блок)
+  public double dopPrice2;
+  //Сбить порог б\б (крипич)
+  public double dopPrice3;
+  //Каркас из бруса
+  //50*50
+  public double dopPrice4_1;
+  //100*100
+  public double dopPrice4_2;
+  //100*50
+  public double dopPrice4_3;
+  //Пропил и укрепление проема в деревянном доме
+  //Брусом
+  public double dopPrice5_1;
+  //Метал. уголком
+  public double dopPrice5_2;
+  //Демонтаж с сохранением
+  public double dopPrice6;
+  //Установка добора на раму
+  public double dopPrice7;
+  //Установка статики, соединителя
+  public double dopPrice8;
+  //Укрепление подоконника уголками на балконных рамах (под. не более 200мм)
+  public double dopPrice9;
+  //Подъем на веревках
+  public double dopPrice10;
+  //Подъем без лифта (начиная с 3-го этажа)
+  public double dopPrice11;
+  //Сбить откосы
+  public double dopPrice12;
+  //Срезать шип
+  public double dopPrice13;
+  //Эркерные окна, рамы, которые состоят из нескольких частей и соед. через трубы
+  public double dopPrice14;
+  //Ленты
+  public double dopPrice15;
+  //Установка обналички на клипсы
+  public double dopPrice16;
+  //Регулировка створки
+  public double dopPrice17;
+  //Дополнительное запенивание
+  public double dopPrice18;
+  //Установка отливов
+  public double dopPrice19;
+  //Установка подоконников
+  public double dopPrice20;
+  //Замена стеклопакетов
+  public double dopPrice21;
+  //Установка дополнительной м\с
+  public double dopPrice22;
+  //Установка детского замкаКОЛИЧЕСТВО
+  public double dopPrice23;
+
   //'--------------------------------------ЛАМИНАЦИЯ-----------------------------------------------
 
   //'------------------------------------ОКОН------------------------------------

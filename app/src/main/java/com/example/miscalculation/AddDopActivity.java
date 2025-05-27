@@ -368,7 +368,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Отливы
-            if (positionDop1 == 1) {
+            else if (positionDop1 == 1) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Hight_Otl));
@@ -394,7 +394,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //МС
-            if (positionDop1 == 2) {
+            else if (positionDop1 == 2) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Width_pod_Otl));
@@ -445,7 +445,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Балконный соединитель 3мм
-            if (positionDop1 == 3) {
+            else if (positionDop1 == 3) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -472,7 +472,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель труба с адаптером
-            if (positionDop1 == 4) {
+            else if (positionDop1 == 4) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaPipeMM));
@@ -498,7 +498,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель угловой 90 градусов
-            if (positionDop1 == 5) {
+            else if (positionDop1 == 5) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfileMM));
@@ -524,7 +524,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель-молоток 18 мм
-            if (positionDop1 == 6) {
+            else if (positionDop1 == 6) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfileMM));
@@ -549,7 +549,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Профиль расширительный 60 профиль
-            if (positionDop1 == 7) {
+            else if (positionDop1 == 7) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfRash60MM));
@@ -585,7 +585,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Профиль расширительный 70 профиль
-            if (positionDop1 == 8) {
+            else if (positionDop1 == 8) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfRash70MM));
@@ -621,7 +621,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Брус деревянный
-            if (positionDop1 == 9) {
+            else if (positionDop1 == 9) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaBrus));
@@ -638,7 +638,13 @@ public class AddDopActivity extends AppCompatActivity {
                         return;
                     }
                     //100*100
-                    if (positionHightDop1 == 1) {
+                    else if (positionHightDop1 == 1) {
+                        dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
+                        return;
+                    }
+
+                    //100*50
+                    else if (positionHightDop1 == 2) {
                         dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
                         return;
                     }
@@ -647,7 +653,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Нащельник ПВХ
-            if (positionDop1 == 10) {
+            else if (positionDop1 == 10) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -665,7 +671,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Наличник дверной дверной
-            if (positionDop1 == 11) {
+            else if (positionDop1 == 11) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -717,7 +723,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Клипсы для наличника
-            if (positionDop1 == 12) {
+            else if (positionDop1 == 12) {
 
                 if (dopFlag == true) {
                     spinnerLamination.setVisibility(View.INVISIBLE);
@@ -735,6 +741,574 @@ public class AddDopActivity extends AppCompatActivity {
                     dopPrice = MainActivity.prices.nalichClips;
                 }
             }
+
+            //Срезать перила, решётку
+            else if (positionDop1 == 13) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice1 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Корректировка проёма без сложности (дерево, блок)
+            else if (positionDop1 == 14) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice2 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Сбить порог б\б (крипич)
+            else if (positionDop1 == 15) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice3;
+                }
+            } //NOT
+
+            //Каркас из бруса
+            else if (positionDop1 == 16) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaBrus));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionLamination1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice4_1;
+                    }
+                    else if(positionLamination1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice4_2;
+                    }
+                    else if(positionLamination1 == 2) {
+                        dopPrice = MainActivity.prices.dopPrice4_3;
+                    }
+
+                    //dopPrice = MainActivity.prices.nalichClips;
+                }
+            } //КОЛИЧЕСТВО
+
+            //Пропил и укрепление проема в деревянном доме
+            else if (positionDop1 == 17) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaKind1));
+                    spinnerHightDop.setVisibility(View.VISIBLE);
+
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaCount));
+                    spinnerWidthDop.setVisibility(View.VISIBLE);
+
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionHightDop1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice5_1 * (positionLamination1 + 1);
+                    }
+                    else if(positionHightDop1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice5_2 * (positionLamination1 + 1);
+                    }
+                }
+            } //ВИД МП
+
+            //Демонтаж с сохранением
+            else if (positionDop1 == 18) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice6 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка добора на раму
+            else if (positionDop1 == 19) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice7 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка статики, соединителя
+            else if (positionDop1 == 20) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice8 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Укрепление подоконника уголками на балконных рамах (под. не более 200мм)
+            else if (positionDop1 == 21) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice9 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Подъем на веревках
+            else if (positionDop1 == 22) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice10 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Подъем без лифта (начиная с 3-го этажа)
+            else if (positionDop1 == 23) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice11 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Сбить откосы
+            else if (positionDop1 == 24) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice12 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Срезать шип
+            else if (positionDop1 == 25) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice13 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Эркерные окна, рамы, которые состоят из нескольких частей и соед. через трубы
+            else if (positionDop1 == 26) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice14 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Ленты
+            else if (positionDop1 == 27) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice15 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка обналички на клипсы
+            else if (positionDop1 == 28) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice16 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Регулировка створки
+            else if (positionDop1 == 29) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice17 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Дополнительное запенивание
+            else if (positionDop1 == 30) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice18 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка отливов
+            else if (positionDop1 == 31) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice19 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка подоконников
+            else if (positionDop1 == 32) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice20 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Замена стеклопакетов
+            else if (positionDop1 == 33) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice21 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка дополнительной м\с
+            else if (positionDop1 == 34) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice22 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка детского замкаКОЛИЧЕСТВО
+            else if (positionDop1 == 35) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice23 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
         }
 
 //------------------------------INTELIO----------------------------------------------------------
@@ -803,7 +1377,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Отливы
-            if (positionDop1 == 1) {
+            else if (positionDop1 == 1) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Hight_Otl));
@@ -829,7 +1403,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //МС
-            if (positionDop1 == 2) {
+            else if (positionDop1 == 2) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Width_pod_Otl));
@@ -865,7 +1439,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Балконный соединитель 3мм
-            if (positionDop1 == 3) {
+            else if (positionDop1 == 3) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -885,7 +1459,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель труба с адаптером
-            if (positionDop1 == 4) {
+            else if (positionDop1 == 4) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaSoedAdapt));
@@ -904,7 +1478,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель угловой 90 градусов
-            if (positionDop1 == 5) {
+            else if (positionDop1 == 5) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaSoedAdapt));
@@ -922,7 +1496,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Профиль расширительный
-            if (positionDop1 == 6) {
+            else if (positionDop1 == 6) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfRashIntel));
@@ -959,7 +1533,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Брус деревянный
-            if (positionDop1 == 7) {
+            else if (positionDop1 == 7) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaBrus));
@@ -976,7 +1550,12 @@ public class AddDopActivity extends AppCompatActivity {
                         return;
                     }
                     //100*100
-                    if (positionHightDop1 == 1) {
+                    else if (positionHightDop1 == 1) {
+                        dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
+                        return;
+                    }
+                    //100*50
+                    else if (positionHightDop1 == 2) {
                         dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
                         return;
                     }
@@ -985,7 +1564,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Нащельник ПВХ
-            if (positionDop1 == 8) {
+            else if (positionDop1 == 8) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1003,7 +1582,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Наличник дверной дверной
-            if (positionDop1 == 9) {
+            else if (positionDop1 == 9) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1055,7 +1634,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Клипсы для наличника
-            if (positionDop1 == 10) {
+            else if (positionDop1 == 10) {
 
                 if (dopFlag == true) {
                     spinnerLamination.setVisibility(View.INVISIBLE);
@@ -1073,6 +1652,573 @@ public class AddDopActivity extends AppCompatActivity {
                     dopPrice = MainActivity.prices.nalichClips;
                 }
             }
+
+            //Срезать перила, решётку
+            else if (positionDop1 == 11) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice1 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Корректировка проёма без сложности (дерево, блок)
+            else if (positionDop1 == 12) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice2 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Сбить порог б\б (крипич)
+            else if (positionDop1 == 13) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice3;
+                }
+            } //NOT
+
+            //Каркас из бруса
+            else if (positionDop1 == 14) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaBrus));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionLamination1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice4_1;
+                    }
+                    else if(positionLamination1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice4_2;
+                    }
+                    else if(positionLamination1 == 2) {
+                        dopPrice = MainActivity.prices.dopPrice4_3;
+                    }
+
+                    //dopPrice = MainActivity.prices.nalichClips;
+                }
+            } //КОЛИЧЕСТВО
+
+            //Пропил и укрепление проема в деревянном доме
+            else if (positionDop1 == 15) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaKind1));
+                    spinnerHightDop.setVisibility(View.VISIBLE);
+
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaCount));
+                    spinnerWidthDop.setVisibility(View.VISIBLE);
+
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionHightDop1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice5_1 * (positionLamination1 + 1);
+                    }
+                    else if(positionHightDop1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice5_2 * (positionLamination1 + 1);
+                    }
+                }
+            } //ВИД МП
+
+            //Демонтаж с сохранением
+            else if (positionDop1 == 16) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice6 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка добора на раму
+            else if (positionDop1 == 17) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice7 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка статики, соединителя
+            else if (positionDop1 == 18) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice8 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Укрепление подоконника уголками на балконных рамах (под. не более 200мм)
+            else if (positionDop1 == 19) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice9 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Подъем на веревках
+            else if (positionDop1 == 20) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice10 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Подъем без лифта (начиная с 3-го этажа)
+            else if (positionDop1 == 21) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice11 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Сбить откосы
+            else if (positionDop1 == 22) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice12 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Срезать шип
+            else if (positionDop1 == 23) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice13 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Эркерные окна, рамы, которые состоят из нескольких частей и соед. через трубы
+            else if (positionDop1 == 24) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice14 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Ленты
+            else if (positionDop1 == 25) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice15 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка обналички на клипсы
+            else if (positionDop1 == 26) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice16 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Регулировка створки
+            else if (positionDop1 == 27) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice17 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Дополнительное запенивание
+            else if (positionDop1 == 28) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice18 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка отливов
+            else if (positionDop1 == 29) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice19 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка подоконников
+            else if (positionDop1 == 30) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice20 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Замена стеклопакетов
+            else if (positionDop1 == 31) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice21 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка дополнительной м\с
+            else if (positionDop1 == 32) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice22 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка детского замкаКОЛИЧЕСТВО
+            else if (positionDop1 == 33) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice23 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
         }
 
 //--------------------------------АЛЮМИНИЙ----------------------------------------------------------
@@ -1140,7 +2286,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Отливы
-            if (positionDop1 == 1) {
+            else if (positionDop1 == 1) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Hight_Otl));
@@ -1166,7 +2312,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //МС
-            if (positionDop1 == 2) {
+            else if (positionDop1 == 2) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Width_pod_Otl));
@@ -1184,7 +2330,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Двутавр
-            if (positionDop1 == 3) {
+            else if (positionDop1 == 3) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1203,7 +2349,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель труба с адаптером
-            if (positionDop1 == 4) {
+            else if (positionDop1 == 4) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dta1m));
@@ -1221,7 +2367,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель угловой 90 градусов
-            if (positionDop1 == 5) {
+            else if (positionDop1 == 5) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dta1m));
@@ -1239,7 +2385,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Профиль расширительный 60 профиль
-            if (positionDop1 == 6) {
+            else if (positionDop1 == 6) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfRashAl));
@@ -1265,7 +2411,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Брус деревянный
-            if (positionDop1 == 7) {
+            else if (positionDop1 == 7) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaBrus));
@@ -1282,7 +2428,12 @@ public class AddDopActivity extends AppCompatActivity {
                         return;
                     }
                     //100*100
-                    if (positionHightDop1 == 1) {
+                    else if (positionHightDop1 == 1) {
+                        dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
+                        return;
+                    }
+                    //100*50
+                    else if (positionHightDop1 == 2) {
                         dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
                         return;
                     }
@@ -1291,7 +2442,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Нащельник ПВХ
-            if (positionDop1 == 8) {
+            else if (positionDop1 == 8) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1308,7 +2459,7 @@ public class AddDopActivity extends AppCompatActivity {
                 }
             }
             //Наличник дверной дверной
-            if (positionDop1 == 9) {
+            else if (positionDop1 == 9) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1360,7 +2511,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Клипсы для наличника
-            if (positionDop1 == 10) {
+            else if (positionDop1 == 10) {
 
                 if (dopFlag == true) {
                     spinnerLamination.setVisibility(View.INVISIBLE);
@@ -1378,6 +2529,573 @@ public class AddDopActivity extends AppCompatActivity {
                     dopPrice = MainActivity.prices.nalichClips;
                 }
             }
+
+            //Срезать перила, решётку
+            else if (positionDop1 == 11) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice1 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Корректировка проёма без сложности (дерево, блок)
+            else if (positionDop1 == 12) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice2 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Сбить порог б\б (крипич)
+            else if (positionDop1 == 13) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice3;
+                }
+            } //NOT
+
+            //Каркас из бруса
+            else if (positionDop1 == 14) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaBrus));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionLamination1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice4_1;
+                    }
+                    else if(positionLamination1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice4_2;
+                    }
+                    else if(positionLamination1 == 2) {
+                        dopPrice = MainActivity.prices.dopPrice4_3;
+                    }
+
+                    //dopPrice = MainActivity.prices.nalichClips;
+                }
+            } //КОЛИЧЕСТВО
+
+            //Пропил и укрепление проема в деревянном доме
+            else if (positionDop1 == 15) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaKind1));
+                    spinnerHightDop.setVisibility(View.VISIBLE);
+
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaCount));
+                    spinnerWidthDop.setVisibility(View.VISIBLE);
+
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionHightDop1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice5_1 * (positionLamination1 + 1);
+                    }
+                    else if(positionHightDop1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice5_2 * (positionLamination1 + 1);
+                    }
+                }
+            } //ВИД МП
+
+            //Демонтаж с сохранением
+            else if (positionDop1 == 16) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice6 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка добора на раму
+            else if (positionDop1 == 17) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice7 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка статики, соединителя
+            else if (positionDop1 == 18) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice8 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Укрепление подоконника уголками на балконных рамах (под. не более 200мм)
+            else if (positionDop1 == 19) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice9 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Подъем на веревках
+            else if (positionDop1 == 20) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice10 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Подъем без лифта (начиная с 3-го этажа)
+            else if (positionDop1 == 21) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice11 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Сбить откосы
+            else if (positionDop1 == 22) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice12 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Срезать шип
+            else if (positionDop1 == 23) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice13 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Эркерные окна, рамы, которые состоят из нескольких частей и соед. через трубы
+            else if (positionDop1 == 24) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice14 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Ленты
+            else if (positionDop1 == 25) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice15 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка обналички на клипсы
+            else if (positionDop1 == 26) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice16 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Регулировка створки
+            else if (positionDop1 == 27) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice17 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Дополнительное запенивание
+            else if (positionDop1 == 28) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice18 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка отливов
+            else if (positionDop1 == 29) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice19 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка подоконников
+            else if (positionDop1 == 30) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice20 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Замена стеклопакетов
+            else if (positionDop1 == 31) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice21 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка дополнительной м\с
+            else if (positionDop1 == 32) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice22 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка детского замкаКОЛИЧЕСТВО
+            else if (positionDop1 == 33) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice23 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
         }
 
 //--------------------------------PROPLEX----------------------------------------------------------
@@ -1445,7 +3163,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Отливы
-            if (positionDop1 == 1) {
+            else if (positionDop1 == 1) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Hight_Otl));
@@ -1471,7 +3189,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //МС
-            if (positionDop1 == 2) {
+            else if (positionDop1 == 2) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.Width_pod_Otl));
@@ -1522,7 +3240,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Балконный соединитель 3мм
-            if (positionDop1 == 3) {
+            else if (positionDop1 == 3) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1549,7 +3267,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель труба с адаптером
-            if (positionDop1 == 4) {
+            else if (positionDop1 == 4) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaPipeProplexMM));
@@ -1575,7 +3293,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель угловой 90 градусов
-            if (positionDop1 == 5) {
+            else if (positionDop1 == 5) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfileProplexMM));
@@ -1601,7 +3319,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Соединитель (кость) с армированием
-            if (positionDop1 == 6) {
+            else if (positionDop1 == 6) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfileProplexMM));
@@ -1626,7 +3344,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Профиль расширительный 58 профиль
-            if (positionDop1 == 7) {
+            else if (positionDop1 == 7) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfRash58MM));
@@ -1652,7 +3370,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Профиль расширительный 70 профиль
-            if (positionDop1 == 8) {
+            else if (positionDop1 == 8) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaProfRash70ProplexMM));
@@ -1678,7 +3396,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Брус деревянный
-            if (positionDop1 == 9) {
+            else if (positionDop1 == 9) {
                 if (dopFlag == true) {
                     adapterHightDop.clear();
                     adapterHightDop.addAll(addList(R.array.dtaBrus));
@@ -1695,7 +3413,12 @@ public class AddDopActivity extends AppCompatActivity {
                         return;
                     }
                     //100*100
-                    if (positionHightDop1 == 1) {
+                    else if (positionHightDop1 == 1) {
+                        dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
+                        return;
+                    }
+                    //100*50
+                    else if (positionHightDop1 == 2) {
                         dopPrice = (MainActivity.prices.derBrus100 * (Double.valueOf(dataWidthPodOtl.get(positionWidthDop1)) / 1000));
                         return;
                     }
@@ -1704,7 +3427,7 @@ public class AddDopActivity extends AppCompatActivity {
             }
 
             //Нащельник ПВХ
-            if (positionDop1 == 10) {
+            else if (positionDop1 == 10) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1721,7 +3444,7 @@ public class AddDopActivity extends AppCompatActivity {
                 }
             }
             //Наличник дверной дверной
-            if (positionDop1 == 11) {
+            else if (positionDop1 == 11) {
 
                 if (dopFlag == true) {
                     adapterHightDop.clear();
@@ -1772,7 +3495,7 @@ public class AddDopActivity extends AppCompatActivity {
                 }
             }
             //Клипсы для наличника
-            if (positionDop1 == 12) {
+            else if (positionDop1 == 12) {
 
                 if (dopFlag == true) {
                     spinnerLamination.setVisibility(View.INVISIBLE);
@@ -1790,6 +3513,573 @@ public class AddDopActivity extends AppCompatActivity {
                     dopPrice = MainActivity.prices.nalichClips;
                 }
             }
+
+            //Срезать перила, решётку
+            else if (positionDop1 == 13) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice1 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Корректировка проёма без сложности (дерево, блок)
+            else if (positionDop1 == 14) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice2 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Сбить порог б\б (крипич)
+            else if (positionDop1 == 15) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice3;
+                }
+            } //NOT
+
+            //Каркас из бруса
+            else if (positionDop1 == 16) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaBrus));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionLamination1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice4_1;
+                    }
+                    else if(positionLamination1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice4_2;
+                    }
+                    else if(positionLamination1 == 2) {
+                        dopPrice = MainActivity.prices.dopPrice4_3;
+                    }
+
+                    //dopPrice = MainActivity.prices.nalichClips;
+                }
+            } //КОЛИЧЕСТВО
+
+            //Пропил и укрепление проема в деревянном доме
+            else if (positionDop1 == 17) {
+
+                if (dopFlag == true) {
+                    spinnerLamination.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterHightDop.clear();
+                    adapterHightDop.addAll(addList(R.array.dtaKind1));
+                    spinnerHightDop.setVisibility(View.VISIBLE);
+
+                    adapterWidthDop.clear();
+                    adapterWidthDop.addAll(addList(R.array.dtaCount));
+                    spinnerWidthDop.setVisibility(View.VISIBLE);
+
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    if(positionHightDop1 == 0) {
+                        dopPrice = MainActivity.prices.dopPrice5_1 * (positionLamination1 + 1);
+                    }
+                    else if(positionHightDop1 == 1) {
+                        dopPrice = MainActivity.prices.dopPrice5_2 * (positionLamination1 + 1);
+                    }
+                }
+            } //ВИД МП
+
+            //Демонтаж с сохранением
+            else if (positionDop1 == 18) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice6 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка добора на раму
+            else if (positionDop1 == 19) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice7 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка статики, соединителя
+            else if (positionDop1 == 20) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice8 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Укрепление подоконника уголками на балконных рамах (под. не более 200мм)
+            else if (positionDop1 == 21) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice9 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Подъем на веревках
+            else if (positionDop1 == 22) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice10 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Подъем без лифта (начиная с 3-го этажа)
+            else if (positionDop1 == 23) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaFloor));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice11 * (positionLamination1 + 1);
+                }
+            } //ЭТАЖ
+
+            //Сбить откосы
+            else if (positionDop1 == 24) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice12 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Срезать шип
+            else if (positionDop1 == 25) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice13 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Эркерные окна, рамы, которые состоят из нескольких частей и соед. через трубы
+            else if (positionDop1 == 26) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice14 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Ленты
+            else if (positionDop1 == 27) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice15 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка обналички на клипсы
+            else if (positionDop1 == 28) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice16 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Регулировка створки
+            else if (positionDop1 == 29) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice17 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Дополнительное запенивание
+            else if (positionDop1 == 30) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice18 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка отливов
+            else if (positionDop1 == 31) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice19 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка подоконников
+            else if (positionDop1 == 32) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice20 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Замена стеклопакетов
+            else if (positionDop1 == 33) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice21 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка дополнительной м\с
+            else if (positionDop1 == 34) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice22 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
+
+            //Установка детского замкаКОЛИЧЕСТВО
+            else if (positionDop1 == 35) {
+
+                if (dopFlag == true) {
+                    spinnerHightDop.setVisibility(View.INVISIBLE);
+                    spinnerWidthDop.setVisibility(View.INVISIBLE);
+                    textHight.setVisibility(View.INVISIBLE);
+                    textWidth.setVisibility(View.INVISIBLE);
+                    textXWork.setVisibility(View.INVISIBLE);
+
+                    adapterLamination.clear();
+                    adapterLamination.addAll(addList(R.array.dtaCount));
+                    spinnerLamination.setVisibility(View.VISIBLE);
+
+                    dopFlag = false;
+                    return;
+                }
+                if (getPrice == true) {
+                    getPrice = false;
+
+                    dopPrice = MainActivity.prices.dopPrice23 * (positionLamination1 + 1);
+                }
+            } //КОЛИЧЕСТВО
         }
     }
 
